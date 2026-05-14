@@ -2,4 +2,6 @@ from django.apps import AppConfig
 
 
 class AtractivosConfig(AppConfig):
-    name = 'atractivos'
+    name = 'apps.atractivos'
+    verbose_name = 'Atractivos'
+    label = 'atractivos'
