@@ -1,14 +1,7 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from apps.atractivos.views import (
-    AtractivoTuristicoViewSet,
-    ClasificacionViewSet,
-    GerenteViewSet,
-    HorarioViewSet,
-    RutaViewSet,
-    ServicioViewSet,
-)
+from apps.atractivos.views import AtractivoTuristicoViewSet, ClasificacionViewSet, GerenteViewSet, HorarioViewSet, RutaViewSet, ServicioViewSet
 
 app_name = 'atractivos'
 

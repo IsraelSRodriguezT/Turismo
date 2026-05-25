@@ -1,56 +1,43 @@
 from rest_framework import serializers
 
-from apps.atractivos.models import (
-    AtractivoTuristico,
-    Clasificacion,
-    DetalleRuta,
-    Direccion,
-    Gerente,
-    Horario,
-    InformacionClimatica,
-    Recomendacion,
-    Ruta,
-    Servicio,
-    Ubicacion,
-)
+from apps.atractivos.models import AtractivoTuristico, Clasificacion, DetalleRuta, Direccion, Gerente, Horario, InformacionClimatica, Recomendacion, Ruta, Servicio, Ubicacion
 from apps.atractivos.services import AtractivoService
-
 
 class ClasificacionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clasificacion
         fields = '__all__'
 
-
 class ServicioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Servicio
         fields = '__all__'
-
 
 class GerenteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gerente
         fields = '__all__'
 
-
 class HorarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Horario
         fields = '__all__'
-
 
 class RecomendacionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recomendacion
         fields = '__all__'
 
-
 class RutaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ruta
         fields = '__all__'
 
+class DetalleRutaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DetalleRuta
+        fields = ['id', 'ruta', 'estado', 'orden']
+        read_only_fields = ['id']
 
 class DireccionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -62,7 +49,6 @@ class DireccionSerializer(serializers.ModelSerializer):
             'referencia',
         ]
 
-
 class InformacionClimaticaSerializer(serializers.ModelSerializer):
     class Meta:
         model = InformacionClimatica
@@ -70,11 +56,9 @@ class InformacionClimaticaSerializer(serializers.ModelSerializer):
             'clima',
             'temperatura_minima',
             'temperatura_maxima',
-            'temperatura_actual',
             'precipitacion_minima',
             'precipitacion_maxima',
         ]
-
 
 class UbicacionSerializer(serializers.ModelSerializer):
     direccion = DireccionSerializer(required=False, allow_null=True)
@@ -86,11 +70,9 @@ class UbicacionSerializer(serializers.ModelSerializer):
             'latitud',
             'longitud',
             'altitud',
-            'canton',
             'direccion',
             'informacion_climatica',
         ]
-
 
 class AtractivoTuristicoSerializer(serializers.ModelSerializer):
     clasificaciones = serializers.PrimaryKeyRelatedField(
@@ -113,11 +95,7 @@ class AtractivoTuristicoSerializer(serializers.ModelSerializer):
         queryset=Horario.objects.all(),
         required=False,
     )
-    rutas = serializers.PrimaryKeyRelatedField(
-        many=True,
-        queryset=Ruta.objects.all(),
-        required=False,
-    )
+    detalles_ruta = DetalleRutaSerializer(many=True, read_only=True)
     gerente = serializers.PrimaryKeyRelatedField(
         queryset=Gerente.objects.all(),
         required=False,
@@ -131,19 +109,15 @@ class AtractivoTuristicoSerializer(serializers.ModelSerializer):
             'id',
             'nombre',
             'descripcion',
-            'nivel_clasificacion',
             'nivel_accesibilidad',
             'estado_conservacion',
-            'estado_publicacion',
             'gerente',
             'clasificaciones',
             'servicios',
             'recomendaciones',
             'horarios',
-            'rutas',
+            'detalles_ruta',
             'ubicacion',
-            'fecha_creacion',
-            'fecha_actualizacion',
         ]
 
     def create(self, validated_data):

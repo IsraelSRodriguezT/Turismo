@@ -1,67 +1,52 @@
 from django.db import models
-
+from apps.usuarios.models import Persona
 
 class NivelClasificacion(models.TextChoices):
-    CATEGORIA = 'CATEGORIA', 'CATEGORIA'
-    TIPO = 'TIPO', 'TIPO'
-    SUBTIPO = 'SUBTIPO', 'SUBTIPO'
-
+    CATEGORIA = 'CATEGORIA', 'Categoria'
+    TIPO = 'TIPO', 'Tipo'
+    SUBTIPO = 'SUBTIPO', 'Subtipo'
 
 class NivelAccesibilidad(models.TextChoices):
-    LIBRE = 'LIBRE', 'LIBRE'
-    RESTRINGIDO = 'RESTRINGIDO', 'RESTRINGIDO'
-    PAGADO = 'PAGADO', 'PAGADO'
-
+    LIBRE = 'LIBRE', 'Libre'
+    RESTRINGIDO = 'RESTRINGIDO', 'Restringido'
+    PAGADO = 'PAGADO', 'Pagado'
 
 class EstadoConservacion(models.TextChoices):
-    CONSERVADO = 'CONSERVADO', 'CONSERVADO'
-    ALTERADO = 'ALTERADO', 'ALTERADO'
-    EN_DETERIORO = 'EN_DETERIORO', 'EN_DETERIORO'
-    DETERIORADO = 'DETERIORADO', 'DETERIORADO'
-
+    CONSERVADO = 'CONSERVADO', 'Conservado'
+    ALTERADO = 'ALTERADO', 'Alterado'
+    EN_DETERIORO = 'EN_DETERIORO', 'En deterioro'
+    DETERIORADO = 'DETERIORADO', 'Deteriorado'
 
 class TipoHorario(models.TextChoices):
-    NORMAL = 'NORMAL', 'NORMAL'
-    FIN_SEMANA = 'FIN_SEMANA', 'FIN DE SEMANA'
-    FERIADO = 'FERIADO', 'FERIADO'
-    ESPECIAL = 'ESPECIAL', 'ESPECIAL'
-
+    NORMAL = 'NORMAL', 'Normal'
+    FIN_SEMANA = 'FIN_SEMANA', 'Fin de semana'
+    FERIADO = 'FERIADO', 'Feriado'
+    ESPECIAL = 'ESPECIAL', 'Especial'
 
 class EstadoRuta(models.TextChoices):
-    BUENA = 'BUENA', 'BUENA'
-    REGULAR = 'REGULAR', 'REGULAR'
-    MALA = 'MALA', 'MALA'
-    CERRADA = 'CERRADA', 'CERRADA'
-
-
-class EstadoPublicacion(models.TextChoices):
-    BORRADOR = 'BORRADOR', 'BORRADOR'
-    REVISION = 'REVISION', 'REVISION'
-    PUBLICADO = 'PUBLICADO', 'PUBLICADO'
-    ARCHIVADO = 'ARCHIVADO', 'ARCHIVADO'
-
+    BUENA = 'BUENA', 'Buena'
+    REGULAR = 'REGULAR', 'Regular'
+    MALA = 'MALA', 'Mala'
+    CERRADA = 'CERRADA', 'Cerrada'
 
 class Clasificacion(models.Model):
     nombre = models.CharField(max_length=255)
     descripcion = models.TextField(blank=True)
-    nivel = models.CharField(
-        max_length=20,
-        choices=NivelClasificacion.choices,
-        default=NivelClasificacion.CATEGORIA,
-    )
-
+    nivel = models.CharField(max_length=20, choices=NivelClasificacion.choices, default=NivelClasificacion.CATEGORIA)
+    atractivo_turistico = models.ForeignKey('AtractivoTuristico', on_delete=models.CASCADE, related_name="clasificaciones")
+    
     class Meta:
         ordering = ['nombre']
 
     def __str__(self):
         return self.nombre
-
 
 class Servicio(models.Model):
     nombre = models.CharField(max_length=255)
     descripcion = models.TextField(blank=True)
     esta_disponible = models.BooleanField(default=True)
     costo = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    atractivo_turistico = models.ForeignKey('AtractivoTuristico', on_delete=models.CASCADE, related_name="servicios")
 
     class Meta:
         ordering = ['nombre']
@@ -69,122 +54,55 @@ class Servicio(models.Model):
     def __str__(self):
         return self.nombre
 
-
 class Recomendacion(models.Model):
     descripcion = models.TextField()
+    atractivo_turistico = models.ForeignKey('AtractivoTuristico', on_delete=models.CASCADE, related_name="recomendaciones")
 
     class Meta:
         ordering = ['id']
 
     def __str__(self):
-        return self.descripcion[:50]
+        return f"{self.atractivo_turistico.nombre}: {self.descripcion[:50]}"
 
-
-class Gerente(models.Model):
-    nombre = models.CharField(max_length=255)
-    apellido = models.CharField(max_length=255)
-    institucion = models.CharField(max_length=255, blank=True)
-    es_administrador_publico = models.BooleanField(default=False)
-    cargo = models.CharField(max_length=255, blank=True)
+class Gerente(Persona):
+    institucion = models.CharField(max_length=255)
+    es_administrador_publico = models.BooleanField(default=True)
+    cargo = models.CharField(max_length=255)
+    atractivo_turistico = models.OneToOneField('AtractivoTuristico', on_delete=models.CASCADE, related_name="gerente")
 
     class Meta:
         ordering = ['apellido', 'nombre']
-
+        
     def __str__(self):
         return f"{self.nombre} {self.apellido}".strip()
-
 
 class AtractivoTuristico(models.Model):
     nombre = models.CharField(max_length=255)
     descripcion = models.TextField(blank=True)
-    nivel_clasificacion = models.CharField(
-        max_length=20,
-        choices=NivelClasificacion.choices,
-        default=NivelClasificacion.CATEGORIA,
-    )
-    nivel_accesibilidad = models.CharField(
-        max_length=20,
-        choices=NivelAccesibilidad.choices,
-        default=NivelAccesibilidad.LIBRE,
-    )
-    estado_conservacion = models.CharField(
-        max_length=20,
-        choices=EstadoConservacion.choices,
-        default=EstadoConservacion.CONSERVADO,
-    )
-    estado_publicacion = models.CharField(
-        max_length=20,
-        choices=EstadoPublicacion.choices,
-        default=EstadoPublicacion.BORRADOR,
-    )
-    gerente = models.ForeignKey(
-        Gerente,
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='atractivos',
-    )
-    clasificaciones = models.ManyToManyField(
-        Clasificacion,
-        blank=True,
-        related_name='atractivos',
-    )
-    servicios = models.ManyToManyField(
-        Servicio,
-        blank=True,
-        related_name='atractivos',
-    )
-    recomendaciones = models.ManyToManyField(
-        Recomendacion,
-        blank=True,
-        related_name='atractivos',
-    )
-    horarios = models.ManyToManyField(
-        'Horario',
-        blank=True,
-        related_name='atractivos',
-    )
-    rutas = models.ManyToManyField(
-        'Ruta',
-        through='DetalleRuta',
-        blank=True,
-        related_name='atractivos',
-    )
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
-    fecha_actualizacion = models.DateTimeField(auto_now=True)
+    nivel_accesibilidad = models.CharField(max_length=20, choices=NivelAccesibilidad.choices, default=NivelAccesibilidad.LIBRE)
+    estado_conservacion = models.CharField(max_length=20, choices=EstadoConservacion.choices, default=EstadoConservacion.CONSERVADO)
 
     class Meta:
         ordering = ['nombre']
-
+        
     def __str__(self):
         return self.nombre
 
-
 class Ubicacion(models.Model):
-    atractivo = models.OneToOneField(
-        AtractivoTuristico,
-        on_delete=models.CASCADE,
-        related_name='ubicacion',
-    )
+    atractivo_turistico = models.OneToOneField('AtractivoTuristico', on_delete=models.SET_NULL, null=True, blank=True, related_name='ubicacion')
     latitud = models.FloatField()
     longitud = models.FloatField()
     altitud = models.FloatField(null=True, blank=True)
-    canton = models.CharField(max_length=128, blank=True)
 
     class Meta:
         verbose_name = 'Ubicación'
         verbose_name_plural = 'Ubicaciones'
 
     def __str__(self):
-        return f"{self.canton or 'Ubicación'} ({self.latitud}, {self.longitud})"
-
+        return f"Lat: {self.latitud}, Lon: {self.longitud}"
 
 class Direccion(models.Model):
-    ubicacion = models.OneToOneField(
-        Ubicacion,
-        on_delete=models.CASCADE,
-        related_name='direccion',
-    )
+    ubicacion = models.OneToOneField(Ubicacion, on_delete=models.CASCADE, related_name='direccion')
     calle_principal = models.CharField(max_length=255)
     calle_transversal = models.CharField(max_length=255, blank=True)
     numero = models.CharField(max_length=32, blank=True)
@@ -197,55 +115,37 @@ class Direccion(models.Model):
     def __str__(self):
         return f"{self.calle_principal} / {self.calle_transversal}"
 
-
 class InformacionClimatica(models.Model):
-    ubicacion = models.OneToOneField(
-        Ubicacion,
-        on_delete=models.CASCADE,
-        related_name='informacion_climatica',
-    )
-    clima = models.CharField(max_length=128, blank=True)
-    temperatura_minima = models.IntegerField(null=True, blank=True)
-    temperatura_maxima = models.IntegerField(null=True, blank=True)
-    temperatura_actual = models.FloatField(null=True, blank=True)
-    precipitacion_minima = models.IntegerField(null=True, blank=True)
-    precipitacion_maxima = models.IntegerField(null=True, blank=True)
+    ubicacion = models.OneToOneField(Ubicacion, on_delete=models.CASCADE, related_name='informacion_climatica')
+    clima = models.CharField(max_length=128)
+    temperatura_minima = models.IntegerField()
+    temperatura_maxima = models.IntegerField()
+    precipitacion_minima = models.IntegerField( )
+    precipitacion_maxima = models.IntegerField( )
 
     class Meta:
         verbose_name = 'Información Climática'
         verbose_name_plural = 'Informaciones Climáticas'
 
     def __str__(self):
-        return self.clima or 'Clima sin definir'
-
+        return self.clima
 
 class Horario(models.Model):
+    atractivo_turistico = models.ForeignKey('AtractivoTuristico', on_delete=models.CASCADE, related_name="horarios")
     hora_inicio = models.TimeField()
     hora_fin = models.TimeField()
-    tipo_horario = models.CharField(
-        max_length=20,
-        choices=TipoHorario.choices,
-        default=TipoHorario.NORMAL,
-    )
+    tipo_horario = models.CharField(max_length=20, choices=TipoHorario.choices, default=TipoHorario.NORMAL)
 
     class Meta:
         ordering = ['hora_inicio']
-
+        
     def __str__(self):
-        return f"{self.get_tipo_horario_display()} {self.hora_inicio} - {self.hora_fin}"
-
+        return f"{self.tipo_horario}: {self.hora_inicio} - {self.hora_fin}"
 
 class Ruta(models.Model):
     nombre = models.CharField(max_length=255)
     descripcion = models.TextField(blank=True)
-    distancia = models.FloatField(null=True, blank=True)
-    duracion = models.FloatField(null=True, blank=True)
     nivel_dificultad = models.PositiveSmallIntegerField(default=1)
-    estado = models.CharField(
-        max_length=20,
-        choices=EstadoRuta.choices,
-        default=EstadoRuta.BUENA,
-    )
 
     class Meta:
         ordering = ['nombre']
@@ -253,18 +153,10 @@ class Ruta(models.Model):
     def __str__(self):
         return self.nombre
 
-
 class DetalleRuta(models.Model):
-    ruta = models.ForeignKey(
-        Ruta,
-        on_delete=models.CASCADE,
-        related_name='detalles',
-    )
-    atractivo = models.ForeignKey(
-        AtractivoTuristico,
-        on_delete=models.CASCADE,
-        related_name='detalle_rutas',
-    )
+    ruta = models.ForeignKey(Ruta, on_delete=models.CASCADE, related_name='detalles_ruta')
+    estado = models.CharField(max_length=20, choices=EstadoRuta.choices, default=EstadoRuta.BUENA)
+    atractivo = models.ForeignKey(AtractivoTuristico, on_delete=models.CASCADE, related_name='detalles_ruta')
     orden = models.PositiveIntegerField(default=1)
 
     class Meta:

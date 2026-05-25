@@ -1,13 +1,4 @@
-from apps.atractivos.models import (
-    AtractivoTuristico,
-    DetalleRuta,
-    Direccion,
-    Horario,
-    InformacionClimatica,
-    Ruta,
-    Ubicacion,
-)
-
+from apps.atractivos.models import AtractivoTuristico, DetalleRuta, Direccion, Horario, InformacionClimatica, Ruta, Ubicacion
 
 class AtractivoService:
     @staticmethod
@@ -29,7 +20,7 @@ class AtractivoService:
             return None
         direccion_data = ubicacion_data.pop('direccion', None)
         climatica_data = ubicacion_data.pop('informacion_climatica', None)
-        ubicacion = Ubicacion.objects.create(atractivo=instance, **ubicacion_data)
+        ubicacion = Ubicacion.objects.create(atractivo_turistico=instance, **ubicacion_data)
         if direccion_data:
             Direccion.objects.create(ubicacion=ubicacion, **direccion_data)
         if climatica_data:
@@ -42,7 +33,7 @@ class AtractivoService:
             return
         direccion_data = ubicacion_data.pop('direccion', None)
         climatica_data = ubicacion_data.pop('informacion_climatica', None)
-        ubicacion, _ = Ubicacion.objects.get_or_create(atractivo=instance)
+        ubicacion, _ = Ubicacion.objects.get_or_create(atractivo_turistico=instance)
         for attr, value in ubicacion_data.items():
             setattr(ubicacion, attr, value)
         ubicacion.save()
@@ -110,6 +101,4 @@ class AtractivoService:
             queryset = queryset.filter(estado_conservacion=filters['estado_conservacion'])
         if 'nivel_accesibilidad' in filters and filters['nivel_accesibilidad']:
             queryset = queryset.filter(nivel_accesibilidad=filters['nivel_accesibilidad'])
-        if 'canton' in filters and filters['canton']:
-            queryset = queryset.filter(ubicacion__canton__iexact=filters['canton'])
         return queryset.distinct()
