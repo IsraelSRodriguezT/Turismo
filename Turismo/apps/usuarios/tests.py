@@ -5,6 +5,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 
+from apps.geolocalizacion.models import Canton, Pais, Provincia
 from apps.usuarios.models import Perfil
 from apps.usuarios.services import UsuarioService
 from core.permissions import EsAdmin, EsTurista
@@ -14,7 +15,18 @@ from apps.atractivos.models import AtractivoTuristico
 Usuario = get_user_model()
 
 
-class AutenticacionUsuariosTests(APITestCase):
+class NormalizedResponseAssertions:
+	def assert_normalized_response(self, response, expected_status):
+		self.assertEqual(response.status_code, expected_status)
+		self.assertIn('success', response.data)
+		self.assertIn('message', response.data)
+		self.assertIn('data', response.data)
+		self.assertIn('errors', response.data)
+		self.assertIn('meta', response.data)
+		return response.data['data']
+
+
+class AutenticacionUsuariosTests(NormalizedResponseAssertions, APITestCase):
 	def setUp(self):
 		self.registro_url = reverse('usuarios:registro')
 		self.login_url = reverse('usuarios:login')
@@ -42,10 +54,10 @@ class AutenticacionUsuariosTests(APITestCase):
 
 	def test_registro_crea_usuario(self):
 		response = self.client.post(self.registro_url, self.payload, format='json')
+		data = self.assert_normalized_response(response, status.HTTP_201_CREATED)
 
-		self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 		self.assertTrue(Usuario.objects.filter(nickname='turista1').exists())
-		self.assertNotIn('clave', response.data)
+		self.assertNotIn('clave', data)
 
 	def test_login_devuelve_tokens(self):
 		self._crear_usuario()
@@ -55,10 +67,10 @@ class AutenticacionUsuariosTests(APITestCase):
 			{'nickname': 'turista2', 'clave': 'ClaveSegura123!'},
 			format='json',
 		)
+		data = self.assert_normalized_response(response, status.HTTP_200_OK)
 
-		self.assertEqual(response.status_code, status.HTTP_200_OK)
-		self.assertIn('access', response.data)
-		self.assertIn('refresh', response.data)
+		self.assertIn('access', data)
+		self.assertIn('refresh', data)
 
 	def test_refresh_devuelve_nuevo_access(self):
 		usuario = self._crear_usuario()
@@ -67,12 +79,13 @@ class AutenticacionUsuariosTests(APITestCase):
 			{'nickname': usuario.nickname, 'clave': 'ClaveSegura123!'},
 			format='json',
 		)
-		refresh = login.data['refresh']
+		login_data = self.assert_normalized_response(login, status.HTTP_200_OK)
+		refresh = login_data['refresh']
 
 		response = self.client.post(self.refresh_url, {'refresh': refresh}, format='json')
+		data = self.assert_normalized_response(response, status.HTTP_200_OK)
 
-		self.assertEqual(response.status_code, status.HTTP_200_OK)
-		self.assertIn('access', response.data)
+		self.assertIn('access', data)
 
 	def test_cambiar_clave_requiere_autenticacion(self):
 		usuario = self._crear_usuario()
@@ -93,8 +106,11 @@ class AutenticacionUsuariosTests(APITestCase):
 		self.assertTrue(usuario.check_password('ClaveNueva123!'))
 
 
-class PerfilTests(APITestCase):
+class PerfilTests(NormalizedResponseAssertions, APITestCase):
 	def setUp(self):
+		pais = Pais.objects.create(nombre='Ecuador')
+		provincia = Provincia.objects.create(nombre='Pichincha', pais=pais)
+		self.canton = Canton.objects.create(nombre='Quito', provincia=provincia)
 		self.usuario = Usuario.objects.create_user(
 			nickname='perfil1',
 			correo='perfil1@example.com',
@@ -110,11 +126,11 @@ class PerfilTests(APITestCase):
 		self.client.force_authenticate(self.usuario)
 
 		response = self.client.get(self.perfil_url)
+		data = self.assert_normalized_response(response, status.HTTP_200_OK)
 
-		self.assertEqual(response.status_code, status.HTTP_200_OK)
-		self.assertEqual(response.data['nickname'], 'perfil1')
-		self.assertEqual(response.data['cantidad_visitas'], 0)
-		self.assertEqual(response.data['puntuacion'], 0.0)
+		self.assertEqual(data['nickname'], 'perfil1')
+		self.assertEqual(data['cantidad_visitas'], 0)
+		self.assertEqual(data['puntuacion'], 0.0)
 
 	def test_update_perfil_propio_actualiza_usuario(self):
 		self.client.force_authenticate(self.usuario)
@@ -122,21 +138,25 @@ class PerfilTests(APITestCase):
 		response = self.client.patch(
 			self.perfil_url,
 			{
+				'canton': self.canton.pk,
 				'nombre': 'Maria Jose',
 				'apellido': 'Gomez Ruiz',
 				'telefono': '0666666666',
 			},
 			format='json',
 		)
+		data = self.assert_normalized_response(response, status.HTTP_200_OK)
 
-		self.assertEqual(response.status_code, status.HTTP_200_OK)
 		self.usuario.refresh_from_db()
+		self.perfil.refresh_from_db()
+		self.assertEqual(data['canton'], self.canton.pk)
+		self.assertEqual(self.perfil.canton_id, self.canton.pk)
 		self.assertEqual(self.usuario.nombre, 'Maria Jose')
 		self.assertEqual(self.usuario.apellido, 'Gomez Ruiz')
 		self.assertEqual(self.usuario.telefono, '0666666666')
 
 
-class UsuarioAdminTests(APITestCase):
+class UsuarioAdminTests(NormalizedResponseAssertions, APITestCase):
 	def setUp(self):
 		self.factory = RequestFactory()
 		self.admin = Usuario.objects.create_user(
@@ -148,6 +168,7 @@ class UsuarioAdminTests(APITestCase):
 			clave='ClaveSegura123!',
 			roles=['ADMINISTRADOR'],
 			is_staff=True,
+			is_superuser=True,
 		)
 		self.usuario = Usuario.objects.create_user(
 			nickname='usuario1',
@@ -160,20 +181,41 @@ class UsuarioAdminTests(APITestCase):
 		self.list_url = reverse('usuarios:usuario-admin-list')
 		self.detail_url = reverse('usuarios:usuario-admin-detail', kwargs={'pk': self.usuario.pk})
 
+	def test_str_usuario_es_legible(self):
+		self.assertEqual(str(self.admin), 'Admin Root (admin1)')
+
+	def test_admin_puede_acceder_al_admin_site(self):
+		self.client.force_login(self.admin)
+		response = self.client.get(reverse('admin:index'))
+		self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+	def test_usuario_no_staff_no_accede_al_admin_site(self):
+		self.client.force_login(self.usuario)
+		response = self.client.get(reverse('admin:index'))
+		self.assertIn(response.status_code, (status.HTTP_302_FOUND, status.HTTP_403_FORBIDDEN))
+
+	def test_admin_listview_muestra_nombre_legible_en_relacion(self):
+		self.client.force_login(self.admin)
+		perfil = UsuarioService.asegurar_perfil(self.usuario)
+		response = self.client.get(reverse('admin:usuarios_perfil_changelist'))
+		self.assertEqual(response.status_code, status.HTTP_200_OK)
+		self.assertContains(response, str(perfil.usuario))
+
 	def test_admin_puede_listar_usuarios(self):
 		self.client.force_authenticate(self.admin)
 
 		response = self.client.get(self.list_url)
+		data = self.assert_normalized_response(response, status.HTTP_200_OK)
 
-		self.assertEqual(response.status_code, status.HTTP_200_OK)
-		self.assertGreaterEqual(len(response.data), 2)
+		self.assertGreaterEqual(len(data), 2)
 
 	def test_turista_no_puede_listar_usuarios(self):
 		self.client.force_authenticate(self.usuario)
 
 		response = self.client.get(self.list_url)
-
 		self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+		self.assertFalse(response.data['success'])
 
 	def test_admin_puede_actualizar_usuario(self):
 		self.client.force_authenticate(self.admin)
@@ -183,10 +225,10 @@ class UsuarioAdminTests(APITestCase):
 			{'nombre': 'Usuario Editado', 'roles': ['TURISTA']},
 			format='json',
 		)
+		data = self.assert_normalized_response(response, status.HTTP_200_OK)
 
-		self.assertEqual(response.status_code, status.HTTP_200_OK)
 		self.usuario.refresh_from_db()
-		self.assertEqual(self.usuario.nombre, 'Usuario Editado')
+		self.assertEqual(data['nombre'], 'Usuario Editado')
 		self.assertIn('TURISTA', self.usuario.roles)
 
 	def test_admin_puede_eliminar_usuario(self):
@@ -208,7 +250,7 @@ class UsuarioAdminTests(APITestCase):
 		self.assertFalse(EsTurista().has_permission(request, None))
 
 
-class ValoracionesFavoritosTests(APITestCase):
+class ValoracionesFavoritosTests(NormalizedResponseAssertions, APITestCase):
 	def setUp(self):
 		self.usuario = Usuario.objects.create_user(
 			nickname='turista3',
@@ -231,13 +273,13 @@ class ValoracionesFavoritosTests(APITestCase):
 			{'atractivo_turistico': self.atractivo.pk, 'puntuacion': 5, 'comentario': 'Excelente'},
 			format='json',
 		)
+		data = self.assert_normalized_response(response, status.HTTP_201_CREATED)
 
-		self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-		self.assertEqual(response.data['puntuacion'], 5)
+		self.assertEqual(data['puntuacion'], 5)
 
 		listado = self.client.get(self.valoraciones_url)
-		self.assertEqual(listado.status_code, status.HTTP_200_OK)
-		self.assertEqual(len(listado.data), 1)
+		listado_data = self.assert_normalized_response(listado, status.HTTP_200_OK)
+		self.assertEqual(len(listado_data), 1)
 
 	def test_eliminar_valoracion(self):
 		self.client.force_authenticate(self.usuario)
@@ -246,7 +288,8 @@ class ValoracionesFavoritosTests(APITestCase):
 			{'atractivo_turistico': self.atractivo.pk, 'puntuacion': 4, 'comentario': 'Bien'},
 			format='json',
 		)
-		valoracion_id = crear.data['id']
+		crear_data = self.assert_normalized_response(crear, status.HTTP_201_CREATED)
+		valoracion_id = crear_data['id']
 		url_detalle = reverse('usuarios:perfil-valoracion-detail', kwargs={'perfil_pk': self.perfil.pk, 'valoracion_pk': valoracion_id})
 
 		response = self.client.delete(url_detalle)
@@ -263,12 +306,12 @@ class ValoracionesFavoritosTests(APITestCase):
 			format='json',
 		)
 
-		self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-		self.assertEqual(response.data['atractivo_turistico'], self.atractivo.pk)
+		data = self.assert_normalized_response(response, status.HTTP_201_CREATED)
+		self.assertEqual(data['atractivo_turistico'], self.atractivo.pk)
 
 		listado = self.client.get(self.favoritos_url)
-		self.assertEqual(listado.status_code, status.HTTP_200_OK)
-		self.assertEqual(len(listado.data), 1)
+		listado_data = self.assert_normalized_response(listado, status.HTTP_200_OK)
+		self.assertEqual(len(listado_data), 1)
 
 	def test_eliminar_favorito(self):
 		self.client.force_authenticate(self.usuario)
@@ -277,7 +320,8 @@ class ValoracionesFavoritosTests(APITestCase):
 			{'atractivo_turistico': self.atractivo.pk},
 			format='json',
 		)
-		favorito_id = crear.data['id']
+		crear_data = self.assert_normalized_response(crear, status.HTTP_201_CREATED)
+		favorito_id = crear_data['id']
 		url_detalle = reverse('usuarios:perfil-favorito-detail', kwargs={'perfil_pk': self.perfil.pk, 'favorito_pk': favorito_id})
 
 		response = self.client.delete(url_detalle)

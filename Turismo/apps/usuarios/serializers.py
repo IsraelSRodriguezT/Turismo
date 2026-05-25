@@ -1,42 +1,22 @@
 from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 
+from apps.geolocalizacion.models import Canton
 from apps.usuarios.models import Favorito, Perfil, Rol, Valoracion, Usuario
 from apps.usuarios.services import UsuarioService
-
 
 class UsuarioSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Usuario
-		fields = (
-			'id',
-			'nickname',
-			'correo',
-			'nombre',
-			'apellido',
-			'telefono',
-			'roles',
-		)
+		fields = ( 'id', 'nickname', 'correo', 'nombre', 'apellido', 'telefono', 'roles')
 		read_only_fields = ('id', 'roles')
-
 
 class UsuarioAdminSerializer(serializers.ModelSerializer):
 	clave = serializers.CharField(write_only=True, required=False, allow_blank=False, trim_whitespace=False)
 
 	class Meta:
 		model = Usuario
-		fields = (
-			'id',
-			'nickname',
-			'correo',
-			'nombre',
-			'apellido',
-			'telefono',
-			'roles',
-			'is_active',
-			'is_staff',
-			'clave',
-		)
+		fields = ('id', 'nickname', 'correo', 'nombre', 'apellido', 'telefono', 'roles', 'is_active', 'is_staff', 'clave')
 		read_only_fields = ('id',)
 
 	def validate_roles(self, value):
@@ -60,7 +40,6 @@ class UsuarioAdminSerializer(serializers.ModelSerializer):
 		instance.full_clean(exclude=['password'])
 		instance.save()
 		return instance
-
 
 class RegistroSerializer(serializers.Serializer):
 	nickname = serializers.CharField(max_length=150)
@@ -93,11 +72,9 @@ class RegistroSerializer(serializers.Serializer):
 		usuario = UsuarioService.crear_usuario(clave=clave, roles=None, **validated_data)
 		return usuario
 
-
 class LoginSerializer(serializers.Serializer):
 	nickname = serializers.CharField()
 	clave = serializers.CharField(write_only=True, trim_whitespace=False)
-
 
 class CambioClaveSerializer(serializers.Serializer):
 	clave_actual = serializers.CharField(write_only=True, trim_whitespace=False)
@@ -110,33 +87,26 @@ class CambioClaveSerializer(serializers.Serializer):
 		validate_password(attrs['clave_nueva'])
 		return attrs
 
-
 class PerfilSerializer(serializers.ModelSerializer):
 	nickname = serializers.CharField(source='usuario.nickname', required=False)
 	correo = serializers.EmailField(source='usuario.correo', required=False)
 	nombre = serializers.CharField(source='usuario.nombre', required=False)
 	apellido = serializers.CharField(source='usuario.apellido', required=False)
 	telefono = serializers.CharField(source='usuario.telefono', required=False, allow_blank=True)
+	canton = serializers.PrimaryKeyRelatedField(queryset=Canton.objects.all(), required=False, allow_null=True)
 	cantidad_visitas = serializers.IntegerField(read_only=True)
 	puntuacion = serializers.FloatField(read_only=True)
 
 	class Meta:
 		model = Perfil
-		fields = (
-			'id',
-			'nickname',
-			'correo',
-			'nombre',
-			'apellido',
-			'telefono',
-			'fecha_registro',
-			'cantidad_visitas',
-			'puntuacion',
-		)
+		fields = ('id', 'canton', 'nickname', 'correo', 'nombre', 'apellido', 'telefono', 'fecha_registro', 'cantidad_visitas', 'puntuacion')
 		read_only_fields = ('id', 'fecha_registro', 'cantidad_visitas', 'puntuacion')
 
 	def update(self, instance, validated_data):
 		usuario_data = validated_data.pop('usuario', {})
+		for field, value in validated_data.items():
+			setattr(instance, field, value)
+		instance.save()
 		usuario = instance.usuario
 		for field, value in usuario_data.items():
 			setattr(usuario, field, value)
@@ -144,13 +114,11 @@ class PerfilSerializer(serializers.ModelSerializer):
 		usuario.save()
 		return instance
 
-
 class ValoracionSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Valoracion
 		fields = ('id', 'perfil', 'atractivo_turistico', 'puntuacion', 'fecha_registro', 'comentario')
 		read_only_fields = ('id', 'perfil', 'fecha_registro')
-
 
 class FavoritoSerializer(serializers.ModelSerializer):
 	class Meta:

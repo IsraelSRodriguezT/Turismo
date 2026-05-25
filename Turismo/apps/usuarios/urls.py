@@ -1,18 +1,6 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-
-from apps.usuarios.views import (
-    CambioClaveAPIView,
-    LoginAPIView,
-    PerfilFavoritoAPIView,
-    PerfilFavoritoDetalleAPIView,
-    PerfilValoracionAPIView,
-    PerfilValoracionDetalleAPIView,
-    PerfilViewSet,
-    RefreshTokenAPIView,
-    RegistroAPIView,
-    UsuarioAdminViewSet,
-)
+from apps.usuarios.views import CambioClaveAPIView, LoginAPIView, PerfilFavoritoAPIView, PerfilFavoritoDetalleAPIView, PerfilValoracionAPIView, PerfilValoracionDetalleAPIView, PerfilViewSet, RefreshTokenAPIView, RegistroAPIView, UsuarioAdminViewSet
 
 app_name = 'usuarios'
 

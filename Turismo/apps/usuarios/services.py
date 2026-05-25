@@ -1,20 +1,10 @@
 from django.contrib.auth import authenticate
-
 from apps.usuarios.models import Perfil, RegistroModificacion, Rol, TipoAccion, Usuario
-
 
 class UsuarioService:
 	@staticmethod
 	def crear_usuario(*, nickname, correo, nombre, apellido, clave, roles=None, **extra_fields):
-		usuario = Usuario.objects.create_user(
-			nickname=nickname,
-			correo=correo,
-			nombre=nombre,
-			apellido=apellido,
-			clave=clave,
-			roles=roles or [Rol.TURISTA],
-			**extra_fields,
-		)
+		usuario = Usuario.objects.create_user(nickname=nickname, correo=correo, nombre=nombre, apellido=apellido, clave=clave, roles=roles or [Rol.TURISTA], **extra_fields)
 		Perfil.objects.get_or_create(usuario=usuario)
 		return usuario
 
@@ -37,13 +27,7 @@ class UsuarioService:
 
 	@staticmethod
 	def registrar_modificacion(usuario, descripcion, atractivo_turistico=None, tipo_accion=TipoAccion.CREACION):
-		return RegistroModificacion.objects.create(
-			usuario=usuario,
-			descripcion=descripcion,
-			atractivo_turistico=atractivo_turistico,
-			tipo_accion=tipo_accion,
-		)
-
+		return RegistroModificacion.objects.create(usuario=usuario, descripcion=descripcion, atractivo_turistico=atractivo_turistico, accion=tipo_accion)
 
 class PermisoService:
 	@staticmethod

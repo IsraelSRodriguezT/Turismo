@@ -7,7 +7,6 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Avg
 
-
 class Rol(models.TextChoices):
 	ADMINISTRADOR = 'ADMINISTRADOR', 'Administrador'
 	GESTOR_TERRITORIAL = 'GESTOR_TERRITORIAL', 'Gestor Territorial'
@@ -15,12 +14,10 @@ class Rol(models.TextChoices):
 	INVESTIGADOR = 'INVESTIGADOR', 'Investigador'
 	TURISTA = 'TURISTA', 'Turista'
 
-
 class TipoAccion(models.TextChoices):
 	CREACION = 'CREACION', 'Creacion'
-	ACTUALIZACION = 'ACTUALIZACION', 'Actualizacion'
+	MODIFICACION = 'MODIFICACION', 'Modificacion'
 	ELIMINACION = 'ELIMINACION', 'Eliminacion'
-
 
 class UsuarioManager(BaseUserManager):
 	use_in_migrations = True
@@ -32,13 +29,7 @@ class UsuarioManager(BaseUserManager):
 			raise ValueError('El correo es obligatorio.')
 
 		correo = self.normalize_email(correo)
-		usuario = self.model(
-			nickname=nickname,
-			correo=correo,
-			nombre=nombre,
-			apellido=apellido,
-			**extra_fields,
-		)
+		usuario = self.model(nickname=nickname, correo=correo, nombre=nombre, apellido=apellido, **extra_fields)
 		if clave:
 			usuario.set_password(clave)
 		else:
@@ -60,7 +51,6 @@ class UsuarioManager(BaseUserManager):
 
 		return self.create_user(nickname, correo, nombre, apellido, clave=clave, **extra_fields)
 
-
 class Persona(models.Model):
 	nombre = models.CharField(max_length=120)
 	apellido = models.CharField(max_length=120)
@@ -70,9 +60,9 @@ class Persona(models.Model):
 	class Meta:
 		abstract = True
 
-
 class Usuario(AbstractBaseUser, PermissionsMixin, Persona):
 	nickname = models.CharField(max_length=150, unique=True)
+	pais_procedencia = models.ForeignKey('geolocalizacion.Pais', on_delete=models.SET_NULL, null=True, blank=True, related_name='+')
 	roles = models.JSONField(default=list, blank=True)
 	is_active = models.BooleanField(default=True)
 	is_staff = models.BooleanField(default=False)
@@ -139,16 +129,12 @@ class Usuario(AbstractBaseUser, PermissionsMixin, Persona):
 		return self.nombre
 
 	def __str__(self):
-		return f'{self.nickname} ({self.correo})'
-
+		return f'{self.nombre} {self.apellido} ({self.nickname})'.strip()
 
 class Perfil(models.Model):
-	usuario = models.OneToOneField(
-		settings.AUTH_USER_MODEL,
-		related_name='perfil',
-		on_delete=models.CASCADE,
-	)
+	usuario = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='perfiles', on_delete=models.CASCADE)
 	fecha_registro = models.DateField(auto_now_add=True)
+	canton = models.ForeignKey('geolocalizacion.Canton', on_delete=models.SET_NULL, null=True, blank=True, related_name='+')
 
 	class Meta:
 		ordering = ['-fecha_registro']
@@ -165,14 +151,9 @@ class Perfil(models.Model):
 	def __str__(self):
 		return f'Perfil de {self.usuario.nickname}'
 
-
 class Valoracion(models.Model):
 	perfil = models.ForeignKey(Perfil, related_name='valoraciones', on_delete=models.CASCADE)
-	atractivo_turistico = models.ForeignKey(
-		'atractivos.AtractivoTuristico',
-		related_name='valoraciones',
-		on_delete=models.CASCADE,
-	)
+	atractivo_turistico = models.ForeignKey('atractivos.AtractivoTuristico', related_name='valoraciones', on_delete=models.CASCADE)
 	puntuacion = models.PositiveSmallIntegerField()
 	fecha_registro = models.DateField(auto_now_add=True)
 	comentario = models.TextField(blank=True)
@@ -180,19 +161,13 @@ class Valoracion(models.Model):
 	def __str__(self):
 		return f'Valoracion {self.puntuacion} de {self.perfil}'
 
-
 class Favorito(models.Model):
 	perfil = models.ForeignKey(Perfil, related_name='favoritos', on_delete=models.CASCADE)
-	atractivo_turistico = models.ForeignKey(
-		'atractivos.AtractivoTuristico',
-		related_name='favoritos',
-		on_delete=models.CASCADE,
-	)
+	atractivo_turistico = models.ForeignKey('atractivos.AtractivoTuristico', related_name='+', on_delete=models.CASCADE)
 	fecha_guardado = models.DateField(auto_now_add=True)
 
 	def __str__(self):
 		return f'Favorito de {self.perfil}'
-
 
 class PeriodoVisita(models.Model):
 	perfil = models.ForeignKey(Perfil, related_name='periodos_visita', on_delete=models.CASCADE)
@@ -208,24 +183,21 @@ class PeriodoVisita(models.Model):
 	def __str__(self):
 		return f'Periodo {self.fecha_inicio} - {self.fecha_fin}'
 
-
 class RegistroModificacion(models.Model):
-	usuario = models.ForeignKey(
-		settings.AUTH_USER_MODEL,
-		related_name='registros_modificacion',
-		on_delete=models.CASCADE,
-	)
-	atractivo_turistico = models.ForeignKey(
-		'atractivos.AtractivoTuristico',
-		related_name='registros_modificacion',
-		on_delete=models.SET_NULL,
-		null=True,
-		blank=True,
-	)
-	tipo_accion = models.CharField(max_length=20, choices=TipoAccion.choices, default=TipoAccion.CREACION)
+	usuario = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='registros_modificacion', on_delete=models.SET_NULL, null=True, blank=True)
+	atractivo_turistico = models.ForeignKey('atractivos.AtractivoTuristico', related_name='registros_modificacion', on_delete=models.SET_NULL, null=True, blank=True)
+	accion = models.CharField(max_length=20, choices=TipoAccion.choices, default=TipoAccion.CREACION)
 	fecha = models.DateField(auto_now_add=True)
 	hora = models.TimeField(auto_now_add=True)
 	descripcion = models.TextField()
-
+	datos = models.TextField(blank=True)
+  
+	def save(self, *args, **kwargs):
+		if self.usuario:
+			self.datos = f'{self.usuario.nickname} | {self.usuario.nombre} {self.usuario.apellido} | {self.usuario.correo}'
+		super().save(*args, **kwargs)
+  
 	def __str__(self):
-		return f'{self.tipo_accion} - {self.usuario.nickname}'
+		if self.usuario:
+			return f'{self.accion} - {self.usuario.nickname}'
+		return f'{self.accion} - usuario eliminado'
