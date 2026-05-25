@@ -7,6 +7,4 @@ try:
 
 	urlpatterns = router.urls
 except Exception:
-	# If rest_framework is not available in this environment (tests/setup),
-	# expose an empty urlpatterns so Django checks/tests can proceed.
 	urlpatterns = []

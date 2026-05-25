@@ -1,18 +1,31 @@
 from rest_framework import viewsets, parsers, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework import serializers as drf_serializers
+from drf_spectacular.utils import extend_schema, inline_serializer
 
 from django.core.exceptions import ValidationError as DjangoValidationError
 
 from .models import Recurso
 from .serializers import RecursoSerializer
 from .services import validar_estructura_archivo, importar_desde_excel
+from core.api import NormalizedModelViewSet
 
-
-class RecursoViewSet(viewsets.ModelViewSet):
-    queryset = Recurso.objects.all()
+class RecursoViewSet(NormalizedModelViewSet):
+    queryset = Recurso.objects.select_related('atractivo_turistico').all()
     serializer_class = RecursoSerializer
 
+    @extend_schema(
+        request=inline_serializer(
+            name='ImportarRecursoRequest',
+            fields={
+                'file': drf_serializers.FileField(required=False),
+                'archivo': drf_serializers.FileField(required=False),
+            },
+        ),
+        description='Importa recursos desde un archivo CSV o XLSX enviado como multipart/form-data.',
+    )
+    
     @action(detail=False, methods=['post'], url_path='importar', parser_classes=[parsers.MultiPartParser])
     def importar(self, request):
         """Endpoint para subir un archivo CSV/XLSX y crear recursos."""

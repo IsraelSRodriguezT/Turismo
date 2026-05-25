@@ -1,15 +1,10 @@
 import csv
 import io
 from typing import List, Dict, Any
-
 from django.core.exceptions import ValidationError
-
 from .models import Recurso, TipoRecurso
 
-
 def crear_recurso(titulo: str, descripcion: str, url: str, tipo_recurso: str) -> Recurso:
-	"""Crear y devolver un Recurso validado."""
-	# Normalizar tipo_recurso (aceptar minúsculas/espacios) y validar
 	tipo_norm = (tipo_recurso or '').strip().upper()
 	if tipo_norm not in [t.value for t in TipoRecurso]:
 		raise ValidationError(f"Tipo de recurso no valido: {tipo_recurso}")
@@ -21,25 +16,19 @@ def crear_recurso(titulo: str, descripcion: str, url: str, tipo_recurso: str) ->
 	)
 	return recurso
 
-
 def listar_recursos(tipo_recurso: str | None = None):
-	"""Listar recursos, opcionalmente filtrando por tipo."""
 	qs = Recurso.objects.all()
 	if tipo_recurso:
 		qs = qs.filter(tipo_recurso=tipo_recurso)
 	return qs
 
-
 def _validate_csv_headers(headers: List[str]) -> List[str]:
 	required = ['titulo', 'descripcion', 'url', 'tipo_recurso']
-	# Seguridad: algunos encabezados pueden ser None, normalizamos antes de comparar
 	seen = [ (x or '').strip().lower() for x in headers ]
 	missing = [h for h in required if h not in seen]
 	return missing
 
-
 def _es_duplicado(url: str | None, titulo: str | None) -> bool:
-	"""Heurística simple: duplicado si existe mismo `url` o mismo `titulo` (case-insensitive)."""
 	if url:
 		if Recurso.objects.filter(url=url).exists():
 			return True
@@ -48,14 +37,7 @@ def _es_duplicado(url: str | None, titulo: str | None) -> bool:
 			return True
 	return False
 
-
 def importar_desde_excel(file_obj) -> Dict[str, Any]:
-	"""
-	Importar recursos desde un archivo CSV o XLSX (XLSX requiere openpyxl).
-
-	file_obj: archivo subido (Django UploadedFile) o file-like con 'name' attr.
-	Retorna un dict con counts y errores.
-	"""
 	name = getattr(file_obj, 'name', '')
 	filename = name.lower()
 	results: Dict[str, Any] = {'created': 0, 'skipped': [], 'errors': []}
@@ -94,7 +76,6 @@ def importar_desde_excel(file_obj) -> Dict[str, Any]:
 		except Exception:
 			raise ValidationError('Para importar XLSX se requiere openpyxl: pip install openpyxl')
 
-		# Asegurar que el file-like está al inicio
 		try:
 			file_obj.seek(0)
 		except Exception:
@@ -103,7 +84,6 @@ def importar_desde_excel(file_obj) -> Dict[str, Any]:
 		wb = openpyxl.load_workbook(file_obj, read_only=True)
 		ws = wb.active
 
-		# Obtener headers desde la primera fila sin cargar toda la hoja en memoria
 		rows_iter = ws.iter_rows(values_only=True)
 		try:
 			first = next(rows_iter)
@@ -115,7 +95,6 @@ def importar_desde_excel(file_obj) -> Dict[str, Any]:
 		if missing:
 			raise ValidationError(f'Cabeceras faltantes en XLSX: {missing}')
 
-		# Iterar filas de datos a partir de la fila 2. Usamos índice real de hoja (comenzando en 2)
 		for sheet_row_idx, row in enumerate(rows_iter, start=2):
 			row_dict = dict(zip(headers, [r if r is not None else '' for r in row]))
 			try:
@@ -137,12 +116,7 @@ def importar_desde_excel(file_obj) -> Dict[str, Any]:
 
 	raise ValidationError('Formato de archivo no soportado. Use CSV o XLSX.')
 
-
 def validar_estructura_archivo(file_obj) -> Dict[str, Any]:
-	"""Valida si el archivo contiene las cabeceras requeridas.
-
-	Retorna dict: { 'ok': bool, 'missing': List[str], 'headers': List[str] }
-	"""
 	name = getattr(file_obj, 'name', '')
 	filename = name.lower()
 
