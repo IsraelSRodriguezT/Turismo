@@ -1,21 +1,33 @@
 from rest_framework import viewsets
+from drf_spectacular.utils import OpenApiParameter, extend_schema, extend_schema_view
 from .models import Mapa, Pais, Provincia, Canton, Parroquia, Sector
-from .serializers import (
-    MapaSerializer, PaisSerializer, ProvinciaSerializer,
-    CantonSerializer, ParroquiaSerializer, SectorSerializer,
-    JerarquiaGeograficaSerializer
-)
+from .serializers import MapaSerializer, PaisSerializer, ProvinciaSerializer, CantonSerializer, ParroquiaSerializer, SectorSerializer, JerarquiaGeograficaSerializer
 from .services import GeolocalizacionService
+from core.api import NormalizedModelViewSet, NormalizedReadOnlyModelViewSet
 
-class MapaViewSet(viewsets.ModelViewSet):
+class MapaViewSet(NormalizedModelViewSet):
     queryset = Mapa.objects.all()
     serializer_class = MapaSerializer
 
-class PaisViewSet(viewsets.ModelViewSet):
+class PaisViewSet(NormalizedModelViewSet):
     queryset = Pais.objects.all()
     serializer_class = PaisSerializer
 
-class ProvinciaViewSet(viewsets.ModelViewSet):
+@extend_schema_view(
+    list=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name='pais',
+                type=int,
+                location=OpenApiParameter.QUERY,
+                required=False,
+                description='Filtra provincias por país.',
+            )
+        ]
+    )
+)
+
+class ProvinciaViewSet(NormalizedModelViewSet):
     queryset = Provincia.objects.all()
     serializer_class = ProvinciaSerializer
 
@@ -26,7 +38,21 @@ class ProvinciaViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(pais_id=pais_id)
         return queryset
 
-class CantonViewSet(viewsets.ModelViewSet):
+@extend_schema_view(
+    list=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name='provincia',
+                type=int,
+                location=OpenApiParameter.QUERY,
+                required=False,
+                description='Filtra cantones por provincia.',
+            )
+        ]
+    )
+)
+
+class CantonViewSet(NormalizedModelViewSet):
     queryset = Canton.objects.all()
     serializer_class = CantonSerializer
 
@@ -37,7 +63,21 @@ class CantonViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(provincia_id=provincia_id)
         return queryset
 
-class ParroquiaViewSet(viewsets.ModelViewSet):
+@extend_schema_view(
+    list=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name='canton',
+                type=int,
+                location=OpenApiParameter.QUERY,
+                required=False,
+                description='Filtra parroquias por cantón.',
+            )
+        ]
+    )
+)
+
+class ParroquiaViewSet(NormalizedModelViewSet):
     queryset = Parroquia.objects.all()
     serializer_class = ParroquiaSerializer
 
@@ -48,7 +88,21 @@ class ParroquiaViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(canton_id=canton_id)
         return queryset
 
-class SectorViewSet(viewsets.ModelViewSet):
+@extend_schema_view(
+    list=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name='parroquia',
+                type=int,
+                location=OpenApiParameter.QUERY,
+                required=False,
+                description='Filtra sectores por parroquia.',
+            )
+        ]
+    )
+)
+
+class SectorViewSet(NormalizedModelViewSet):
     queryset = Sector.objects.all()
     serializer_class = SectorSerializer
 
@@ -59,6 +113,6 @@ class SectorViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(parroquia_id=parroquia_id)
         return queryset
 
-class JerarquiaGeograficaViewSet(viewsets.ReadOnlyModelViewSet):
+class JerarquiaGeograficaViewSet(NormalizedReadOnlyModelViewSet):
     queryset = GeolocalizacionService.obtener_jerarquia_geografica()
     serializer_class = JerarquiaGeograficaSerializer

@@ -47,9 +47,6 @@ class GeolocalizacionService:
 
     @staticmethod
     def obtener_jerarquia_geografica():
-        """
-        Retorna la jerarquía completa: País -> Provincia -> Cantón -> Parroquia -> Sector
-        """
         paises = Pais.objects.prefetch_related(
             'provincias__cantones__parroquias__sectores'
         ).all()

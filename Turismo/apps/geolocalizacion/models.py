@@ -2,7 +2,8 @@ from django.db import models
 
 class Mapa(models.Model):
     nombre = models.CharField(max_length=100)
-
+    canton = models.ForeignKey('Canton', on_delete=models.SET_NULL, null=True, blank=True, related_name='+')
+    
     def __str__(self):
         return self.nombre
 
@@ -22,7 +23,7 @@ class Pais(models.Model):
 
 class Provincia(models.Model):
     nombre = models.CharField(max_length=100)
-    pais = models.ForeignKey(Pais, on_delete=models.CASCADE, related_name='provincias')
+    pais = models.ForeignKey(Pais, on_delete=models.PROTECT, related_name='provincias')
 
     def __str__(self):
         return f"{self.nombre} ({self.pais.nombre})"
