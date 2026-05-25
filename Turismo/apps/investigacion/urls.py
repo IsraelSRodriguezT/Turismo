@@ -1,11 +1,5 @@
 from rest_framework import routers
-from .views import (
-    ProyectoInvestigacionViewSet,
-    ActorViewSet,
-    EvidenciaViewSet,
-    PlanAccionViewSet,
-    ImpactoViewSet,
-)
+from .views import ProyectoInvestigacionViewSet, ActorViewSet, EvidenciaViewSet, PlanAccionViewSet, ImpactoViewSet
 
 router = routers.DefaultRouter()
 router.register(r"proyectos", ProyectoInvestigacionViewSet, basename="investigacion-proyecto")

@@ -1,46 +1,49 @@
 from rest_framework import serializers
-from .models import ProyectoInvestigacion, Evidencia, Impacto, Actor, PlanAccion, TipoEvidencia
-
+from .models import Actor, Evidencia, Impacto, PlanAccion, ProyectoInvestigacion, TipoEvidencia
 
 class ActorSerializer(serializers.ModelSerializer):
+    proyecto = serializers.PrimaryKeyRelatedField(required=False, read_only=False, queryset=ProyectoInvestigacion.objects.all())
+
     class Meta:
         model = Actor
-        fields = ["id", "nombre", "organizacion", "rol", "contacto"]
+        fields = ["id", "proyecto", "nombre", "apellido", "correo", "telefono", "organizacion"]
         read_only_fields = ["id"]
 
-
 class EvidenciaSerializer(serializers.ModelSerializer):
+    proyecto = serializers.PrimaryKeyRelatedField(required=False, read_only=False, queryset=ProyectoInvestigacion.objects.all())
+
     class Meta:
         model = Evidencia
-        fields = ["id", "titulo", "descripcion", "fechaRegistro", "tipoEvidencia", "recomendacion", "archivo", "created_at"]
-        read_only_fields = ["id", "created_at"]
-
+        fields = ["id", "proyecto", "titulo", "descripcion", "fecha_registro", "tipo_evidencia", "recomendacion"]
+        read_only_fields = ["id"]
 
 class ImpactoSerializer(serializers.ModelSerializer):
+    proyecto = serializers.PrimaryKeyRelatedField(required=False, read_only=False, queryset=ProyectoInvestigacion.objects.all())
+
     class Meta:
         model = Impacto
-        fields = ["id", "descripcion", "nivelImpacto", "fechaEvaluacion", "created_at"]
-        read_only_fields = ["id", "created_at"]
+        fields = ["id", "proyecto", "descripcion", "nivel_impacto", "fecha_evaluacion"]
+        read_only_fields = ["id"]
 
-    def validate_nivelImpacto(self, value):
+    def validate_nivel_impacto(self, value):
         if not (1 <= value <= 10):
-            raise serializers.ValidationError("nivelImpacto debe estar entre 1 y 10")
+            raise serializers.ValidationError("nivel_impacto debe estar entre 1 y 10")
         return value
 
-
 class PlanAccionSerializer(serializers.ModelSerializer):
+    proyecto = serializers.PrimaryKeyRelatedField(required=False, read_only=False, queryset=ProyectoInvestigacion.objects.all())
+
     class Meta:
         model = PlanAccion
-        fields = ["id", "nombre", "descripcion", "fechaInicio", "fechaFin", "estado", "responsable", "created_at"]
-        read_only_fields = ["id", "created_at"]
+        fields = ["id", "proyecto", "nombre", "descripcion", "fecha_inicio", "fecha_fin"]
+        read_only_fields = ["id"]
 
     def validate(self, data):
-        fechaInicio = data.get("fechaInicio")
-        fechaFin = data.get("fechaFin")
-        if fechaInicio and fechaFin and fechaFin < fechaInicio:
-            raise serializers.ValidationError({"fechaFin": "fechaFin no puede ser anterior a fechaInicio"})
+        fecha_inicio = data.get("fecha_inicio")
+        fecha_fin = data.get("fecha_fin")
+        if fecha_inicio and fecha_fin and fecha_fin < fecha_inicio:
+            raise serializers.ValidationError({"fecha_fin": "fecha_fin no puede ser anterior a fecha_inicio"})
         return data
-
 
 class ProyectoInvestigacionSerializer(serializers.ModelSerializer):
     actores = ActorSerializer(many=True, read_only=True)
@@ -50,27 +53,12 @@ class ProyectoInvestigacionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProyectoInvestigacion
-        fields = [
-            "id",
-            "titulo",
-            "descripcion",
-            "fechaInicio",
-            "fechaFin",
-            "objetivo",
-            "estado",
-            "responsable",
-            "created_at",
-            "updated_at",
-            "actores",
-            "evidencias",
-            "impactos",
-            "planes_accion",
-        ]
-        read_only_fields = ["id", "created_at", "updated_at"]
+        fields = ["id", "titulo", "descripcion", "fecha_inicio", "fecha_fin", "objetivo", "sector", "actores", "evidencias", "impactos", "planes_accion"]
+        read_only_fields = ["id"]
 
     def validate(self, data):
-        fechaInicio = data.get("fechaInicio")
-        fechaFin = data.get("fechaFin")
-        if fechaInicio and fechaFin and fechaFin < fechaInicio:
-            raise serializers.ValidationError({"fechaFin": "fechaFin no puede ser anterior a fechaInicio"})
+        fecha_inicio = data.get("fecha_inicio")
+        fecha_fin = data.get("fecha_fin")
+        if fecha_inicio and fecha_fin and fecha_fin < fecha_inicio:
+            raise serializers.ValidationError({"fecha_fin": "fecha_fin no puede ser anterior a fecha_inicio"})
         return data
