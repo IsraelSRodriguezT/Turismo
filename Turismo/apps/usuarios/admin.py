@@ -1,13 +1,6 @@
 from django.contrib import admin
 
-from apps.usuarios.models import (
-	Favorito,
-	PeriodoVisita,
-	Perfil,
-	RegistroModificacion,
-	Usuario,
-	Valoracion,
-)
+from apps.usuarios.models import Favorito, PeriodoVisita, Perfil, RegistroModificacion, Usuario, Valoracion
 
 
 @admin.register(Usuario)
@@ -62,6 +55,6 @@ class PeriodoVisitaAdmin(admin.ModelAdmin):
 
 @admin.register(RegistroModificacion)
 class RegistroModificacionAdmin(admin.ModelAdmin):
-	list_display = ('usuario', 'tipo_accion', 'fecha', 'hora', 'atractivo_turistico')
-	list_filter = ('tipo_accion', 'fecha')
+	list_display = ('usuario', 'accion', 'fecha', 'hora', 'atractivo_turistico')
+	list_filter = ('accion', 'fecha')
 	search_fields = ('usuario__nickname', 'descripcion')

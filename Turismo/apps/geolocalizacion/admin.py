@@ -3,8 +3,8 @@ from .models import Mapa, Pais, Provincia, Canton, Parroquia, Sector
 
 @admin.register(Mapa)
 class MapaAdmin(admin.ModelAdmin):
-    list_display = ('nombre',)
-    search_fields = ('nombre',)
+    list_display = ('nombre', 'canton')
+    search_fields = ('nombre', 'canton__nombre')
 
 @admin.register(Pais)
 class PaisAdmin(admin.ModelAdmin):
