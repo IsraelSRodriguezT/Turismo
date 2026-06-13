@@ -1,0 +1,427 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Parque Nacional Podocarpus | PIT Loja</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-panel {
+            background: rgba(248, 249, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "dark-text": "#EBE6E6",
+                    "surface-container-high": "#dce9ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-surface-variant": "#434655",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-tertiary-container": "#bdffdb",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#684000",
+                    "surface-container": "#e5eeff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "tertiary": "#006242",
+                    "on-error-container": "#93000a",
+                    "outline": "#737686",
+                    "surface-variant": "#d3e4fe",
+                    "primary": "#004ac6",
+                    "on-secondary-fixed": "#2a1700",
+                    "status-info": "#3B82F6",
+                    "status-success": "#22C55E",
+                    "surface-bright": "#f8f9ff",
+                    "outline-variant": "#c3c6d7",
+                    "inverse-primary": "#b4c5ff",
+                    "on-background": "#0b1c30",
+                    "tertiary-fixed": "#6ffbbe",
+                    "secondary-fixed": "#ffddb8",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#0b1c30",
+                    "tertiary-container": "#007d55",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "status-error": "#EF4444",
+                    "on-primary-container": "#eeefff",
+                    "inverse-surface": "#213145",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-tertiary-fixed": "#002113",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#dbe1ff",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "surface-light": "#F8FAFC",
+                    "surface-dim": "#cbdbf5",
+                    "primary-container": "#2563eb",
+                    "dark-bg": "#202020",
+                    "secondary": "#855300",
+                    "surface": "#f8f9ff",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#0053db",
+                    "status-warning": "#FBBF24",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-primary-fixed": "#00174b",
+                    "background": "#f8f9ff",
+                    "secondary-container": "#fea619"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "sidebar-width": "400px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-sm border-b border-outline-variant">
+<div class="flex justify-between items-center h-16 px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">PIT Loja</div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="text-primary border-b-2 border-primary font-bold pb-1 font-body-md text-body-md transition-all active:scale-95" href="#">Atractivos</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md active:scale-95" href="#">Rutas</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md active:scale-95" href="#">Investigación</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md active:scale-95" href="#">Cultura</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-low p-2 rounded-full transition-all">search</button>
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-low p-2 rounded-full transition-all" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative h-[65vh] md:h-[75vh] w-full overflow-hidden h-\[50vh\] md:h-\[60vh\] h-48">
+<img alt="Parque Nacional Podocarpus" class="w-full h-full object-cover" data-alt="A breathtaking panoramic view of the Podocarpus National Park in Loja, Ecuador, featuring rolling emerald green mountains shrouded in ethereal white mist. The foreground shows dense, prehistoric-looking vegetation with the unique Podocarpus trees under a soft, overcast sky. The lighting is cinematic and cool, emphasizing a professional Andean explorer aesthetic with deep greens and moody grays, reflecting a high-end tourist platform." src="https://s2.wklcdn.com/image_155/4650681/31678888/20360855Master.jpg">
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-margin-desktop max-w-container-max mx-auto left-1/2 -translate-x-1/2">
+<div class="flex flex-col gap-2 mb-gutter">
+<span class="inline-flex items-center px-3 py-1 bg-secondary text-on-secondary rounded-full font-label-md text-label-md w-fit">Reserva de Biosfera</span>
+<h1 class="font-display-lg text-display-lg text-white max-w-3xl">Parque Nacional Podocarpus</h1>
+<div class="flex items-center gap-6 text-white/90">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-status-warning" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-body-md">4.9 (1,240 reseñas)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-body-md">Loja &amp; Zamora Chinchipe, Ecuador</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Cluster -->
+<div class="max-w-container-max mx-auto px-margin-desktop py-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Content Column -->
+<div class="lg:col-span-8 flex flex-col gap-gutter">
+<!-- Description & Classifications -->
+<article class="bg-surface-container-lowest p-gutter rounded-xl border border-outline-variant shadow-sm">
+<h2 class="font-headline-md text-headline-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span>
+                            Descripción General
+                        </h2>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container-high px-3 py-1 rounded-lg font-label-md text-label-md text-primary">Biodiversidad</span>
+<span class="bg-surface-container-high px-3 py-1 rounded-lg font-label-md text-label-md text-primary">Senderismo</span>
+<span class="bg-surface-container-high px-3 py-1 rounded-lg font-label-md text-label-md text-primary">Aves</span>
+<span class="bg-surface-container-high px-3 py-1 rounded-lg font-label-md text-label-md text-primary">Páramo</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-6">
+                            Conocido como el "Jardín Botánico de América", el Podocarpus es una de las áreas protegidas más ricas en biodiversidad a nivel mundial. Su relieve accidentado y la confluencia de vientos amazónicos y andinos crean microclimas únicos que albergan más de 600 especies de aves y una flora endémica inigualable, incluyendo la emblemática Cinchona (Cascarilla).
+                        </p>
+<button class="text-primary font-bold flex items-center gap-1 hover:underline transition-all">
+                            Leer más sobre historia geológica
+                            <span class="material-symbols-outlined">expand_more</span>
+</button>
+</article>
+<!-- Gallery / Inventory -->
+<section class="flex flex-col gap-4">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-md text-headline-md">Galería de Exploración</h2>
+<button class="text-primary font-bold text-body-sm">Ver todo (32)</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 aspect-[21/9] aspect-\[21/7\]">
+<img alt="Flora Podocarpus" class="col-span-2 row-span-2 w-full h-full object-cover rounded-xl transition-transform hover:scale-[1.02]" data-alt="Close up of a rare orchid species in the cloud forest of Podocarpus National Park. The lighting is soft and natural, filtering through the dense canopy, highlighting the vibrant purples and yellows of the flower against deep green mossy bark. Professional botanical photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnRC7nTxSrAfv5BD8nUdQNZNqsmXWkK7kxwR9C_hiV9EU-tuQKceDGNwx41zMd6cdAcVf5CdKs2tLzAXC-Va9y4f3sEJY-aAntR4LUjrEbyRR1WB4_9CLH5U_hK8gCDftV8mdOWc-vEMy3faK4T-w7tbtAhdN2HAjw7PFmIFEoQ1xWB3d_AS0RjCmTDWUX9-E73mCvL7rTLIwcv30FZEIIGICe__fhyDMNScU1BxOzMeFQmTe_4ZmMbBA3jvoS7D6q9GU22Bb_M6rb">
+<img alt="Paisaje Cajanuma" class="w-full h-full object-cover rounded-xl hover:opacity-90 cursor-pointer" data-alt="A wide landscape shot of the Cajanuma sector in Podocarpus National Park, showing the transition from high mountain forest to the paramo grasslands. A small winding trail is visible. The light is early morning golden hour, casting long shadows across the rugged Andean terrain." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoFc2nIrER8CbcZsGYgDGR1G9JMmjvCAdE1Ws7uZX2KKC84XNoxLewxYPQa9xjfJWLvPPBiB821ljntHTKRDwPb3KiTWzgNBqMUbE1K1X5REpLb3ZOGsJuN0Gqwuysv7JeyD8-WVgiDDWGBS31wurE-08i8u3As7hFgNQoVlQDC4OCxB2vDBNYeZCj17C4SUT7k0rUB7pMivTO7oNCgnlxy_Rz_g-q0_X_gcnOYbHsOiAZEGNCH0dZTAIaGlUoO7Ri_dcabnvYD-TH" style="filter: brightness(1);">
+<img alt="Lagunas del Compadre" class="w-full h-full object-cover rounded-xl hover:opacity-90 cursor-pointer" data-alt="A high-altitude lagoon reflecting the clear blue sky in the Podocarpus National Park. Surrounding the water are unique frailejones and endemic shrubs. The water is pristine and still, creating a mirror effect. Sharp professional landscape photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1gXUWgDe0EYprDfEOS0skcg52fyBFLfknTV-JBJatcS3sFm5XEKSblS0FoahLu6b2eAFkEP-H2bOBNMeQygqjZ3ghryMp0eAxJjhOwMQvI_GH3afCakvNjXFCOhHJF9cAtKiSTtjDu_L-1Qp5vjAWSp2FEFd0Ui6Ez4B2JyPqUK7Q2Bf2u2Vr4ANze98iHEiCtLhwvv5e0pTNSiMySmtNa1dczX9NpRSr7XhbAJAbkyFSCveA9_GUU5Hl6M-O5Lgz07PQbY-MWoMN">
+<img alt="Bosque Nublado" class="col-span-2 w-full h-full object-cover rounded-xl hover:opacity-90 cursor-pointer" data-alt="Dense forest canopy seen from above with a light fog rolling through the trees. Shades of deep emerald and teal dominate the palette. A sense of vast, untouched wilderness. Clean, corporate-modern photography aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRwHKEJc31paPr1MmIdC_6hCfCeSVtlpsar_cWgPxIEXZKFZi8gF_j5AIO8vA3DuZTI3qoVn-WD9LUgz8CyTI0YhXvPbqeJxCs2NY289mtbgT9NN0QkwDxif4AhE7k2H9vpd4aB6bR9cMMaRuAtrzeraMh3Bng4Kamdb33UsNaBZznecnowHpRNjxAZq7na3WLldOJHSWV-bAcTDTG8QaJTAYW2mBLDRs8n0q7UWtXSbpdfWXdPv2o9k5cZ6cM2RVy4fDA7RW04v97" style="filter: brightness(1);">
+</div>
+</section>
+<!-- Routes Recommended -->
+
+</div>
+<!-- Sticky Sidebar -->
+<aside class="lg:col-span-4 flex flex-col gap-gutter lg:sticky lg:top-24">
+<!-- Booking CTA -->
+<div class="bg-primary text-on-primary p-gutter rounded-2xl shadow-lg flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-label-md opacity-90">ENTRADA GENERAL</p>
+<h3 class="font-headline-lg text-headline-lg">$2.00 USD</h3>
+</div>
+<span class="bg-white/20 px-2 py-1 rounded text-body-sm">Sujeto a cambios</span>
+</div>
+<p class="text-body-sm opacity-80">Se recomienda reservar un guía certificado para expediciones al sector de Lagunas.</p>
+<button class="w-full bg-secondary text-on-secondary font-bold py-4 rounded-xl shadow-md transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">explore</span>
+                            Reservar Guía
+                        </button>
+</div>
+<!-- Weather Module -->
+<div class="bg-surface-container-high p-gutter rounded-xl">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-md text-label-md text-primary font-bold">CLIMA ACTUAL</h3>
+<span class="text-body-sm text-on-surface-variant">Cajanuma, 14:30 PM</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-5xl">cloudy_filled</span>
+<div>
+<p class="text-headline-md font-bold">14°C</p>
+<p class="text-body-sm text-on-surface-variant">Nublado</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-body-sm font-bold">Humedad: 82%</p>
+<p class="text-body-sm">Viento: 12km/h</p>
+</div>
+</div>
+</div>
+<!-- Location Module -->
+<div class="bg-white p-base rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<div class="h-48 w-full bg-surface-container mb-4 rounded-lg relative overflow-hidden">
+<img alt="Map View" class="w-full h-full object-cover" data-location="Loja" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIhoclySw2AvjKyxDbaLx6Tz4IR_H_wWxu7b9YA7ITOY3N1DGaD-cT0cJhu2a2FQHvrt4saTTL-aYq16jsb0d09ir6C8M1QC5zKFtsH_InOKDrL-1ppsyOGDCwPedO7551yp65-xOCaPG2u4DTWBvb9sVdUltOqO6NG8-UWhcpT95jAg3HRcEagdgP8-U89f7nk_sR3Nlfu5C82C-VvZu3d51GtelN3d5S45hXeIT0dcg8ZsPsn6Jbcd7DVvcntznpaP8c59U311fy">
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center">
+<div class="bg-white p-3 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">location_on</span>
+</div>
+</div>
+</div>
+<div class="px-3 pb-3">
+<h3 class="font-body-lg font-bold mb-2">Ubicación y Contacto</h3>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-body-md mt-1">navigation</span>
+<p class="text-body-sm">Km 15 Vía Loja-Malacatos (Sector Cajanuma)</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-body-md mt-1">schedule</span>
+<div>
+<p class="text-body-sm font-bold">Horario: Mar - Dom</p>
+<p class="text-body-sm">08:00 AM - 16:30 PM</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-body-md mt-1">pin_drop</span>
+<p class="text-label-md font-mono">4.0624° S, 79.1764° W</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- User Reviews Section -->
+<section class="mt-margin-desktop pt-gutter border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-gutter">
+<div>
+<h2 class="font-headline-md text-headline-md mb-2">Experiencias de Visitantes</h2>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="A professional portrait of a young male explorer with a friendly smile, dressed in high-quality outdoor gear. The background is a soft-focus forest. Modern profile photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNa7VXRKbEuEIkZOKaq4VucjoTUrqgX1vY3_4IHi9EPh__D6UXa7gzvKo325fGAKr8Tn3lUWiSM4212hic808aU51ad2YijyzPi5K_2tHNkFw0S_ReZTnvcY0bpwxQcyIpkwfCx8CQ-vrkBuUOs6O2ZwzWB-aCxbmWrJbNDkf1HYsLbn1leWKKS6M4hMBG5bdIuxC2UzOLifCG4BPhnkNKHS83jwB_qaXtAgGNw3k3H7859saHJ1aR_KGZ3x2AjiesU8UPGuGZEAFH">
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="A professional portrait of a female traveler looking at the camera with confidence, against a natural blurred background. She wears a technical rain jacket. Clean, bright, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzlU36pzJzjnoyt5UGoQeEikzEMjJICK7CYBDesTABEp50li-LzHhb4gL_KIL0Ok9MV-Rsh8ymtJl0y-MbNy1sZMkNwi1QhMJa7XB4gGf54GfRu57MuEBLh6NW8Ix9gAy_y952kGXlBKIJ4mM-Z-zs3uStBAoQFC67_By4ORM2smo16Z9RwLK6PEtd4AVag7cmqmeksaz1lA5Uh-UFGOIfG_4ulBrjkJJZDX1gBFSRDrqyFEAsI0yFBjPIRM-u_hRJBZ6JmjjVHXKm">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center text-label-md font-bold">+8</div>
+</div>
+<span class="text-body-sm text-on-surface-variant">Basado en visitas recientes</span>
+</div>
+</div>
+<button class="bg-surface-container-high px-6 py-2 rounded-xl font-bold text-primary hover:bg-surface-container transition-all">Escribir una reseña</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Review Card -->
+<div class="bg-surface p-gutter rounded-xl border border-outline-variant/50 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<span class="text-label-md text-on-surface-variant">Hace 2 días</span>
+</div>
+<p class="font-body-md italic text-on-surface-variant leading-relaxed">"Una experiencia espiritual. La neblina sobre los árboles de Podocarpus te hace sentir en otro mundo. Los senderos están bien señalizados."</p>
+<div class="mt-auto pt-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">AM</div>
+<span class="font-body-sm font-bold">Andrés Mendoza</span>
+</div>
+</div>
+<div class="bg-surface p-gutter rounded-xl border border-outline-variant/50 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-outline-variant text-sm">star</span>
+</div>
+<span class="text-label-md text-on-surface-variant">Hace 1 semana</span>
+</div>
+<p class="font-body-md italic text-on-surface-variant leading-relaxed">"Increíble para fotografía de aves. Pude ver un tucán andino a pocos metros. Recomendable ir temprano por el clima."</p>
+<div class="mt-auto pt-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">SL</div>
+<span class="font-body-sm font-bold">Sofía López</span>
+</div>
+</div>
+<div class="bg-surface p-gutter rounded-xl border border-outline-variant/50 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-status-warning text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<span class="text-label-md text-on-surface-variant">Hace 3 semanas</span>
+</div>
+<p class="font-body-md italic text-on-surface-variant leading-relaxed">"El sector de Cajanuma es mágico. La temperatura baja rápido así que lleven ropa térmica. PIT Loja me ayudó mucho con los mapas."</p>
+<div class="mt-auto pt-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">RK</div>
+<span class="font-body-sm font-bold">Robert Klein</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 bg-surface-dim border-t border-outline-variant mt-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col items-center md:items-start">
+<div class="font-headline-md text-headline-md font-black text-on-surface mb-2">PIT Loja</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">© 2024 PIT Loja - Plataforma Interactiva de Turismo. Investigación y Desarrollo.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-sm text-body-sm" href="#">Privacidad</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-sm text-body-sm" href="#">Términos</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-sm text-body-sm" href="#">Contacto</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-sm text-body-sm" href="#">Transparencia</a>
+</div>
+</div>
+</footer>
+<!-- SideNavBar (Simulated as Filters/Context - Hidden on Detail but accessible) -->
+<aside class="hidden fixed left-0 top-16 h-[calc(100vh-64px)] w-sidebar-width bg-surface-container-lowest shadow-lg flex-col p-base gap-gutter transform -translate-x-full transition-transform duration-300 z-40" id="sideNav">
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-md text-primary">Exploración PIT</h3>
+<p class="font-label-md text-on-surface-variant">Loja, Ecuador</p>
+</div>
+<nav class="flex flex-col gap-2">
+<div class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-surface-container-high rounded-xl cursor-pointer transition-all">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-md">Filtros Geográficos</span>
+</div>
+<div class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-surface-container-high rounded-xl cursor-pointer transition-all">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-label-md">Capas de Mapa</span>
+</div>
+<div class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-surface-container-high rounded-xl cursor-pointer transition-all">
+<span class="material-symbols-outlined">travel_explore</span>
+<span class="font-label-md">Resultados</span>
+</div>
+<div class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-surface-container-high rounded-xl cursor-pointer transition-all">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-md">Favoritos</span>
+</div>
+</nav>
+<button class="mt-auto bg-primary text-on-primary py-3 rounded-xl font-bold transition-transform active:scale-95">Aplicar Filtros</button>
+</aside>
+<script>
+        // Micro-interactions and subtle effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.replace('bg-surface/90', 'bg-surface');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.replace('bg-surface', 'bg-surface/90');
+            }
+        });
+
+        // Simple tab/hover effect for gallery
+        const images = document.querySelectorAll('section img');
+        images.forEach(img => {
+            img.addEventListener('mouseenter', () => {
+                img.style.filter = 'brightness(1.1)';
+            });
+            img.addEventListener('mouseleave', () => {
+                img.style.filter = 'brightness(1)';
+            });
+        });
+    </script>
+
+
+
+
+</body></html>

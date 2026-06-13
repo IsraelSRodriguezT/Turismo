@@ -1,0 +1,433 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dashboard Principal | PIT - Universidad Nacional de Loja</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary": "#006242",
+                        "on-tertiary-container": "#bdffdb",
+                        "border-technical": "#CBD5E1",
+                        "primary-container": "#2563eb",
+                        "background": "#f7f9fb",
+                        "info": "#0EA5E9",
+                        "surface-tint": "#0053db",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-primary-container": "#eeefff",
+                        "warning": "#F59E0B",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-error-container": "#93000a",
+                        "primary": "#004ac6",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface": "#FFFFFF",
+                        "on-secondary-container": "#54647a",
+                        "outline": "#737686",
+                        "on-tertiary-fixed": "#002113",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-fixed": "#6ffbbe",
+                        "outline-variant": "#c3c6d7",
+                        "secondary": "#505f76",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-container": "#007d55",
+                        "danger": "#DC2626",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-dim": "#d8dadc",
+                        "focus-ring": "#10B981",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-fixed": "#00174b",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-container": "#d0e1fb",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed": "#d3e4fe",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-surface": "#191c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#434655",
+                        "success": "#16A34A"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "xl": "40px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "badge": ["Hanken Grotesk"],
+                        "table-data": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "badge": ["12px", {"lineHeight": "12px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "table-data": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.5); }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-md z-40 bg-surface border-r border-outline-variant w-64">
+<div class="flex flex-col gap-xs mb-xl">
+<div class="flex items-center gap-sm px-sm">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Gestión PIT</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Administrador</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md bg-secondary-container text-on-secondary-container rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined">home</span>Inicio</a>
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+            Usuarios
+        </a>
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">location_on</span>
+            Geolocalización
+        </a>
+
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+            Inventario
+        </a>
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">science</span>
+            Investigación
+        </a>
+
+
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-md flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+            Ayuda
+        </a>
+<a class="flex items-center gap-md px-md py-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+            Cerrar Sesión
+        </a>
+</div>
+</aside>
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 sticky top-0 z-50 bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">PIT - Universidad Nacional de Loja</h1>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative hidden lg:block">
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-body-md focus:ring-2 focus:ring-focus-ring outline-none w-64" placeholder="Buscar en la plataforma..." type="text">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant">search</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 rounded-full hover:bg-surface-container-low text-on-surface-variant relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="Professional headshot of a mature academic administrator in a well-lit office setting. The lighting is crisp and natural, highlighting a friendly yet authoritative expression. The color palette features clean whites and professional blues, aligning with the institutional branding of the University of Loja. The visual style is sharp, corporate, and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiy5evHs1UoiGCKN6luiIfGmOPpjpF1sTwER5GgWO_gTCajiZEunb8Sf2zx30l42_UckNt38A3zvmMOXRf8XWy7eipr3JNkWrJ4I5J4zjEtT9YbH1UIB7Lki0Xgu9u_2pflywZom0lfbp8KIhakRiruwMouaGBNzx7cV6UtWwpVgk7vSSoBLoZBph539ZucDTC3vltBBUv2d9MGTAdFqjlATNm6p8H_B6A7_3sZ0hp9IbEnf8muZ_z2oZy7ddjx1jH5nyh77wyUvsq">
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-margin-desktop flex-1">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-xs text-on-surface-variant mb-lg font-label-md text-label-md">
+<a class="hover:text-primary" href="#">Inicio</a>
+
+<span class="font-bold text-on-surface"><br></span>
+</nav>
+<!-- Metrics Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg mb-xl">
+<!-- Total Atractivos -->
+<div class="bg-surface p-lg rounded-xl border border-outline-variant hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow border-l-4 border-l-primary">
+<div class="flex justify-between items-start mb-md">
+<div class="p-sm bg-primary-fixed text-primary rounded-lg">
+<span class="material-symbols-outlined">map</span>
+</div>
+
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs">Total Atractivos</h3>
+<p class="font-headline-md text-headline-md font-bold text-on-surface">1,284</p>
+</div>
+<!-- Proyectos Activos -->
+<div class="bg-surface p-lg rounded-xl border border-outline-variant hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow border-l-4 border-l-secondary">
+<div class="flex justify-between items-start mb-md">
+<div class="p-sm bg-secondary-container text-secondary rounded-lg">
+<span class="material-symbols-outlined">science</span>
+</div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs">Proyectos Activos</h3>
+<p class="font-headline-md text-headline-md font-bold text-on-surface">42</p>
+</div>
+<!-- Usuarios Registrados -->
+<div class="bg-surface p-lg rounded-xl border border-outline-variant hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow border-l-4 border-l-success">
+<div class="flex justify-between items-start mb-md">
+<div class="p-sm bg-on-tertiary-container text-tertiary-container rounded-lg">
+<span class="material-symbols-outlined">group</span>
+</div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs">Usuarios Registrados</h3>
+<p class="font-headline-md text-headline-md font-bold text-on-surface">856</p>
+</div>
+<!-- Alertas Pendientes -->
+<div class="bg-surface p-lg rounded-xl border border-outline-variant hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow border-l-4 border-l-error">
+<div class="flex justify-between items-start mb-md">
+<div class="p-sm bg-error-container text-error rounded-lg">
+<span class="material-symbols-outlined">warning</span>
+</div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs">Alertas Pendientes</h3>
+<p class="font-headline-md text-headline-md font-bold text-on-surface">7</p>
+</div>
+</section>
+<!-- Main Visual & Quick Actions -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg mb-xl">
+<!-- Estado General -->
+<div class="lg:col-span-2 bg-surface rounded-xl border border-outline-variant overflow-hidden flex flex-col">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Estado General del Sistema</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Monitoreo en tiempo real de infraestructura turística</p>
+</div>
+<button class="text-primary font-label-md text-label-md flex items-center gap-xs">
+                        Ver detalles <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+</div>
+<div class="p-lg flex-1 min-h-[300px] relative bg-surface-container-low flex items-center justify-center">
+<!-- Placeholder for a complex visualization/map/chart -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#004ac6_1px,transparent_1px)] [background-size:20px_20px]"></div>
+<div class="z-10 text-center">
+<div class="inline-flex items-center gap-sm px-md py-sm bg-surface rounded-full shadow-sm border border-outline-variant mb-lg">
+<span class="w-3 h-3 bg-success rounded-full animate-pulse"></span>
+<span class="font-label-md text-label-md font-bold">Todos los servicios operando normalmente</span>
+</div>
+<div class="grid grid-cols-3 gap-xl max-w-lg mx-auto"><div class="text-center"><div class="w-24 h-24 rounded-full border-4 border-primary border-t-transparent mx-auto mb-sm flex items-center justify-center"><span class="font-bold text-primary text-headline-sm">94%</span></div><p class="font-label-sm text-label-sm text-on-surface-variant">Infraestructura</p></div><div class="text-center"><div class="w-24 h-24 rounded-full border-4 border-success border-t-transparent mx-auto mb-sm flex items-center justify-center"><span class="font-bold text-success text-headline-sm">100%</span></div><p class="font-label-sm text-label-sm text-on-surface-variant">Disponibilidad</p></div><div class="text-center"><div class="w-24 h-24 rounded-full border-4 border-warning border-t-transparent mx-auto mb-sm flex items-center justify-center"><span class="font-bold text-warning text-headline-sm">82%</span></div><p class="font-label-sm text-label-sm text-on-surface-variant">Validaci3n Datos</p></div></div>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="bg-surface rounded-xl border border-outline-variant p-lg flex flex-col gap-lg">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Acciones Rápidas</h2>
+<div class="flex flex-col gap-md">
+<button class="w-full flex items-center justify-between p-md bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
+<span class="flex items-center gap-md">
+<span class="material-symbols-outlined">add_location</span>
+                            Registrar Atractivo
+                        </span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full flex items-center justify-between p-md bg-success text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
+<span class="flex items-center gap-md">
+<span class="material-symbols-outlined">explore</span>
+                            Ver Mapa Interactivo
+                        </span>
+<span class="material-symbols-outlined">map</span>
+</button>
+<button class="w-full flex items-center justify-between p-md border border-outline-variant text-on-surface-variant rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors">
+<span class="flex items-center gap-md">
+<span class="material-symbols-outlined">description</span>
+                            Generar Reporte
+                        </span>
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<div class="mt-auto pt-lg border-t border-outline-variant">
+<div class="bg-surface-container-low p-md rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-sm uppercase tracking-wider font-bold">Estado del Servidor</p>
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 bg-success rounded-full"></div>
+<span class="font-body-md text-body-md">Sincronizado: hace 2 min</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity -->
+<section class="bg-surface rounded-xl border border-outline-variant overflow-hidden">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Actividad Reciente</h2>
+<button class="p-2 rounded-lg hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-on-surface-variant">filter_list</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low sticky top-0">
+<tr>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Usuario</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Acción</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Recurso</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Fecha</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant border-b border-outline-variant">Estado</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-[12px]">RM</div>
+<span class="font-table-data text-table-data font-medium">Ricardo Mendoza</span>
+</div>
+</td>
+<td class="px-lg py-md font-table-data text-table-data">Registro nuevo atractivo</td>
+<td class="px-lg py-md font-table-data text-table-data">Catarata El Cisne</td>
+<td class="px-lg py-md font-table-data text-table-data text-on-surface-variant">Hoy, 10:45 AM</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 bg-tertiary-container text-on-tertiary-container rounded-full font-badge text-badge inline-flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Completado
+                                </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary font-bold text-[12px]">AS</div>
+<span class="font-table-data text-table-data font-medium">Ana Silva</span>
+</div>
+</td>
+<td class="px-lg py-md font-table-data text-table-data">Actualización de hito</td>
+<td class="px-lg py-md font-table-data text-table-data">Proyecto Biodiversidad Loja</td>
+<td class="px-lg py-md font-table-data text-table-data text-on-surface-variant">Hoy, 09:12 AM</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container rounded-full font-badge text-badge inline-flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">pending</span> En Revisión
+                                </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-[12px]">GC</div>
+<span class="font-table-data text-table-data font-medium">Gabriel Castillo</span>
+</div>
+</td>
+<td class="px-lg py-md font-table-data text-table-data">Generación de reporte</td>
+<td class="px-lg py-md font-table-data text-table-data">Reporte Trimestral Q1</td>
+<td class="px-lg py-md font-table-data text-table-data text-on-surface-variant">Ayer, 04:30 PM</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 bg-tertiary-container text-on-tertiary-container rounded-full font-badge text-badge inline-flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Completado
+                                </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-error-container flex items-center justify-center text-error font-bold text-[12px]">LS</div>
+<span class="font-table-data text-table-data font-medium">Lorena Salazar</span>
+</div>
+</td>
+<td class="px-lg py-md font-table-data text-table-data">Atractivo eliminado</td>
+<td class="px-lg py-md font-table-data text-table-data">Parque Nacional Podocarpus</td>
+<td class="px-lg py-md font-table-data text-table-data text-on-surface-variant">Ayer, 11:15 AM</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 bg-error-container text-on-error-container rounded-full font-badge text-badge inline-flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">error</span> Crítico
+                                </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-[12px]">JT</div>
+<span class="font-table-data text-table-data font-medium">Juan Torres</span>
+</div>
+</td>
+<td class="px-lg py-md font-table-data text-table-data">Nuevo usuario registrado</td>
+<td class="px-lg py-md font-table-data text-table-data">Acceso Investigador</td>
+<td class="px-lg py-md font-table-data text-table-data text-on-surface-variant">2 May, 08:00 AM</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 bg-tertiary-container text-on-tertiary-container rounded-full font-badge text-badge inline-flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">verified_user</span> Validado
+                                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="w-full py-md px-margin-desktop flex justify-between items-center bg-surface-container border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">© Universidad Nacional de Loja - Plataforma Interactiva de Turismo</span>
+<div class="flex gap-lg">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Términos</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contacto</a>
+</div>
+</footer>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
