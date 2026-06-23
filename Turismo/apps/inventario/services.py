@@ -2,9 +2,10 @@ import csv
 import io
 from typing import List, Dict, Any
 from django.core.exceptions import ValidationError
+from django.db import transaction
 from .models import Recurso, TipoRecurso
 
-def crear_recurso(titulo: str, descripcion: str, url: str, tipo_recurso: str) -> Recurso:
+def crear_recurso(titulo: str, descripcion: str, url: str, tipo_recurso: str, atractivo_turistico=None) -> Recurso:
 	tipo_norm = (tipo_recurso or '').strip().upper()
 	if tipo_norm not in [t.value for t in TipoRecurso]:
 		raise ValidationError(f"Tipo de recurso no valido: {tipo_recurso}")
@@ -13,6 +14,7 @@ def crear_recurso(titulo: str, descripcion: str, url: str, tipo_recurso: str) ->
 		descripcion=descripcion or '',
 		url=url,
 		tipo_recurso=tipo_norm,
+		atractivo_turistico=atractivo_turistico,
 	)
 	return recurso
 
@@ -95,23 +97,26 @@ def importar_desde_excel(file_obj) -> Dict[str, Any]:
 		if missing:
 			raise ValidationError(f'Cabeceras faltantes en XLSX: {missing}')
 
-		for sheet_row_idx, row in enumerate(rows_iter, start=2):
-			row_dict = dict(zip(headers, [r if r is not None else '' for r in row]))
-			try:
-				titulo_val = str(row_dict.get('titulo', '')).strip()
-				url_val = str(row_dict.get('url', '')).strip()
-				if _es_duplicado(url_val, titulo_val):
-					results['skipped'].append({'row': sheet_row_idx, 'reason': 'duplicate', 'titulo': titulo_val, 'url': url_val})
-				else:
-					crear_recurso(
-						titulo=titulo_val,
-						descripcion=str(row_dict.get('descripcion', '')).strip(),
-						url=url_val,
-						tipo_recurso=str(row_dict.get('tipo_recurso', '')).strip(),
-					)
-					results['created'] += 1
-			except Exception as e:
-				results['errors'].append({'row': sheet_row_idx, 'error': str(e)})
+		try:
+			for sheet_row_idx, row in enumerate(rows_iter, start=2):
+				row_dict = dict(zip(headers, [r if r is not None else '' for r in row]))
+				try:
+					titulo_val = str(row_dict.get('titulo', '')).strip()
+					url_val = str(row_dict.get('url', '')).strip()
+					if _es_duplicado(url_val, titulo_val):
+						results['skipped'].append({'row': sheet_row_idx, 'reason': 'duplicate', 'titulo': titulo_val, 'url': url_val})
+					else:
+						crear_recurso(
+							titulo=titulo_val,
+							descripcion=str(row_dict.get('descripcion', '')).strip(),
+							url=url_val,
+							tipo_recurso=str(row_dict.get('tipo_recurso', '')).strip(),
+						)
+						results['created'] += 1
+				except Exception as e:
+					results['errors'].append({'row': sheet_row_idx, 'error': str(e)})
+		finally:
+			wb.close()
 		return results
 
 	raise ValidationError('Formato de archivo no soportado. Use CSV o XLSX.')
@@ -152,9 +157,11 @@ def validar_estructura_archivo(file_obj) -> Dict[str, Any]:
 		try:
 			first = next(rows_iter)
 		except StopIteration:
+			wb.close()
 			return {'ok': False, 'missing': ['empty'], 'headers': []}
 		headers = [str(h).strip().lower() for h in first]
 		missing = _validate_csv_headers(headers)
+		wb.close()
 		try:
 			file_obj.seek(0)
 		except Exception:

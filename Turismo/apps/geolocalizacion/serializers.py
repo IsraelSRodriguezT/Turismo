@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Mapa, Pais, Provincia, Canton, Parroquia, Sector
+from .models import EnlaceExterno, Mapa, Pais, Provincia, Canton, Parroquia, Sector
 
 class MapaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -57,3 +57,11 @@ class JerarquiaGeograficaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pais
         fields = ('id', 'nombre', 'provincias')
+
+class EnlaceExternoSerializer(serializers.ModelSerializer):
+    tipo_display = serializers.CharField(source='get_tipo_display', read_only=True)
+
+    class Meta:
+        model = EnlaceExterno
+        fields = '__all__'
+        read_only_fields = ('id', 'fecha_creacion', 'tipo_display')

@@ -1,0 +1,1482 @@
+[
+  {
+    "objectID": "_manual_usuario.html",
+    "href": "_manual_usuario.html",
+    "title": "5  Manual de Usuario",
+    "section": "",
+    "text": "5.1 Introducción\nEste manual está diseñado para ayudarte a usar PIT (Plataforma Interactiva de Turismo) de acuerdo a tu rol. Hay diferentes vistas y funcionalidades según tu tipo de usuario.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manual de Usuario</span>"
+    ]
+  },
+  {
+    "objectID": "_manual_usuario.html#tipos-de-usuarios",
+    "href": "_manual_usuario.html#tipos-de-usuarios",
+    "title": "5  Manual de Usuario",
+    "section": "5.2 Tipos de Usuarios",
+    "text": "5.2 Tipos de Usuarios\n\n\n\n\n\n\n\n\nRol\nDescripción\nAcceso\n\n\n\n\nTurista\nConsulta información turística\nLectura de atractivos, rutas, información\n\n\nGestor Territorial\nGestiona información territorial\nCRUD de cantones, provincias, ubicaciones\n\n\nGestor Turístico\nGestiona atractivos y rutas\nCRUD de atractivos, rutas, servicios\n\n\nInvestigador\nGestiona proyectos de investigación\nCRUD de investigaciones, resultados\n\n\nAdministrador\nGestiona todo el sistema\nCRUD completo, usuarios, permisos",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manual de Usuario</span>"
+    ]
+  },
+  {
+    "objectID": "_manual_usuario.html#iniciar-sesión",
+    "href": "_manual_usuario.html#iniciar-sesión",
+    "title": "5  Manual de Usuario",
+    "section": "5.3 Iniciar Sesión",
+    "text": "5.3 Iniciar Sesión\n\n5.3.1 Acceso a la Plataforma\n\nAbre tu navegador y dirígete a:\nhttp://localhost:5173\nVerás la pantalla de login con dos campos:\n\nEmail: Tu correo electrónico registrado\nContraseña: Tu contraseña\n\nIngresa tus credenciales y haz clic en “Iniciar Sesión”\n\n\n\n5.3.2 Primer Acceso (Administrador)\nSi eres el primer usuario (administrador), debes:\n\nCrear el administrador via terminal:\npython manage.py createsuperuser\nUsar las credenciales creadas en el login\nAcceder a /admin para gestión inicial\n\n\n\n5.3.3 Cambiar Contraseña\n\nHaz clic en tu Avatar (esquina superior derecha)\nSelecciona “Perfil” o “Configuración”\nHaz clic en “Cambiar Contraseña”\nIngresa tu contraseña actual\nIngresa la nueva contraseña (mínimo 8 caracteres)\nConfirma la nueva contraseña\nHaz clic en “Guardar”",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manual de Usuario</span>"
+    ]
+  },
+  {
+    "objectID": "_manual_usuario.html#vista-para-turistas",
+    "href": "_manual_usuario.html#vista-para-turistas",
+    "title": "5  Manual de Usuario",
+    "section": "5.4 Vista para Turistas",
+    "text": "5.4 Vista para Turistas\nLa vista de turista permite consultar información turística de manera pública.\n\n5.4.1 Explorar Atractivos\n\n5.4.1.1 Pantalla Principal\n\nAl iniciar sesión verás el Mapa Interactivo en el centro\nLos atractivos aparecen como marcadores en el mapa\nPuedes hacer zoom con la rueda del ratón\nPuedes arrastrar el mapa para navegar\n\n\n\n5.4.1.2 Filtrar Atractivos\nEn el panel izquierdo, encontrarás: - Cantón: Selecciona un cantón - Clasificación: Ej: Naturaleza, Cultura, Aventura - Servicio: Filtrar por servicios disponibles - Estado: Mostrar solo atractivos publicados\n\n\n5.4.1.3 Ver Detalles de Atractivo\n\nHaz clic en un marcador del mapa\nSe abre una tarjeta con información básica\nHaz clic en “Ver Detalles” para abrir la ficha completa\n\nInformación disponible: - Nombre y descripción - Ubicación (cantón, provincia) - Coordenadas GPS - Servicios disponibles - Horarios de atención - Información de accesibilidad - Imágenes y galerías - Documentos relacionados - Rutas que incluyen el atractivo\n\n\n\n5.4.2 Explorar Rutas Turísticas\n\nHaz clic en la pestaña “Rutas” en el menú superior\nVerás un listado de rutas temáticas\nHaz clic en una ruta para ver detalles\nVisualiza el recorrido en el mapa\nConsulta atractivos incluidos\nVe el tiempo estimado y nivel de dificultad\n\n\n\n5.4.3 Buscar Información\n\nEn la barra superior, usa el campo “Buscar”\nIngresa nombre de atractivo, cantón o servicio\nLos resultados se actualizan en tiempo real\nHaz clic en un resultado para ir a su ficha\n\n\n\n5.4.4 Compartir Información\nEn la ficha de atractivo: 1. Haz clic en botón “Compartir” 2. Selecciona red social (Facebook, WhatsApp, Twitter) 3. Se abrirá la red social con link de compartición\n\n\n5.4.5 Descargar Información\n\nEn la ficha de atractivo, haz clic en “Descargar PDF”\nSe descargará un PDF con la información completa\nÚtil para consultar sin internet",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manual de Usuario</span>"
+    ]
+  },
+  {
+    "objectID": "_manual_usuario.html#vista-para-gestores-turísticos",
+    "href": "_manual_usuario.html#vista-para-gestores-turísticos",
+    "title": "5  Manual de Usuario",
+    "section": "5.5 Vista para Gestores Turísticos",
+    "text": "5.5 Vista para Gestores Turísticos\nLos gestores turísticos pueden crear y editar atractivos y rutas.\n\n5.5.1 Registrar Nuevo Atractivo\n\n5.5.1.1 Paso 1: Acceder a Formulario\n\nEn el menú principal, haz clic en “Atractivos”\nHaz clic en botón “+ Nuevo Atractivo”\nSe abre formulario de registro\n\n\n\n5.5.1.2 Paso 2: Información Básica\nCompleta: - Nombre: Nombre del atractivo - Descripción: Descripción detallada (250-1000 caracteres) - Cantón: Selecciona el cantón donde está ubicado - Estado: BORRADOR (para guardar temporalmente)\n\n\n5.5.1.3 Paso 3: Ubicación (Geolocalización)\nDos opciones:\nOpción A: Pinchar en Mapa 1. Haz clic en el mapa 2. Aparecerá un marcador 3. Arrastra para ajustar si es necesario 4. Se llenarán automáticamente Latitud y Longitud\nOpción B: Ingresar Coordenadas 1. Ingresa Latitud: Ej: -0.5234 2. Ingresa Longitud: Ej: -78.1234 3. Haz clic en “Ubicar en Mapa” 4. El mapa centrará en esa ubicación\n\n\n5.5.1.4 Paso 4: Clasificación\n\nHaz clic en “Clasificaciones”\nSelecciona opciones (Naturaleza, Cultura, Aventura, etc.)\nPuedes agregar múltiples clasificaciones\nHaz clic en ➕ para agregar más\n\n\n\n5.5.1.5 Paso 5: Servicios\n\nEn sección “Servicios Disponibles”\nSelecciona los servicios que ofrece:\n\nParqueo\nRestaurante\nHotel cercano\nBaños\nTienda de souvenirs\nGuías turísticos\nEtc.\n\nPuedes especificar disponibilidad (SIEMPRE, FINES_SEMANA, POR_RESERVA)\n\n\n\n5.5.1.6 Paso 6: Horarios\n\nHaz clic en “Agregar Horario”\nSelecciona tipo de horario:\n\nNORMAL: Horario regular\nFIN_SEMANA: Solo fines de semana\nFERIADO: Días feriados\nESPECIAL: Épocas especiales\n\nIngresa:\n\nHora de apertura (Ej: 08:00)\nHora de cierre (Ej: 18:00)\n\nHaz clic en “Guardar Horario”\n\n\n\n5.5.1.7 Paso 7: Información de Acceso\n\nSelecciona Nivel de Accesibilidad:\n\nLIBRE: Acceso libre\nRESTRINGIDO: Requiere permiso\nPAGADO: Acceso pagado\n\nSi es PAGADO, ingresa:\n\nPrecio de entrada\nDescuentos especiales\n\nEstado de conservación:\n\nCONSERVADO\nALTERADO\nEN_DETERIORO\nDETERIORADO\n\n\n\n\n5.5.1.8 Paso 8: Subir Imágenes\n\nHaz clic en “Subir Imágenes”\nSelecciona una o más imágenes (JPG, PNG, máximo 5MB cada una)\nAparecerá vista previa\nLas imágenes son obligatorias\n\n\n\n5.5.1.9 Paso 9: Documentos Relacionados\n\nHaz clic en “Subir Documento”\nSelecciona archivo (PDF, DOC, máximo 10MB)\nIngresa descripción del documento\nHaz clic en “Subir”\n\n\n\n5.5.1.10 Paso 10: Guardar\n\nRevisa toda la información\nHaz clic en “Guardar como Borrador” para guardar temporalmente\nO haz clic en “Enviar a Revisión” para que un administrador revise\n\n\n\n\n5.5.2 Editar Atractivo\n\nEn listado de atractivos, encuentra el atractivo\nHaz clic en icono de “Editar” (lápiz)\nModifica los campos necesarios\nHaz clic en “Guardar Cambios”\n\n\n\n5.5.3 Crear Ruta Turística\n\n5.5.3.1 Paso 1: Acceder\n\nEn menú, haz clic en “Rutas”\nHaz clic en “+ Nueva Ruta”\n\n\n\n5.5.3.2 Paso 2: Información Básica\nCompleta: - Nombre: Nombre de la ruta - Descripción: Descripción del recorrido - Duración Estimada: En minutos - Dificultad: BAJA, MEDIA, ALTA - Tipo: Naturaleza, Cultura, Aventura, etc.\n\n\n5.5.3.3 Paso 3: Seleccionar Atractivos\n\nEn sección “Atractivos en la Ruta”\nHaz clic en “Agregar Atractivo”\nBusca atractivos por nombre\nSelecciona orden de recorrido (1, 2, 3, etc.)\nPuedes agregar múltiples atractivos\n\n\n\n5.5.3.4 Paso 4: Visualizar en Mapa\n\nVerás en mapa los atractivos conectados\nMuestra orden de recorrido\nCalcula distancia total aproximada\n\n\n\n5.5.3.5 Paso 5: Guardar\n\nHaz clic en “Guardar como Borrador” o “Enviar a Revisión”\n\n\n\n\n5.5.4 Cambiar Estado de Contenido\nLos estados disponibles son:\n\n\n\nEstado\nSignificado\nAcción\n\n\n\n\nBORRADOR\nEn edición, no publicado\nGuardar sin completar\n\n\nREVISION\nPendiente aprobación admin\nGestor envía a revisar\n\n\nPUBLICADO\nVisible para público\nAdmin aprueba\n\n\nARCHIVADO\nNo visible, conservado\nAdmin archiva\n\n\n\nCambiar estado: 1. En ficha del atractivo, haz clic en “Estado” 2. Selecciona nuevo estado 3. Si es necesario, agregacommentario 4. Haz clic en “Cambiar”",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manual de Usuario</span>"
+    ]
+  },
+  {
+    "objectID": "_manual_usuario.html#vista-para-gestores-territoriales",
+    "href": "_manual_usuario.html#vista-para-gestores-territoriales",
+    "title": "5  Manual de Usuario",
+    "section": "5.6 Vista para Gestores Territoriales",
+    "text": "5.6 Vista para Gestores Territoriales\n\n5.6.1 Gestionar Cantones\n\n5.6.1.1 Crear Cantón\n\nMenú → “Territorio” → “Cantones”\nHaz clic en “+ Nuevo Cantón”\nCompleta:\n\nNombre del cantón\nProvincia\nPoblación estimada\nÁrea en km²\n\nDefine límites en mapa (norte, sur, este, oeste)\nHaz clic en “Guardar”\n\n\n\n5.6.1.2 Editar Cantón\n\nEn listado de cantones, haz clic en “Editar”\nModifica información\nHaz clic en “Guardar”\n\n\n\n\n5.6.2 Importar Inventario desde Excel\n\nMenú → “Inventario” → “Importar Fichas”\nHaz clic en “Seleccionar Archivo”\nElige archivo Excel con formato:\n| Nombre | Descripción | Cantón | Clasificación | ... |\n|--------|-------------|--------|---------------|-----|\nHaz clic en “Previsualizaar” para verificar\nHaz clic en “Importar”\nSistema mostrará resultados (exitosos, con error)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manual de Usuario</span>"
+    ]
+  },
+  {
+    "objectID": "_manual_usuario.html#vista-para-investigadores",
+    "href": "_manual_usuario.html#vista-para-investigadores",
+    "title": "5  Manual de Usuario",
+    "section": "5.7 Vista para Investigadores",
+    "text": "5.7 Vista para Investigadores\n\n5.7.1 Registrar Proyecto de Investigación\n\nMenú → “Investigación” → “Mis Proyectos”\nHaz clic en “+ Nuevo Proyecto”\nCompleta:\n\nTítulo del proyecto\nDescripción\nObjetivo general\nObjetivos específicos\nTipo de investigación\nInvestigador principal\nPeríodo de investigación\n\nHaz clic en “Guardar”\n\n\n\n5.7.2 Publicar Resultados\n\nEn ficha del proyecto, haz clic en “Resultados”\nHaz clic en “+ Agregar Resultado”\nIngresa:\n\nTítulo del resultado\nDescripción\nConclusiones\nRecomendaciones\n\nSube documentos (PDF, Imágenes)\nHaz clic en “Publicar”",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manual de Usuario</span>"
+    ]
+  },
+  {
+    "objectID": "_manual_usuario.html#vista-para-administradores",
+    "href": "_manual_usuario.html#vista-para-administradores",
+    "title": "5  Manual de Usuario",
+    "section": "5.8 Vista para Administradores",
+    "text": "5.8 Vista para Administradores\n\n5.8.1 Gestionar Usuarios\n\n5.8.1.1 Listar y Filtrar Usuarios\n\nMenú → “Administración” → “Usuarios”\nPuedes filtrar por:\n\nRol (Turista, Gestor, Investigador, Administrador)\nEstado (Activo, Inactivo)\nBúsqueda por nombre/email\n\n\n\n\n5.8.1.2 Crear Usuario\n\nHaz clic en “+ Nuevo Usuario”\nCompleta:\n\nNombre completo\nEmail (único)\nContraseña temporal\nRol\nTeléfono (opcional)\n\nHaz clic en “Crear”\nSistema enviará email con credenciales\n\n\n\n5.8.1.3 Editar Usuario\n\nEn listado, haz clic en usuario\nModifica información (excepto email)\nPuedes cambiar rol\nHaz clic en “Guardar”\n\n\n\n5.8.1.4 Desactivar/Reactivar Usuario\n\nEn ficha de usuario\nHaz clic en “Desactivar” o “Reactivar”\nSe pedirá confirmación\n\n\n\n5.8.1.5 Resetear Contraseña\n\nEn ficha de usuario\nHaz clic en “Resetear Contraseña”\nUsuario recibirá email con link para crear nueva contraseña\n\n\n\n\n5.8.2 Gestionar Permisos y Roles\n\nMenú → “Administración” → “Roles y Permisos”\nVerás los roles predefinidos\nPara cada rol, puedes asignar permisos:\n\nVer atractivos\nCrear atractivos\nEditar atractivos\nEliminar atractivos\nAprobar cambios\nCrear usuarios\netc.\n\n\n\n\n5.8.3 Revisar y Aprobar Contenido\n\nMenú → “Revisión de Contenido”\nVerás atractivos y rutas en estado “REVISION”\nPara cada uno:\n\nRevisa información\nHaz clic en “Aprobar” o “Rechazar”\nSi rechazas, agrega comentario\n\nEl gestor turístico recibirá notificación\n\n\n\n5.8.4 Monitorear Actividad del Sistema\n\nMenú → “Dashboard” o “Reportes”\nVerás:\n\nNúmero total de atractivos\nUsuarios activos\nCambios recientes\nErrores del sistema\n\nPuedes exportar reportes en PDF/Excel\n\n\n\n5.8.5 Configuración del Sistema\n\nMenú → “Configuración”\nPuedes ajustar:\n\nNombre de la plataforma\nLogo y colores\nMensajes de bienvenida\nConfiguración de emails\nInformación de contacto",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manual de Usuario</span>"
+    ]
+  },
+  {
+    "objectID": "_manual_usuario.html#funcionalidades-comunes",
+    "href": "_manual_usuario.html#funcionalidades-comunes",
+    "title": "5  Manual de Usuario",
+    "section": "5.9 Funcionalidades Comunes",
+    "text": "5.9 Funcionalidades Comunes\n\n5.9.1 Búsqueda Global\n\nEn barra superior, campo “Buscar”\nIngresa término\nSe busca en:\n\nNombres de atractivos\nDescripciones\nCantones\nNombres de rutas\n\nResultados aparecen en dropdown\nHaz clic para ir a ese recurso\n\n\n\n5.9.2 Exportar Datos\nLa mayoría de listados permite exportar: 1. Haz clic en icono “Descargar” (flecha ↓) 2. Selecciona formato: - CSV: Archivo de texto - Excel: Hoja de cálculo - PDF: Documento 3. Se descarga automáticamente\n\n\n5.9.3 Compartir en Redes Sociales\nEn fichas de atractivos/rutas: 1. Haz clic en icono “Compartir” 2. Selecciona red social 3. Se abre aplicación con link compartible\n\n\n5.9.4 Ver Historial de Cambios\nEn fichas de atractivos/rutas: 1. Haz clic en “Historial” 2. Verás: - Fecha de cada cambio - Usuario que hizo cambio - Qué se cambió - Comentarios",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manual de Usuario</span>"
+    ]
+  },
+  {
+    "objectID": "_manual_usuario.html#resolución-de-problemas-comunes",
+    "href": "_manual_usuario.html#resolución-de-problemas-comunes",
+    "title": "5  Manual de Usuario",
+    "section": "5.10 Resolución de Problemas Comunes",
+    "text": "5.10 Resolución de Problemas Comunes\n\n5.10.1 No puedo iniciar sesión\nSolución: - Verifica que email y contraseña sean correctos - Si olvidaste la contraseña, haz clic en “¿Olvidaste tu contraseña?” - Recibirás email con link para resetear - Si el email no llega, contacta administrador\n\n\n5.10.2 No puedo crear atractivos\nCausa posible: Tu rol no tiene permiso\nSolución: - Pide a administrador que te asigne rol “Gestor Turístico” - Cierra sesión y vuelve a iniciar\n\n\n5.10.3 Las imágenes no se cargan\nSolución: - Verifica que sean JPG o PNG - Tamaño máximo 5MB - Intenta comprimir la imagen - Si persiste, contacta soporte\n\n\n5.10.4 El mapa no funciona\nSolución: - Recarga la página (F5) - Limpia cache del navegador - Verifica conexión a internet - Intenta con otro navegador",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manual de Usuario</span>"
+    ]
+  },
+  {
+    "objectID": "_manual_usuario.html#consejos-de-uso",
+    "href": "_manual_usuario.html#consejos-de-uso",
+    "title": "5  Manual de Usuario",
+    "section": "5.11 Consejos de Uso",
+    "text": "5.11 Consejos de Uso\n✅ Haz: - Actualiza frecuentemente la información - Agrega imágenes atractivas (mínimo 3 por atractivo) - Completa todos los campos - Revisa ortografía y puntuación - Agrupa atractivos en rutas temáticas\n❌ No hagas: - Duplicar atractivos (busca primero) - Agregar información incorrecta - Subir imágenes de baja calidad - Dejar campos en blanco innecesariamente - Crear rutas con solo 1 atractivo",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Manual de Usuario</span>"
+    ]
+  },
+  {
+    "objectID": "_arquitectura.html",
+    "href": "_arquitectura.html",
+    "title": "2  Arquitectura del Sistema",
+    "section": "",
+    "text": "2.1 Visión General\nPIT implementa una arquitectura modular de tres capas con separación clara de responsabilidades:",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arquitectura del Sistema</span>"
+    ]
+  },
+  {
+    "objectID": "_arquitectura.html#visión-general",
+    "href": "_arquitectura.html#visión-general",
+    "title": "2  Arquitectura del Sistema",
+    "section": "",
+    "text": "┌─────────────────────────────────────────────────────────────┐\n│                    CAPA DE PRESENTACIÓN                      │\n│  (React Frontend + Interfaz Web + Responsive Design)        │\n└────────────────────────────┬────────────────────────────────┘\n                             │ JSON/HTTPS\n┌────────────────────────────▼────────────────────────────────┐\n│                    CAPA DE APLICACIÓN                        │\n│  (Django REST API + Lógica de Negocio + Servicios)          │\n│  - Views (Controladores HTTP)                               │\n│  - Serializers (Validación y Transformación)                │\n│  - Services (Lógica de Negocio)                             │\n│  - Auth (Autenticación y Autorización)                      │\n└────────────────────────────┬────────────────────────────────┘\n                             │ ORM/SQL\n┌────────────────────────────▼────────────────────────────────┐\n│                    CAPA DE DATOS                             │\n│  (SQLite Database + Modelos de Datos)                        │\n└─────────────────────────────────────────────────────────────┘",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arquitectura del Sistema</span>"
+    ]
+  },
+  {
+    "objectID": "_arquitectura.html#componentes-principales",
+    "href": "_arquitectura.html#componentes-principales",
+    "title": "2  Arquitectura del Sistema",
+    "section": "2.2 Componentes Principales",
+    "text": "2.2 Componentes Principales\n\n2.2.1 1. Frontend (React)\nUbicación: templates/frontend_react/src/\nResponsabilidades: - Interfaz de usuario interactiva - Manejo de estado global (Context API) - Enrutamiento de páginas (React Router) - Consumo de API REST - Visualización de mapas interactivos\nStack Tecnológico: - React 18.3.1 - React Router DOM 6.30.0 - Axios para HTTP - Tailwind CSS para estilos - Vite como bundler\nEstructura de Carpetas:\nsrc/\n├── components/        # Componentes reutilizables\n├── pages/            # Páginas de la aplicación\n├── routes/           # Configuración de rutas\n├── services/         # Servicios API\n├── hooks/            # Custom hooks\n├── contexts/         # Context API\n├── utils/            # Funciones utilitarias\n├── App.jsx          # Componente raíz\n└── index.js         # Punto de entrada\n\n\n2.2.2 2. Backend (Django REST Framework)\nUbicación: Turismo/\nResponsabilidades: - Lógica de negocio - Procesamiento de datos - Persistencia en base de datos - Autenticación y autorización - Integración con servicios externos (INAMI, ECU 911)\nAplicaciones Django (apps/):\n\n2.2.2.1 a) Usuarios (apps/usuarios/)\n\nGestión de perfiles de usuario\nAutenticación y roles\nPermisos y restricciones\n\nModelos: - Persona: Información de usuario - Usuario: Extensión con roles\n\n\n2.2.2.2 b) Atractivos (apps/atractivos/)\n\nRegistro y gestión de atractivos turísticos\nClasificación y categorización\nServicios asociados\nHorarios de funcionamiento\n\nModelos principales: - AtractivoTuristico: Atractivo base - Clasificacion: Categoría del atractivo - Servicio: Servicios ofrecidos - Horario: Horarios de operación - Ruta: Rutas turísticas\n\n\n2.2.2.3 c) Geolocalización (apps/geolocalizacion/)\n\nDatos geográficos y territoriales\nInformación de cantones y provincias\nCoordenadas y límites\n\nModelos: - Canton: División territorial - Provincia: Región administrativa - Ubicacion: Coordenadas geoespaciales\n\n\n2.2.2.4 d) Inventario (apps/inventario/)\n\nGestión de fichas digitales\nImportación desde Excel\nCatálogos de inventario\n\nModelos: - FichaInventario: Registro de inventario - CatalogoInventario: Clasificaciones\n\n\n2.2.2.5 e) Investigación (apps/investigacion/)\n\nRegistro de proyectos de investigación\nPublicación de resultados\nVinculación con contenidos\n\nModelos: - Investigacion: Proyecto de investigación - Resultado: Resultados de proyectos\n\n\n\n2.2.3 3. Base de Datos (SQLite)\nUbicación: Turismo/db.sqlite3\nCaracterísticas: - Almacenamiento relacional - Integridad referencial - Índices optimizados - Migrations versionadas\nTablas principales: - usuarios_persona: Datos de usuarios - atractivos_atractivo: Atractivos turísticos - atractivos_clasificacion: Clasificaciones - atractivos_servicio: Servicios - atractivos_horario: Horarios - atractivos_ruta: Rutas - geolocalizacion_*: Datos geográficos - investigacion_*: Proyectos de investigación",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arquitectura del Sistema</span>"
+    ]
+  },
+  {
+    "objectID": "_arquitectura.html#flujo-de-datos",
+    "href": "_arquitectura.html#flujo-de-datos",
+    "title": "2  Arquitectura del Sistema",
+    "section": "2.3 Flujo de Datos",
+    "text": "2.3 Flujo de Datos\n1. Usuario interactúa en Frontend (React)\n   ↓\n2. Frontend envía solicitud HTTP a Backend (API)\n   ↓\n3. Django recibe y valida autorización (JWT)\n   ↓\n4. View procesa y delega a Service\n   ↓\n5. Service ejecuta lógica de negocio\n   ↓\n6. Models interactúan con Base de Datos (ORM)\n   ↓\n7. Backend retorna respuesta JSON\n   ↓\n8. Frontend recibe datos y actualiza UI",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arquitectura del Sistema</span>"
+    ]
+  },
+  {
+    "objectID": "_arquitectura.html#patrones-de-diseño-utilizados",
+    "href": "_arquitectura.html#patrones-de-diseño-utilizados",
+    "title": "2  Arquitectura del Sistema",
+    "section": "2.4 Patrones de Diseño Utilizados",
+    "text": "2.4 Patrones de Diseño Utilizados\n\n2.4.1 1. MVC (Model-View-Controller)\n\nModels: Definición de entidades en models.py\nViews: Controladores HTTP en views.py\nControllers: Lógica en services.py\n\n\n\n2.4.2 2. Service Layer\n\nservices.py en cada app contiene lógica de negocio\nDesacoplamiento entre views y modelos\nReutilización de lógica\n\n\n\n2.4.3 3. Serializer Pattern\n\nserializers.py valida y transforma datos\nSerialización de modelos a JSON\nDeserialización de requests\n\n\n\n2.4.4 4. Repository Pattern\n\nORM de Django actúa como repositorio\nAbstracción de acceso a datos\nQueries centralizadas\n\n\n\n2.4.5 5. Context API (Frontend)\n\nGestión de estado global\nAutenticación centralizada\nCompartir datos entre componentes",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arquitectura del Sistema</span>"
+    ]
+  },
+  {
+    "objectID": "_arquitectura.html#integraciones-externas",
+    "href": "_arquitectura.html#integraciones-externas",
+    "title": "2  Arquitectura del Sistema",
+    "section": "2.5 Integraciones Externas",
+    "text": "2.5 Integraciones Externas\n\n2.5.1 1. INAMI - Servicio de Clima\nEndpoint: Servicio REST de datos climáticos Uso: Obtener información meteorológica Frecuencia: On-demand desde Frontend\n\n\n2.5.2 2. ECU 911 - Estado de Vías\nEndpoint: Servicio REST de estado vial Uso: Información de seguridad y estado de carreteras Frecuencia: On-demand",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arquitectura del Sistema</span>"
+    ]
+  },
+  {
+    "objectID": "_arquitectura.html#seguridad",
+    "href": "_arquitectura.html#seguridad",
+    "title": "2  Arquitectura del Sistema",
+    "section": "2.6 Seguridad",
+    "text": "2.6 Seguridad\n\n2.6.1 Autenticación\n\nJWT (JSON Web Tokens)\nTokens con expiración\nRefresh tokens para renovación\nBlacklist de tokens revocados\n\n\n\n2.6.2 Autorización\n\nSistema de roles y permisos\nDecoradores en views\nValidación en services\n\n\n\n2.6.3 Protección de Datos\n\nHTTPS en producción\nCORS configurado\nValidación de inputs\nSQL Injection prevención (ORM)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arquitectura del Sistema</span>"
+    ]
+  },
+  {
+    "objectID": "_arquitectura.html#escalabilidad",
+    "href": "_arquitectura.html#escalabilidad",
+    "title": "2  Arquitectura del Sistema",
+    "section": "2.7 Escalabilidad",
+    "text": "2.7 Escalabilidad\nConsideraciones de diseño: - Separación de capas permite escalar independientemente - Stateless API facilita horizontalización - Índices en base de datos para queries complejas - Posibilidad de migrar a PostgreSQL - Caché con Redis (futuro)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arquitectura del Sistema</span>"
+    ]
+  },
+  {
+    "objectID": "_instalacion.html",
+    "href": "_instalacion.html",
+    "title": "3  Guía de Instalación",
+    "section": "",
+    "text": "3.1 Requisitos del Sistema",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Guía de Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "_instalacion.html#requisitos-del-sistema",
+    "href": "_instalacion.html#requisitos-del-sistema",
+    "title": "3  Guía de Instalación",
+    "section": "",
+    "text": "3.1.1 Software Requerido\n\nPython 3.10 o superior\nNode.js 16 o superior\nnpm o yarn\nGit\nSQLite (incluido en Python)\nNavegador moderno (Chrome, Firefox, Safari, Edge)\n\n\n\n3.1.2 Requisitos de Hardware\n\nProcesador: Dual-core 2GHz o superior\nRAM: Mínimo 2GB (4GB recomendado)\nAlmacenamiento: 500MB para instalación completa\n\n\n\n3.1.3 Sistema Operativo\n\nWindows 10/11\nmacOS 10.14+\nUbuntu 18.04+",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Guía de Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "_instalacion.html#instalación-del-backend-django",
+    "href": "_instalacion.html#instalación-del-backend-django",
+    "title": "3  Guía de Instalación",
+    "section": "3.2 Instalación del Backend (Django)",
+    "text": "3.2 Instalación del Backend (Django)\n\n3.2.1 Paso 1: Clonar o Descargar el Repositorio\ncd c:\\ruta\\a\\tu\\carpeta\ngit clone &lt;url-repositorio&gt;\ncd Turismo-develop/Turismo\n\n\n3.2.2 Paso 2: Crear Entorno Virtual\n\n3.2.2.1 En Windows:\npython -m venv venv\nvenv\\Scripts\\activate\n\n\n3.2.2.2 En macOS/Linux:\npython3 -m venv venv\nsource venv/bin/activate\n\n\n\n3.2.3 Paso 3: Instalar Dependencias de Python\npip install --upgrade pip\npip install -r requirements.txt\nPaquetes principales instalados: - Django 6.0.4 - Django REST Framework - djangorestframework-simplejwt - drf-spectacular - django-filters - python-decouple\n\n\n3.2.4 Paso 4: Verificar Instalación\npython manage.py --version\n\n\n3.2.5 Paso 5: Ejecutar Migraciones (Base de Datos)\npython manage.py migrate\nEste comando: - Crea la estructura de tablas en SQLite - Aplica todas las migraciones pendientes - Inicializa la base de datos\n\n\n3.2.6 Paso 6: Crear Superusuario (Administrador)\npython manage.py createsuperuser\nSe te pedirá: - Username: (tu nombre de usuario) - Email: (tu correo) - Password: (contraseña segura) - Password (again): (confirmar contraseña)\n\n\n3.2.7 Paso 7: Verificar Estructura de Base de Datos\npython manage.py dbshell\nDentro de SQLite:\n.tables\nVerás todas las tablas creadas.\n\n\n3.2.8 Paso 8: Iniciar Servidor Django\npython manage.py runserver\nEl servidor estará disponible en:\nhttp://localhost:8000\nAdmin: http://localhost:8000/admin\nAPI: http://localhost:8000/api",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Guía de Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "_instalacion.html#instalación-del-frontend-react",
+    "href": "_instalacion.html#instalación-del-frontend-react",
+    "title": "3  Guía de Instalación",
+    "section": "3.3 Instalación del Frontend (React)",
+    "text": "3.3 Instalación del Frontend (React)\n\n3.3.1 Paso 1: Navegar a la Carpeta Frontend\ncd templates/frontend_react\n\n\n3.3.2 Paso 2: Instalar Dependencias de Node\nnpm install\n# o si usas yarn:\nyarn install\nPaquetes principales instalados: - React 18.3.1 - React Router DOM 6.30.0 - Axios 1.9.0 - Tailwind CSS 3.4.17 - Vite 6.3.0\n\n\n3.3.3 Paso 3: Configurar Variables de Entorno\nCrear archivo .env en la carpeta frontend_react:\nVITE_API_URL=http://localhost:8000/api\nVITE_DEBUG=false\n\n\n3.3.4 Paso 4: Verificar Instalación\nnpm --version\nnode --version\n\n\n3.3.5 Paso 5: Iniciar Servidor de Desarrollo\nnpm run dev\nEl frontend estará disponible en:\nhttp://localhost:5173\n\n\n3.3.6 Paso 6: (Opcional) Compilar para Producción\nnpm run build\nCrea carpeta dist/ con archivos optimizados.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Guía de Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "_instalacion.html#estructura-de-carpetas-post-instalación",
+    "href": "_instalacion.html#estructura-de-carpetas-post-instalación",
+    "title": "3  Guía de Instalación",
+    "section": "3.4 Estructura de Carpetas Post-Instalación",
+    "text": "3.4 Estructura de Carpetas Post-Instalación\nTurismo-develop/\n├── Turismo/                      # Backend Django\n│   ├── manage.py\n│   ├── db.sqlite3               # Base de datos\n│   ├── requirements.txt\n│   ├── config/                  # Configuración Django\n│   │   ├── settings.py\n│   │   ├── urls.py\n│   │   └── wsgi.py\n│   ├── apps/                    # Aplicaciones Django\n│   │   ├── usuarios/\n│   │   ├── atractivos/\n│   │   ├── geolocalizacion/\n│   │   ├── inventario/\n│   │   └── investigacion/\n│   ├── core/                    # Módulos core\n│   │   ├── api.py\n│   │   ├── exceptions.py\n│   │   └── permissions.py\n│   └── templates/\n│       └── frontend_react/      # Frontend React\n│           ├── src/\n│           ├── public/\n│           ├── package.json\n│           ├── vite.config.js\n│           └── tailwind.config.cjs\n└── venv/                         # Entorno virtual (no subir a Git)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Guía de Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "_instalacion.html#verificación-de-instalación-completa",
+    "href": "_instalacion.html#verificación-de-instalación-completa",
+    "title": "3  Guía de Instalación",
+    "section": "3.5 Verificación de Instalación Completa",
+    "text": "3.5 Verificación de Instalación Completa\nEjecutar en dos terminales simultaneamente:\n\n3.5.1 Terminal 1 (Backend):\ncd Turismo-develop/Turismo\nsource venv/bin/activate  # En Windows: venv\\Scripts\\activate\npython manage.py runserver\nVerifica que muestre:\nStarting development server at http://127.0.0.1:8000/\nQuit the server with CTRL-BREAK.\n\n\n3.5.2 Terminal 2 (Frontend):\ncd Turismo-develop/Turismo/templates/frontend_react\nnpm run dev\nVerifica que muestre:\nVITE v6.x.x  ready in xxx ms\n\n➜  Local:   http://localhost:5173/\n\n\n3.5.3 Acceso a Aplicación:\n\nAplicación: http://localhost:5173\nAPI: http://localhost:8000/api\nAdmin Django: http://localhost:8000/admin",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Guía de Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "_instalacion.html#troubleshooting",
+    "href": "_instalacion.html#troubleshooting",
+    "title": "3  Guía de Instalación",
+    "section": "3.6 Troubleshooting",
+    "text": "3.6 Troubleshooting\n\n3.6.1 Problema: “ModuleNotFoundError” en Python\nSolución:\npip install -r requirements.txt\n\n\n3.6.2 Problema: “Cannot find module” en Node\nSolución:\nrm -rf node_modules package-lock.json\nnpm install\n\n\n3.6.3 Problema: Puerto 8000 o 5173 en uso\nCambiar puerto Django:\npython manage.py runserver 8001\nCambiar puerto Vite:\nnpm run dev -- --port 5174\n\n\n3.6.4 Problema: Base de datos corrupta\nSolución (pierde datos):\nrm db.sqlite3\npython manage.py migrate\npython manage.py createsuperuser\n\n\n3.6.5 Problema: Errores de CORS\nVerificar config/settings.py tenga configurado CORS correctamente:\nCORS_ALLOWED_ORIGINS = [\n    \"http://localhost:5173\",\n    \"http://localhost:3000\",\n]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Guía de Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "_instalacion.html#comandos-útiles",
+    "href": "_instalacion.html#comandos-útiles",
+    "title": "3  Guía de Instalación",
+    "section": "3.7 Comandos Útiles",
+    "text": "3.7 Comandos Útiles\n\n3.7.1 Backend (Django)\n# Crear nueva migración\npython manage.py makemigrations\n\n# Aplicar migraciones\npython manage.py migrate\n\n# Crear superusuario\npython manage.py createsuperuser\n\n# Ejecutar tests\npython manage.py test\n\n# Limpiar base de datos\npython manage.py flush\n\n\n3.7.2 Frontend (React)\n# Iniciar desarrollo\nnpm run dev\n\n# Build para producción\nnpm run build\n\n# Ver build en producción local\nnpm run preview",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Guía de Instalación</span>"
+    ]
+  },
+  {
+    "objectID": "_api.html",
+    "href": "_api.html",
+    "title": "4  Documentación de API",
+    "section": "",
+    "text": "4.1 Introducción a la API\nLa API de PIT es una API REST construida con Django REST Framework que implementa: - Autenticación con JWT - Paginación de resultados - Filtrado y búsqueda - Validación de datos - Estructura de respuesta estándar",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentación de API</span>"
+    ]
+  },
+  {
+    "objectID": "_api.html#base-url",
+    "href": "_api.html#base-url",
+    "title": "4  Documentación de API",
+    "section": "4.2 Base URL",
+    "text": "4.2 Base URL\nhttp://localhost:8000/api\nEn producción:\nhttps://api.turismo.local/api",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentación de API</span>"
+    ]
+  },
+  {
+    "objectID": "_api.html#autenticación",
+    "href": "_api.html#autenticación",
+    "title": "4  Documentación de API",
+    "section": "4.3 Autenticación",
+    "text": "4.3 Autenticación\n\n4.3.1 Tokens JWT\nTodos los endpoints (excepto login y registro) requieren autenticación con JWT.\n\n4.3.1.1 Obtener Token (Login)\nPOST /api/usuarios/login/\nContent-Type: application/json\n\n{\n  \"email\": \"usuario@ejemplo.com\",\n  \"password\": \"contraseña123\"\n}\nRespuesta exitosa (200):\n{\n  \"success\": true,\n  \"message\": \"Inicio de sesión exitoso\",\n  \"data\": {\n    \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",\n    \"usuario\": {\n      \"id\": 1,\n      \"email\": \"usuario@ejemplo.com\",\n      \"nombre\": \"Juan Pérez\",\n      \"rol\": \"ADMINISTRADOR\"\n    }\n  }\n}\n\n\n4.3.1.2 Usar Token en Requests\nIncluir en header Authorization:\nGET /api/atractivos/\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGc...\n\n\n4.3.1.3 Renovar Token (Refresh)\nPOST /api/token/refresh/\nContent-Type: application/json\n\n{\n  \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"\n}\nRespuesta:\n{\n  \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",\n  \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"\n}",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentación de API</span>"
+    ]
+  },
+  {
+    "objectID": "_api.html#estructura-de-respuesta",
+    "href": "_api.html#estructura-de-respuesta",
+    "title": "4  Documentación de API",
+    "section": "4.4 Estructura de Respuesta",
+    "text": "4.4 Estructura de Respuesta\n\n4.4.1 Respuesta Exitosa (2xx)\n{\n  \"success\": true,\n  \"message\": \"Operación realizada exitosamente\",\n  \"data\": {\n    \"id\": 1,\n    \"nombre\": \"Atractivo Turístico\",\n    \"descripcion\": \"Descripción del atractivo\"\n  },\n  \"errors\": null,\n  \"meta\": {\n    \"timestamp\": \"2026-06-22T10:30:00Z\",\n    \"version\": \"1.0.0\"\n  }\n}\n\n\n4.4.2 Respuesta con Error (4xx, 5xx)\n{\n  \"success\": false,\n  \"message\": \"Error de validación\",\n  \"data\": null,\n  \"errors\": {\n    \"code\": \"VALIDATION_ERROR\",\n    \"details\": [\n      {\n        \"field\": \"nombre\",\n        \"message\": \"El nombre es obligatorio\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"timestamp\": \"2026-06-22T10:30:00Z\"\n  }\n}\n\n\n4.4.3 Respuesta Paginada\n{\n  \"success\": true,\n  \"data\": [\n    { \"id\": 1, \"nombre\": \"Atractivo 1\" },\n    { \"id\": 2, \"nombre\": \"Atractivo 2\" }\n  ],\n  \"meta\": {\n    \"pagination\": {\n      \"count\": 50,\n      \"next\": \"http://localhost:8000/api/atractivos/?page=2\",\n      \"previous\": null,\n      \"page_size\": 10,\n      \"total_pages\": 5\n    }\n  }\n}",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentación de API</span>"
+    ]
+  },
+  {
+    "objectID": "_api.html#códigos-http-y-estados",
+    "href": "_api.html#códigos-http-y-estados",
+    "title": "4  Documentación de API",
+    "section": "4.5 Códigos HTTP y Estados",
+    "text": "4.5 Códigos HTTP y Estados\n\n\n\nCódigo\nSignificado\nCaso de Uso\n\n\n\n\n200\nOK\nGET exitoso, actualización exitosa\n\n\n201\nCreated\nCreación de recurso exitosa\n\n\n204\nNo Content\nEliminación exitosa\n\n\n400\nBad Request\nDatos inválidos\n\n\n401\nUnauthorized\nToken inválido o expirado\n\n\n403\nForbidden\nPermisos insuficientes\n\n\n404\nNot Found\nRecurso no existe\n\n\n409\nConflict\nDuplicidad (ej: email ya existe)\n\n\n422\nUnprocessable Entity\nValidación de campos falla\n\n\n500\nInternal Server Error\nError del servidor",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentación de API</span>"
+    ]
+  },
+  {
+    "objectID": "_api.html#endpoints-principales",
+    "href": "_api.html#endpoints-principales",
+    "title": "4  Documentación de API",
+    "section": "4.6 Endpoints Principales",
+    "text": "4.6 Endpoints Principales\n\n4.6.1 1. Autenticación\n\n4.6.1.1 POST /api/usuarios/login/\nIniciar sesión - Auth: No requerido - Body: email, password\n\n\n4.6.1.2 POST /api/usuarios/register/\nRegistrar nuevo usuario - Auth: No requerido - Body: email, password, nombre\n\n\n4.6.1.3 POST /api/token/refresh/\nRenovar token - Auth: No requerido - Body: refresh token\n\n\n\n\n4.6.2 2. Atractivos Turísticos\n\n4.6.2.1 GET /api/atractivos/\nListar atractivos - Auth: Requerido (JWT) - Query params: - page: Número de página (default: 1) - page_size: Resultados por página (default: 10) - canton: Filtrar por cantón (ID) - clasificacion: Filtrar por clasificación - estado: PUBLICADO, BORRADOR, REVISION, ARCHIVADO - search: Búsqueda por nombre\nEjemplo:\nGET /api/atractivos/?canton=1&estado=PUBLICADO&page=1\nRespuesta:\n{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"nombre\": \"Cascada del Pailon\",\n      \"descripcion\": \"Hermosa cascada natural...\",\n      \"latitud\": -0.5234,\n      \"longitud\": -78.1234,\n      \"canton\": \"Baños\",\n      \"clasificaciones\": [\"Naturaleza\", \"Cascada\"],\n      \"estado\": \"PUBLICADO\",\n      \"fecha_creacion\": \"2026-01-15T08:00:00Z\"\n    }\n  ],\n  \"meta\": {\n    \"pagination\": {\n      \"count\": 25,\n      \"total_pages\": 3,\n      \"page_size\": 10\n    }\n  }\n}\n\n\n4.6.2.2 POST /api/atractivos/\nCrear nuevo atractivo - Auth: Requerido (GESTOR_TURISTICO, ADMINISTRADOR) - Body: nombre, descripcion, latitud, longitud, canton_id, etc.\nEjemplo:\n{\n  \"nombre\": \"Nuevo Atractivo\",\n  \"descripcion\": \"Descripción detallada\",\n  \"latitud\": -0.5234,\n  \"longitud\": -78.1234,\n  \"canton_id\": 1,\n  \"estado\": \"BORRADOR\"\n}\n\n\n4.6.2.3 GET /api/atractivos/{id}/\nObtener detalle de atractivo - Auth: Requerido (JWT)\nRespuesta:\n{\n  \"success\": true,\n  \"data\": {\n    \"id\": 1,\n    \"nombre\": \"Cascada del Pailon\",\n    \"descripcion\": \"Hermosa cascada natural...\",\n    \"latitud\": -0.5234,\n    \"longitud\": -78.1234,\n    \"canton\": \"Baños\",\n    \"provincia\": \"Tungurahua\",\n    \"clasificaciones\": [\n      {\n        \"id\": 1,\n        \"nombre\": \"Naturaleza\",\n        \"nivel\": \"CATEGORIA\"\n      }\n    ],\n    \"servicios\": [\n      {\n        \"id\": 1,\n        \"nombre\": \"Parqueo\",\n        \"disponibilidad\": \"SIEMPRE\"\n      }\n    ],\n    \"horarios\": [\n      {\n        \"tipo\": \"NORMAL\",\n        \"hora_apertura\": \"08:00\",\n        \"hora_cierre\": \"18:00\"\n      }\n    ],\n    \"estado\": \"PUBLICADO\",\n    \"imagenes\": [\"url1.jpg\", \"url2.jpg\"],\n    \"documentos\": [\"mapa.pdf\"],\n    \"fecha_creacion\": \"2026-01-15T08:00:00Z\",\n    \"fecha_actualizacion\": \"2026-06-20T14:30:00Z\"\n  }\n}\n\n\n4.6.2.4 PUT /api/atractivos/{id}/\nActualizar atractivo - Auth: Requerido (GESTOR_TURISTICO, ADMINISTRADOR) - Body: Campos a actualizar\n\n\n4.6.2.5 DELETE /api/atractivos/{id}/\nEliminar atractivo - Auth: Requerido (ADMINISTRADOR)\n\n\n\n\n4.6.3 3. Rutas Turísticas\n\n4.6.3.1 GET /api/rutas/\nListar rutas - Auth: Requerido - Query params: canton, estado, search\n\n\n4.6.3.2 POST /api/rutas/\nCrear nueva ruta - Auth: Requerido (GESTOR_TURISTICO, ADMINISTRADOR) - Body: nombre, descripcion, atractivos[], duracion_estimada\nEjemplo:\n{\n  \"nombre\": \"Ruta de Cascadas\",\n  \"descripcion\": \"Recorrido por cascadas de la provincia\",\n  \"atractivos\": [1, 2, 3],\n  \"duracion_estimada\": 480,\n  \"dificultad\": \"MEDIA\",\n  \"estado\": \"BORRADOR\"\n}\n\n\n4.6.3.3 GET /api/rutas/{id}/\nObtener detalle de ruta\n\n\n4.6.3.4 PUT /api/rutas/{id}/\nActualizar ruta\n\n\n4.6.3.5 DELETE /api/rutas/{id}/\nEliminar ruta\n\n\n\n\n4.6.4 4. Usuarios\n\n4.6.4.1 GET /api/usuarios/\nListar usuarios - Auth: Requerido (ADMINISTRADOR) - Query params: rol, estado, search\n\n\n4.6.4.2 GET /api/usuarios/me/\nObtener datos del usuario actual - Auth: Requerido\nRespuesta:\n{\n  \"success\": true,\n  \"data\": {\n    \"id\": 1,\n    \"nombre\": \"Juan Pérez\",\n    \"email\": \"juan@ejemplo.com\",\n    \"rol\": \"GESTOR_TURISTICO\",\n    \"telefono\": \"+593999999999\",\n    \"avatar\": \"url_avatar.jpg\",\n    \"activo\": true,\n    \"fecha_creacion\": \"2026-01-01T00:00:00Z\"\n  }\n}\n\n\n4.6.4.3 PUT /api/usuarios/me/\nActualizar perfil del usuario actual - Auth: Requerido - Body: nombre, telefono, avatar\n\n\n4.6.4.4 POST /api/usuarios/cambiar-password/\nCambiar contraseña - Auth: Requerido - Body: password_actual, password_nueva, password_confirmar\n\n\n\n\n4.6.5 5. Investigación\n\n4.6.5.1 GET /api/investigacion/\nListar proyectos de investigación - Auth: Requerido - Query params: tipo, estado, search\n\n\n4.6.5.2 POST /api/investigacion/\nCrear proyecto de investigación - Auth: Requerido (INVESTIGADOR, ADMINISTRADOR) - Body: titulo, descripcion, tipo, investigador_principal\n\n\n4.6.5.3 GET /api/investigacion/{id}/\nObtener detalle de proyecto\n\n\n4.6.5.4 PUT /api/investigacion/{id}/\nActualizar proyecto\n\n\n4.6.5.5 DELETE /api/investigacion/{id}/\nEliminar proyecto\n\n\n\n\n4.6.6 6. Inventario\n\n4.6.6.1 GET /api/inventario/fichas/\nListar fichas de inventario - Auth: Requerido - Query params: canton, categoria, estado\n\n\n4.6.6.2 POST /api/inventario/importar/\nImportar fichas desde Excel - Auth: Requerido (GESTOR_TERRITORIAL, ADMINISTRADOR) - Body: Multipart form-data con archivo Excel\nHeaders:\nContent-Type: multipart/form-data\nAuthorization: Bearer [token]\n\n\n\n\n4.6.7 7. Geolocalización\n\n4.6.7.1 GET /api/geolocalizacion/cantones/\nListar cantones - Auth: Requerido - Query params: provincia\nRespuesta:\n{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"nombre\": \"Ambato\",\n      \"provincia\": \"Tungurahua\",\n      \"centroide_lat\": -1.2345,\n      \"centroide_lon\": -78.5678,\n      \"limite_norte\": -1.0,\n      \"limite_sur\": -1.5,\n      \"limite_este\": -78.0,\n      \"limite_oeste\": -79.0,\n      \"poblacion\": 387000,\n      \"area_km2\": 1123\n    }\n  ]\n}\n\n\n4.6.7.2 GET /api/geolocalizacion/provincias/\nListar provincias - Auth: Requerido",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentación de API</span>"
+    ]
+  },
+  {
+    "objectID": "_api.html#ejemplos-de-integración",
+    "href": "_api.html#ejemplos-de-integración",
+    "title": "4  Documentación de API",
+    "section": "4.7 Ejemplos de Integración",
+    "text": "4.7 Ejemplos de Integración\n\n4.7.1 JavaScript/Axios\nimport axios from 'axios';\n\nconst API_URL = 'http://localhost:8000/api';\nlet token = null;\n\n// Login\nasync function login(email, password) {\n  const response = await axios.post(`${API_URL}/usuarios/login/`, {\n    email,\n    password\n  });\n  token = response.data.data.access;\n  return response.data;\n}\n\n// Obtener atractivos\nasync function getAtractivos(page = 1, canton = null) {\n  const config = {\n    headers: { Authorization: `Bearer ${token}` }\n  };\n  const params = { page };\n  if (canton) params.canton = canton;\n  \n  const response = await axios.get(`${API_URL}/atractivos/`, { \n    ...config,\n    params\n  });\n  return response.data;\n}\n\n// Crear atractivo\nasync function createAtractivo(data) {\n  const config = {\n    headers: { Authorization: `Bearer ${token}` }\n  };\n  \n  const response = await axios.post(`${API_URL}/atractivos/`, data, config);\n  return response.data;\n}\n\n\n4.7.2 cURL\n# Login\ncurl -X POST http://localhost:8000/api/usuarios/login/ \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"email\":\"user@ejemplo.com\",\"password\":\"password123\"}'\n\n# Obtener atractivos\ncurl -X GET http://localhost:8000/api/atractivos/ \\\n  -H \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGc...\"\n\n# Crear atractivo\ncurl -X POST http://localhost:8000/api/atractivos/ \\\n  -H \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGc...\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"nombre\": \"Nuevo Atractivo\",\n    \"descripcion\": \"Descripción\",\n    \"latitud\": -0.5234,\n    \"longitud\": -78.1234,\n    \"canton_id\": 1\n  }'",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentación de API</span>"
+    ]
+  },
+  {
+    "objectID": "_api.html#paginación",
+    "href": "_api.html#paginación",
+    "title": "4  Documentación de API",
+    "section": "4.8 Paginación",
+    "text": "4.8 Paginación\nLa mayoría de endpoints que retornan listas soportan paginación.\nQuery parameters: - page: Número de página (default: 1) - page_size: Resultados por página (default: 10, máximo: 100)\nEjemplo:\nGET /api/atractivos/?page=2&page_size=20\nMeta information:\n\"meta\": {\n  \"pagination\": {\n    \"count\": 50,\n    \"total_pages\": 3,\n    \"page_size\": 20,\n    \"next\": \"http://localhost:8000/api/atractivos/?page=3\",\n    \"previous\": \"http://localhost:8000/api/atractivos/?page=1\"\n  }\n}",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentación de API</span>"
+    ]
+  },
+  {
+    "objectID": "_api.html#filtrado-y-búsqueda",
+    "href": "_api.html#filtrado-y-búsqueda",
+    "title": "4  Documentación de API",
+    "section": "4.9 Filtrado y Búsqueda",
+    "text": "4.9 Filtrado y Búsqueda\nLa mayoría de endpoints soportan filtrado y búsqueda.\nFiltrado:\nGET /api/atractivos/?canton=1&estado=PUBLICADO\nBúsqueda de texto:\nGET /api/atractivos/?search=cascada",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentación de API</span>"
+    ]
+  },
+  {
+    "objectID": "_api.html#rate-limiting",
+    "href": "_api.html#rate-limiting",
+    "title": "4  Documentación de API",
+    "section": "4.10 Rate Limiting",
+    "text": "4.10 Rate Limiting\nEl sistema implementa rate limiting para prevenir abuso: - Límite: 1000 requests por hora por usuario - Header: X-RateLimit-Remaining",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentación de API</span>"
+    ]
+  },
+  {
+    "objectID": "_guia_desarrollador.html",
+    "href": "_guia_desarrollador.html",
+    "title": "6  Guía del Desarrollador",
+    "section": "",
+    "text": "6.1 Introducción para Desarrolladores\nEsta guía está dirigida a desarrolladores que deseen: - Entender la arquitectura interna del sistema - Contribuir con nuevas funcionalidades - Mantener y actualizar el código - Realizar debugging y testing",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Guía del Desarrollador</span>"
+    ]
+  },
+  {
+    "objectID": "_guia_desarrollador.html#stack-tecnológico-completo",
+    "href": "_guia_desarrollador.html#stack-tecnológico-completo",
+    "title": "6  Guía del Desarrollador",
+    "section": "6.2 Stack Tecnológico Completo",
+    "text": "6.2 Stack Tecnológico Completo\n\n6.2.1 Backend\n\nFramework: Django 6.0.4\nAPI: Django REST Framework (DRF)\nAutenticación: djangorestframework-simplejwt\nDocumentación API: drf-spectacular\nORM: Django ORM\nBase de Datos: SQLite\nBase de Datos (Producción): PostgreSQL (recomendado)\nValidación: Django Serializers\nTesting: Django TestCase, pytest\n\n\n\n6.2.2 Frontend\n\nLibrería: React 18.3.1\nEnrutamiento: React Router DOM 6.30.0\nHTTP Client: Axios 1.9.0\nCSS Framework: Tailwind CSS 3.4.17\nBundler: Vite 6.3.0\nPostCSS: Para procesamiento de estilos\nTesting: Vitest, React Testing Library",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Guía del Desarrollador</span>"
+    ]
+  },
+  {
+    "objectID": "_guia_desarrollador.html#estructura-del-código",
+    "href": "_guia_desarrollador.html#estructura-del-código",
+    "title": "6  Guía del Desarrollador",
+    "section": "6.3 Estructura del Código",
+    "text": "6.3 Estructura del Código\n\n6.3.1 Backend Django\nTurismo/\n├── config/                      # Configuración de Django\n│   ├── settings.py             # Configuración principal\n│   ├── urls.py                 # URLs globales\n│   ├── asgi.py                 # ASGI (WebSockets)\n│   └── wsgi.py                 # WSGI (Producción)\n│\n├── apps/                        # Aplicaciones Django\n│   ├── usuarios/               # App de usuarios\n│   │   ├── models.py          # Modelos de base datos\n│   │   ├── views.py           # Vistas/Endpoints\n│   │   ├── serializers.py      # Validación y transformación\n│   │   ├── services.py         # Lógica de negocio\n│   │   ├── urls.py            # URLs de la app\n│   │   ├── tests.py           # Tests unitarios\n│   │   └── migrations/         # Cambios de DB\n│   │\n│   ├── atractivos/            # App de atractivos\n│   │   ├── models.py\n│   │   ├── views.py\n│   │   ├── serializers.py\n│   │   ├── services.py\n│   │   ├── urls.py\n│   │   ├── tests.py\n│   │   └── migrations/\n│   │\n│   ├── geolocalizacion/       # App de geolocalización\n│   ├── inventario/             # App de inventario\n│   └── investigacion/          # App de investigación\n│\n├── core/                        # Módulos compartidos\n│   ├── api.py                 # Funciones auxiliares de API\n│   ├── exceptions.py          # Excepciones personalizadas\n│   └── permissions.py         # Permisos y validaciones\n│\n├── templates/                   # Templates HTML\n│   └── frontend_react/          # Frontend React (SPA)\n│       ├── src/\n│       │   ├── components/     # Componentes reutilizables\n│       │   ├── pages/          # Páginas/Vistas\n│       │   ├── routes/         # Configuración de rutas\n│       │   ├── services/       # Servicios API\n│       │   ├── hooks/          # Custom React Hooks\n│       │   ├── contexts/       # Context API\n│       │   ├── utils/          # Funciones utilitarias\n│       │   └── App.jsx         # Componente raíz\n│       └── public/             # Archivos estáticos\n│\n├── manage.py                    # Comando CLI de Django\n├── db.sqlite3                  # Base de datos\n└── requirements.txt            # Dependencias Python",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Guía del Desarrollador</span>"
+    ]
+  },
+  {
+    "objectID": "_guia_desarrollador.html#conceptos-clave-de-arquitectura",
+    "href": "_guia_desarrollador.html#conceptos-clave-de-arquitectura",
+    "title": "6  Guía del Desarrollador",
+    "section": "6.4 Conceptos Clave de Arquitectura",
+    "text": "6.4 Conceptos Clave de Arquitectura\n\n6.4.1 1. Models (Modelos de Datos)\nUbicación: apps/*/models.py\nLos modelos definen la estructura de datos. Ejemplo:\nfrom django.db import models\n\nclass AtractivoTuristico(models.Model):\n    nombre = models.CharField(max_length=255)\n    descripcion = models.TextField()\n    latitud = models.FloatField()\n    longitud = models.FloatField()\n    canton = models.ForeignKey(\n        Canton, \n        on_delete=models.CASCADE\n    )\n    estado = models.CharField(\n        max_length=20,\n        choices=EstadoAtractivo.choices\n    )\n    fecha_creacion = models.DateTimeField(auto_now_add=True)\n    \n    class Meta:\n        ordering = ['-fecha_creacion']\n        verbose_name_plural = \"Atractivos Turísticos\"\n    \n    def __str__(self):\n        return self.nombre\nCaracterísticas: - Hereda de models.Model - Cada atributo es un campo - Relaciones via ForeignKey, ManyToManyField - Metadata en clase Meta - Método __str__ para representación\n\n\n6.4.2 2. Serializers (Validación y Transformación)\nUbicación: apps/*/serializers.py\nSerializadores convierten modelos a JSON y validan datos:\nfrom rest_framework import serializers\nfrom .models import AtractivoTuristico\n\nclass AtractivoSerializer(serializers.ModelSerializer):\n    clasificaciones = serializers.StringRelatedField(\n        many=True, \n        read_only=True\n    )\n    \n    class Meta:\n        model = AtractivoTuristico\n        fields = [\n            'id', 'nombre', 'descripcion',\n            'latitud', 'longitud', 'estado',\n            'clasificaciones', 'fecha_creacion'\n        ]\n        read_only_fields = ['id', 'fecha_creacion']\n    \n    def validate_nombre(self, value):\n        if len(value) &lt; 5:\n            raise serializers.ValidationError(\n                \"El nombre debe tener mínimo 5 caracteres\"\n            )\n        return value\nCaracterísticas: - Hereda de serializers.ModelSerializer - Especifica modelo y campos en Meta - Métodos validate_* para validación - Read-only fields para campos de solo lectura\n\n\n6.4.3 3. Views (Endpoints HTTP)\nUbicación: apps/*/views.py\nLas views manejan requests HTTP:\nfrom rest_framework import viewsets, status\nfrom rest_framework.decorators import action\nfrom rest_framework.response import Response\nfrom .models import AtractivoTuristico\nfrom .serializers import AtractivoSerializer\n\nclass AtractivoViewSet(viewsets.ModelViewSet):\n    queryset = AtractivoTuristico.objects.all()\n    serializer_class = AtractivoSerializer\n    \n    def get_queryset(self):\n        # Filtrar por cantón si se proporciona\n        canton = self.request.query_params.get('canton')\n        queryset = super().get_queryset()\n        if canton:\n            queryset = queryset.filter(canton_id=canton)\n        return queryset\n    \n    @action(detail=True, methods=['post'])\n    def enviar_revision(self, request, pk=None):\n        \"\"\"Cambiar estado a REVISION\"\"\"\n        atractivo = self.get_object()\n        atractivo.estado = 'REVISION'\n        atractivo.save()\n        return Response({\n            'status': 'Atractivo enviado a revisión'\n        })\nCaracterísticas: - ModelViewSet proporciona CRUD automático - get_queryset() para filtrado personalizado - Decorador @action para endpoints custom - Retorna respuestas JSON\n\n\n6.4.4 4. Services (Lógica de Negocio)\nUbicación: apps/*/services.py\nLos servicios contienen la lógica de negocio, separados de views:\nfrom django.db import transaction\nfrom .models import AtractivoTuristico\n\nclass AtractivoService:\n    @staticmethod\n    def crear_atractivo(datos):\n        \"\"\"Crear atractivo con validaciones de negocio\"\"\"\n        try:\n            atractivo = AtractivoTuristico.objects.create(**datos)\n            return atractivo\n        except Exception as e:\n            raise AtractivoServiceException(str(e))\n    \n    @staticmethod\n    def publicar_atractivo(atractivo_id):\n        \"\"\"Cambiar estado a PUBLICADO\"\"\"\n        atractivo = AtractivoTuristico.objects.get(id=atractivo_id)\n        atractivo.estado = 'PUBLICADO'\n        atractivo.save()\n        return atractivo\n    \n    @staticmethod\n    def obtener_atractivos_por_canton(canton_id):\n        \"\"\"Obtener atractivos de un cantón\"\"\"\n        return AtractivoTuristico.objects.filter(\n            canton_id=canton_id,\n            estado='PUBLICADO'\n        )\nVentajas: - Reutilización de lógica - Testing más fácil - Cambios centralizados - Separación de responsabilidades",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Guía del Desarrollador</span>"
+    ]
+  },
+  {
+    "objectID": "_guia_desarrollador.html#autenticación-y-autorización",
+    "href": "_guia_desarrollador.html#autenticación-y-autorización",
+    "title": "6  Guía del Desarrollador",
+    "section": "6.5 Autenticación y Autorización",
+    "text": "6.5 Autenticación y Autorización\n\n6.5.1 JWT (JSON Web Tokens)\nEl sistema usa JWT para autenticación:\n# En urls.py\nfrom rest_framework_simplejwt.views import (\n    TokenObtainPairView,\n    TokenRefreshView,\n)\n\nurlpatterns = [\n    path('api/token/', TokenObtainPairView.as_view()),\n    path('api/token/refresh/', TokenRefreshView.as_view()),\n]\n\n\n6.5.2 Permisos\nLos permisos se definen en core/permissions.py:\nfrom rest_framework.permissions import BasePermission\n\nclass EsGestorTuristico(BasePermission):\n    def has_permission(self, request, view):\n        return request.user.rol == 'GESTOR_TURISTICO'\n\nclass EsAdministrador(BasePermission):\n    def has_permission(self, request, view):\n        return request.user.rol == 'ADMINISTRADOR'\nUsar en views:\nclass AtractivoViewSet(viewsets.ModelViewSet):\n    permission_classes = [EsGestorTuristico]",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Guía del Desarrollador</span>"
+    ]
+  },
+  {
+    "objectID": "_guia_desarrollador.html#frontend-react---estructura",
+    "href": "_guia_desarrollador.html#frontend-react---estructura",
+    "title": "6  Guía del Desarrollador",
+    "section": "6.6 Frontend React - Estructura",
+    "text": "6.6 Frontend React - Estructura\n\n6.6.1 Componentes\nUbicación: src/components/\n// components/AtractiveCard.jsx\nimport React from 'react';\n\nexport function AtractiveCard({ atractivo }) {\n  return (\n    &lt;div className=\"bg-white rounded-lg shadow p-4\"&gt;\n      &lt;h2 className=\"text-xl font-bold\"&gt;{atractivo.nombre}&lt;/h2&gt;\n      &lt;p className=\"text-gray-600\"&gt;{atractivo.descripcion}&lt;/p&gt;\n      &lt;div className=\"mt-4 flex gap-2\"&gt;\n        &lt;button className=\"btn-primary\"&gt;Ver Detalle&lt;/button&gt;\n        &lt;button className=\"btn-secondary\"&gt;Compartir&lt;/button&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n  );\n}\nComposición: - Componentes pequeños y reutilizables - Props para entrada de datos - Estilos con Tailwind CSS\n\n\n6.6.2 Páginas\nUbicación: src/pages/\n// pages/AtractivesList.jsx\nimport React, { useState, useEffect } from 'react';\nimport { AtractiveCard } from '../components/AtractiveCard';\nimport { getAtractivos } from '../services/api';\n\nexport function AtractivesList() {\n  const [atractivos, setAtractivos] = useState([]);\n  const [loading, setLoading] = useState(true);\n  \n  useEffect(() =&gt; {\n    const loadAtractivos = async () =&gt; {\n      try {\n        const data = await getAtractivos();\n        setAtractivos(data);\n      } catch (error) {\n        console.error('Error:', error);\n      } finally {\n        setLoading(false);\n      }\n    };\n    \n    loadAtractivos();\n  }, []);\n  \n  if (loading) return &lt;div&gt;Cargando...&lt;/div&gt;;\n  \n  return (\n    &lt;div className=\"grid grid-cols-3 gap-4\"&gt;\n      {atractivos.map(att =&gt; (\n        &lt;AtractiveCard key={att.id} atractivo={att} /&gt;\n      ))}\n    &lt;/div&gt;\n  );\n}\n\n\n6.6.3 Servicios API\nUbicación: src/services/\n// services/api.js\nimport axios from 'axios';\n\nconst API_URL = import.meta.env.VITE_API_URL;\nconst client = axios.create({ baseURL: API_URL });\n\n// Interceptor para JWT\nclient.interceptors.request.use(config =&gt; {\n  const token = localStorage.getItem('access_token');\n  if (token) {\n    config.headers.Authorization = `Bearer ${token}`;\n  }\n  return config;\n});\n\nexport async function getAtractivos(params = {}) {\n  const response = await client.get('/atractivos/', { params });\n  return response.data.data;\n}\n\nexport async function createAtractivo(data) {\n  const response = await client.post('/atractivos/', data);\n  return response.data.data;\n}\n\n\n6.6.4 Context API (Estado Global)\nUbicación: src/contexts/\n// contexts/AuthContext.jsx\nimport React, { createContext, useState } from 'react';\n\nexport const AuthContext = createContext();\n\nexport function AuthProvider({ children }) {\n  const [user, setUser] = useState(null);\n  const [token, setToken] = useState(localStorage.getItem('access_token'));\n  \n  const login = async (email, password) =&gt; {\n    const response = await fetch(`${API_URL}/usuarios/login/`, {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({ email, password })\n    });\n    \n    const data = await response.json();\n    setToken(data.data.access);\n    setUser(data.data.usuario);\n    localStorage.setItem('access_token', data.data.access);\n  };\n  \n  return (\n    &lt;AuthContext.Provider value={{ user, token, login }}&gt;\n      {children}\n    &lt;/AuthContext.Provider&gt;\n  );\n}",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Guía del Desarrollador</span>"
+    ]
+  },
+  {
+    "objectID": "_guia_desarrollador.html#testing",
+    "href": "_guia_desarrollador.html#testing",
+    "title": "6  Guía del Desarrollador",
+    "section": "6.7 Testing",
+    "text": "6.7 Testing\n\n6.7.1 Backend - Tests Unitarios\nUbicación: apps/*/tests.py\nfrom django.test import TestCase\nfrom rest_framework.test import APIClient\nfrom .models import AtractivoTuristico\n\nclass AtractivoTestCase(TestCase):\n    def setUp(self):\n        self.client = APIClient()\n        self.atractivo = AtractivoTuristico.objects.create(\n            nombre=\"Test Atractivo\",\n            descripcion=\"Descripción test\",\n            latitud=-0.5,\n            longitud=-78.5\n        )\n    \n    def test_crear_atractivo(self):\n        \"\"\"Test para crear atractivo\"\"\"\n        response = self.client.post('/api/atractivos/', {\n            'nombre': 'Nuevo Atractivo',\n            'descripcion': 'Descripción',\n            'latitud': -0.5,\n            'longitud': -78.5\n        })\n        self.assertEqual(response.status_code, 201)\n    \n    def test_listar_atractivos(self):\n        \"\"\"Test para listar atractivos\"\"\"\n        response = self.client.get('/api/atractivos/')\n        self.assertEqual(response.status_code, 200)\n        self.assertGreater(len(response.data['data']), 0)\nEjecutar tests:\npython manage.py test\n\n\n6.7.2 Frontend - Tests\nUbicación: src/**/*.test.jsx\n// components/__tests__/AtractiveCard.test.jsx\nimport { render, screen } from '@testing-library/react';\nimport { AtractiveCard } from '../AtractiveCard';\n\ndescribe('AtractiveCard', () =&gt; {\n  it('debe renderizar información del atractivo', () =&gt; {\n    const atractivo = {\n      id: 1,\n      nombre: 'Cascada',\n      descripcion: 'Hermosa cascada'\n    };\n    \n    render(&lt;AtractiveCard atractivo={atractivo} /&gt;);\n    \n    expect(screen.getByText('Cascada')).toBeInTheDocument();\n    expect(screen.getByText('Hermosa cascada')).toBeInTheDocument();\n  });\n});\nEjecutar tests:\nnpm run test",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Guía del Desarrollador</span>"
+    ]
+  },
+  {
+    "objectID": "_guia_desarrollador.html#workflow-de-desarrollo",
+    "href": "_guia_desarrollador.html#workflow-de-desarrollo",
+    "title": "6  Guía del Desarrollador",
+    "section": "6.8 Workflow de Desarrollo",
+    "text": "6.8 Workflow de Desarrollo\n\n6.8.1 1. Crear Nueva Funcionalidad\n# 1. Crear rama para la funcionalidad\ngit checkout -b feature/nueva-funcionalidad\n\n# 2. Realizar cambios\n# - Crear/editar modelos\n# - Crear vistas\n# - Crear serializers\n# - Crear tests\n\n# 3. Ejecutar tests\npython manage.py test\nnpm run test\n\n# 4. Hacer commit\ngit add .\ngit commit -m \"Feat: descripción de cambios\"\n\n# 5. Push y hacer pull request\ngit push origin feature/nueva-funcionalidad\n\n\n6.8.2 2. Crear Nueva Aplicación Django\n# 1. Crear app\npython manage.py startapp mi_app\n\n# 2. Editar models.py\n# 3. Crear migrations\npython manage.py makemigrations\n\n# 4. Aplicar migraciones\npython manage.py migrate\n\n# 5. Registrar en settings.py\nINSTALLED_APPS = [\n    ...\n    'apps.mi_app',\n]\n\n\n6.8.3 3. Agregar Nuevos Campos a Modelo\n# 1. Editar model en models.py\nclass AtractivoTuristico(models.Model):\n    nombre = models.CharField(max_length=255)\n    nuevo_campo = models.CharField(max_length=100)  # Nuevo\n\n# 2. Crear migración\npython manage.py makemigrations\n\n# 3. Aplicar migración\npython manage.py migrate",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Guía del Desarrollador</span>"
+    ]
+  },
+  {
+    "objectID": "_guia_desarrollador.html#debugging",
+    "href": "_guia_desarrollador.html#debugging",
+    "title": "6  Guía del Desarrollador",
+    "section": "6.9 Debugging",
+    "text": "6.9 Debugging\n\n6.9.1 Backend\nUsar Django Shell:\npython manage.py shell\n\n&gt;&gt;&gt; from apps.atractivos.models import AtractivoTuristico\n&gt;&gt;&gt; atractivos = AtractivoTuristico.objects.all()\n&gt;&gt;&gt; for a in atractivos:\n...     print(a.nombre)\nLogging:\nimport logging\n\nlogger = logging.getLogger(__name__)\nlogger.info(\"Información importante\")\nlogger.error(\"Error ocurrido\")\n\n\n6.9.2 Frontend\nUsar DevTools del Navegador: - Abre Developer Tools (F12) - Ve a pestaña Console - Ve a pestaña Network para ver requests - Ve a pestaña Elements para ver HTML\nLogging en React:\nconsole.log(\"Información:\", data);\nconsole.error(\"Error:\", error);\nconsole.warn(\"Advertencia\");",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Guía del Desarrollador</span>"
+    ]
+  },
+  {
+    "objectID": "_guia_desarrollador.html#performance-y-optimización",
+    "href": "_guia_desarrollador.html#performance-y-optimización",
+    "title": "6  Guía del Desarrollador",
+    "section": "6.10 Performance y Optimización",
+    "text": "6.10 Performance y Optimización\n\n6.10.1 Backend\n\nÍndices en Base de Datos:\n\nclass AtractivoTuristico(models.Model):\n    nombre = models.CharField(max_length=255, db_index=True)\n    canton = models.ForeignKey(Canton, db_index=True)\n\nQueries Optimizadas:\n\n# Mal (N+1 queries)\natractivos = AtractivoTuristico.objects.all()\nfor a in atractivos:\n    print(a.canton.nombre)  # Query por cada uno\n\n# Bien (Una query)\natractivos = AtractivoTuristico.objects.select_related('canton')\n\nCaché:\n\nfrom django.views.decorators.cache import cache_page\n\n@cache_page(60 * 15)  # Cache por 15 minutos\ndef get_atractivos(request):\n    ...\n\n\n6.10.2 Frontend\n\nCode Splitting:\n\nconst AtractivesList = React.lazy(() =&gt; \n  import('./pages/AtractivesList')\n);\n\nMemoización:\n\nconst AtractiveCard = React.memo(({ atractivo }) =&gt; {\n  return &lt;div&gt;{atractivo.nombre}&lt;/div&gt;;\n});",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Guía del Desarrollador</span>"
+    ]
+  },
+  {
+    "objectID": "_guia_desarrollador.html#deployment",
+    "href": "_guia_desarrollador.html#deployment",
+    "title": "6  Guía del Desarrollador",
+    "section": "6.11 Deployment",
+    "text": "6.11 Deployment\n\n6.11.1 Producción - Backend\n# 1. Configurar settings.py\nDEBUG = False\nALLOWED_HOSTS = ['dominio.com']\n\n# 2. Usar PostgreSQL\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'pit_db',\n        'USER': 'usuario',\n        'PASSWORD': 'contraseña',\n        'HOST': 'localhost',\n        'PORT': '5432',\n    }\n}\n\n# 3. Ejecutar migraciones\npython manage.py migrate\n\n# 4. Crear superusuario\npython manage.py createsuperuser\n\n# 5. Usar gunicorn para servir\npip install gunicorn\ngunicorn config.wsgi:application\n\n\n6.11.2 Producción - Frontend\n# 1. Build optimizado\nnpm run build\n\n# 2. Servir con nginx\n# Copiar carpeta dist/ a servidor nginx\n# Configurar nginx para servir archivos estáticos",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Guía del Desarrollador</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html",
+    "href": "_glosario.html",
+    "title": "7  Glosario de Términos",
+    "section": "",
+    "text": "7.1 A",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#a",
+    "href": "_glosario.html#a",
+    "title": "7  Glosario de Términos",
+    "section": "",
+    "text": "Admin/Administrador\n\nUsuario con permisos máximos en el sistema. Puede gestionar usuarios, aprobar cambios, y acceder a todas las funcionalidades.\n\nAPI (Application Programming Interface)\n\nInterfaz de programación que permite que diferentes aplicaciones se comuniquen entre sí. En PIT, es la API REST que conecta Frontend con Backend.\n\nAtractivo Turístico\n\nLugar, sitio o actividad de interés turístico que puede ser visitado por turistas. Registrado en la plataforma con información geolocalizada.\n\nAutenticación\n\nProceso de verificar la identidad del usuario mediante usuario y contraseña. En PIT se usa JWT (tokens).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#b",
+    "href": "_glosario.html#b",
+    "title": "7  Glosario de Términos",
+    "section": "7.2 B",
+    "text": "7.2 B\n\nBackend\n\nParte del sistema que procesa datos, ejecuta lógica de negocio y gestiona la base de datos. En PIT: Django REST Framework.\n\nBorrador\n\nEstado inicial de un atractivo o ruta. No es visible al público, permite edición continua.\n\nBundle\n\nArchivo compilado del frontend que contiene todos los recursos (JavaScript, CSS, imágenes) empaquetados para producción.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#c",
+    "href": "_glosario.html#c",
+    "title": "7  Glosario de Términos",
+    "section": "7.3 C",
+    "text": "7.3 C\n\nCantón\n\nDivisión territorial administrativa de una provincia. Usado para clasificar y filtrar atractivos.\n\nClasificación\n\nCategoría asignada a un atractivo (Ej: Naturaleza, Cultura, Aventura). Un atractivo puede tener múltiples.\n\nCORS (Cross-Origin Resource Sharing)\n\nMecanismo que permite que aplicaciones en diferentes dominios se comuniquen. Necesario para conectar Frontend con Backend.\n\nCRUD\n\nAcrónimo para Create (crear), Read (leer), Update (actualizar), Delete (eliminar). Operaciones básicas en datos.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#d",
+    "href": "_glosario.html#d",
+    "title": "7  Glosario de Términos",
+    "section": "7.4 D",
+    "text": "7.4 D\n\nDashboard\n\nPanel de control que muestra información resumida y estadísticas del sistema.\n\nDjango\n\nFramework de Python para desarrollo web. Usado como base del Backend de PIT.\n\nDRF (Django REST Framework)\n\nLibrería que extiende Django para crear APIs REST de manera fácil. Usada para los endpoints de PIT.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#e",
+    "href": "_glosario.html#e",
+    "title": "7  Glosario de Términos",
+    "section": "7.5 E",
+    "text": "7.5 E\n\nEndpoint\n\nURL específica de la API que realiza una acción. Ej: /api/atractivos/ es un endpoint.\n\nEstado\n\nCondición de un contenido. Estados posibles: BORRADOR, REVISION, PUBLICADO, ARCHIVADO.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#f",
+    "href": "_glosario.html#f",
+    "title": "7  Glosario de Términos",
+    "section": "7.6 F",
+    "text": "7.6 F\n\nFrontend\n\nInterfaz de usuario que ves en el navegador. En PIT: React con Tailwind CSS.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#g",
+    "href": "_glosario.html#g",
+    "title": "7  Glosario de Términos",
+    "section": "7.7 G",
+    "text": "7.7 G\n\nGestor Territorial\n\nUsuario que gestiona información geográfica y administrativa (cantones, provincias, ubicaciones).\n\nGestor Turístico\n\nUsuario que crea y edita atractivos y rutas turísticas.\n\nGeolocalización\n\nInformación de ubicación geográfica (latitud, longitud, coordenadas). Usada para posicionar atractivos en mapas.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#h",
+    "href": "_glosario.html#h",
+    "title": "7  Glosario de Términos",
+    "section": "7.8 H",
+    "text": "7.8 H\n\nHorario\n\nInformación sobre cuándo está abierto un atractivo. Puede variar por tipo (normal, fines de semana, feriados).\n\nHTTP\n\nProtocolo de comunicación entre navegadores y servidores. HTTPS es la versión segura (con encriptación).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#i",
+    "href": "_glosario.html#i",
+    "title": "7  Glosario de Términos",
+    "section": "7.9 I",
+    "text": "7.9 I\n\nInvestigación/Investigador\n\nUsuario que registra y publica proyectos de investigación y sus resultados.\n\nInventario\n\nCatálogo de fichas digitales de atractivos turísticos. Puede importarse desde archivos Excel.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#j",
+    "href": "_glosario.html#j",
+    "title": "7  Glosario de Términos",
+    "section": "7.10 J",
+    "text": "7.10 J\n\nJWT (JSON Web Token)\n\nSistema de autenticación usando tokens encriptados. Usuario recibe token al logarse y lo usa en todas las solicitudes.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#l",
+    "href": "_glosario.html#l",
+    "title": "7  Glosario de Términos",
+    "section": "7.11 L",
+    "text": "7.11 L\n\nLatitud\n\nCoordenada geográfica que indica posición norte-sur (rango: -90 a 90 grados).\n\nLeaflet\n\nLibrería JavaScript para crear mapas interactivos. Potencialmente usada en PIT.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#m",
+    "href": "_glosario.html#m",
+    "title": "7  Glosario de Términos",
+    "section": "7.12 M",
+    "text": "7.12 M\n\nMapas Interactivos\n\nVisualización geográfica donde se pueden ver atractivos, hacer zoom, panear, etc.\n\nMeta\n\nInformación adicional en respuestas API (paginación, timestamps, versión, etc.).\n\nMigración\n\nScript que define cambios a la estructura de base de datos. Permite versionar cambios de schema.\n\nModelViewSet\n\nClase de Django REST Framework que proporciona automáticamente CRUD para un modelo.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#n",
+    "href": "_glosario.html#n",
+    "title": "7  Glosario de Términos",
+    "section": "7.13 N",
+    "text": "7.13 N\n\nNivel de Accesibilidad\n\nIndica si un atractivo es de acceso LIBRE, RESTRINGIDO o PAGADO.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#o",
+    "href": "_glosario.html#o",
+    "title": "7  Glosario de Términos",
+    "section": "7.14 O",
+    "text": "7.14 O\n\nORM (Object-Relational Mapping)\n\nTécnica que permite interactuar con base de datos usando objetos Python en lugar de SQL directo. Django usa ORM.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#p",
+    "href": "_glosario.html#p",
+    "title": "7  Glosario de Términos",
+    "section": "7.15 P",
+    "text": "7.15 P\n\nPaginación\n\nDivisión de resultados en páginas. Mejora performance y UX. Ej: 10 resultados por página.\n\nPermisos\n\nEspecificación de qué acciones puede realizar cada usuario según su rol.\n\nPersona\n\nEntidad base que representa un usuario en el sistema. Puede tener información de perfil, email, teléfono.\n\nPayload\n\nDatos principales en una solicitud o respuesta HTTP (no incluye headers ni metadatos).\n\nPostgreSQL\n\nSistema de base de datos relacional profesional. Recomendado para producción en lugar de SQLite.\n\nProvincia\n\nRegión administrativa que contiene múltiples cantones. Ej: Tungurahua.\n\nPublicado\n\nEstado de un contenido que es visible al público y no puede ser editado sin cambiar estado primero.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#q",
+    "href": "_glosario.html#q",
+    "title": "7  Glosario de Términos",
+    "section": "7.16 Q",
+    "text": "7.16 Q\n\nQuery\n\nSolicitud para obtener datos de base de datos. Ej: “Traer todos los atractivos del cantón Ambato”.\n\nQuarto\n\nFormato de documento que permite combinar código, resultados, texto y visualizaciones. Usado para esta documentación.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#r",
+    "href": "_glosario.html#r",
+    "title": "7  Glosario de Términos",
+    "section": "7.17 R",
+    "text": "7.17 R\n\nReact\n\nLibrería de JavaScript de Facebook para crear interfaces de usuario interactivas. Usada en el Frontend.\n\nRevisión\n\nEstado intermedio. Contenido en revisión aguarda aprobación del administrador.\n\nRol\n\nTipo de usuario que determina qué puede hacer. Ej: Turista, Gestor Turístico, Administrador.\n\nRuta Turística\n\nRecorrido que conecta múltiples atractivos en una secuencia específica. Incluye información de duración y dificultad.\n\nREST (Representational State Transfer)\n\nArquitectura para diseñar APIs web. Usa métodos HTTP (GET, POST, PUT, DELETE) sobre recursos.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#s",
+    "href": "_glosario.html#s",
+    "title": "7  Glosario de Términos",
+    "section": "7.18 S",
+    "text": "7.18 S\n\nSerializer\n\nComponente que convierte objetos Python a JSON y valida datos de entrada.\n\nServicio\n\nFacilidad disponible en un atractivo (parqueo, restaurante, baños, guía, etc.).\n\nSQLite\n\nSistema de base de datos simple y embebido. Usado para desarrollo. No recomendado para producción.\n\nState Management\n\nSistema para gestionar estado global de la aplicación React (Context API, Redux, etc.).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#t",
+    "href": "_glosario.html#t",
+    "title": "7  Glosario de Términos",
+    "section": "7.19 T",
+    "text": "7.19 T\n\nTailwind CSS\n\nFramework de CSS utilitario para estilos rápidos sin escribir CSS tradicional.\n\nTemplate\n\nArchivo HTML que define estructura. En PIT también contiene el Frontend React.\n\nToken\n\nCadena encriptada que prueba autenticación del usuario. Enviado en cada request.\n\nTurista\n\nUsuario final que consulta información turística. Tiene acceso de solo lectura.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#u",
+    "href": "_glosario.html#u",
+    "title": "7  Glosario de Términos",
+    "section": "7.20 U",
+    "text": "7.20 U\n\nURL (Uniform Resource Locator)\n\nDirección de un recurso en internet. Ej: http://localhost:8000/api/atractivos/\n\nUbicación\n\nInformación geográfica de un atractivo (latitud, longitud, dirección).\n\nUUID (Universally Unique Identifier)\n\nIdentificador único global, a menudo usado en lugar de IDs numéricos simples.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#v",
+    "href": "_glosario.html#v",
+    "title": "7  Glosario de Términos",
+    "section": "7.21 V",
+    "text": "7.21 V\n\nValidación\n\nProceso de verificar que datos enviados cumplen con reglas (formato correcto, campos obligatorios, etc.).\n\nView\n\nEn Django, componente que maneja lógica de un endpoint HTTP.\n\nVite\n\nHerramienta moderna de construcción (bundler) para proyectos web. Más rápida que Webpack.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#w",
+    "href": "_glosario.html#w",
+    "title": "7  Glosario de Términos",
+    "section": "7.22 W",
+    "text": "7.22 W\n\nWebhook\n\nLlamada HTTP automática que se dispara cuando ocurre un evento.\n\nWebSocket\n\nProtocolo para comunicación bidireccional en tiempo real entre cliente y servidor.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#z",
+    "href": "_glosario.html#z",
+    "title": "7  Glosario de Términos",
+    "section": "7.23 Z",
+    "text": "7.23 Z\n\nZoom\n\nFunción de mapas para acercarse o alejarse de un área.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "_glosario.html#acrónimos-comunes",
+    "href": "_glosario.html#acrónimos-comunes",
+    "title": "7  Glosario de Términos",
+    "section": "7.24 Acrónimos Comunes",
+    "text": "7.24 Acrónimos Comunes\n\n\n\nAcrónimo\nSignificado\n\n\n\n\nAPI\nApplication Programming Interface\n\n\nCRUD\nCreate, Read, Update, Delete\n\n\nCORS\nCross-Origin Resource Sharing\n\n\nCSV\nComma-Separated Values\n\n\nDB\nDatabase\n\n\nDRF\nDjango REST Framework\n\n\nHTML\nHyperText Markup Language\n\n\nHTTP\nHyperText Transfer Protocol\n\n\nJWT\nJSON Web Token\n\n\nJSON\nJavaScript Object Notation\n\n\nORM\nObject-Relational Mapping\n\n\nPDF\nPortable Document Format\n\n\nREST\nRepresentational State Transfer\n\n\nSQL\nStructured Query Language\n\n\nSPA\nSingle Page Application\n\n\nURL\nUniform Resource Locator\n\n\nUUID\nUniversally Unique Identifier\n\n\nXML\neXtensible Markup Language",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Glosario de Términos</span>"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "",
+    "text": "1 Introducción\nPIT (Plataforma Interactiva de Turismo) es un sistema integral de gestión y visualización de información turística georreferenciada para provincias. El sistema integra un poderoso backend basado en Django REST Framework con un frontend moderno construido en React, permitiendo que administradores, gestores territoriales, investigadores y turistas interactúen con información turística de manera intuitiva y eficiente.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#características-principales",
+    "href": "index.html#características-principales",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "1.1 Características Principales",
+    "text": "1.1 Características Principales\n\n🗺️ Mapas Interactivos: Visualización geoespacial de atractivos turísticos\n🎯 Gestión de Atractivos: Registro, edición y publicación de atractivos georreferenciados\n🛣️ Rutas Turísticas: Creación y gestión de rutas temáticas\n📊 Inventario Digital: Gestión completa de fichas de inventario turístico\n👥 Gestión de Usuarios: Control de acceso basado en roles y permisos\n🔍 Búsquedas Avanzadas: Filtros por cantón, categoría, servicio y más\n📱 Responsive Design: Compatible con navegadores y dispositivos móviles\n🔐 Autenticación JWT: Sistema de seguridad basado en tokens JWT",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#estructura-de-la-documentación",
+    "href": "index.html#estructura-de-la-documentación",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "1.2 Estructura de la Documentación",
+    "text": "1.2 Estructura de la Documentación\nEste documento está organizado en los siguientes apartados:\n\nArquitectura del Sistema - Descripción de la arquitectura general\nGuía de Instalación - Pasos para instalar y configurar el sistema\nDocumentación de la API - Endpoints, modelos de datos y ejemplos\nGuía de Usuario - Manual de uso para los diferentes tipos de usuarios\nGuía del Desarrollador - Información técnica para desarrolladores",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#información-del-sistema",
+    "href": "index.html#información-del-sistema",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "1.3 Información del Sistema",
+    "text": "1.3 Información del Sistema\n\nVersión: 1.0.0\nStack Backend: Django 6.0.4 + Django REST Framework\nStack Frontend: React 18.3.1 + Tailwind CSS + Vite\nBase de Datos: SQLite\nAutenticación: JWT (JSON Web Tokens)\nLicencia: Privado",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#visión-general",
+    "href": "index.html#visión-general",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "2.1 Visión General",
+    "text": "2.1 Visión General\nPIT implementa una arquitectura modular de tres capas con separación clara de responsabilidades:\n┌─────────────────────────────────────────────────────────────┐\n│                    CAPA DE PRESENTACIÓN                      │\n│  (React Frontend + Interfaz Web + Responsive Design)        │\n└────────────────────────────┬────────────────────────────────┘\n                             │ JSON/HTTPS\n┌────────────────────────────▼────────────────────────────────┐\n│                    CAPA DE APLICACIÓN                        │\n│  (Django REST API + Lógica de Negocio + Servicios)          │\n│  - Views (Controladores HTTP)                               │\n│  - Serializers (Validación y Transformación)                │\n│  - Services (Lógica de Negocio)                             │\n│  - Auth (Autenticación y Autorización)                      │\n└────────────────────────────┬────────────────────────────────┘\n                             │ ORM/SQL\n┌────────────────────────────▼────────────────────────────────┐\n│                    CAPA DE DATOS                             │\n│  (SQLite Database + Modelos de Datos)                        │\n└─────────────────────────────────────────────────────────────┘",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#componentes-principales",
+    "href": "index.html#componentes-principales",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "2.2 Componentes Principales",
+    "text": "2.2 Componentes Principales\n\n2.2.1 1. Frontend (React)\nUbicación: templates/frontend_react/src/\nResponsabilidades: - Interfaz de usuario interactiva - Manejo de estado global (Context API) - Enrutamiento de páginas (React Router) - Consumo de API REST - Visualización de mapas interactivos\nStack Tecnológico: - React 18.3.1 - React Router DOM 6.30.0 - Axios para HTTP - Tailwind CSS para estilos - Vite como bundler\nEstructura de Carpetas:\nsrc/\n├── components/        # Componentes reutilizables\n├── pages/            # Páginas de la aplicación\n├── routes/           # Configuración de rutas\n├── services/         # Servicios API\n├── hooks/            # Custom hooks\n├── contexts/         # Context API\n├── utils/            # Funciones utilitarias\n├── App.jsx          # Componente raíz\n└── index.js         # Punto de entrada\n\n\n2.2.2 2. Backend (Django REST Framework)\nUbicación: Turismo/\nResponsabilidades: - Lógica de negocio - Procesamiento de datos - Persistencia en base de datos - Autenticación y autorización - Integración con servicios externos (INAMI, ECU 911)\nAplicaciones Django (apps/):\n\n2.2.2.1 a) Usuarios (apps/usuarios/)\n\nGestión de perfiles de usuario\nAutenticación y roles\nPermisos y restricciones\n\nModelos: - Persona: Información de usuario - Usuario: Extensión con roles\n\n\n2.2.2.2 b) Atractivos (apps/atractivos/)\n\nRegistro y gestión de atractivos turísticos\nClasificación y categorización\nServicios asociados\nHorarios de funcionamiento\n\nModelos principales: - AtractivoTuristico: Atractivo base - Clasificacion: Categoría del atractivo - Servicio: Servicios ofrecidos - Horario: Horarios de operación - Ruta: Rutas turísticas\n\n\n2.2.2.3 c) Geolocalización (apps/geolocalizacion/)\n\nDatos geográficos y territoriales\nInformación de cantones y provincias\nCoordenadas y límites\n\nModelos: - Canton: División territorial - Provincia: Región administrativa - Ubicacion: Coordenadas geoespaciales\n\n\n2.2.2.4 d) Inventario (apps/inventario/)\n\nGestión de fichas digitales\nImportación desde Excel\nCatálogos de inventario\n\nModelos: - FichaInventario: Registro de inventario - CatalogoInventario: Clasificaciones\n\n\n2.2.2.5 e) Investigación (apps/investigacion/)\n\nRegistro de proyectos de investigación\nPublicación de resultados\nVinculación con contenidos\n\nModelos: - Investigacion: Proyecto de investigación - Resultado: Resultados de proyectos\n\n\n\n2.2.3 3. Base de Datos (SQLite)\nUbicación: Turismo/db.sqlite3\nCaracterísticas: - Almacenamiento relacional - Integridad referencial - Índices optimizados - Migrations versionadas\nTablas principales: - usuarios_persona: Datos de usuarios - atractivos_atractivo: Atractivos turísticos - atractivos_clasificacion: Clasificaciones - atractivos_servicio: Servicios - atractivos_horario: Horarios - atractivos_ruta: Rutas - geolocalizacion_*: Datos geográficos - investigacion_*: Proyectos de investigación",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#flujo-de-datos",
+    "href": "index.html#flujo-de-datos",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "2.3 Flujo de Datos",
+    "text": "2.3 Flujo de Datos\n1. Usuario interactúa en Frontend (React)\n   ↓\n2. Frontend envía solicitud HTTP a Backend (API)\n   ↓\n3. Django recibe y valida autorización (JWT)\n   ↓\n4. View procesa y delega a Service\n   ↓\n5. Service ejecuta lógica de negocio\n   ↓\n6. Models interactúan con Base de Datos (ORM)\n   ↓\n7. Backend retorna respuesta JSON\n   ↓\n8. Frontend recibe datos y actualiza UI",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#patrones-de-diseño-utilizados",
+    "href": "index.html#patrones-de-diseño-utilizados",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "2.4 Patrones de Diseño Utilizados",
+    "text": "2.4 Patrones de Diseño Utilizados\n\n2.4.1 1. MVC (Model-View-Controller)\n\nModels: Definición de entidades en models.py\nViews: Controladores HTTP en views.py\nControllers: Lógica en services.py\n\n\n\n2.4.2 2. Service Layer\n\nservices.py en cada app contiene lógica de negocio\nDesacoplamiento entre views y modelos\nReutilización de lógica\n\n\n\n2.4.3 3. Serializer Pattern\n\nserializers.py valida y transforma datos\nSerialización de modelos a JSON\nDeserialización de requests\n\n\n\n2.4.4 4. Repository Pattern\n\nORM de Django actúa como repositorio\nAbstracción de acceso a datos\nQueries centralizadas\n\n\n\n2.4.5 5. Context API (Frontend)\n\nGestión de estado global\nAutenticación centralizada\nCompartir datos entre componentes",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#integraciones-externas",
+    "href": "index.html#integraciones-externas",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "2.5 Integraciones Externas",
+    "text": "2.5 Integraciones Externas\n\n2.5.1 1. INAMI - Servicio de Clima\nEndpoint: Servicio REST de datos climáticos Uso: Obtener información meteorológica Frecuencia: On-demand desde Frontend\n\n\n2.5.2 2. ECU 911 - Estado de Vías\nEndpoint: Servicio REST de estado vial Uso: Información de seguridad y estado de carreteras Frecuencia: On-demand",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#seguridad",
+    "href": "index.html#seguridad",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "2.6 Seguridad",
+    "text": "2.6 Seguridad\n\n2.6.1 Autenticación\n\nJWT (JSON Web Tokens)\nTokens con expiración\nRefresh tokens para renovación\nBlacklist de tokens revocados\n\n\n\n2.6.2 Autorización\n\nSistema de roles y permisos\nDecoradores en views\nValidación en services\n\n\n\n2.6.3 Protección de Datos\n\nHTTPS en producción\nCORS configurado\nValidación de inputs\nSQL Injection prevención (ORM)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#escalabilidad",
+    "href": "index.html#escalabilidad",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "2.7 Escalabilidad",
+    "text": "2.7 Escalabilidad\nConsideraciones de diseño: - Separación de capas permite escalar independientemente - Stateless API facilita horizontalización - Índices en base de datos para queries complejas - Posibilidad de migrar a PostgreSQL - Caché con Redis (futuro)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#requisitos-del-sistema",
+    "href": "index.html#requisitos-del-sistema",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "3.1 Requisitos del Sistema",
+    "text": "3.1 Requisitos del Sistema\n\n3.1.1 Software Requerido\n\nPython 3.10 o superior\nNode.js 16 o superior\nnpm o yarn\nGit\nSQLite (incluido en Python)\nNavegador moderno (Chrome, Firefox, Safari, Edge)\n\n\n\n3.1.2 Requisitos de Hardware\n\nProcesador: Dual-core 2GHz o superior\nRAM: Mínimo 2GB (4GB recomendado)\nAlmacenamiento: 500MB para instalación completa\n\n\n\n3.1.3 Sistema Operativo\n\nWindows 10/11\nmacOS 10.14+\nUbuntu 18.04+",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#instalación-del-backend-django",
+    "href": "index.html#instalación-del-backend-django",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "3.2 Instalación del Backend (Django)",
+    "text": "3.2 Instalación del Backend (Django)\n\n3.2.1 Paso 1: Clonar o Descargar el Repositorio\ncd c:\\ruta\\a\\tu\\carpeta\ngit clone &lt;url-repositorio&gt;\ncd Turismo-develop/Turismo\n\n\n3.2.2 Paso 2: Crear Entorno Virtual\n\n3.2.2.1 En Windows:\npython -m venv venv\nvenv\\Scripts\\activate\n\n\n3.2.2.2 En macOS/Linux:\npython3 -m venv venv\nsource venv/bin/activate\n\n\n\n3.2.3 Paso 3: Instalar Dependencias de Python\npip install --upgrade pip\npip install -r requirements.txt\nPaquetes principales instalados: - Django 6.0.4 - Django REST Framework - djangorestframework-simplejwt - drf-spectacular - django-filters - python-decouple\n\n\n3.2.4 Paso 4: Verificar Instalación\npython manage.py --version\n\n\n3.2.5 Paso 5: Ejecutar Migraciones (Base de Datos)\npython manage.py migrate\nEste comando: - Crea la estructura de tablas en SQLite - Aplica todas las migraciones pendientes - Inicializa la base de datos\n\n\n3.2.6 Paso 6: Crear Superusuario (Administrador)\npython manage.py createsuperuser\nSe te pedirá: - Username: (tu nombre de usuario) - Email: (tu correo) - Password: (contraseña segura) - Password (again): (confirmar contraseña)\n\n\n3.2.7 Paso 7: Verificar Estructura de Base de Datos\npython manage.py dbshell\nDentro de SQLite:\n.tables\nVerás todas las tablas creadas.\n\n\n3.2.8 Paso 8: Iniciar Servidor Django\npython manage.py runserver\nEl servidor estará disponible en:\nhttp://localhost:8000\nAdmin: http://localhost:8000/admin\nAPI: http://localhost:8000/api",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#instalación-del-frontend-react",
+    "href": "index.html#instalación-del-frontend-react",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "3.3 Instalación del Frontend (React)",
+    "text": "3.3 Instalación del Frontend (React)\n\n3.3.1 Paso 1: Navegar a la Carpeta Frontend\ncd templates/frontend_react\n\n\n3.3.2 Paso 2: Instalar Dependencias de Node\nnpm install\n# o si usas yarn:\nyarn install\nPaquetes principales instalados: - React 18.3.1 - React Router DOM 6.30.0 - Axios 1.9.0 - Tailwind CSS 3.4.17 - Vite 6.3.0\n\n\n3.3.3 Paso 3: Configurar Variables de Entorno\nCrear archivo .env en la carpeta frontend_react:\nVITE_API_URL=http://localhost:8000/api\nVITE_DEBUG=false\n\n\n3.3.4 Paso 4: Verificar Instalación\nnpm --version\nnode --version\n\n\n3.3.5 Paso 5: Iniciar Servidor de Desarrollo\nnpm run dev\nEl frontend estará disponible en:\nhttp://localhost:5173\n\n\n3.3.6 Paso 6: (Opcional) Compilar para Producción\nnpm run build\nCrea carpeta dist/ con archivos optimizados.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#estructura-de-carpetas-post-instalación",
+    "href": "index.html#estructura-de-carpetas-post-instalación",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "3.4 Estructura de Carpetas Post-Instalación",
+    "text": "3.4 Estructura de Carpetas Post-Instalación\nTurismo-develop/\n├── Turismo/                      # Backend Django\n│   ├── manage.py\n│   ├── db.sqlite3               # Base de datos\n│   ├── requirements.txt\n│   ├── config/                  # Configuración Django\n│   │   ├── settings.py\n│   │   ├── urls.py\n│   │   └── wsgi.py\n│   ├── apps/                    # Aplicaciones Django\n│   │   ├── usuarios/\n│   │   ├── atractivos/\n│   │   ├── geolocalizacion/\n│   │   ├── inventario/\n│   │   └── investigacion/\n│   ├── core/                    # Módulos core\n│   │   ├── api.py\n│   │   ├── exceptions.py\n│   │   └── permissions.py\n│   └── templates/\n│       └── frontend_react/      # Frontend React\n│           ├── src/\n│           ├── public/\n│           ├── package.json\n│           ├── vite.config.js\n│           └── tailwind.config.cjs\n└── venv/                         # Entorno virtual (no subir a Git)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#verificación-de-instalación-completa",
+    "href": "index.html#verificación-de-instalación-completa",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "3.5 Verificación de Instalación Completa",
+    "text": "3.5 Verificación de Instalación Completa\nEjecutar en dos terminales simultaneamente:\n\n3.5.1 Terminal 1 (Backend):\ncd Turismo-develop/Turismo\nsource venv/bin/activate  # En Windows: venv\\Scripts\\activate\npython manage.py runserver\nVerifica que muestre:\nStarting development server at http://127.0.0.1:8000/\nQuit the server with CTRL-BREAK.\n\n\n3.5.2 Terminal 2 (Frontend):\ncd Turismo-develop/Turismo/templates/frontend_react\nnpm run dev\nVerifica que muestre:\nVITE v6.x.x  ready in xxx ms\n\n➜  Local:   http://localhost:5173/\n\n\n3.5.3 Acceso a Aplicación:\n\nAplicación: http://localhost:5173\nAPI: http://localhost:8000/api\nAdmin Django: http://localhost:8000/admin",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#troubleshooting",
+    "href": "index.html#troubleshooting",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "3.6 Troubleshooting",
+    "text": "3.6 Troubleshooting\n\n3.6.1 Problema: “ModuleNotFoundError” en Python\nSolución:\npip install -r requirements.txt\n\n\n3.6.2 Problema: “Cannot find module” en Node\nSolución:\nrm -rf node_modules package-lock.json\nnpm install\n\n\n3.6.3 Problema: Puerto 8000 o 5173 en uso\nCambiar puerto Django:\npython manage.py runserver 8001\nCambiar puerto Vite:\nnpm run dev -- --port 5174\n\n\n3.6.4 Problema: Base de datos corrupta\nSolución (pierde datos):\nrm db.sqlite3\npython manage.py migrate\npython manage.py createsuperuser\n\n\n3.6.5 Problema: Errores de CORS\nVerificar config/settings.py tenga configurado CORS correctamente:\nCORS_ALLOWED_ORIGINS = [\n    \"http://localhost:5173\",\n    \"http://localhost:3000\",\n]",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#comandos-útiles",
+    "href": "index.html#comandos-útiles",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "3.7 Comandos Útiles",
+    "text": "3.7 Comandos Útiles\n\n3.7.1 Backend (Django)\n# Crear nueva migración\npython manage.py makemigrations\n\n# Aplicar migraciones\npython manage.py migrate\n\n# Crear superusuario\npython manage.py createsuperuser\n\n# Ejecutar tests\npython manage.py test\n\n# Limpiar base de datos\npython manage.py flush\n\n\n3.7.2 Frontend (React)\n# Iniciar desarrollo\nnpm run dev\n\n# Build para producción\nnpm run build\n\n# Ver build en producción local\nnpm run preview",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#introducción-a-la-api",
+    "href": "index.html#introducción-a-la-api",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "4.1 Introducción a la API",
+    "text": "4.1 Introducción a la API\nLa API de PIT es una API REST construida con Django REST Framework que implementa: - Autenticación con JWT - Paginación de resultados - Filtrado y búsqueda - Validación de datos - Estructura de respuesta estándar",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#base-url",
+    "href": "index.html#base-url",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "4.2 Base URL",
+    "text": "4.2 Base URL\nhttp://localhost:8000/api\nEn producción:\nhttps://api.turismo.local/api",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#autenticación-1",
+    "href": "index.html#autenticación-1",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "4.3 Autenticación",
+    "text": "4.3 Autenticación\n\n4.3.1 Tokens JWT\nTodos los endpoints (excepto login y registro) requieren autenticación con JWT.\n\n4.3.1.1 Obtener Token (Login)\nPOST /api/usuarios/login/\nContent-Type: application/json\n\n{\n  \"email\": \"usuario@ejemplo.com\",\n  \"password\": \"contraseña123\"\n}\nRespuesta exitosa (200):\n{\n  \"success\": true,\n  \"message\": \"Inicio de sesión exitoso\",\n  \"data\": {\n    \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",\n    \"usuario\": {\n      \"id\": 1,\n      \"email\": \"usuario@ejemplo.com\",\n      \"nombre\": \"Juan Pérez\",\n      \"rol\": \"ADMINISTRADOR\"\n    }\n  }\n}\n\n\n4.3.1.2 Usar Token en Requests\nIncluir en header Authorization:\nGET /api/atractivos/\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGc...\n\n\n4.3.1.3 Renovar Token (Refresh)\nPOST /api/token/refresh/\nContent-Type: application/json\n\n{\n  \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"\n}\nRespuesta:\n{\n  \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\",\n  \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGc...\"\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#estructura-de-respuesta",
+    "href": "index.html#estructura-de-respuesta",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "4.4 Estructura de Respuesta",
+    "text": "4.4 Estructura de Respuesta\n\n4.4.1 Respuesta Exitosa (2xx)\n{\n  \"success\": true,\n  \"message\": \"Operación realizada exitosamente\",\n  \"data\": {\n    \"id\": 1,\n    \"nombre\": \"Atractivo Turístico\",\n    \"descripcion\": \"Descripción del atractivo\"\n  },\n  \"errors\": null,\n  \"meta\": {\n    \"timestamp\": \"2026-06-22T10:30:00Z\",\n    \"version\": \"1.0.0\"\n  }\n}\n\n\n4.4.2 Respuesta con Error (4xx, 5xx)\n{\n  \"success\": false,\n  \"message\": \"Error de validación\",\n  \"data\": null,\n  \"errors\": {\n    \"code\": \"VALIDATION_ERROR\",\n    \"details\": [\n      {\n        \"field\": \"nombre\",\n        \"message\": \"El nombre es obligatorio\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"timestamp\": \"2026-06-22T10:30:00Z\"\n  }\n}\n\n\n4.4.3 Respuesta Paginada\n{\n  \"success\": true,\n  \"data\": [\n    { \"id\": 1, \"nombre\": \"Atractivo 1\" },\n    { \"id\": 2, \"nombre\": \"Atractivo 2\" }\n  ],\n  \"meta\": {\n    \"pagination\": {\n      \"count\": 50,\n      \"next\": \"http://localhost:8000/api/atractivos/?page=2\",\n      \"previous\": null,\n      \"page_size\": 10,\n      \"total_pages\": 5\n    }\n  }\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#códigos-http-y-estados",
+    "href": "index.html#códigos-http-y-estados",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "4.5 Códigos HTTP y Estados",
+    "text": "4.5 Códigos HTTP y Estados\n\n\n\nCódigo\nSignificado\nCaso de Uso\n\n\n\n\n200\nOK\nGET exitoso, actualización exitosa\n\n\n201\nCreated\nCreación de recurso exitosa\n\n\n204\nNo Content\nEliminación exitosa\n\n\n400\nBad Request\nDatos inválidos\n\n\n401\nUnauthorized\nToken inválido o expirado\n\n\n403\nForbidden\nPermisos insuficientes\n\n\n404\nNot Found\nRecurso no existe\n\n\n409\nConflict\nDuplicidad (ej: email ya existe)\n\n\n422\nUnprocessable Entity\nValidación de campos falla\n\n\n500\nInternal Server Error\nError del servidor",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#endpoints-principales",
+    "href": "index.html#endpoints-principales",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "4.6 Endpoints Principales",
+    "text": "4.6 Endpoints Principales\n\n4.6.1 1. Autenticación\n\n4.6.1.1 POST /api/usuarios/login/\nIniciar sesión - Auth: No requerido - Body: email, password\n\n\n4.6.1.2 POST /api/usuarios/register/\nRegistrar nuevo usuario - Auth: No requerido - Body: email, password, nombre\n\n\n4.6.1.3 POST /api/token/refresh/\nRenovar token - Auth: No requerido - Body: refresh token\n\n\n\n\n4.6.2 2. Atractivos Turísticos\n\n4.6.2.1 GET /api/atractivos/\nListar atractivos - Auth: Requerido (JWT) - Query params: - page: Número de página (default: 1) - page_size: Resultados por página (default: 10) - canton: Filtrar por cantón (ID) - clasificacion: Filtrar por clasificación - estado: PUBLICADO, BORRADOR, REVISION, ARCHIVADO - search: Búsqueda por nombre\nEjemplo:\nGET /api/atractivos/?canton=1&estado=PUBLICADO&page=1\nRespuesta:\n{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"nombre\": \"Cascada del Pailon\",\n      \"descripcion\": \"Hermosa cascada natural...\",\n      \"latitud\": -0.5234,\n      \"longitud\": -78.1234,\n      \"canton\": \"Baños\",\n      \"clasificaciones\": [\"Naturaleza\", \"Cascada\"],\n      \"estado\": \"PUBLICADO\",\n      \"fecha_creacion\": \"2026-01-15T08:00:00Z\"\n    }\n  ],\n  \"meta\": {\n    \"pagination\": {\n      \"count\": 25,\n      \"total_pages\": 3,\n      \"page_size\": 10\n    }\n  }\n}\n\n\n4.6.2.2 POST /api/atractivos/\nCrear nuevo atractivo - Auth: Requerido (GESTOR_TURISTICO, ADMINISTRADOR) - Body: nombre, descripcion, latitud, longitud, canton_id, etc.\nEjemplo:\n{\n  \"nombre\": \"Nuevo Atractivo\",\n  \"descripcion\": \"Descripción detallada\",\n  \"latitud\": -0.5234,\n  \"longitud\": -78.1234,\n  \"canton_id\": 1,\n  \"estado\": \"BORRADOR\"\n}\n\n\n4.6.2.3 GET /api/atractivos/{id}/\nObtener detalle de atractivo - Auth: Requerido (JWT)\nRespuesta:\n{\n  \"success\": true,\n  \"data\": {\n    \"id\": 1,\n    \"nombre\": \"Cascada del Pailon\",\n    \"descripcion\": \"Hermosa cascada natural...\",\n    \"latitud\": -0.5234,\n    \"longitud\": -78.1234,\n    \"canton\": \"Baños\",\n    \"provincia\": \"Tungurahua\",\n    \"clasificaciones\": [\n      {\n        \"id\": 1,\n        \"nombre\": \"Naturaleza\",\n        \"nivel\": \"CATEGORIA\"\n      }\n    ],\n    \"servicios\": [\n      {\n        \"id\": 1,\n        \"nombre\": \"Parqueo\",\n        \"disponibilidad\": \"SIEMPRE\"\n      }\n    ],\n    \"horarios\": [\n      {\n        \"tipo\": \"NORMAL\",\n        \"hora_apertura\": \"08:00\",\n        \"hora_cierre\": \"18:00\"\n      }\n    ],\n    \"estado\": \"PUBLICADO\",\n    \"imagenes\": [\"url1.jpg\", \"url2.jpg\"],\n    \"documentos\": [\"mapa.pdf\"],\n    \"fecha_creacion\": \"2026-01-15T08:00:00Z\",\n    \"fecha_actualizacion\": \"2026-06-20T14:30:00Z\"\n  }\n}\n\n\n4.6.2.4 PUT /api/atractivos/{id}/\nActualizar atractivo - Auth: Requerido (GESTOR_TURISTICO, ADMINISTRADOR) - Body: Campos a actualizar\n\n\n4.6.2.5 DELETE /api/atractivos/{id}/\nEliminar atractivo - Auth: Requerido (ADMINISTRADOR)\n\n\n\n\n4.6.3 3. Rutas Turísticas\n\n4.6.3.1 GET /api/rutas/\nListar rutas - Auth: Requerido - Query params: canton, estado, search\n\n\n4.6.3.2 POST /api/rutas/\nCrear nueva ruta - Auth: Requerido (GESTOR_TURISTICO, ADMINISTRADOR) - Body: nombre, descripcion, atractivos[], duracion_estimada\nEjemplo:\n{\n  \"nombre\": \"Ruta de Cascadas\",\n  \"descripcion\": \"Recorrido por cascadas de la provincia\",\n  \"atractivos\": [1, 2, 3],\n  \"duracion_estimada\": 480,\n  \"dificultad\": \"MEDIA\",\n  \"estado\": \"BORRADOR\"\n}\n\n\n4.6.3.3 GET /api/rutas/{id}/\nObtener detalle de ruta\n\n\n4.6.3.4 PUT /api/rutas/{id}/\nActualizar ruta\n\n\n4.6.3.5 DELETE /api/rutas/{id}/\nEliminar ruta\n\n\n\n\n4.6.4 4. Usuarios\n\n4.6.4.1 GET /api/usuarios/\nListar usuarios - Auth: Requerido (ADMINISTRADOR) - Query params: rol, estado, search\n\n\n4.6.4.2 GET /api/usuarios/me/\nObtener datos del usuario actual - Auth: Requerido\nRespuesta:\n{\n  \"success\": true,\n  \"data\": {\n    \"id\": 1,\n    \"nombre\": \"Juan Pérez\",\n    \"email\": \"juan@ejemplo.com\",\n    \"rol\": \"GESTOR_TURISTICO\",\n    \"telefono\": \"+593999999999\",\n    \"avatar\": \"url_avatar.jpg\",\n    \"activo\": true,\n    \"fecha_creacion\": \"2026-01-01T00:00:00Z\"\n  }\n}\n\n\n4.6.4.3 PUT /api/usuarios/me/\nActualizar perfil del usuario actual - Auth: Requerido - Body: nombre, telefono, avatar\n\n\n4.6.4.4 POST /api/usuarios/cambiar-password/\nCambiar contraseña - Auth: Requerido - Body: password_actual, password_nueva, password_confirmar\n\n\n\n\n4.6.5 5. Investigación\n\n4.6.5.1 GET /api/investigacion/\nListar proyectos de investigación - Auth: Requerido - Query params: tipo, estado, search\n\n\n4.6.5.2 POST /api/investigacion/\nCrear proyecto de investigación - Auth: Requerido (INVESTIGADOR, ADMINISTRADOR) - Body: titulo, descripcion, tipo, investigador_principal\n\n\n4.6.5.3 GET /api/investigacion/{id}/\nObtener detalle de proyecto\n\n\n4.6.5.4 PUT /api/investigacion/{id}/\nActualizar proyecto\n\n\n4.6.5.5 DELETE /api/investigacion/{id}/\nEliminar proyecto\n\n\n\n\n4.6.6 6. Inventario\n\n4.6.6.1 GET /api/inventario/fichas/\nListar fichas de inventario - Auth: Requerido - Query params: canton, categoria, estado\n\n\n4.6.6.2 POST /api/inventario/importar/\nImportar fichas desde Excel - Auth: Requerido (GESTOR_TERRITORIAL, ADMINISTRADOR) - Body: Multipart form-data con archivo Excel\nHeaders:\nContent-Type: multipart/form-data\nAuthorization: Bearer [token]\n\n\n\n\n4.6.7 7. Geolocalización\n\n4.6.7.1 GET /api/geolocalizacion/cantones/\nListar cantones - Auth: Requerido - Query params: provincia\nRespuesta:\n{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"nombre\": \"Ambato\",\n      \"provincia\": \"Tungurahua\",\n      \"centroide_lat\": -1.2345,\n      \"centroide_lon\": -78.5678,\n      \"limite_norte\": -1.0,\n      \"limite_sur\": -1.5,\n      \"limite_este\": -78.0,\n      \"limite_oeste\": -79.0,\n      \"poblacion\": 387000,\n      \"area_km2\": 1123\n    }\n  ]\n}\n\n\n4.6.7.2 GET /api/geolocalizacion/provincias/\nListar provincias - Auth: Requerido",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#ejemplos-de-integración",
+    "href": "index.html#ejemplos-de-integración",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "4.7 Ejemplos de Integración",
+    "text": "4.7 Ejemplos de Integración\n\n4.7.1 JavaScript/Axios\nimport axios from 'axios';\n\nconst API_URL = 'http://localhost:8000/api';\nlet token = null;\n\n// Login\nasync function login(email, password) {\n  const response = await axios.post(`${API_URL}/usuarios/login/`, {\n    email,\n    password\n  });\n  token = response.data.data.access;\n  return response.data;\n}\n\n// Obtener atractivos\nasync function getAtractivos(page = 1, canton = null) {\n  const config = {\n    headers: { Authorization: `Bearer ${token}` }\n  };\n  const params = { page };\n  if (canton) params.canton = canton;\n  \n  const response = await axios.get(`${API_URL}/atractivos/`, { \n    ...config,\n    params\n  });\n  return response.data;\n}\n\n// Crear atractivo\nasync function createAtractivo(data) {\n  const config = {\n    headers: { Authorization: `Bearer ${token}` }\n  };\n  \n  const response = await axios.post(`${API_URL}/atractivos/`, data, config);\n  return response.data;\n}\n\n\n4.7.2 cURL\n# Login\ncurl -X POST http://localhost:8000/api/usuarios/login/ \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"email\":\"user@ejemplo.com\",\"password\":\"password123\"}'\n\n# Obtener atractivos\ncurl -X GET http://localhost:8000/api/atractivos/ \\\n  -H \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGc...\"\n\n# Crear atractivo\ncurl -X POST http://localhost:8000/api/atractivos/ \\\n  -H \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGc...\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"nombre\": \"Nuevo Atractivo\",\n    \"descripcion\": \"Descripción\",\n    \"latitud\": -0.5234,\n    \"longitud\": -78.1234,\n    \"canton_id\": 1\n  }'",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#paginación",
+    "href": "index.html#paginación",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "4.8 Paginación",
+    "text": "4.8 Paginación\nLa mayoría de endpoints que retornan listas soportan paginación.\nQuery parameters: - page: Número de página (default: 1) - page_size: Resultados por página (default: 10, máximo: 100)\nEjemplo:\nGET /api/atractivos/?page=2&page_size=20\nMeta information:\n\"meta\": {\n  \"pagination\": {\n    \"count\": 50,\n    \"total_pages\": 3,\n    \"page_size\": 20,\n    \"next\": \"http://localhost:8000/api/atractivos/?page=3\",\n    \"previous\": \"http://localhost:8000/api/atractivos/?page=1\"\n  }\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#filtrado-y-búsqueda",
+    "href": "index.html#filtrado-y-búsqueda",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "4.9 Filtrado y Búsqueda",
+    "text": "4.9 Filtrado y Búsqueda\nLa mayoría de endpoints soportan filtrado y búsqueda.\nFiltrado:\nGET /api/atractivos/?canton=1&estado=PUBLICADO\nBúsqueda de texto:\nGET /api/atractivos/?search=cascada",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#rate-limiting",
+    "href": "index.html#rate-limiting",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "4.10 Rate Limiting",
+    "text": "4.10 Rate Limiting\nEl sistema implementa rate limiting para prevenir abuso: - Límite: 1000 requests por hora por usuario - Header: X-RateLimit-Remaining",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#introducción-1",
+    "href": "index.html#introducción-1",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "5.1 Introducción",
+    "text": "5.1 Introducción\nEste manual está diseñado para ayudarte a usar PIT (Plataforma Interactiva de Turismo) de acuerdo a tu rol. Hay diferentes vistas y funcionalidades según tu tipo de usuario.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#tipos-de-usuarios",
+    "href": "index.html#tipos-de-usuarios",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "5.2 Tipos de Usuarios",
+    "text": "5.2 Tipos de Usuarios\n\n\n\n\n\n\n\n\nRol\nDescripción\nAcceso\n\n\n\n\nTurista\nConsulta información turística\nLectura de atractivos, rutas, información\n\n\nGestor Territorial\nGestiona información territorial\nCRUD de cantones, provincias, ubicaciones\n\n\nGestor Turístico\nGestiona atractivos y rutas\nCRUD de atractivos, rutas, servicios\n\n\nInvestigador\nGestiona proyectos de investigación\nCRUD de investigaciones, resultados\n\n\nAdministrador\nGestiona todo el sistema\nCRUD completo, usuarios, permisos",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#iniciar-sesión",
+    "href": "index.html#iniciar-sesión",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "5.3 Iniciar Sesión",
+    "text": "5.3 Iniciar Sesión\n\n5.3.1 Acceso a la Plataforma\n\nAbre tu navegador y dirígete a:\nhttp://localhost:5173\nVerás la pantalla de login con dos campos:\n\nEmail: Tu correo electrónico registrado\nContraseña: Tu contraseña\n\nIngresa tus credenciales y haz clic en “Iniciar Sesión”\n\n\n\n5.3.2 Primer Acceso (Administrador)\nSi eres el primer usuario (administrador), debes:\n\nCrear el administrador via terminal:\npython manage.py createsuperuser\nUsar las credenciales creadas en el login\nAcceder a /admin para gestión inicial\n\n\n\n5.3.3 Cambiar Contraseña\n\nHaz clic en tu Avatar (esquina superior derecha)\nSelecciona “Perfil” o “Configuración”\nHaz clic en “Cambiar Contraseña”\nIngresa tu contraseña actual\nIngresa la nueva contraseña (mínimo 8 caracteres)\nConfirma la nueva contraseña\nHaz clic en “Guardar”",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#vista-para-turistas",
+    "href": "index.html#vista-para-turistas",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "5.4 Vista para Turistas",
+    "text": "5.4 Vista para Turistas\nLa vista de turista permite consultar información turística de manera pública.\n\n5.4.1 Explorar Atractivos\n\n5.4.1.1 Pantalla Principal\n\nAl iniciar sesión verás el Mapa Interactivo en el centro\nLos atractivos aparecen como marcadores en el mapa\nPuedes hacer zoom con la rueda del ratón\nPuedes arrastrar el mapa para navegar\n\n\n\n5.4.1.2 Filtrar Atractivos\nEn el panel izquierdo, encontrarás: - Cantón: Selecciona un cantón - Clasificación: Ej: Naturaleza, Cultura, Aventura - Servicio: Filtrar por servicios disponibles - Estado: Mostrar solo atractivos publicados\n\n\n5.4.1.3 Ver Detalles de Atractivo\n\nHaz clic en un marcador del mapa\nSe abre una tarjeta con información básica\nHaz clic en “Ver Detalles” para abrir la ficha completa\n\nInformación disponible: - Nombre y descripción - Ubicación (cantón, provincia) - Coordenadas GPS - Servicios disponibles - Horarios de atención - Información de accesibilidad - Imágenes y galerías - Documentos relacionados - Rutas que incluyen el atractivo\n\n\n\n5.4.2 Explorar Rutas Turísticas\n\nHaz clic en la pestaña “Rutas” en el menú superior\nVerás un listado de rutas temáticas\nHaz clic en una ruta para ver detalles\nVisualiza el recorrido en el mapa\nConsulta atractivos incluidos\nVe el tiempo estimado y nivel de dificultad\n\n\n\n5.4.3 Buscar Información\n\nEn la barra superior, usa el campo “Buscar”\nIngresa nombre de atractivo, cantón o servicio\nLos resultados se actualizan en tiempo real\nHaz clic en un resultado para ir a su ficha\n\n\n\n5.4.4 Compartir Información\nEn la ficha de atractivo: 1. Haz clic en botón “Compartir” 2. Selecciona red social (Facebook, WhatsApp, Twitter) 3. Se abrirá la red social con link de compartición\n\n\n5.4.5 Descargar Información\n\nEn la ficha de atractivo, haz clic en “Descargar PDF”\nSe descargará un PDF con la información completa\nÚtil para consultar sin internet",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#vista-para-gestores-turísticos",
+    "href": "index.html#vista-para-gestores-turísticos",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "5.5 Vista para Gestores Turísticos",
+    "text": "5.5 Vista para Gestores Turísticos\nLos gestores turísticos pueden crear y editar atractivos y rutas.\n\n5.5.1 Registrar Nuevo Atractivo\n\n5.5.1.1 Paso 1: Acceder a Formulario\n\nEn el menú principal, haz clic en “Atractivos”\nHaz clic en botón “+ Nuevo Atractivo”\nSe abre formulario de registro\n\n\n\n5.5.1.2 Paso 2: Información Básica\nCompleta: - Nombre: Nombre del atractivo - Descripción: Descripción detallada (250-1000 caracteres) - Cantón: Selecciona el cantón donde está ubicado - Estado: BORRADOR (para guardar temporalmente)\n\n\n5.5.1.3 Paso 3: Ubicación (Geolocalización)\nDos opciones:\nOpción A: Pinchar en Mapa 1. Haz clic en el mapa 2. Aparecerá un marcador 3. Arrastra para ajustar si es necesario 4. Se llenarán automáticamente Latitud y Longitud\nOpción B: Ingresar Coordenadas 1. Ingresa Latitud: Ej: -0.5234 2. Ingresa Longitud: Ej: -78.1234 3. Haz clic en “Ubicar en Mapa” 4. El mapa centrará en esa ubicación\n\n\n5.5.1.4 Paso 4: Clasificación\n\nHaz clic en “Clasificaciones”\nSelecciona opciones (Naturaleza, Cultura, Aventura, etc.)\nPuedes agregar múltiples clasificaciones\nHaz clic en ➕ para agregar más\n\n\n\n5.5.1.5 Paso 5: Servicios\n\nEn sección “Servicios Disponibles”\nSelecciona los servicios que ofrece:\n\nParqueo\nRestaurante\nHotel cercano\nBaños\nTienda de souvenirs\nGuías turísticos\nEtc.\n\nPuedes especificar disponibilidad (SIEMPRE, FINES_SEMANA, POR_RESERVA)\n\n\n\n5.5.1.6 Paso 6: Horarios\n\nHaz clic en “Agregar Horario”\nSelecciona tipo de horario:\n\nNORMAL: Horario regular\nFIN_SEMANA: Solo fines de semana\nFERIADO: Días feriados\nESPECIAL: Épocas especiales\n\nIngresa:\n\nHora de apertura (Ej: 08:00)\nHora de cierre (Ej: 18:00)\n\nHaz clic en “Guardar Horario”\n\n\n\n5.5.1.7 Paso 7: Información de Acceso\n\nSelecciona Nivel de Accesibilidad:\n\nLIBRE: Acceso libre\nRESTRINGIDO: Requiere permiso\nPAGADO: Acceso pagado\n\nSi es PAGADO, ingresa:\n\nPrecio de entrada\nDescuentos especiales\n\nEstado de conservación:\n\nCONSERVADO\nALTERADO\nEN_DETERIORO\nDETERIORADO\n\n\n\n\n5.5.1.8 Paso 8: Subir Imágenes\n\nHaz clic en “Subir Imágenes”\nSelecciona una o más imágenes (JPG, PNG, máximo 5MB cada una)\nAparecerá vista previa\nLas imágenes son obligatorias\n\n\n\n5.5.1.9 Paso 9: Documentos Relacionados\n\nHaz clic en “Subir Documento”\nSelecciona archivo (PDF, DOC, máximo 10MB)\nIngresa descripción del documento\nHaz clic en “Subir”\n\n\n\n5.5.1.10 Paso 10: Guardar\n\nRevisa toda la información\nHaz clic en “Guardar como Borrador” para guardar temporalmente\nO haz clic en “Enviar a Revisión” para que un administrador revise\n\n\n\n\n5.5.2 Editar Atractivo\n\nEn listado de atractivos, encuentra el atractivo\nHaz clic en icono de “Editar” (lápiz)\nModifica los campos necesarios\nHaz clic en “Guardar Cambios”\n\n\n\n5.5.3 Crear Ruta Turística\n\n5.5.3.1 Paso 1: Acceder\n\nEn menú, haz clic en “Rutas”\nHaz clic en “+ Nueva Ruta”\n\n\n\n5.5.3.2 Paso 2: Información Básica\nCompleta: - Nombre: Nombre de la ruta - Descripción: Descripción del recorrido - Duración Estimada: En minutos - Dificultad: BAJA, MEDIA, ALTA - Tipo: Naturaleza, Cultura, Aventura, etc.\n\n\n5.5.3.3 Paso 3: Seleccionar Atractivos\n\nEn sección “Atractivos en la Ruta”\nHaz clic en “Agregar Atractivo”\nBusca atractivos por nombre\nSelecciona orden de recorrido (1, 2, 3, etc.)\nPuedes agregar múltiples atractivos\n\n\n\n5.5.3.4 Paso 4: Visualizar en Mapa\n\nVerás en mapa los atractivos conectados\nMuestra orden de recorrido\nCalcula distancia total aproximada\n\n\n\n5.5.3.5 Paso 5: Guardar\n\nHaz clic en “Guardar como Borrador” o “Enviar a Revisión”\n\n\n\n\n5.5.4 Cambiar Estado de Contenido\nLos estados disponibles son:\n\n\n\nEstado\nSignificado\nAcción\n\n\n\n\nBORRADOR\nEn edición, no publicado\nGuardar sin completar\n\n\nREVISION\nPendiente aprobación admin\nGestor envía a revisar\n\n\nPUBLICADO\nVisible para público\nAdmin aprueba\n\n\nARCHIVADO\nNo visible, conservado\nAdmin archiva\n\n\n\nCambiar estado: 1. En ficha del atractivo, haz clic en “Estado” 2. Selecciona nuevo estado 3. Si es necesario, agregacommentario 4. Haz clic en “Cambiar”",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#vista-para-gestores-territoriales",
+    "href": "index.html#vista-para-gestores-territoriales",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "5.6 Vista para Gestores Territoriales",
+    "text": "5.6 Vista para Gestores Territoriales\n\n5.6.1 Gestionar Cantones\n\n5.6.1.1 Crear Cantón\n\nMenú → “Territorio” → “Cantones”\nHaz clic en “+ Nuevo Cantón”\nCompleta:\n\nNombre del cantón\nProvincia\nPoblación estimada\nÁrea en km²\n\nDefine límites en mapa (norte, sur, este, oeste)\nHaz clic en “Guardar”\n\n\n\n5.6.1.2 Editar Cantón\n\nEn listado de cantones, haz clic en “Editar”\nModifica información\nHaz clic en “Guardar”\n\n\n\n\n5.6.2 Importar Inventario desde Excel\n\nMenú → “Inventario” → “Importar Fichas”\nHaz clic en “Seleccionar Archivo”\nElige archivo Excel con formato:\n| Nombre | Descripción | Cantón | Clasificación | ... |\n|--------|-------------|--------|---------------|-----|\nHaz clic en “Previsualizaar” para verificar\nHaz clic en “Importar”\nSistema mostrará resultados (exitosos, con error)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#vista-para-investigadores",
+    "href": "index.html#vista-para-investigadores",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "5.7 Vista para Investigadores",
+    "text": "5.7 Vista para Investigadores\n\n5.7.1 Registrar Proyecto de Investigación\n\nMenú → “Investigación” → “Mis Proyectos”\nHaz clic en “+ Nuevo Proyecto”\nCompleta:\n\nTítulo del proyecto\nDescripción\nObjetivo general\nObjetivos específicos\nTipo de investigación\nInvestigador principal\nPeríodo de investigación\n\nHaz clic en “Guardar”\n\n\n\n5.7.2 Publicar Resultados\n\nEn ficha del proyecto, haz clic en “Resultados”\nHaz clic en “+ Agregar Resultado”\nIngresa:\n\nTítulo del resultado\nDescripción\nConclusiones\nRecomendaciones\n\nSube documentos (PDF, Imágenes)\nHaz clic en “Publicar”",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#vista-para-administradores",
+    "href": "index.html#vista-para-administradores",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "5.8 Vista para Administradores",
+    "text": "5.8 Vista para Administradores\n\n5.8.1 Gestionar Usuarios\n\n5.8.1.1 Listar y Filtrar Usuarios\n\nMenú → “Administración” → “Usuarios”\nPuedes filtrar por:\n\nRol (Turista, Gestor, Investigador, Administrador)\nEstado (Activo, Inactivo)\nBúsqueda por nombre/email\n\n\n\n\n5.8.1.2 Crear Usuario\n\nHaz clic en “+ Nuevo Usuario”\nCompleta:\n\nNombre completo\nEmail (único)\nContraseña temporal\nRol\nTeléfono (opcional)\n\nHaz clic en “Crear”\nSistema enviará email con credenciales\n\n\n\n5.8.1.3 Editar Usuario\n\nEn listado, haz clic en usuario\nModifica información (excepto email)\nPuedes cambiar rol\nHaz clic en “Guardar”\n\n\n\n5.8.1.4 Desactivar/Reactivar Usuario\n\nEn ficha de usuario\nHaz clic en “Desactivar” o “Reactivar”\nSe pedirá confirmación\n\n\n\n5.8.1.5 Resetear Contraseña\n\nEn ficha de usuario\nHaz clic en “Resetear Contraseña”\nUsuario recibirá email con link para crear nueva contraseña\n\n\n\n\n5.8.2 Gestionar Permisos y Roles\n\nMenú → “Administración” → “Roles y Permisos”\nVerás los roles predefinidos\nPara cada rol, puedes asignar permisos:\n\nVer atractivos\nCrear atractivos\nEditar atractivos\nEliminar atractivos\nAprobar cambios\nCrear usuarios\netc.\n\n\n\n\n5.8.3 Revisar y Aprobar Contenido\n\nMenú → “Revisión de Contenido”\nVerás atractivos y rutas en estado “REVISION”\nPara cada uno:\n\nRevisa información\nHaz clic en “Aprobar” o “Rechazar”\nSi rechazas, agrega comentario\n\nEl gestor turístico recibirá notificación\n\n\n\n5.8.4 Monitorear Actividad del Sistema\n\nMenú → “Dashboard” o “Reportes”\nVerás:\n\nNúmero total de atractivos\nUsuarios activos\nCambios recientes\nErrores del sistema\n\nPuedes exportar reportes en PDF/Excel\n\n\n\n5.8.5 Configuración del Sistema\n\nMenú → “Configuración”\nPuedes ajustar:\n\nNombre de la plataforma\nLogo y colores\nMensajes de bienvenida\nConfiguración de emails\nInformación de contacto",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#funcionalidades-comunes",
+    "href": "index.html#funcionalidades-comunes",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "5.9 Funcionalidades Comunes",
+    "text": "5.9 Funcionalidades Comunes\n\n5.9.1 Búsqueda Global\n\nEn barra superior, campo “Buscar”\nIngresa término\nSe busca en:\n\nNombres de atractivos\nDescripciones\nCantones\nNombres de rutas\n\nResultados aparecen en dropdown\nHaz clic para ir a ese recurso\n\n\n\n5.9.2 Exportar Datos\nLa mayoría de listados permite exportar: 1. Haz clic en icono “Descargar” (flecha ↓) 2. Selecciona formato: - CSV: Archivo de texto - Excel: Hoja de cálculo - PDF: Documento 3. Se descarga automáticamente\n\n\n5.9.3 Compartir en Redes Sociales\nEn fichas de atractivos/rutas: 1. Haz clic en icono “Compartir” 2. Selecciona red social 3. Se abre aplicación con link compartible\n\n\n5.9.4 Ver Historial de Cambios\nEn fichas de atractivos/rutas: 1. Haz clic en “Historial” 2. Verás: - Fecha de cada cambio - Usuario que hizo cambio - Qué se cambió - Comentarios",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#resolución-de-problemas-comunes",
+    "href": "index.html#resolución-de-problemas-comunes",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "5.10 Resolución de Problemas Comunes",
+    "text": "5.10 Resolución de Problemas Comunes\n\n5.10.1 No puedo iniciar sesión\nSolución: - Verifica que email y contraseña sean correctos - Si olvidaste la contraseña, haz clic en “¿Olvidaste tu contraseña?” - Recibirás email con link para resetear - Si el email no llega, contacta administrador\n\n\n5.10.2 No puedo crear atractivos\nCausa posible: Tu rol no tiene permiso\nSolución: - Pide a administrador que te asigne rol “Gestor Turístico” - Cierra sesión y vuelve a iniciar\n\n\n5.10.3 Las imágenes no se cargan\nSolución: - Verifica que sean JPG o PNG - Tamaño máximo 5MB - Intenta comprimir la imagen - Si persiste, contacta soporte\n\n\n5.10.4 El mapa no funciona\nSolución: - Recarga la página (F5) - Limpia cache del navegador - Verifica conexión a internet - Intenta con otro navegador",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#consejos-de-uso",
+    "href": "index.html#consejos-de-uso",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "5.11 Consejos de Uso",
+    "text": "5.11 Consejos de Uso\n✅ Haz: - Actualiza frecuentemente la información - Agrega imágenes atractivas (mínimo 3 por atractivo) - Completa todos los campos - Revisa ortografía y puntuación - Agrupa atractivos en rutas temáticas\n❌ No hagas: - Duplicar atractivos (busca primero) - Agregar información incorrecta - Subir imágenes de baja calidad - Dejar campos en blanco innecesariamente - Crear rutas con solo 1 atractivo",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#introducción-para-desarrolladores",
+    "href": "index.html#introducción-para-desarrolladores",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "6.1 Introducción para Desarrolladores",
+    "text": "6.1 Introducción para Desarrolladores\nEsta guía está dirigida a desarrolladores que deseen: - Entender la arquitectura interna del sistema - Contribuir con nuevas funcionalidades - Mantener y actualizar el código - Realizar debugging y testing",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#stack-tecnológico-completo",
+    "href": "index.html#stack-tecnológico-completo",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "6.2 Stack Tecnológico Completo",
+    "text": "6.2 Stack Tecnológico Completo\n\n6.2.1 Backend\n\nFramework: Django 6.0.4\nAPI: Django REST Framework (DRF)\nAutenticación: djangorestframework-simplejwt\nDocumentación API: drf-spectacular\nORM: Django ORM\nBase de Datos: SQLite\nBase de Datos (Producción): PostgreSQL (recomendado)\nValidación: Django Serializers\nTesting: Django TestCase, pytest\n\n\n\n6.2.2 Frontend\n\nLibrería: React 18.3.1\nEnrutamiento: React Router DOM 6.30.0\nHTTP Client: Axios 1.9.0\nCSS Framework: Tailwind CSS 3.4.17\nBundler: Vite 6.3.0\nPostCSS: Para procesamiento de estilos\nTesting: Vitest, React Testing Library",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#estructura-del-código",
+    "href": "index.html#estructura-del-código",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "6.3 Estructura del Código",
+    "text": "6.3 Estructura del Código\n\n6.3.1 Backend Django\nTurismo/\n├── config/                      # Configuración de Django\n│   ├── settings.py             # Configuración principal\n│   ├── urls.py                 # URLs globales\n│   ├── asgi.py                 # ASGI (WebSockets)\n│   └── wsgi.py                 # WSGI (Producción)\n│\n├── apps/                        # Aplicaciones Django\n│   ├── usuarios/               # App de usuarios\n│   │   ├── models.py          # Modelos de base datos\n│   │   ├── views.py           # Vistas/Endpoints\n│   │   ├── serializers.py      # Validación y transformación\n│   │   ├── services.py         # Lógica de negocio\n│   │   ├── urls.py            # URLs de la app\n│   │   ├── tests.py           # Tests unitarios\n│   │   └── migrations/         # Cambios de DB\n│   │\n│   ├── atractivos/            # App de atractivos\n│   │   ├── models.py\n│   │   ├── views.py\n│   │   ├── serializers.py\n│   │   ├── services.py\n│   │   ├── urls.py\n│   │   ├── tests.py\n│   │   └── migrations/\n│   │\n│   ├── geolocalizacion/       # App de geolocalización\n│   ├── inventario/             # App de inventario\n│   └── investigacion/          # App de investigación\n│\n├── core/                        # Módulos compartidos\n│   ├── api.py                 # Funciones auxiliares de API\n│   ├── exceptions.py          # Excepciones personalizadas\n│   └── permissions.py         # Permisos y validaciones\n│\n├── templates/                   # Templates HTML\n│   └── frontend_react/          # Frontend React (SPA)\n│       ├── src/\n│       │   ├── components/     # Componentes reutilizables\n│       │   ├── pages/          # Páginas/Vistas\n│       │   ├── routes/         # Configuración de rutas\n│       │   ├── services/       # Servicios API\n│       │   ├── hooks/          # Custom React Hooks\n│       │   ├── contexts/       # Context API\n│       │   ├── utils/          # Funciones utilitarias\n│       │   └── App.jsx         # Componente raíz\n│       └── public/             # Archivos estáticos\n│\n├── manage.py                    # Comando CLI de Django\n├── db.sqlite3                  # Base de datos\n└── requirements.txt            # Dependencias Python",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#conceptos-clave-de-arquitectura",
+    "href": "index.html#conceptos-clave-de-arquitectura",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "6.4 Conceptos Clave de Arquitectura",
+    "text": "6.4 Conceptos Clave de Arquitectura\n\n6.4.1 1. Models (Modelos de Datos)\nUbicación: apps/*/models.py\nLos modelos definen la estructura de datos. Ejemplo:\nfrom django.db import models\n\nclass AtractivoTuristico(models.Model):\n    nombre = models.CharField(max_length=255)\n    descripcion = models.TextField()\n    latitud = models.FloatField()\n    longitud = models.FloatField()\n    canton = models.ForeignKey(\n        Canton, \n        on_delete=models.CASCADE\n    )\n    estado = models.CharField(\n        max_length=20,\n        choices=EstadoAtractivo.choices\n    )\n    fecha_creacion = models.DateTimeField(auto_now_add=True)\n    \n    class Meta:\n        ordering = ['-fecha_creacion']\n        verbose_name_plural = \"Atractivos Turísticos\"\n    \n    def __str__(self):\n        return self.nombre\nCaracterísticas: - Hereda de models.Model - Cada atributo es un campo - Relaciones via ForeignKey, ManyToManyField - Metadata en clase Meta - Método __str__ para representación\n\n\n6.4.2 2. Serializers (Validación y Transformación)\nUbicación: apps/*/serializers.py\nSerializadores convierten modelos a JSON y validan datos:\nfrom rest_framework import serializers\nfrom .models import AtractivoTuristico\n\nclass AtractivoSerializer(serializers.ModelSerializer):\n    clasificaciones = serializers.StringRelatedField(\n        many=True, \n        read_only=True\n    )\n    \n    class Meta:\n        model = AtractivoTuristico\n        fields = [\n            'id', 'nombre', 'descripcion',\n            'latitud', 'longitud', 'estado',\n            'clasificaciones', 'fecha_creacion'\n        ]\n        read_only_fields = ['id', 'fecha_creacion']\n    \n    def validate_nombre(self, value):\n        if len(value) &lt; 5:\n            raise serializers.ValidationError(\n                \"El nombre debe tener mínimo 5 caracteres\"\n            )\n        return value\nCaracterísticas: - Hereda de serializers.ModelSerializer - Especifica modelo y campos en Meta - Métodos validate_* para validación - Read-only fields para campos de solo lectura\n\n\n6.4.3 3. Views (Endpoints HTTP)\nUbicación: apps/*/views.py\nLas views manejan requests HTTP:\nfrom rest_framework import viewsets, status\nfrom rest_framework.decorators import action\nfrom rest_framework.response import Response\nfrom .models import AtractivoTuristico\nfrom .serializers import AtractivoSerializer\n\nclass AtractivoViewSet(viewsets.ModelViewSet):\n    queryset = AtractivoTuristico.objects.all()\n    serializer_class = AtractivoSerializer\n    \n    def get_queryset(self):\n        # Filtrar por cantón si se proporciona\n        canton = self.request.query_params.get('canton')\n        queryset = super().get_queryset()\n        if canton:\n            queryset = queryset.filter(canton_id=canton)\n        return queryset\n    \n    @action(detail=True, methods=['post'])\n    def enviar_revision(self, request, pk=None):\n        \"\"\"Cambiar estado a REVISION\"\"\"\n        atractivo = self.get_object()\n        atractivo.estado = 'REVISION'\n        atractivo.save()\n        return Response({\n            'status': 'Atractivo enviado a revisión'\n        })\nCaracterísticas: - ModelViewSet proporciona CRUD automático - get_queryset() para filtrado personalizado - Decorador @action para endpoints custom - Retorna respuestas JSON\n\n\n6.4.4 4. Services (Lógica de Negocio)\nUbicación: apps/*/services.py\nLos servicios contienen la lógica de negocio, separados de views:\nfrom django.db import transaction\nfrom .models import AtractivoTuristico\n\nclass AtractivoService:\n    @staticmethod\n    def crear_atractivo(datos):\n        \"\"\"Crear atractivo con validaciones de negocio\"\"\"\n        try:\n            atractivo = AtractivoTuristico.objects.create(**datos)\n            return atractivo\n        except Exception as e:\n            raise AtractivoServiceException(str(e))\n    \n    @staticmethod\n    def publicar_atractivo(atractivo_id):\n        \"\"\"Cambiar estado a PUBLICADO\"\"\"\n        atractivo = AtractivoTuristico.objects.get(id=atractivo_id)\n        atractivo.estado = 'PUBLICADO'\n        atractivo.save()\n        return atractivo\n    \n    @staticmethod\n    def obtener_atractivos_por_canton(canton_id):\n        \"\"\"Obtener atractivos de un cantón\"\"\"\n        return AtractivoTuristico.objects.filter(\n            canton_id=canton_id,\n            estado='PUBLICADO'\n        )\nVentajas: - Reutilización de lógica - Testing más fácil - Cambios centralizados - Separación de responsabilidades",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#autenticación-y-autorización",
+    "href": "index.html#autenticación-y-autorización",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "6.5 Autenticación y Autorización",
+    "text": "6.5 Autenticación y Autorización\n\n6.5.1 JWT (JSON Web Tokens)\nEl sistema usa JWT para autenticación:\n# En urls.py\nfrom rest_framework_simplejwt.views import (\n    TokenObtainPairView,\n    TokenRefreshView,\n)\n\nurlpatterns = [\n    path('api/token/', TokenObtainPairView.as_view()),\n    path('api/token/refresh/', TokenRefreshView.as_view()),\n]\n\n\n6.5.2 Permisos\nLos permisos se definen en core/permissions.py:\nfrom rest_framework.permissions import BasePermission\n\nclass EsGestorTuristico(BasePermission):\n    def has_permission(self, request, view):\n        return request.user.rol == 'GESTOR_TURISTICO'\n\nclass EsAdministrador(BasePermission):\n    def has_permission(self, request, view):\n        return request.user.rol == 'ADMINISTRADOR'\nUsar en views:\nclass AtractivoViewSet(viewsets.ModelViewSet):\n    permission_classes = [EsGestorTuristico]",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#frontend-react---estructura",
+    "href": "index.html#frontend-react---estructura",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "6.6 Frontend React - Estructura",
+    "text": "6.6 Frontend React - Estructura\n\n6.6.1 Componentes\nUbicación: src/components/\n// components/AtractiveCard.jsx\nimport React from 'react';\n\nexport function AtractiveCard({ atractivo }) {\n  return (\n    &lt;div className=\"bg-white rounded-lg shadow p-4\"&gt;\n      &lt;h2 className=\"text-xl font-bold\"&gt;{atractivo.nombre}&lt;/h2&gt;\n      &lt;p className=\"text-gray-600\"&gt;{atractivo.descripcion}&lt;/p&gt;\n      &lt;div className=\"mt-4 flex gap-2\"&gt;\n        &lt;button className=\"btn-primary\"&gt;Ver Detalle&lt;/button&gt;\n        &lt;button className=\"btn-secondary\"&gt;Compartir&lt;/button&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n  );\n}\nComposición: - Componentes pequeños y reutilizables - Props para entrada de datos - Estilos con Tailwind CSS\n\n\n6.6.2 Páginas\nUbicación: src/pages/\n// pages/AtractivesList.jsx\nimport React, { useState, useEffect } from 'react';\nimport { AtractiveCard } from '../components/AtractiveCard';\nimport { getAtractivos } from '../services/api';\n\nexport function AtractivesList() {\n  const [atractivos, setAtractivos] = useState([]);\n  const [loading, setLoading] = useState(true);\n  \n  useEffect(() =&gt; {\n    const loadAtractivos = async () =&gt; {\n      try {\n        const data = await getAtractivos();\n        setAtractivos(data);\n      } catch (error) {\n        console.error('Error:', error);\n      } finally {\n        setLoading(false);\n      }\n    };\n    \n    loadAtractivos();\n  }, []);\n  \n  if (loading) return &lt;div&gt;Cargando...&lt;/div&gt;;\n  \n  return (\n    &lt;div className=\"grid grid-cols-3 gap-4\"&gt;\n      {atractivos.map(att =&gt; (\n        &lt;AtractiveCard key={att.id} atractivo={att} /&gt;\n      ))}\n    &lt;/div&gt;\n  );\n}\n\n\n6.6.3 Servicios API\nUbicación: src/services/\n// services/api.js\nimport axios from 'axios';\n\nconst API_URL = import.meta.env.VITE_API_URL;\nconst client = axios.create({ baseURL: API_URL });\n\n// Interceptor para JWT\nclient.interceptors.request.use(config =&gt; {\n  const token = localStorage.getItem('access_token');\n  if (token) {\n    config.headers.Authorization = `Bearer ${token}`;\n  }\n  return config;\n});\n\nexport async function getAtractivos(params = {}) {\n  const response = await client.get('/atractivos/', { params });\n  return response.data.data;\n}\n\nexport async function createAtractivo(data) {\n  const response = await client.post('/atractivos/', data);\n  return response.data.data;\n}\n\n\n6.6.4 Context API (Estado Global)\nUbicación: src/contexts/\n// contexts/AuthContext.jsx\nimport React, { createContext, useState } from 'react';\n\nexport const AuthContext = createContext();\n\nexport function AuthProvider({ children }) {\n  const [user, setUser] = useState(null);\n  const [token, setToken] = useState(localStorage.getItem('access_token'));\n  \n  const login = async (email, password) =&gt; {\n    const response = await fetch(`${API_URL}/usuarios/login/`, {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({ email, password })\n    });\n    \n    const data = await response.json();\n    setToken(data.data.access);\n    setUser(data.data.usuario);\n    localStorage.setItem('access_token', data.data.access);\n  };\n  \n  return (\n    &lt;AuthContext.Provider value={{ user, token, login }}&gt;\n      {children}\n    &lt;/AuthContext.Provider&gt;\n  );\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#testing",
+    "href": "index.html#testing",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "6.7 Testing",
+    "text": "6.7 Testing\n\n6.7.1 Backend - Tests Unitarios\nUbicación: apps/*/tests.py\nfrom django.test import TestCase\nfrom rest_framework.test import APIClient\nfrom .models import AtractivoTuristico\n\nclass AtractivoTestCase(TestCase):\n    def setUp(self):\n        self.client = APIClient()\n        self.atractivo = AtractivoTuristico.objects.create(\n            nombre=\"Test Atractivo\",\n            descripcion=\"Descripción test\",\n            latitud=-0.5,\n            longitud=-78.5\n        )\n    \n    def test_crear_atractivo(self):\n        \"\"\"Test para crear atractivo\"\"\"\n        response = self.client.post('/api/atractivos/', {\n            'nombre': 'Nuevo Atractivo',\n            'descripcion': 'Descripción',\n            'latitud': -0.5,\n            'longitud': -78.5\n        })\n        self.assertEqual(response.status_code, 201)\n    \n    def test_listar_atractivos(self):\n        \"\"\"Test para listar atractivos\"\"\"\n        response = self.client.get('/api/atractivos/')\n        self.assertEqual(response.status_code, 200)\n        self.assertGreater(len(response.data['data']), 0)\nEjecutar tests:\npython manage.py test\n\n\n6.7.2 Frontend - Tests\nUbicación: src/**/*.test.jsx\n// components/__tests__/AtractiveCard.test.jsx\nimport { render, screen } from '@testing-library/react';\nimport { AtractiveCard } from '../AtractiveCard';\n\ndescribe('AtractiveCard', () =&gt; {\n  it('debe renderizar información del atractivo', () =&gt; {\n    const atractivo = {\n      id: 1,\n      nombre: 'Cascada',\n      descripcion: 'Hermosa cascada'\n    };\n    \n    render(&lt;AtractiveCard atractivo={atractivo} /&gt;);\n    \n    expect(screen.getByText('Cascada')).toBeInTheDocument();\n    expect(screen.getByText('Hermosa cascada')).toBeInTheDocument();\n  });\n});\nEjecutar tests:\nnpm run test",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#workflow-de-desarrollo",
+    "href": "index.html#workflow-de-desarrollo",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "6.8 Workflow de Desarrollo",
+    "text": "6.8 Workflow de Desarrollo\n\n6.8.1 1. Crear Nueva Funcionalidad\n# 1. Crear rama para la funcionalidad\ngit checkout -b feature/nueva-funcionalidad\n\n# 2. Realizar cambios\n# - Crear/editar modelos\n# - Crear vistas\n# - Crear serializers\n# - Crear tests\n\n# 3. Ejecutar tests\npython manage.py test\nnpm run test\n\n# 4. Hacer commit\ngit add .\ngit commit -m \"Feat: descripción de cambios\"\n\n# 5. Push y hacer pull request\ngit push origin feature/nueva-funcionalidad\n\n\n6.8.2 2. Crear Nueva Aplicación Django\n# 1. Crear app\npython manage.py startapp mi_app\n\n# 2. Editar models.py\n# 3. Crear migrations\npython manage.py makemigrations\n\n# 4. Aplicar migraciones\npython manage.py migrate\n\n# 5. Registrar en settings.py\nINSTALLED_APPS = [\n    ...\n    'apps.mi_app',\n]\n\n\n6.8.3 3. Agregar Nuevos Campos a Modelo\n# 1. Editar model en models.py\nclass AtractivoTuristico(models.Model):\n    nombre = models.CharField(max_length=255)\n    nuevo_campo = models.CharField(max_length=100)  # Nuevo\n\n# 2. Crear migración\npython manage.py makemigrations\n\n# 3. Aplicar migración\npython manage.py migrate",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#debugging",
+    "href": "index.html#debugging",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "6.9 Debugging",
+    "text": "6.9 Debugging\n\n6.9.1 Backend\nUsar Django Shell:\npython manage.py shell\n\n&gt;&gt;&gt; from apps.atractivos.models import AtractivoTuristico\n&gt;&gt;&gt; atractivos = AtractivoTuristico.objects.all()\n&gt;&gt;&gt; for a in atractivos:\n...     print(a.nombre)\nLogging:\nimport logging\n\nlogger = logging.getLogger(__name__)\nlogger.info(\"Información importante\")\nlogger.error(\"Error ocurrido\")\n\n\n6.9.2 Frontend\nUsar DevTools del Navegador: - Abre Developer Tools (F12) - Ve a pestaña Console - Ve a pestaña Network para ver requests - Ve a pestaña Elements para ver HTML\nLogging en React:\nconsole.log(\"Información:\", data);\nconsole.error(\"Error:\", error);\nconsole.warn(\"Advertencia\");",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#performance-y-optimización",
+    "href": "index.html#performance-y-optimización",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "6.10 Performance y Optimización",
+    "text": "6.10 Performance y Optimización\n\n6.10.1 Backend\n\nÍndices en Base de Datos:\n\nclass AtractivoTuristico(models.Model):\n    nombre = models.CharField(max_length=255, db_index=True)\n    canton = models.ForeignKey(Canton, db_index=True)\n\nQueries Optimizadas:\n\n# Mal (N+1 queries)\natractivos = AtractivoTuristico.objects.all()\nfor a in atractivos:\n    print(a.canton.nombre)  # Query por cada uno\n\n# Bien (Una query)\natractivos = AtractivoTuristico.objects.select_related('canton')\n\nCaché:\n\nfrom django.views.decorators.cache import cache_page\n\n@cache_page(60 * 15)  # Cache por 15 minutos\ndef get_atractivos(request):\n    ...\n\n\n6.10.2 Frontend\n\nCode Splitting:\n\nconst AtractivesList = React.lazy(() =&gt; \n  import('./pages/AtractivesList')\n);\n\nMemoización:\n\nconst AtractiveCard = React.memo(({ atractivo }) =&gt; {\n  return &lt;div&gt;{atractivo.nombre}&lt;/div&gt;;\n});",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#deployment",
+    "href": "index.html#deployment",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "6.11 Deployment",
+    "text": "6.11 Deployment\n\n6.11.1 Producción - Backend\n# 1. Configurar settings.py\nDEBUG = False\nALLOWED_HOSTS = ['dominio.com']\n\n# 2. Usar PostgreSQL\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'pit_db',\n        'USER': 'usuario',\n        'PASSWORD': 'contraseña',\n        'HOST': 'localhost',\n        'PORT': '5432',\n    }\n}\n\n# 3. Ejecutar migraciones\npython manage.py migrate\n\n# 4. Crear superusuario\npython manage.py createsuperuser\n\n# 5. Usar gunicorn para servir\npip install gunicorn\ngunicorn config.wsgi:application\n\n\n6.11.2 Producción - Frontend\n# 1. Build optimizado\nnpm run build\n\n# 2. Servir con nginx\n# Copiar carpeta dist/ a servidor nginx\n# Configurar nginx para servir archivos estáticos",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#a",
+    "href": "index.html#a",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.1 A",
+    "text": "7.1 A\n\nAdmin/Administrador\n\nUsuario con permisos máximos en el sistema. Puede gestionar usuarios, aprobar cambios, y acceder a todas las funcionalidades.\n\nAPI (Application Programming Interface)\n\nInterfaz de programación que permite que diferentes aplicaciones se comuniquen entre sí. En PIT, es la API REST que conecta Frontend con Backend.\n\nAtractivo Turístico\n\nLugar, sitio o actividad de interés turístico que puede ser visitado por turistas. Registrado en la plataforma con información geolocalizada.\n\nAutenticación\n\nProceso de verificar la identidad del usuario mediante usuario y contraseña. En PIT se usa JWT (tokens).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#b",
+    "href": "index.html#b",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.2 B",
+    "text": "7.2 B\n\nBackend\n\nParte del sistema que procesa datos, ejecuta lógica de negocio y gestiona la base de datos. En PIT: Django REST Framework.\n\nBorrador\n\nEstado inicial de un atractivo o ruta. No es visible al público, permite edición continua.\n\nBundle\n\nArchivo compilado del frontend que contiene todos los recursos (JavaScript, CSS, imágenes) empaquetados para producción.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#c",
+    "href": "index.html#c",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.3 C",
+    "text": "7.3 C\n\nCantón\n\nDivisión territorial administrativa de una provincia. Usado para clasificar y filtrar atractivos.\n\nClasificación\n\nCategoría asignada a un atractivo (Ej: Naturaleza, Cultura, Aventura). Un atractivo puede tener múltiples.\n\nCORS (Cross-Origin Resource Sharing)\n\nMecanismo que permite que aplicaciones en diferentes dominios se comuniquen. Necesario para conectar Frontend con Backend.\n\nCRUD\n\nAcrónimo para Create (crear), Read (leer), Update (actualizar), Delete (eliminar). Operaciones básicas en datos.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#d",
+    "href": "index.html#d",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.4 D",
+    "text": "7.4 D\n\nDashboard\n\nPanel de control que muestra información resumida y estadísticas del sistema.\n\nDjango\n\nFramework de Python para desarrollo web. Usado como base del Backend de PIT.\n\nDRF (Django REST Framework)\n\nLibrería que extiende Django para crear APIs REST de manera fácil. Usada para los endpoints de PIT.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#e",
+    "href": "index.html#e",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.5 E",
+    "text": "7.5 E\n\nEndpoint\n\nURL específica de la API que realiza una acción. Ej: /api/atractivos/ es un endpoint.\n\nEstado\n\nCondición de un contenido. Estados posibles: BORRADOR, REVISION, PUBLICADO, ARCHIVADO.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#f",
+    "href": "index.html#f",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.6 F",
+    "text": "7.6 F\n\nFrontend\n\nInterfaz de usuario que ves en el navegador. En PIT: React con Tailwind CSS.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#g",
+    "href": "index.html#g",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.7 G",
+    "text": "7.7 G\n\nGestor Territorial\n\nUsuario que gestiona información geográfica y administrativa (cantones, provincias, ubicaciones).\n\nGestor Turístico\n\nUsuario que crea y edita atractivos y rutas turísticas.\n\nGeolocalización\n\nInformación de ubicación geográfica (latitud, longitud, coordenadas). Usada para posicionar atractivos en mapas.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#h",
+    "href": "index.html#h",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.8 H",
+    "text": "7.8 H\n\nHorario\n\nInformación sobre cuándo está abierto un atractivo. Puede variar por tipo (normal, fines de semana, feriados).\n\nHTTP\n\nProtocolo de comunicación entre navegadores y servidores. HTTPS es la versión segura (con encriptación).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#i",
+    "href": "index.html#i",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.9 I",
+    "text": "7.9 I\n\nInvestigación/Investigador\n\nUsuario que registra y publica proyectos de investigación y sus resultados.\n\nInventario\n\nCatálogo de fichas digitales de atractivos turísticos. Puede importarse desde archivos Excel.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#j",
+    "href": "index.html#j",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.10 J",
+    "text": "7.10 J\n\nJWT (JSON Web Token)\n\nSistema de autenticación usando tokens encriptados. Usuario recibe token al logarse y lo usa en todas las solicitudes.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#l",
+    "href": "index.html#l",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.11 L",
+    "text": "7.11 L\n\nLatitud\n\nCoordenada geográfica que indica posición norte-sur (rango: -90 a 90 grados).\n\nLeaflet\n\nLibrería JavaScript para crear mapas interactivos. Potencialmente usada en PIT.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#m",
+    "href": "index.html#m",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.12 M",
+    "text": "7.12 M\n\nMapas Interactivos\n\nVisualización geográfica donde se pueden ver atractivos, hacer zoom, panear, etc.\n\nMeta\n\nInformación adicional en respuestas API (paginación, timestamps, versión, etc.).\n\nMigración\n\nScript que define cambios a la estructura de base de datos. Permite versionar cambios de schema.\n\nModelViewSet\n\nClase de Django REST Framework que proporciona automáticamente CRUD para un modelo.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#n",
+    "href": "index.html#n",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.13 N",
+    "text": "7.13 N\n\nNivel de Accesibilidad\n\nIndica si un atractivo es de acceso LIBRE, RESTRINGIDO o PAGADO.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#o",
+    "href": "index.html#o",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.14 O",
+    "text": "7.14 O\n\nORM (Object-Relational Mapping)\n\nTécnica que permite interactuar con base de datos usando objetos Python en lugar de SQL directo. Django usa ORM.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#p",
+    "href": "index.html#p",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.15 P",
+    "text": "7.15 P\n\nPaginación\n\nDivisión de resultados en páginas. Mejora performance y UX. Ej: 10 resultados por página.\n\nPermisos\n\nEspecificación de qué acciones puede realizar cada usuario según su rol.\n\nPersona\n\nEntidad base que representa un usuario en el sistema. Puede tener información de perfil, email, teléfono.\n\nPayload\n\nDatos principales en una solicitud o respuesta HTTP (no incluye headers ni metadatos).\n\nPostgreSQL\n\nSistema de base de datos relacional profesional. Recomendado para producción en lugar de SQLite.\n\nProvincia\n\nRegión administrativa que contiene múltiples cantones. Ej: Tungurahua.\n\nPublicado\n\nEstado de un contenido que es visible al público y no puede ser editado sin cambiar estado primero.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#q",
+    "href": "index.html#q",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.16 Q",
+    "text": "7.16 Q\n\nQuery\n\nSolicitud para obtener datos de base de datos. Ej: “Traer todos los atractivos del cantón Ambato”.\n\nQuarto\n\nFormato de documento que permite combinar código, resultados, texto y visualizaciones. Usado para esta documentación.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#r",
+    "href": "index.html#r",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.17 R",
+    "text": "7.17 R\n\nReact\n\nLibrería de JavaScript de Facebook para crear interfaces de usuario interactivas. Usada en el Frontend.\n\nRevisión\n\nEstado intermedio. Contenido en revisión aguarda aprobación del administrador.\n\nRol\n\nTipo de usuario que determina qué puede hacer. Ej: Turista, Gestor Turístico, Administrador.\n\nRuta Turística\n\nRecorrido que conecta múltiples atractivos en una secuencia específica. Incluye información de duración y dificultad.\n\nREST (Representational State Transfer)\n\nArquitectura para diseñar APIs web. Usa métodos HTTP (GET, POST, PUT, DELETE) sobre recursos.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#s",
+    "href": "index.html#s",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.18 S",
+    "text": "7.18 S\n\nSerializer\n\nComponente que convierte objetos Python a JSON y valida datos de entrada.\n\nServicio\n\nFacilidad disponible en un atractivo (parqueo, restaurante, baños, guía, etc.).\n\nSQLite\n\nSistema de base de datos simple y embebido. Usado para desarrollo. No recomendado para producción.\n\nState Management\n\nSistema para gestionar estado global de la aplicación React (Context API, Redux, etc.).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#t",
+    "href": "index.html#t",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.19 T",
+    "text": "7.19 T\n\nTailwind CSS\n\nFramework de CSS utilitario para estilos rápidos sin escribir CSS tradicional.\n\nTemplate\n\nArchivo HTML que define estructura. En PIT también contiene el Frontend React.\n\nToken\n\nCadena encriptada que prueba autenticación del usuario. Enviado en cada request.\n\nTurista\n\nUsuario final que consulta información turística. Tiene acceso de solo lectura.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#u",
+    "href": "index.html#u",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.20 U",
+    "text": "7.20 U\n\nURL (Uniform Resource Locator)\n\nDirección de un recurso en internet. Ej: http://localhost:8000/api/atractivos/\n\nUbicación\n\nInformación geográfica de un atractivo (latitud, longitud, dirección).\n\nUUID (Universally Unique Identifier)\n\nIdentificador único global, a menudo usado en lugar de IDs numéricos simples.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#v",
+    "href": "index.html#v",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.21 V",
+    "text": "7.21 V\n\nValidación\n\nProceso de verificar que datos enviados cumplen con reglas (formato correcto, campos obligatorios, etc.).\n\nView\n\nEn Django, componente que maneja lógica de un endpoint HTTP.\n\nVite\n\nHerramienta moderna de construcción (bundler) para proyectos web. Más rápida que Webpack.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#w",
+    "href": "index.html#w",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.22 W",
+    "text": "7.22 W\n\nWebhook\n\nLlamada HTTP automática que se dispara cuando ocurre un evento.\n\nWebSocket\n\nProtocolo para comunicación bidireccional en tiempo real entre cliente y servidor.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#z",
+    "href": "index.html#z",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.23 Z",
+    "text": "7.23 Z\n\nZoom\n\nFunción de mapas para acercarse o alejarse de un área.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#acrónimos-comunes",
+    "href": "index.html#acrónimos-comunes",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.24 Acrónimos Comunes",
+    "text": "7.24 Acrónimos Comunes\n\n\n\nAcrónimo\nSignificado\n\n\n\n\nAPI\nApplication Programming Interface\n\n\nCRUD\nCreate, Read, Update, Delete\n\n\nCORS\nCross-Origin Resource Sharing\n\n\nCSV\nComma-Separated Values\n\n\nDB\nDatabase\n\n\nDRF\nDjango REST Framework\n\n\nHTML\nHyperText Markup Language\n\n\nHTTP\nHyperText Transfer Protocol\n\n\nJWT\nJSON Web Token\n\n\nJSON\nJavaScript Object Notation\n\n\nORM\nObject-Relational Mapping\n\n\nPDF\nPortable Document Format\n\n\nREST\nRepresentational State Transfer\n\n\nSQL\nStructured Query Language\n\n\nSPA\nSingle Page Application\n\n\nURL\nUniform Resource Locator\n\n\nUUID\nUniversally Unique Identifier\n\n\nXML\neXtensible Markup Language",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#contacto-y-soporte",
+    "href": "index.html#contacto-y-soporte",
+    "title": "PIT - Plataforma Interactiva de Turismo",
+    "section": "7.25 Contacto y Soporte",
+    "text": "7.25 Contacto y Soporte\nPara preguntas, reportar problemas o sugerencias:\n\nEmail: soporte@turismo.local\nRepositorio: Turismo-develop\nDocumentación: Ver la carpeta /sources/documentation\n\n\nÚltima actualización: 22 de Junio de 2026",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>PIT - Plataforma Interactiva de Turismo</span>"
+    ]
+  }
+]

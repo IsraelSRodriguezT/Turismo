@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from drf_spectacular.utils import OpenApiParameter, extend_schema, extend_schema_view
-from .models import Mapa, Pais, Provincia, Canton, Parroquia, Sector
-from .serializers import MapaSerializer, PaisSerializer, ProvinciaSerializer, CantonSerializer, ParroquiaSerializer, SectorSerializer, JerarquiaGeograficaSerializer
+from .models import EnlaceExterno, Mapa, Pais, Provincia, Canton, Parroquia, Sector
+from .serializers import EnlaceExternoSerializer, MapaSerializer, PaisSerializer, ProvinciaSerializer, CantonSerializer, ParroquiaSerializer, SectorSerializer, JerarquiaGeograficaSerializer
 from .services import GeolocalizacionService
 from core.api import NormalizedModelViewSet, NormalizedReadOnlyModelViewSet
 
@@ -116,3 +116,9 @@ class SectorViewSet(NormalizedModelViewSet):
 class JerarquiaGeograficaViewSet(NormalizedReadOnlyModelViewSet):
     queryset = GeolocalizacionService.obtener_jerarquia_geografica()
     serializer_class = JerarquiaGeograficaSerializer
+
+class EnlaceExternoViewSet(NormalizedModelViewSet):
+    queryset = EnlaceExterno.objects.all()
+    serializer_class = EnlaceExternoSerializer
+    filterset_fields = ['tipo', 'canton', 'atractivo_turistico', 'ruta', 'activo']
+    search_fields = ['nombre', 'descripcion']

@@ -1,0 +1,237 @@
+---
+title: "Inicio Rápido"
+---
+
+# 🚀 Inicio Rápido - PIT
+
+Bienvenido a **PIT (Plataforma Interactiva de Turismo)**. Esta guía te ayudará a comenzar en minutos.
+
+## ⚡ 5 Pasos para Empezar
+
+### Paso 1: Instalar Dependencias Backend
+
+```bash
+# Ir a la carpeta del proyecto
+cd Turismo-develop/Turismo
+
+# Crear entorno virtual
+python -m venv venv
+
+# Activar entorno (Windows)
+venv\Scripts\activate
+
+# Activar entorno (macOS/Linux)
+source venv/bin/activate
+
+# Instalar paquetes
+pip install -r requirements.txt
+```
+
+### Paso 2: Configurar Base de Datos
+
+```bash
+# Aplicar migraciones
+python manage.py migrate
+
+# Crear administrador
+python manage.py createsuperuser
+```
+
+### Paso 3: Iniciar Backend
+
+```bash
+# En la misma terminal, ejecutar:
+python manage.py runserver
+```
+
+**Resultado esperado**:
+```
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+```
+
+### Paso 4: Instalar Dependencias Frontend
+
+**En una nueva terminal**:
+
+```bash
+# Ir a carpeta frontend
+cd Turismo-develop/Turismo/templates/frontend_react
+
+# Instalar dependencias
+npm install
+```
+
+### Paso 5: Iniciar Frontend
+
+```bash
+# En la misma terminal frontend, ejecutar:
+npm run dev
+```
+
+**Resultado esperado**:
+```
+  VITE v6.x.x  ready in xxx ms
+
+  ➜  Local:   http://localhost:5173/
+```
+
+---
+
+## ✅ Verificar que Todo Funciona
+
+Abre tu navegador y visita:
+
+1. **Frontend**: http://localhost:5173
+   - Verás la interfaz de la aplicación
+   
+2. **API Backend**: http://localhost:8000/api
+   - Verás documentación de endpoints
+
+3. **Admin Django**: http://localhost:8000/admin
+   - Usa credenciales creadas en Paso 2
+
+---
+
+## 📖 Ver Documentación
+
+### Opción A: Renderizar Documentación
+
+```bash
+# Ir a carpeta de documentación
+cd Turismo/sources/documentation
+
+# Windows
+render.bat
+
+# macOS/Linux
+bash render.sh
+```
+
+### Opción B: Ver Directamente
+
+Abre archivos `.qmd` en tu editor. Son Markdown con formato especial.
+
+**Archivos principales**:
+- `index.qmd` - Documentación completa
+- `_arquitectura.qmd` - Arquitectura técnica
+- `_api.qmd` - Endpoints de API
+- `_manual_usuario.qmd` - Manual de usuario
+
+---
+
+## 🔐 Primer Login
+
+1. Abre http://localhost:5173
+2. Ingresa credenciales de administrador (creadas en Paso 2)
+3. ¡Bienvenido a PIT!
+
+---
+
+## 🛠️ Comandos Útiles
+
+### Backend (Django)
+
+```bash
+# Crear superusuario
+python manage.py createsuperuser
+
+# Hacer cambios en modelos
+python manage.py makemigrations
+
+# Aplicar cambios a BD
+python manage.py migrate
+
+# Ejecutar tests
+python manage.py test
+
+# Shell interactiva
+python manage.py shell
+```
+
+### Frontend (React)
+
+```bash
+# Desarrollo
+npm run dev
+
+# Build producción
+npm run build
+
+# Ver build localmente
+npm run preview
+```
+
+---
+
+## 🐛 Problemas Comunes
+
+### Puerto 8000 en uso
+```bash
+python manage.py runserver 8001
+```
+
+### Puerto 5173 en uso
+```bash
+npm run dev -- --port 5174
+```
+
+### Errores de dependencias
+```bash
+# Backend
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# Frontend
+rm -rf node_modules
+npm install
+```
+
+### Base de datos corrupta
+```bash
+rm db.sqlite3
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+---
+
+## 📁 Estructura de Carpetas
+
+```
+Turismo-develop/
+├── Turismo/
+│   ├── apps/              # Aplicaciones Django
+│   ├── config/            # Configuración
+│   ├── templates/
+│   │   └── frontend_react/  # Frontend React
+│   ├── sources/
+│   │   └── documentation/   # 📖 Documentación
+│   ├── manage.py
+│   ├── db.sqlite3
+│   └── requirements.txt
+├── venv/                  # Entorno virtual
+└── README.md
+```
+
+---
+
+## 🎯 Próximos Pasos
+
+1. **Explorar la aplicación**: Navega por la interfaz
+2. **Leer documentación**: Ver archivos en `sources/documentation/`
+3. **Crear contenido**: Registra atractivos y rutas
+4. **Investigar código**: Aprende la arquitectura interna
+
+---
+
+## 📞 Ayuda
+
+- 📖 Ver documentación: `sources/documentation/README.md`
+- 🔍 Buscar en API: `sources/documentation/_api.qmd`
+- 👥 Manual usuario: `sources/documentation/_manual_usuario.qmd`
+- 💻 Guía desarrollo: `sources/documentation/_guia_desarrollador.qmd`
+
+---
+
+**¡Listo para empezar! 🎉**

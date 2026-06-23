@@ -1,6 +1,6 @@
-# Documentación — Backend PIT
+# Documentación — PIT (Plataforma Interactiva Turística)
 
-Fecha: 2026-05-25
+Fecha: 2026-06-22
 
 ## 1. Contexto del proyecto
 
@@ -12,6 +12,8 @@ El sistema permite buscar destinos, ver información detallada, consultar o deja
 
 ## 2. Instalación rápida
 
+### Backend (Django)
+
 ```powershell
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -21,7 +23,58 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-## 3. Esquema OpenAPI / Swagger
+### Frontend (React + Vite)
+
+```powershell
+cd Frontend
+npm install
+npm run dev
+```
+
+> El frontend se ejecutará en `http://localhost:5173` y el backend en `http://localhost:8000`.
+
+## 3. Estructura del proyecto
+
+```
+Turismo/
+├── apps/                    # Aplicaciones Django (backend)
+│   ├── usuarios/
+│   ├── atractivos/
+│   ├── geolocalizacion/
+│   ├── inventario/
+│   └── investigacion/
+├── config/                  # Configuración Django
+├── core/                    # Utilidades compartidas
+├── Frontend/                # Aplicación React (frontend)
+│   ├── src/
+│   │   ├── components/      # Componentes reutilizables
+│   │   ├── context/         # Contextos de React (AuthContext)
+│   │   ├── layouts/         # Layouts (Layout, AdminLayout)
+│   │   ├── pages/           # Páginas de la aplicación
+│   │   │   ├── auth/        # Autenticación (Login, Register)
+│   │   │   ├── web/         # Páginas públicas/protegidas
+│   │   │   └── admin/       # Panel de administración
+│   │   ├── services/        # Cliente HTTP (Axios)
+│   │   └── styles/          # Estilos globales (Tailwind)
+│   ├── .env.example
+│   ├── tailwind.config.cjs
+│   ├── postcss.config.cjs
+│   └── vite.config.js
+├── sources/                 # Documentación
+├── manage.py
+└── requirements.txt
+```
+
+## 4. Conexión Frontend ↔ Backend
+
+El frontend se comunica con el backend Django a través de una API REST usando Axios.
+
+- **URL base de la API**: configurable mediante `VITE_API_URL` en `Frontend/.env` (por defecto `http://localhost:8000/api`).
+- **CORS**: el backend tiene `CORS_ALLOW_ALL_ORIGINS = True` para desarrollo.
+- **Autenticación**: JWT (access + refresh tokens). El interceptor de Axios en `httpClient.js` renueva el token automáticamente si expira.
+- **Formato de respuesta**: `{success, message, data, errors, meta}`.
+
+## 5. Esquema OpenAPI / Swagger
 
 - La aplicación usa `drf-spectacular` para generar OpenAPI.
 - Esquema raw: `GET /api/schema/`.
@@ -30,7 +83,9 @@ python manage.py runserver
 - Endpoints de token: `POST /api/usuarios/login/` y `POST /api/usuarios/refresh-token/`.
 - Respuesta estándar: `{success, message, data, errors, meta}`.
 
-## 4. Rutas principales
+## 6. Rutas principales
+
+### Backend (API Django)
 
 - `admin/` → Django admin.
 - `api/schema/` → OpenAPI raw.
@@ -41,7 +96,46 @@ python manage.py runserver
 - `api/geolocalizacion/` → módulo `geolocalizacion`.
 - `api/atractivos/` → módulo `atractivos`.
 
-## 5. Módulo `usuarios`
+### Frontend (React)
+
+**Rutas públicas:**
+- `/` → Home (página principal)
+- `/acerca` → Acerca de
+- `/login` → Inicio de sesión
+- `/register` → Registro de usuario
+
+**Rutas protegidas (requieren autenticación):**
+- `/dashboard` → Dashboard principal
+- `/perfil` → Perfil de usuario
+- `/settings` → Configuración
+- `/lista-atractivos` → Lista de atractivos turísticos
+- `/detalle-atractivo/:id` → Detalle de un atractivo
+- `/registro-atractivo` → Registro de nuevo atractivo
+- `/editar-atractivo/:id` → Editar atractivo
+- `/explorador` → Explorador de atractivos
+- `/rutas` → Mapa de rutas turísticas
+- `/publicaciones` → Publicaciones
+- `/enlaces-externos` → Enlaces externos
+- `/importar-recursos` → Importar recursos
+- `/reportes` → Reportes
+- `/investigacion` → Módulo de investigación
+- `/geolocalizacion` → Geolocalización
+- `/estados-especiales` → Estados especiales
+- `/usuarios` → Gestión de usuarios
+
+**Rutas de administración (protegidas):**
+- `/admin/usuarios` → Administración de usuarios
+- `/admin/paises` → Gestión de países
+- `/admin/provincias` → Gestión de provincias
+- `/admin/cantones` → Gestión de cantones
+- `/admin/parroquias` → Gestión de parroquias
+- `/admin/sectores` → Gestión de sectores
+- `/admin/atractivos` → Gestión de atractivos
+- `/admin/clasificaciones` → Gestión de clasificaciones
+- `/admin/reportes` → Reportes administrativos
+- `/admin/investigacion` → Investigación
+
+## 7. Módulo `usuarios`
 
 Archivos: [models.py](Turismo/apps/usuarios/models.py) • [services.py](Turismo/apps/usuarios/services.py) • [serializers.py](Turismo/apps/usuarios/serializers.py) • [views.py](Turismo/apps/usuarios/views.py) • [urls.py](Turismo/apps/usuarios/urls.py)
 
@@ -115,7 +209,7 @@ Views / Endpoints:
 - `GET/POST /api/usuarios/perfiles/{perfil_pk}/favoritos/` — favoritos.
 - `DELETE /api/usuarios/perfiles/{perfil_pk}/favoritos/{favorito_pk}/` — eliminar favorito.
 
-## 6. Módulo `atractivos`
+## 8. Módulo `atractivos`
 
 Archivos: [models.py](Turismo/apps/atractivos/models.py) • [services.py](Turismo/apps/atractivos/services.py) • [serializers.py](Turismo/apps/atractivos/serializers.py) • [views.py](Turismo/apps/atractivos/views.py) • [urls.py](Turismo/apps/atractivos/urls.py)
 
@@ -190,7 +284,7 @@ Views / Endpoints:
 - `GET/POST /api/atractivos/rutas/` — Lista y crea rutas relacionadas.
 - `GET/PUT/PATCH/DELETE /api/atractivos/rutas/{id}/` — Gestión de una ruta.
 
-## 7. Módulo `geolocalizacion`
+## 9. Módulo `geolocalizacion`
 
 Archivos: [models.py](Turismo/apps/geolocalizacion/models.py) • [services.py](Turismo/apps/geolocalizacion/services.py) • [serializers.py](Turismo/apps/geolocalizacion/serializers.py) • [views.py](Turismo/apps/geolocalizacion/views.py) • [urls.py](Turismo/apps/geolocalizacion/urls.py)
 
@@ -258,7 +352,7 @@ Views / Endpoints:
 - `GET /api/geolocalizacion/jerarquia/` — Devuelve la jerarquía geográfica completa (países → provincias → cantones → parroquias).
 - `GET /api/geolocalizacion/jerarquia/{id}/` — Devuelve la jerarquía para una entidad identificada por `id`.
 
-## 8. Módulo `inventario`
+## 10. Módulo `inventario`
 
 Archivos: [models.py](Turismo/apps/inventario/models.py) • [services.py](Turismo/apps/inventario/services.py) • [serializers.py](Turismo/apps/inventario/serializers.py) • [views.py](Turismo/apps/inventario/views.py) • [urls.py](Turismo/apps/inventario/urls.py)
 
@@ -290,7 +384,7 @@ Views / Endpoints:
 - `GET/PUT/PATCH/DELETE /api/inventario/recursos/{id}/` — Operaciones sobre un recurso específico.
 - `POST /api/inventario/recursos/importar/` — Importa recursos desde un archivo CSV/XLSX (multipart/form-data).
 
-## 9. Módulo `investigacion`
+## 11. Módulo `investigacion`
 
 Archivos: [models.py](Turismo/apps/investigacion/models.py) • [services.py](Turismo/apps/investigacion/services.py) • [serializers.py](Turismo/apps/investigacion/serializers.py) • [views.py](Turismo/apps/investigacion/views.py) • [urls.py](Turismo/apps/investigacion/urls.py)
 

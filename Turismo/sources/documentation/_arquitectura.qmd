@@ -1,0 +1,232 @@
+# Arquitectura del Sistema
+
+## Visión General
+
+PIT implementa una arquitectura **modular de tres capas** con separación clara de responsabilidades:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    CAPA DE PRESENTACIÓN                      │
+│  (React Frontend + Interfaz Web + Responsive Design)        │
+└────────────────────────────┬────────────────────────────────┘
+                             │ JSON/HTTPS
+┌────────────────────────────▼────────────────────────────────┐
+│                    CAPA DE APLICACIÓN                        │
+│  (Django REST API + Lógica de Negocio + Servicios)          │
+│  - Views (Controladores HTTP)                               │
+│  - Serializers (Validación y Transformación)                │
+│  - Services (Lógica de Negocio)                             │
+│  - Auth (Autenticación y Autorización)                      │
+└────────────────────────────┬────────────────────────────────┘
+                             │ ORM/SQL
+┌────────────────────────────▼────────────────────────────────┐
+│                    CAPA DE DATOS                             │
+│  (SQLite Database + Modelos de Datos)                        │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Componentes Principales
+
+### 1. Frontend (React)
+
+**Ubicación**: `templates/frontend_react/src/`
+
+**Responsabilidades**:
+- Interfaz de usuario interactiva
+- Manejo de estado global (Context API)
+- Enrutamiento de páginas (React Router)
+- Consumo de API REST
+- Visualización de mapas interactivos
+
+**Stack Tecnológico**:
+- React 18.3.1
+- React Router DOM 6.30.0
+- Axios para HTTP
+- Tailwind CSS para estilos
+- Vite como bundler
+
+**Estructura de Carpetas**:
+```
+src/
+├── components/        # Componentes reutilizables
+├── pages/            # Páginas de la aplicación
+├── routes/           # Configuración de rutas
+├── services/         # Servicios API
+├── hooks/            # Custom hooks
+├── contexts/         # Context API
+├── utils/            # Funciones utilitarias
+├── App.jsx          # Componente raíz
+└── index.js         # Punto de entrada
+```
+
+### 2. Backend (Django REST Framework)
+
+**Ubicación**: `Turismo/`
+
+**Responsabilidades**:
+- Lógica de negocio
+- Procesamiento de datos
+- Persistencia en base de datos
+- Autenticación y autorización
+- Integración con servicios externos (INAMI, ECU 911)
+
+**Aplicaciones Django** (`apps/`):
+
+#### a) Usuarios (`apps/usuarios/`)
+- Gestión de perfiles de usuario
+- Autenticación y roles
+- Permisos y restricciones
+
+**Modelos**:
+- `Persona`: Información de usuario
+- `Usuario`: Extensión con roles
+
+#### b) Atractivos (`apps/atractivos/`)
+- Registro y gestión de atractivos turísticos
+- Clasificación y categorización
+- Servicios asociados
+- Horarios de funcionamiento
+
+**Modelos principales**:
+- `AtractivoTuristico`: Atractivo base
+- `Clasificacion`: Categoría del atractivo
+- `Servicio`: Servicios ofrecidos
+- `Horario`: Horarios de operación
+- `Ruta`: Rutas turísticas
+
+#### c) Geolocalización (`apps/geolocalizacion/`)
+- Datos geográficos y territoriales
+- Información de cantones y provincias
+- Coordenadas y límites
+
+**Modelos**:
+- `Canton`: División territorial
+- `Provincia`: Región administrativa
+- `Ubicacion`: Coordenadas geoespaciales
+
+#### d) Inventario (`apps/inventario/`)
+- Gestión de fichas digitales
+- Importación desde Excel
+- Catálogos de inventario
+
+**Modelos**:
+- `FichaInventario`: Registro de inventario
+- `CatalogoInventario`: Clasificaciones
+
+#### e) Investigación (`apps/investigacion/`)
+- Registro de proyectos de investigación
+- Publicación de resultados
+- Vinculación con contenidos
+
+**Modelos**:
+- `Investigacion`: Proyecto de investigación
+- `Resultado`: Resultados de proyectos
+
+### 3. Base de Datos (SQLite)
+
+**Ubicación**: `Turismo/db.sqlite3`
+
+**Características**:
+- Almacenamiento relacional
+- Integridad referencial
+- Índices optimizados
+- Migrations versionadas
+
+**Tablas principales**:
+- `usuarios_persona`: Datos de usuarios
+- `atractivos_atractivo`: Atractivos turísticos
+- `atractivos_clasificacion`: Clasificaciones
+- `atractivos_servicio`: Servicios
+- `atractivos_horario`: Horarios
+- `atractivos_ruta`: Rutas
+- `geolocalizacion_*`: Datos geográficos
+- `investigacion_*`: Proyectos de investigación
+
+## Flujo de Datos
+
+```
+1. Usuario interactúa en Frontend (React)
+   ↓
+2. Frontend envía solicitud HTTP a Backend (API)
+   ↓
+3. Django recibe y valida autorización (JWT)
+   ↓
+4. View procesa y delega a Service
+   ↓
+5. Service ejecuta lógica de negocio
+   ↓
+6. Models interactúan con Base de Datos (ORM)
+   ↓
+7. Backend retorna respuesta JSON
+   ↓
+8. Frontend recibe datos y actualiza UI
+```
+
+## Patrones de Diseño Utilizados
+
+### 1. MVC (Model-View-Controller)
+- **Models**: Definición de entidades en `models.py`
+- **Views**: Controladores HTTP en `views.py`
+- **Controllers**: Lógica en `services.py`
+
+### 2. Service Layer
+- `services.py` en cada app contiene lógica de negocio
+- Desacoplamiento entre views y modelos
+- Reutilización de lógica
+
+### 3. Serializer Pattern
+- `serializers.py` valida y transforma datos
+- Serialización de modelos a JSON
+- Deserialización de requests
+
+### 4. Repository Pattern
+- ORM de Django actúa como repositorio
+- Abstracción de acceso a datos
+- Queries centralizadas
+
+### 5. Context API (Frontend)
+- Gestión de estado global
+- Autenticación centralizada
+- Compartir datos entre componentes
+
+## Integraciones Externas
+
+### 1. INAMI - Servicio de Clima
+**Endpoint**: Servicio REST de datos climáticos
+**Uso**: Obtener información meteorológica
+**Frecuencia**: On-demand desde Frontend
+
+### 2. ECU 911 - Estado de Vías
+**Endpoint**: Servicio REST de estado vial
+**Uso**: Información de seguridad y estado de carreteras
+**Frecuencia**: On-demand
+
+## Seguridad
+
+### Autenticación
+- JWT (JSON Web Tokens)
+- Tokens con expiración
+- Refresh tokens para renovación
+- Blacklist de tokens revocados
+
+### Autorización
+- Sistema de roles y permisos
+- Decoradores en views
+- Validación en services
+
+### Protección de Datos
+- HTTPS en producción
+- CORS configurado
+- Validación de inputs
+- SQL Injection prevención (ORM)
+
+## Escalabilidad
+
+**Consideraciones de diseño**:
+- Separación de capas permite escalar independientemente
+- Stateless API facilita horizontalización
+- Índices en base de datos para queries complejas
+- Posibilidad de migrar a PostgreSQL
+- Caché con Redis (futuro)
+
+---

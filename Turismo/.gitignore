@@ -57,3 +57,4 @@ specs/
 
 # React/Vite
 node_modules/
+testsprite_tests\tmp\config.json

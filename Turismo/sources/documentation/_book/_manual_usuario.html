@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Manual de Usuario – PIT - Plataforma Interactiva de Turismo</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./_guia_desarrollador.html" rel="next">
+<link href="./_api.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de63f62b328812d8e578a4d74e282472.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-81de787dd4773dbc0001c2dc1cc3016d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./_manual_usuario.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Manual de Usuario</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">PIT - Plataforma Interactiva de Turismo</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PIT - Plataforma Interactiva de Turismo</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_arquitectura.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arquitectura del Sistema</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_instalacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Guía de Instalación</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Documentación de API</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_manual_usuario.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Manual de Usuario</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_guia_desarrollador.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Guía del Desarrollador</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./_glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Glosario de Términos</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">5.1</span> Introducción</a></li>
+  <li><a href="#tipos-de-usuarios" id="toc-tipos-de-usuarios" class="nav-link" data-scroll-target="#tipos-de-usuarios"><span class="header-section-number">5.2</span> Tipos de Usuarios</a></li>
+  <li><a href="#iniciar-sesión" id="toc-iniciar-sesión" class="nav-link" data-scroll-target="#iniciar-sesión"><span class="header-section-number">5.3</span> Iniciar Sesión</a>
+  <ul class="collapse">
+  <li><a href="#acceso-a-la-plataforma" id="toc-acceso-a-la-plataforma" class="nav-link" data-scroll-target="#acceso-a-la-plataforma"><span class="header-section-number">5.3.1</span> Acceso a la Plataforma</a></li>
+  <li><a href="#primer-acceso-administrador" id="toc-primer-acceso-administrador" class="nav-link" data-scroll-target="#primer-acceso-administrador"><span class="header-section-number">5.3.2</span> Primer Acceso (Administrador)</a></li>
+  <li><a href="#cambiar-contraseña" id="toc-cambiar-contraseña" class="nav-link" data-scroll-target="#cambiar-contraseña"><span class="header-section-number">5.3.3</span> Cambiar Contraseña</a></li>
+  </ul></li>
+  <li><a href="#vista-para-turistas" id="toc-vista-para-turistas" class="nav-link" data-scroll-target="#vista-para-turistas"><span class="header-section-number">5.4</span> Vista para Turistas</a>
+  <ul class="collapse">
+  <li><a href="#explorar-atractivos" id="toc-explorar-atractivos" class="nav-link" data-scroll-target="#explorar-atractivos"><span class="header-section-number">5.4.1</span> Explorar Atractivos</a></li>
+  <li><a href="#explorar-rutas-turísticas" id="toc-explorar-rutas-turísticas" class="nav-link" data-scroll-target="#explorar-rutas-turísticas"><span class="header-section-number">5.4.2</span> Explorar Rutas Turísticas</a></li>
+  <li><a href="#buscar-información" id="toc-buscar-información" class="nav-link" data-scroll-target="#buscar-información"><span class="header-section-number">5.4.3</span> Buscar Información</a></li>
+  <li><a href="#compartir-información" id="toc-compartir-información" class="nav-link" data-scroll-target="#compartir-información"><span class="header-section-number">5.4.4</span> Compartir Información</a></li>
+  <li><a href="#descargar-información" id="toc-descargar-información" class="nav-link" data-scroll-target="#descargar-información"><span class="header-section-number">5.4.5</span> Descargar Información</a></li>
+  </ul></li>
+  <li><a href="#vista-para-gestores-turísticos" id="toc-vista-para-gestores-turísticos" class="nav-link" data-scroll-target="#vista-para-gestores-turísticos"><span class="header-section-number">5.5</span> Vista para Gestores Turísticos</a>
+  <ul class="collapse">
+  <li><a href="#registrar-nuevo-atractivo" id="toc-registrar-nuevo-atractivo" class="nav-link" data-scroll-target="#registrar-nuevo-atractivo"><span class="header-section-number">5.5.1</span> Registrar Nuevo Atractivo</a></li>
+  <li><a href="#editar-atractivo" id="toc-editar-atractivo" class="nav-link" data-scroll-target="#editar-atractivo"><span class="header-section-number">5.5.2</span> Editar Atractivo</a></li>
+  <li><a href="#crear-ruta-turística" id="toc-crear-ruta-turística" class="nav-link" data-scroll-target="#crear-ruta-turística"><span class="header-section-number">5.5.3</span> Crear Ruta Turística</a></li>
+  <li><a href="#cambiar-estado-de-contenido" id="toc-cambiar-estado-de-contenido" class="nav-link" data-scroll-target="#cambiar-estado-de-contenido"><span class="header-section-number">5.5.4</span> Cambiar Estado de Contenido</a></li>
+  </ul></li>
+  <li><a href="#vista-para-gestores-territoriales" id="toc-vista-para-gestores-territoriales" class="nav-link" data-scroll-target="#vista-para-gestores-territoriales"><span class="header-section-number">5.6</span> Vista para Gestores Territoriales</a>
+  <ul class="collapse">
+  <li><a href="#gestionar-cantones" id="toc-gestionar-cantones" class="nav-link" data-scroll-target="#gestionar-cantones"><span class="header-section-number">5.6.1</span> Gestionar Cantones</a></li>
+  <li><a href="#importar-inventario-desde-excel" id="toc-importar-inventario-desde-excel" class="nav-link" data-scroll-target="#importar-inventario-desde-excel"><span class="header-section-number">5.6.2</span> Importar Inventario desde Excel</a></li>
+  </ul></li>
+  <li><a href="#vista-para-investigadores" id="toc-vista-para-investigadores" class="nav-link" data-scroll-target="#vista-para-investigadores"><span class="header-section-number">5.7</span> Vista para Investigadores</a>
+  <ul class="collapse">
+  <li><a href="#registrar-proyecto-de-investigación" id="toc-registrar-proyecto-de-investigación" class="nav-link" data-scroll-target="#registrar-proyecto-de-investigación"><span class="header-section-number">5.7.1</span> Registrar Proyecto de Investigación</a></li>
+  <li><a href="#publicar-resultados" id="toc-publicar-resultados" class="nav-link" data-scroll-target="#publicar-resultados"><span class="header-section-number">5.7.2</span> Publicar Resultados</a></li>
+  </ul></li>
+  <li><a href="#vista-para-administradores" id="toc-vista-para-administradores" class="nav-link" data-scroll-target="#vista-para-administradores"><span class="header-section-number">5.8</span> Vista para Administradores</a>
+  <ul class="collapse">
+  <li><a href="#gestionar-usuarios" id="toc-gestionar-usuarios" class="nav-link" data-scroll-target="#gestionar-usuarios"><span class="header-section-number">5.8.1</span> Gestionar Usuarios</a></li>
+  <li><a href="#gestionar-permisos-y-roles" id="toc-gestionar-permisos-y-roles" class="nav-link" data-scroll-target="#gestionar-permisos-y-roles"><span class="header-section-number">5.8.2</span> Gestionar Permisos y Roles</a></li>
+  <li><a href="#revisar-y-aprobar-contenido" id="toc-revisar-y-aprobar-contenido" class="nav-link" data-scroll-target="#revisar-y-aprobar-contenido"><span class="header-section-number">5.8.3</span> Revisar y Aprobar Contenido</a></li>
+  <li><a href="#monitorear-actividad-del-sistema" id="toc-monitorear-actividad-del-sistema" class="nav-link" data-scroll-target="#monitorear-actividad-del-sistema"><span class="header-section-number">5.8.4</span> Monitorear Actividad del Sistema</a></li>
+  <li><a href="#configuración-del-sistema" id="toc-configuración-del-sistema" class="nav-link" data-scroll-target="#configuración-del-sistema"><span class="header-section-number">5.8.5</span> Configuración del Sistema</a></li>
+  </ul></li>
+  <li><a href="#funcionalidades-comunes" id="toc-funcionalidades-comunes" class="nav-link" data-scroll-target="#funcionalidades-comunes"><span class="header-section-number">5.9</span> Funcionalidades Comunes</a>
+  <ul class="collapse">
+  <li><a href="#búsqueda-global" id="toc-búsqueda-global" class="nav-link" data-scroll-target="#búsqueda-global"><span class="header-section-number">5.9.1</span> Búsqueda Global</a></li>
+  <li><a href="#exportar-datos" id="toc-exportar-datos" class="nav-link" data-scroll-target="#exportar-datos"><span class="header-section-number">5.9.2</span> Exportar Datos</a></li>
+  <li><a href="#compartir-en-redes-sociales" id="toc-compartir-en-redes-sociales" class="nav-link" data-scroll-target="#compartir-en-redes-sociales"><span class="header-section-number">5.9.3</span> Compartir en Redes Sociales</a></li>
+  <li><a href="#ver-historial-de-cambios" id="toc-ver-historial-de-cambios" class="nav-link" data-scroll-target="#ver-historial-de-cambios"><span class="header-section-number">5.9.4</span> Ver Historial de Cambios</a></li>
+  </ul></li>
+  <li><a href="#resolución-de-problemas-comunes" id="toc-resolución-de-problemas-comunes" class="nav-link" data-scroll-target="#resolución-de-problemas-comunes"><span class="header-section-number">5.10</span> Resolución de Problemas Comunes</a>
+  <ul class="collapse">
+  <li><a href="#no-puedo-iniciar-sesión" id="toc-no-puedo-iniciar-sesión" class="nav-link" data-scroll-target="#no-puedo-iniciar-sesión"><span class="header-section-number">5.10.1</span> No puedo iniciar sesión</a></li>
+  <li><a href="#no-puedo-crear-atractivos" id="toc-no-puedo-crear-atractivos" class="nav-link" data-scroll-target="#no-puedo-crear-atractivos"><span class="header-section-number">5.10.2</span> No puedo crear atractivos</a></li>
+  <li><a href="#las-imágenes-no-se-cargan" id="toc-las-imágenes-no-se-cargan" class="nav-link" data-scroll-target="#las-imágenes-no-se-cargan"><span class="header-section-number">5.10.3</span> Las imágenes no se cargan</a></li>
+  <li><a href="#el-mapa-no-funciona" id="toc-el-mapa-no-funciona" class="nav-link" data-scroll-target="#el-mapa-no-funciona"><span class="header-section-number">5.10.4</span> El mapa no funciona</a></li>
+  </ul></li>
+  <li><a href="#consejos-de-uso" id="toc-consejos-de-uso" class="nav-link" data-scroll-target="#consejos-de-uso"><span class="header-section-number">5.11</span> Consejos de Uso</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Manual de Usuario</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introducción" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">5.1</span> Introducción</h2>
+<p>Este manual está diseñado para ayudarte a usar <strong>PIT (Plataforma Interactiva de Turismo)</strong> de acuerdo a tu rol. Hay diferentes vistas y funcionalidades según tu tipo de usuario.</p>
+</section>
+<section id="tipos-de-usuarios" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="tipos-de-usuarios"><span class="header-section-number">5.2</span> Tipos de Usuarios</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 45%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Rol</th>
+<th>Descripción</th>
+<th>Acceso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Turista</strong></td>
+<td>Consulta información turística</td>
+<td>Lectura de atractivos, rutas, información</td>
+</tr>
+<tr class="even">
+<td><strong>Gestor Territorial</strong></td>
+<td>Gestiona información territorial</td>
+<td>CRUD de cantones, provincias, ubicaciones</td>
+</tr>
+<tr class="odd">
+<td><strong>Gestor Turístico</strong></td>
+<td>Gestiona atractivos y rutas</td>
+<td>CRUD de atractivos, rutas, servicios</td>
+</tr>
+<tr class="even">
+<td><strong>Investigador</strong></td>
+<td>Gestiona proyectos de investigación</td>
+<td>CRUD de investigaciones, resultados</td>
+</tr>
+<tr class="odd">
+<td><strong>Administrador</strong></td>
+<td>Gestiona todo el sistema</td>
+<td>CRUD completo, usuarios, permisos</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="iniciar-sesión" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="iniciar-sesión"><span class="header-section-number">5.3</span> Iniciar Sesión</h2>
+<section id="acceso-a-la-plataforma" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="acceso-a-la-plataforma"><span class="header-section-number">5.3.1</span> Acceso a la Plataforma</h3>
+<ol type="1">
+<li><p>Abre tu navegador y dirígete a:</p>
+<pre><code>http://localhost:5173</code></pre></li>
+<li><p>Verás la pantalla de login con dos campos:</p>
+<ul>
+<li><strong>Email</strong>: Tu correo electrónico registrado</li>
+<li><strong>Contraseña</strong>: Tu contraseña</li>
+</ul></li>
+<li><p>Ingresa tus credenciales y haz clic en <strong>“Iniciar Sesión”</strong></p></li>
+</ol>
+</section>
+<section id="primer-acceso-administrador" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="primer-acceso-administrador"><span class="header-section-number">5.3.2</span> Primer Acceso (Administrador)</h3>
+<p>Si eres el primer usuario (administrador), debes:</p>
+<ol type="1">
+<li><p>Crear el administrador via terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> manage.py createsuperuser</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Usar las credenciales creadas en el login</p></li>
+<li><p>Acceder a <code>/admin</code> para gestión inicial</p></li>
+</ol>
+</section>
+<section id="cambiar-contraseña" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="cambiar-contraseña"><span class="header-section-number">5.3.3</span> Cambiar Contraseña</h3>
+<ol type="1">
+<li>Haz clic en tu <strong>Avatar</strong> (esquina superior derecha)</li>
+<li>Selecciona <strong>“Perfil”</strong> o <strong>“Configuración”</strong></li>
+<li>Haz clic en <strong>“Cambiar Contraseña”</strong></li>
+<li>Ingresa tu contraseña actual</li>
+<li>Ingresa la nueva contraseña (mínimo 8 caracteres)</li>
+<li>Confirma la nueva contraseña</li>
+<li>Haz clic en <strong>“Guardar”</strong></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="vista-para-turistas" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="vista-para-turistas"><span class="header-section-number">5.4</span> Vista para Turistas</h2>
+<p>La vista de turista permite consultar información turística de manera pública.</p>
+<section id="explorar-atractivos" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="explorar-atractivos"><span class="header-section-number">5.4.1</span> Explorar Atractivos</h3>
+<section id="pantalla-principal" class="level4" data-number="5.4.1.1">
+<h4 data-number="5.4.1.1" class="anchored" data-anchor-id="pantalla-principal"><span class="header-section-number">5.4.1.1</span> Pantalla Principal</h4>
+<ol type="1">
+<li>Al iniciar sesión verás el <strong>Mapa Interactivo</strong> en el centro</li>
+<li>Los atractivos aparecen como marcadores en el mapa</li>
+<li>Puedes hacer zoom con la rueda del ratón</li>
+<li>Puedes arrastrar el mapa para navegar</li>
+</ol>
+</section>
+<section id="filtrar-atractivos" class="level4" data-number="5.4.1.2">
+<h4 data-number="5.4.1.2" class="anchored" data-anchor-id="filtrar-atractivos"><span class="header-section-number">5.4.1.2</span> Filtrar Atractivos</h4>
+<p>En el panel izquierdo, encontrarás: - <strong>Cantón</strong>: Selecciona un cantón - <strong>Clasificación</strong>: Ej: Naturaleza, Cultura, Aventura - <strong>Servicio</strong>: Filtrar por servicios disponibles - <strong>Estado</strong>: Mostrar solo atractivos publicados</p>
+</section>
+<section id="ver-detalles-de-atractivo" class="level4" data-number="5.4.1.3">
+<h4 data-number="5.4.1.3" class="anchored" data-anchor-id="ver-detalles-de-atractivo"><span class="header-section-number">5.4.1.3</span> Ver Detalles de Atractivo</h4>
+<ol type="1">
+<li>Haz clic en un marcador del mapa</li>
+<li>Se abre una tarjeta con información básica</li>
+<li>Haz clic en <strong>“Ver Detalles”</strong> para abrir la ficha completa</li>
+</ol>
+<p><strong>Información disponible</strong>: - Nombre y descripción - Ubicación (cantón, provincia) - Coordenadas GPS - Servicios disponibles - Horarios de atención - Información de accesibilidad - Imágenes y galerías - Documentos relacionados - Rutas que incluyen el atractivo</p>
+</section>
+</section>
+<section id="explorar-rutas-turísticas" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="explorar-rutas-turísticas"><span class="header-section-number">5.4.2</span> Explorar Rutas Turísticas</h3>
+<ol type="1">
+<li>Haz clic en la pestaña <strong>“Rutas”</strong> en el menú superior</li>
+<li>Verás un listado de rutas temáticas</li>
+<li>Haz clic en una ruta para ver detalles</li>
+<li>Visualiza el recorrido en el mapa</li>
+<li>Consulta atractivos incluidos</li>
+<li>Ve el tiempo estimado y nivel de dificultad</li>
+</ol>
+</section>
+<section id="buscar-información" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="buscar-información"><span class="header-section-number">5.4.3</span> Buscar Información</h3>
+<ol type="1">
+<li>En la barra superior, usa el campo <strong>“Buscar”</strong></li>
+<li>Ingresa nombre de atractivo, cantón o servicio</li>
+<li>Los resultados se actualizan en tiempo real</li>
+<li>Haz clic en un resultado para ir a su ficha</li>
+</ol>
+</section>
+<section id="compartir-información" class="level3" data-number="5.4.4">
+<h3 data-number="5.4.4" class="anchored" data-anchor-id="compartir-información"><span class="header-section-number">5.4.4</span> Compartir Información</h3>
+<p>En la ficha de atractivo: 1. Haz clic en botón <strong>“Compartir”</strong> 2. Selecciona red social (Facebook, WhatsApp, Twitter) 3. Se abrirá la red social con link de compartición</p>
+</section>
+<section id="descargar-información" class="level3" data-number="5.4.5">
+<h3 data-number="5.4.5" class="anchored" data-anchor-id="descargar-información"><span class="header-section-number">5.4.5</span> Descargar Información</h3>
+<ol type="1">
+<li>En la ficha de atractivo, haz clic en <strong>“Descargar PDF”</strong></li>
+<li>Se descargará un PDF con la información completa</li>
+<li>Útil para consultar sin internet</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="vista-para-gestores-turísticos" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="vista-para-gestores-turísticos"><span class="header-section-number">5.5</span> Vista para Gestores Turísticos</h2>
+<p>Los gestores turísticos pueden crear y editar atractivos y rutas.</p>
+<section id="registrar-nuevo-atractivo" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="registrar-nuevo-atractivo"><span class="header-section-number">5.5.1</span> Registrar Nuevo Atractivo</h3>
+<section id="paso-1-acceder-a-formulario" class="level4" data-number="5.5.1.1">
+<h4 data-number="5.5.1.1" class="anchored" data-anchor-id="paso-1-acceder-a-formulario"><span class="header-section-number">5.5.1.1</span> Paso 1: Acceder a Formulario</h4>
+<ol type="1">
+<li>En el menú principal, haz clic en <strong>“Atractivos”</strong></li>
+<li>Haz clic en botón <strong>“+ Nuevo Atractivo”</strong></li>
+<li>Se abre formulario de registro</li>
+</ol>
+</section>
+<section id="paso-2-información-básica" class="level4" data-number="5.5.1.2">
+<h4 data-number="5.5.1.2" class="anchored" data-anchor-id="paso-2-información-básica"><span class="header-section-number">5.5.1.2</span> Paso 2: Información Básica</h4>
+<p>Completa: - <strong>Nombre</strong>: Nombre del atractivo - <strong>Descripción</strong>: Descripción detallada (250-1000 caracteres) - <strong>Cantón</strong>: Selecciona el cantón donde está ubicado - <strong>Estado</strong>: BORRADOR (para guardar temporalmente)</p>
+</section>
+<section id="paso-3-ubicación-geolocalización" class="level4" data-number="5.5.1.3">
+<h4 data-number="5.5.1.3" class="anchored" data-anchor-id="paso-3-ubicación-geolocalización"><span class="header-section-number">5.5.1.3</span> Paso 3: Ubicación (Geolocalización)</h4>
+<p>Dos opciones:</p>
+<p><strong>Opción A: Pinchar en Mapa</strong> 1. Haz clic en el mapa 2. Aparecerá un marcador 3. Arrastra para ajustar si es necesario 4. Se llenarán automáticamente <strong>Latitud</strong> y <strong>Longitud</strong></p>
+<p><strong>Opción B: Ingresar Coordenadas</strong> 1. Ingresa <strong>Latitud</strong>: Ej: -0.5234 2. Ingresa <strong>Longitud</strong>: Ej: -78.1234 3. Haz clic en <strong>“Ubicar en Mapa”</strong> 4. El mapa centrará en esa ubicación</p>
+</section>
+<section id="paso-4-clasificación" class="level4" data-number="5.5.1.4">
+<h4 data-number="5.5.1.4" class="anchored" data-anchor-id="paso-4-clasificación"><span class="header-section-number">5.5.1.4</span> Paso 4: Clasificación</h4>
+<ol type="1">
+<li>Haz clic en <strong>“Clasificaciones”</strong></li>
+<li>Selecciona opciones (Naturaleza, Cultura, Aventura, etc.)</li>
+<li>Puedes agregar múltiples clasificaciones</li>
+<li>Haz clic en ➕ para agregar más</li>
+</ol>
+</section>
+<section id="paso-5-servicios" class="level4" data-number="5.5.1.5">
+<h4 data-number="5.5.1.5" class="anchored" data-anchor-id="paso-5-servicios"><span class="header-section-number">5.5.1.5</span> Paso 5: Servicios</h4>
+<ol type="1">
+<li>En sección <strong>“Servicios Disponibles”</strong></li>
+<li>Selecciona los servicios que ofrece:
+<ul>
+<li>Parqueo</li>
+<li>Restaurante</li>
+<li>Hotel cercano</li>
+<li>Baños</li>
+<li>Tienda de souvenirs</li>
+<li>Guías turísticos</li>
+<li>Etc.</li>
+</ul></li>
+<li>Puedes especificar disponibilidad (SIEMPRE, FINES_SEMANA, POR_RESERVA)</li>
+</ol>
+</section>
+<section id="paso-6-horarios" class="level4" data-number="5.5.1.6">
+<h4 data-number="5.5.1.6" class="anchored" data-anchor-id="paso-6-horarios"><span class="header-section-number">5.5.1.6</span> Paso 6: Horarios</h4>
+<ol type="1">
+<li>Haz clic en <strong>“Agregar Horario”</strong></li>
+<li>Selecciona tipo de horario:
+<ul>
+<li>NORMAL: Horario regular</li>
+<li>FIN_SEMANA: Solo fines de semana</li>
+<li>FERIADO: Días feriados</li>
+<li>ESPECIAL: Épocas especiales</li>
+</ul></li>
+<li>Ingresa:
+<ul>
+<li>Hora de apertura (Ej: 08:00)</li>
+<li>Hora de cierre (Ej: 18:00)</li>
+</ul></li>
+<li>Haz clic en <strong>“Guardar Horario”</strong></li>
+</ol>
+</section>
+<section id="paso-7-información-de-acceso" class="level4" data-number="5.5.1.7">
+<h4 data-number="5.5.1.7" class="anchored" data-anchor-id="paso-7-información-de-acceso"><span class="header-section-number">5.5.1.7</span> Paso 7: Información de Acceso</h4>
+<ol type="1">
+<li>Selecciona <strong>Nivel de Accesibilidad</strong>:
+<ul>
+<li>LIBRE: Acceso libre</li>
+<li>RESTRINGIDO: Requiere permiso</li>
+<li>PAGADO: Acceso pagado</li>
+</ul></li>
+<li>Si es PAGADO, ingresa:
+<ul>
+<li>Precio de entrada</li>
+<li>Descuentos especiales</li>
+</ul></li>
+<li>Estado de conservación:
+<ul>
+<li>CONSERVADO</li>
+<li>ALTERADO</li>
+<li>EN_DETERIORO</li>
+<li>DETERIORADO</li>
+</ul></li>
+</ol>
+</section>
+<section id="paso-8-subir-imágenes" class="level4" data-number="5.5.1.8">
+<h4 data-number="5.5.1.8" class="anchored" data-anchor-id="paso-8-subir-imágenes"><span class="header-section-number">5.5.1.8</span> Paso 8: Subir Imágenes</h4>
+<ol type="1">
+<li>Haz clic en <strong>“Subir Imágenes”</strong></li>
+<li>Selecciona una o más imágenes (JPG, PNG, máximo 5MB cada una)</li>
+<li>Aparecerá vista previa</li>
+<li>Las imágenes son obligatorias</li>
+</ol>
+</section>
+<section id="paso-9-documentos-relacionados" class="level4" data-number="5.5.1.9">
+<h4 data-number="5.5.1.9" class="anchored" data-anchor-id="paso-9-documentos-relacionados"><span class="header-section-number">5.5.1.9</span> Paso 9: Documentos Relacionados</h4>
+<ol type="1">
+<li>Haz clic en <strong>“Subir Documento”</strong></li>
+<li>Selecciona archivo (PDF, DOC, máximo 10MB)</li>
+<li>Ingresa descripción del documento</li>
+<li>Haz clic en <strong>“Subir”</strong></li>
+</ol>
+</section>
+<section id="paso-10-guardar" class="level4" data-number="5.5.1.10">
+<h4 data-number="5.5.1.10" class="anchored" data-anchor-id="paso-10-guardar"><span class="header-section-number">5.5.1.10</span> Paso 10: Guardar</h4>
+<ol type="1">
+<li>Revisa toda la información</li>
+<li>Haz clic en <strong>“Guardar como Borrador”</strong> para guardar temporalmente</li>
+<li>O haz clic en <strong>“Enviar a Revisión”</strong> para que un administrador revise</li>
+</ol>
+</section>
+</section>
+<section id="editar-atractivo" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="editar-atractivo"><span class="header-section-number">5.5.2</span> Editar Atractivo</h3>
+<ol type="1">
+<li>En listado de atractivos, encuentra el atractivo</li>
+<li>Haz clic en icono de <strong>“Editar”</strong> (lápiz)</li>
+<li>Modifica los campos necesarios</li>
+<li>Haz clic en <strong>“Guardar Cambios”</strong></li>
+</ol>
+</section>
+<section id="crear-ruta-turística" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="crear-ruta-turística"><span class="header-section-number">5.5.3</span> Crear Ruta Turística</h3>
+<section id="paso-1-acceder" class="level4" data-number="5.5.3.1">
+<h4 data-number="5.5.3.1" class="anchored" data-anchor-id="paso-1-acceder"><span class="header-section-number">5.5.3.1</span> Paso 1: Acceder</h4>
+<ol type="1">
+<li>En menú, haz clic en <strong>“Rutas”</strong></li>
+<li>Haz clic en <strong>“+ Nueva Ruta”</strong></li>
+</ol>
+</section>
+<section id="paso-2-información-básica-1" class="level4" data-number="5.5.3.2">
+<h4 data-number="5.5.3.2" class="anchored" data-anchor-id="paso-2-información-básica-1"><span class="header-section-number">5.5.3.2</span> Paso 2: Información Básica</h4>
+<p>Completa: - <strong>Nombre</strong>: Nombre de la ruta - <strong>Descripción</strong>: Descripción del recorrido - <strong>Duración Estimada</strong>: En minutos - <strong>Dificultad</strong>: BAJA, MEDIA, ALTA - <strong>Tipo</strong>: Naturaleza, Cultura, Aventura, etc.</p>
+</section>
+<section id="paso-3-seleccionar-atractivos" class="level4" data-number="5.5.3.3">
+<h4 data-number="5.5.3.3" class="anchored" data-anchor-id="paso-3-seleccionar-atractivos"><span class="header-section-number">5.5.3.3</span> Paso 3: Seleccionar Atractivos</h4>
+<ol type="1">
+<li>En sección <strong>“Atractivos en la Ruta”</strong></li>
+<li>Haz clic en <strong>“Agregar Atractivo”</strong></li>
+<li>Busca atractivos por nombre</li>
+<li>Selecciona orden de recorrido (1, 2, 3, etc.)</li>
+<li>Puedes agregar múltiples atractivos</li>
+</ol>
+</section>
+<section id="paso-4-visualizar-en-mapa" class="level4" data-number="5.5.3.4">
+<h4 data-number="5.5.3.4" class="anchored" data-anchor-id="paso-4-visualizar-en-mapa"><span class="header-section-number">5.5.3.4</span> Paso 4: Visualizar en Mapa</h4>
+<ol type="1">
+<li>Verás en mapa los atractivos conectados</li>
+<li>Muestra orden de recorrido</li>
+<li>Calcula distancia total aproximada</li>
+</ol>
+</section>
+<section id="paso-5-guardar" class="level4" data-number="5.5.3.5">
+<h4 data-number="5.5.3.5" class="anchored" data-anchor-id="paso-5-guardar"><span class="header-section-number">5.5.3.5</span> Paso 5: Guardar</h4>
+<ol type="1">
+<li>Haz clic en <strong>“Guardar como Borrador”</strong> o <strong>“Enviar a Revisión”</strong></li>
+</ol>
+</section>
+</section>
+<section id="cambiar-estado-de-contenido" class="level3" data-number="5.5.4">
+<h3 data-number="5.5.4" class="anchored" data-anchor-id="cambiar-estado-de-contenido"><span class="header-section-number">5.5.4</span> Cambiar Estado de Contenido</h3>
+<p>Los estados disponibles son:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Estado</th>
+<th>Significado</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>BORRADOR</strong></td>
+<td>En edición, no publicado</td>
+<td>Guardar sin completar</td>
+</tr>
+<tr class="even">
+<td><strong>REVISION</strong></td>
+<td>Pendiente aprobación admin</td>
+<td>Gestor envía a revisar</td>
+</tr>
+<tr class="odd">
+<td><strong>PUBLICADO</strong></td>
+<td>Visible para público</td>
+<td>Admin aprueba</td>
+</tr>
+<tr class="even">
+<td><strong>ARCHIVADO</strong></td>
+<td>No visible, conservado</td>
+<td>Admin archiva</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cambiar estado</strong>: 1. En ficha del atractivo, haz clic en <strong>“Estado”</strong> 2. Selecciona nuevo estado 3. Si es necesario, agregacommentario 4. Haz clic en <strong>“Cambiar”</strong></p>
+<hr>
+</section>
+</section>
+<section id="vista-para-gestores-territoriales" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="vista-para-gestores-territoriales"><span class="header-section-number">5.6</span> Vista para Gestores Territoriales</h2>
+<section id="gestionar-cantones" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="gestionar-cantones"><span class="header-section-number">5.6.1</span> Gestionar Cantones</h3>
+<section id="crear-cantón" class="level4" data-number="5.6.1.1">
+<h4 data-number="5.6.1.1" class="anchored" data-anchor-id="crear-cantón"><span class="header-section-number">5.6.1.1</span> Crear Cantón</h4>
+<ol type="1">
+<li>Menú → <strong>“Territorio”</strong> → <strong>“Cantones”</strong></li>
+<li>Haz clic en <strong>“+ Nuevo Cantón”</strong></li>
+<li>Completa:
+<ul>
+<li>Nombre del cantón</li>
+<li>Provincia</li>
+<li>Población estimada</li>
+<li>Área en km²</li>
+</ul></li>
+<li>Define límites en mapa (norte, sur, este, oeste)</li>
+<li>Haz clic en <strong>“Guardar”</strong></li>
+</ol>
+</section>
+<section id="editar-cantón" class="level4" data-number="5.6.1.2">
+<h4 data-number="5.6.1.2" class="anchored" data-anchor-id="editar-cantón"><span class="header-section-number">5.6.1.2</span> Editar Cantón</h4>
+<ol type="1">
+<li>En listado de cantones, haz clic en <strong>“Editar”</strong></li>
+<li>Modifica información</li>
+<li>Haz clic en <strong>“Guardar”</strong></li>
+</ol>
+</section>
+</section>
+<section id="importar-inventario-desde-excel" class="level3" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="importar-inventario-desde-excel"><span class="header-section-number">5.6.2</span> Importar Inventario desde Excel</h3>
+<ol type="1">
+<li><p>Menú → <strong>“Inventario”</strong> → <strong>“Importar Fichas”</strong></p></li>
+<li><p>Haz clic en <strong>“Seleccionar Archivo”</strong></p></li>
+<li><p>Elige archivo Excel con formato:</p>
+<pre><code>| Nombre | Descripción | Cantón | Clasificación | ... |
+|--------|-------------|--------|---------------|-----|</code></pre></li>
+<li><p>Haz clic en <strong>“Previsualizaar”</strong> para verificar</p></li>
+<li><p>Haz clic en <strong>“Importar”</strong></p></li>
+<li><p>Sistema mostrará resultados (exitosos, con error)</p></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="vista-para-investigadores" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="vista-para-investigadores"><span class="header-section-number">5.7</span> Vista para Investigadores</h2>
+<section id="registrar-proyecto-de-investigación" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="registrar-proyecto-de-investigación"><span class="header-section-number">5.7.1</span> Registrar Proyecto de Investigación</h3>
+<ol type="1">
+<li>Menú → <strong>“Investigación”</strong> → <strong>“Mis Proyectos”</strong></li>
+<li>Haz clic en <strong>“+ Nuevo Proyecto”</strong></li>
+<li>Completa:
+<ul>
+<li>Título del proyecto</li>
+<li>Descripción</li>
+<li>Objetivo general</li>
+<li>Objetivos específicos</li>
+<li>Tipo de investigación</li>
+<li>Investigador principal</li>
+<li>Período de investigación</li>
+</ul></li>
+<li>Haz clic en <strong>“Guardar”</strong></li>
+</ol>
+</section>
+<section id="publicar-resultados" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="publicar-resultados"><span class="header-section-number">5.7.2</span> Publicar Resultados</h3>
+<ol type="1">
+<li>En ficha del proyecto, haz clic en <strong>“Resultados”</strong></li>
+<li>Haz clic en <strong>“+ Agregar Resultado”</strong></li>
+<li>Ingresa:
+<ul>
+<li>Título del resultado</li>
+<li>Descripción</li>
+<li>Conclusiones</li>
+<li>Recomendaciones</li>
+</ul></li>
+<li>Sube documentos (PDF, Imágenes)</li>
+<li>Haz clic en <strong>“Publicar”</strong></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="vista-para-administradores" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="vista-para-administradores"><span class="header-section-number">5.8</span> Vista para Administradores</h2>
+<section id="gestionar-usuarios" class="level3" data-number="5.8.1">
+<h3 data-number="5.8.1" class="anchored" data-anchor-id="gestionar-usuarios"><span class="header-section-number">5.8.1</span> Gestionar Usuarios</h3>
+<section id="listar-y-filtrar-usuarios" class="level4" data-number="5.8.1.1">
+<h4 data-number="5.8.1.1" class="anchored" data-anchor-id="listar-y-filtrar-usuarios"><span class="header-section-number">5.8.1.1</span> Listar y Filtrar Usuarios</h4>
+<ol type="1">
+<li>Menú → <strong>“Administración”</strong> → <strong>“Usuarios”</strong></li>
+<li>Puedes filtrar por:
+<ul>
+<li>Rol (Turista, Gestor, Investigador, Administrador)</li>
+<li>Estado (Activo, Inactivo)</li>
+<li>Búsqueda por nombre/email</li>
+</ul></li>
+</ol>
+</section>
+<section id="crear-usuario" class="level4" data-number="5.8.1.2">
+<h4 data-number="5.8.1.2" class="anchored" data-anchor-id="crear-usuario"><span class="header-section-number">5.8.1.2</span> Crear Usuario</h4>
+<ol type="1">
+<li>Haz clic en <strong>“+ Nuevo Usuario”</strong></li>
+<li>Completa:
+<ul>
+<li>Nombre completo</li>
+<li>Email (único)</li>
+<li>Contraseña temporal</li>
+<li>Rol</li>
+<li>Teléfono (opcional)</li>
+</ul></li>
+<li>Haz clic en <strong>“Crear”</strong></li>
+<li>Sistema enviará email con credenciales</li>
+</ol>
+</section>
+<section id="editar-usuario" class="level4" data-number="5.8.1.3">
+<h4 data-number="5.8.1.3" class="anchored" data-anchor-id="editar-usuario"><span class="header-section-number">5.8.1.3</span> Editar Usuario</h4>
+<ol type="1">
+<li>En listado, haz clic en usuario</li>
+<li>Modifica información (excepto email)</li>
+<li>Puedes cambiar rol</li>
+<li>Haz clic en <strong>“Guardar”</strong></li>
+</ol>
+</section>
+<section id="desactivarreactivar-usuario" class="level4" data-number="5.8.1.4">
+<h4 data-number="5.8.1.4" class="anchored" data-anchor-id="desactivarreactivar-usuario"><span class="header-section-number">5.8.1.4</span> Desactivar/Reactivar Usuario</h4>
+<ol type="1">
+<li>En ficha de usuario</li>
+<li>Haz clic en <strong>“Desactivar”</strong> o <strong>“Reactivar”</strong></li>
+<li>Se pedirá confirmación</li>
+</ol>
+</section>
+<section id="resetear-contraseña" class="level4" data-number="5.8.1.5">
+<h4 data-number="5.8.1.5" class="anchored" data-anchor-id="resetear-contraseña"><span class="header-section-number">5.8.1.5</span> Resetear Contraseña</h4>
+<ol type="1">
+<li>En ficha de usuario</li>
+<li>Haz clic en <strong>“Resetear Contraseña”</strong></li>
+<li>Usuario recibirá email con link para crear nueva contraseña</li>
+</ol>
+</section>
+</section>
+<section id="gestionar-permisos-y-roles" class="level3" data-number="5.8.2">
+<h3 data-number="5.8.2" class="anchored" data-anchor-id="gestionar-permisos-y-roles"><span class="header-section-number">5.8.2</span> Gestionar Permisos y Roles</h3>
+<ol type="1">
+<li>Menú → <strong>“Administración”</strong> → <strong>“Roles y Permisos”</strong></li>
+<li>Verás los roles predefinidos</li>
+<li>Para cada rol, puedes asignar permisos:
+<ul>
+<li>Ver atractivos</li>
+<li>Crear atractivos</li>
+<li>Editar atractivos</li>
+<li>Eliminar atractivos</li>
+<li>Aprobar cambios</li>
+<li>Crear usuarios</li>
+<li>etc.</li>
+</ul></li>
+</ol>
+</section>
+<section id="revisar-y-aprobar-contenido" class="level3" data-number="5.8.3">
+<h3 data-number="5.8.3" class="anchored" data-anchor-id="revisar-y-aprobar-contenido"><span class="header-section-number">5.8.3</span> Revisar y Aprobar Contenido</h3>
+<ol type="1">
+<li>Menú → <strong>“Revisión de Contenido”</strong></li>
+<li>Verás atractivos y rutas en estado “REVISION”</li>
+<li>Para cada uno:
+<ul>
+<li>Revisa información</li>
+<li>Haz clic en <strong>“Aprobar”</strong> o <strong>“Rechazar”</strong></li>
+<li>Si rechazas, agrega comentario</li>
+</ul></li>
+<li>El gestor turístico recibirá notificación</li>
+</ol>
+</section>
+<section id="monitorear-actividad-del-sistema" class="level3" data-number="5.8.4">
+<h3 data-number="5.8.4" class="anchored" data-anchor-id="monitorear-actividad-del-sistema"><span class="header-section-number">5.8.4</span> Monitorear Actividad del Sistema</h3>
+<ol type="1">
+<li>Menú → <strong>“Dashboard”</strong> o <strong>“Reportes”</strong></li>
+<li>Verás:
+<ul>
+<li>Número total de atractivos</li>
+<li>Usuarios activos</li>
+<li>Cambios recientes</li>
+<li>Errores del sistema</li>
+</ul></li>
+<li>Puedes exportar reportes en PDF/Excel</li>
+</ol>
+</section>
+<section id="configuración-del-sistema" class="level3" data-number="5.8.5">
+<h3 data-number="5.8.5" class="anchored" data-anchor-id="configuración-del-sistema"><span class="header-section-number">5.8.5</span> Configuración del Sistema</h3>
+<ol type="1">
+<li>Menú → <strong>“Configuración”</strong></li>
+<li>Puedes ajustar:
+<ul>
+<li>Nombre de la plataforma</li>
+<li>Logo y colores</li>
+<li>Mensajes de bienvenida</li>
+<li>Configuración de emails</li>
+<li>Información de contacto</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="funcionalidades-comunes" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="funcionalidades-comunes"><span class="header-section-number">5.9</span> Funcionalidades Comunes</h2>
+<section id="búsqueda-global" class="level3" data-number="5.9.1">
+<h3 data-number="5.9.1" class="anchored" data-anchor-id="búsqueda-global"><span class="header-section-number">5.9.1</span> Búsqueda Global</h3>
+<ol type="1">
+<li>En barra superior, campo <strong>“Buscar”</strong></li>
+<li>Ingresa término</li>
+<li>Se busca en:
+<ul>
+<li>Nombres de atractivos</li>
+<li>Descripciones</li>
+<li>Cantones</li>
+<li>Nombres de rutas</li>
+</ul></li>
+<li>Resultados aparecen en dropdown</li>
+<li>Haz clic para ir a ese recurso</li>
+</ol>
+</section>
+<section id="exportar-datos" class="level3" data-number="5.9.2">
+<h3 data-number="5.9.2" class="anchored" data-anchor-id="exportar-datos"><span class="header-section-number">5.9.2</span> Exportar Datos</h3>
+<p>La mayoría de listados permite exportar: 1. Haz clic en icono <strong>“Descargar”</strong> (flecha ↓) 2. Selecciona formato: - <strong>CSV</strong>: Archivo de texto - <strong>Excel</strong>: Hoja de cálculo - <strong>PDF</strong>: Documento 3. Se descarga automáticamente</p>
+</section>
+<section id="compartir-en-redes-sociales" class="level3" data-number="5.9.3">
+<h3 data-number="5.9.3" class="anchored" data-anchor-id="compartir-en-redes-sociales"><span class="header-section-number">5.9.3</span> Compartir en Redes Sociales</h3>
+<p>En fichas de atractivos/rutas: 1. Haz clic en icono <strong>“Compartir”</strong> 2. Selecciona red social 3. Se abre aplicación con link compartible</p>
+</section>
+<section id="ver-historial-de-cambios" class="level3" data-number="5.9.4">
+<h3 data-number="5.9.4" class="anchored" data-anchor-id="ver-historial-de-cambios"><span class="header-section-number">5.9.4</span> Ver Historial de Cambios</h3>
+<p>En fichas de atractivos/rutas: 1. Haz clic en <strong>“Historial”</strong> 2. Verás: - Fecha de cada cambio - Usuario que hizo cambio - Qué se cambió - Comentarios</p>
+<hr>
+</section>
+</section>
+<section id="resolución-de-problemas-comunes" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="resolución-de-problemas-comunes"><span class="header-section-number">5.10</span> Resolución de Problemas Comunes</h2>
+<section id="no-puedo-iniciar-sesión" class="level3" data-number="5.10.1">
+<h3 data-number="5.10.1" class="anchored" data-anchor-id="no-puedo-iniciar-sesión"><span class="header-section-number">5.10.1</span> No puedo iniciar sesión</h3>
+<p><strong>Solución</strong>: - Verifica que email y contraseña sean correctos - Si olvidaste la contraseña, haz clic en <strong>“¿Olvidaste tu contraseña?”</strong> - Recibirás email con link para resetear - Si el email no llega, contacta administrador</p>
+</section>
+<section id="no-puedo-crear-atractivos" class="level3" data-number="5.10.2">
+<h3 data-number="5.10.2" class="anchored" data-anchor-id="no-puedo-crear-atractivos"><span class="header-section-number">5.10.2</span> No puedo crear atractivos</h3>
+<p><strong>Causa posible</strong>: Tu rol no tiene permiso</p>
+<p><strong>Solución</strong>: - Pide a administrador que te asigne rol “Gestor Turístico” - Cierra sesión y vuelve a iniciar</p>
+</section>
+<section id="las-imágenes-no-se-cargan" class="level3" data-number="5.10.3">
+<h3 data-number="5.10.3" class="anchored" data-anchor-id="las-imágenes-no-se-cargan"><span class="header-section-number">5.10.3</span> Las imágenes no se cargan</h3>
+<p><strong>Solución</strong>: - Verifica que sean JPG o PNG - Tamaño máximo 5MB - Intenta comprimir la imagen - Si persiste, contacta soporte</p>
+</section>
+<section id="el-mapa-no-funciona" class="level3" data-number="5.10.4">
+<h3 data-number="5.10.4" class="anchored" data-anchor-id="el-mapa-no-funciona"><span class="header-section-number">5.10.4</span> El mapa no funciona</h3>
+<p><strong>Solución</strong>: - Recarga la página (F5) - Limpia cache del navegador - Verifica conexión a internet - Intenta con otro navegador</p>
+<hr>
+</section>
+</section>
+<section id="consejos-de-uso" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="consejos-de-uso"><span class="header-section-number">5.11</span> Consejos de Uso</h2>
+<p>✅ <strong>Haz</strong>: - Actualiza frecuentemente la información - Agrega imágenes atractivas (mínimo 3 por atractivo) - Completa todos los campos - Revisa ortografía y puntuación - Agrupa atractivos en rutas temáticas</p>
+<p>❌ <strong>No hagas</strong>: - Duplicar atractivos (busca primero) - Agregar información incorrecta - Subir imágenes de baja calidad - Dejar campos en blanco innecesariamente - Crear rutas con solo 1 atractivo</p>
+<hr>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./_api.html" class="pagination-link" aria-label="Documentación de API">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Documentación de API</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./_guia_desarrollador.html" class="pagination-link" aria-label="Guía del Desarrollador">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Guía del Desarrollador</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
