@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import api from '../../services/httpClient';
+
+const ESTADO_INFO = {
+  CREACION: { label: 'Completado', clase: 'bg-success-container text-on-success-container', icono: 'check_circle' },
+  MODIFICACION: { label: 'Actualizado', clase: 'bg-primary-fixed text-on-primary-fixed', icono: 'edit' },
+  ELIMINACION: { label: 'Eliminado', clase: 'bg-error-container text-on-error-container', icono: 'delete' },
+};
+
+function getInitials(str) {
+  if (!str) return '--';
+  return str.split(' ').map((p) => p[0]).join('').toUpperCase().slice(0, 2) || '?';
+}
 
 export default function Dashboard() {
-  const actividadReciente = [];
+  const [resumen, setResumen] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    api.get('/usuarios/dashboard/resumen/')
+      .then((res) => setResumen(res.data?.data || res.data))
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
+
+  const actividad = resumen?.actividad_reciente || [];
 
   return (
     <>
@@ -11,36 +33,26 @@ export default function Dashboard() {
         <span className="material-symbols-outlined text-[14px]">chevron_right</span>
         <span className="font-bold text-on-surface">Dashboard</span>
       </nav>
+
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg mb-xl">
-        <div className="bg-surface p-lg rounded-xl border border-outline-variant hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow border-l-4 border-l-primary">
-          <div className="flex justify-between items-start mb-md">
-            <div className="p-sm bg-primary-fixed text-primary rounded-lg"><span className="material-symbols-outlined">map</span></div>
+        {[
+          { label: 'Total Atractivos', value: resumen?.total_atractivos, icono: 'map', borde: 'border-l-primary', iconoBg: 'bg-primary-fixed text-primary' },
+          { label: 'Proyectos Activos', value: resumen?.total_proyectos, icono: 'science', borde: 'border-l-secondary', iconoBg: 'bg-secondary-container text-secondary' },
+          { label: 'Usuarios Registrados', value: resumen?.total_usuarios, icono: 'group', borde: 'border-l-success', iconoBg: 'bg-on-tertiary-container text-tertiary-container' },
+          { label: 'Alertas Pendientes', value: resumen?.total_alertas, icono: 'warning', borde: 'border-l-error', iconoBg: 'bg-error-container text-error' },
+        ].map((card, i) => (
+          <div key={i} className={`bg-surface p-lg rounded-xl border border-outline-variant transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg ${card.borde} border-l-4`}>
+            <div className="flex justify-between items-start mb-md">
+              <div className={`p-sm ${card.iconoBg} rounded-lg`}><span className="material-symbols-outlined">{card.icono}</span></div>
+            </div>
+            <h3 className="font-label-md text-label-md text-on-surface-variant mb-xs">{card.label}</h3>
+            <p className="font-headline-md text-headline-md font-bold text-on-surface">
+              {loading ? <span className="animate-pulse text-on-surface-variant">—</span> : (card.value ?? 0)}
+            </p>
           </div>
-          <h3 className="font-label-md text-label-md text-on-surface-variant mb-xs">Total Atractivos</h3>
-          <p className="font-headline-md text-headline-md font-bold text-on-surface" id="totalAtractivos">0</p>
-        </div>
-        <div className="bg-surface p-lg rounded-xl border border-outline-variant hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow border-l-4 border-l-secondary">
-          <div className="flex justify-between items-start mb-md">
-            <div className="p-sm bg-secondary-container text-secondary rounded-lg"><span className="material-symbols-outlined">science</span></div>
-          </div>
-          <h3 className="font-label-md text-label-md text-on-surface-variant mb-xs">Proyectos Activos</h3>
-          <p className="font-headline-md text-headline-md font-bold text-on-surface" id="totalProyectos">0</p>
-        </div>
-        <div className="bg-surface p-lg rounded-xl border border-outline-variant hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow border-l-4 border-l-success">
-          <div className="flex justify-between items-start mb-md">
-            <div className="p-sm bg-on-tertiary-container text-tertiary-container rounded-lg"><span className="material-symbols-outlined">group</span></div>
-          </div>
-          <h3 className="font-label-md text-label-md text-on-surface-variant mb-xs">Usuarios Registrados</h3>
-          <p className="font-headline-md text-headline-md font-bold text-on-surface" id="totalUsuarios">0</p>
-        </div>
-        <div className="bg-surface p-lg rounded-xl border border-outline-variant hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow border-l-4 border-l-error">
-          <div className="flex justify-between items-start mb-md">
-            <div className="p-sm bg-error-container text-error rounded-lg"><span className="material-symbols-outlined">warning</span></div>
-          </div>
-          <h3 className="font-label-md text-label-md text-on-surface-variant mb-xs">Alertas Pendientes</h3>
-          <p className="font-headline-md text-headline-md font-bold text-on-surface" id="totalAlertas">0</p>
-        </div>
+        ))}
       </section>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-lg mb-xl">
         <div className="lg:col-span-2 bg-surface rounded-xl border border-outline-variant overflow-hidden flex flex-col">
           <div className="p-lg border-b border-outline-variant flex justify-between items-center">
@@ -58,24 +70,18 @@ export default function Dashboard() {
                 <span className="font-label-md text-label-md font-bold">Todos los servicios operando normalmente</span>
               </div>
               <div className="grid grid-cols-3 gap-xl max-w-lg mx-auto">
-                <div className="text-center">
-                  <div className="w-24 h-24 rounded-full border-4 border-primary border-t-transparent mx-auto mb-sm flex items-center justify-center">
-                    <span className="font-bold text-primary text-headline-sm" id="infraestructuraPct">94%</span>
+                {[
+                  { pct: '94%', color: 'border-primary', textColor: 'text-primary', label: 'Infraestructura' },
+                  { pct: '100%', color: 'border-success', textColor: 'text-success', label: 'Disponibilidad' },
+                  { pct: '82%', color: 'border-warning', textColor: 'text-warning', label: 'Validación Datos' },
+                ].map((ring, i) => (
+                  <div key={i} className="text-center">
+                    <div className={`w-24 h-24 rounded-full border-4 ${ring.color} border-t-transparent mx-auto mb-sm flex items-center justify-center`}>
+                      <span className={`font-bold ${ring.textColor} text-headline-sm`}>{ring.pct}</span>
+                    </div>
+                    <p className="font-label-sm text-label-sm text-on-surface-variant">{ring.label}</p>
                   </div>
-                  <p className="font-label-sm text-label-sm text-on-surface-variant">Infraestructura</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-24 h-24 rounded-full border-4 border-success border-t-transparent mx-auto mb-sm flex items-center justify-center">
-                    <span className="font-bold text-success text-headline-sm" id="disponibilidadPct">100%</span>
-                  </div>
-                  <p className="font-label-sm text-label-sm text-on-surface-variant">Disponibilidad</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-24 h-24 rounded-full border-4 border-warning border-t-transparent mx-auto mb-sm flex items-center justify-center">
-                    <span className="font-bold text-warning text-headline-sm" id="validacionPct">82%</span>
-                  </div>
-                  <p className="font-label-sm text-label-sm text-on-surface-variant">Validación Datos</p>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -83,17 +89,17 @@ export default function Dashboard() {
         <div className="bg-surface rounded-xl border border-outline-variant p-lg flex flex-col gap-lg">
           <h2 className="font-headline-sm text-headline-sm font-bold text-on-surface">Acciones Rápidas</h2>
           <div className="flex flex-col gap-md">
-            <Link to="/registro-atractivo" className="w-full inline-flex items-center justify-between p-md bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
-              <span className="flex items-center gap-md"><span className="material-symbols-outlined">add_location</span>Registrar Atractivo</span>
+            <Link to="/admin/atractivos" className="w-full inline-flex items-center justify-between p-md bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
+              <span className="flex items-center gap-md"><span className="material-symbols-outlined">visibility</span>Ver Atractivos</span>
               <span className="material-symbols-outlined">arrow_forward</span>
             </Link>
             <Link to="/explorador" className="w-full inline-flex items-center justify-between p-md bg-success text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
               <span className="flex items-center gap-md"><span className="material-symbols-outlined">explore</span>Ver Mapa Interactivo</span>
               <span className="material-symbols-outlined">map</span>
             </Link>
-            <Link to="/admin/reportes" className="w-full inline-flex items-center justify-between p-md border border-outline-variant text-on-surface-variant rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors">
-              <span className="flex items-center gap-md"><span className="material-symbols-outlined">description</span>Reporte y Estadísticas</span>
-              <span className="material-symbols-outlined">download</span>
+            <Link to="/admin/reportes" className="w-full inline-flex items-center justify-between p-md bg-warning text-white rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
+              <span className="flex items-center gap-md"><span className="material-symbols-outlined">bar_chart</span>Ver Reportes</span>
+              <span className="material-symbols-outlined">bar_chart</span>
             </Link>
           </div>
           <div className="mt-auto pt-lg border-t border-outline-variant">
@@ -107,6 +113,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
       <section className="bg-surface rounded-xl border border-outline-variant overflow-hidden">
         <div className="p-lg border-b border-outline-variant flex justify-between items-center">
           <h2 className="font-headline-sm text-headline-sm font-bold text-on-surface">Actividad Reciente</h2>
@@ -126,33 +133,36 @@ export default function Dashboard() {
               </tr>
             </thead>
             <tbody className="divide-y divide-outline-variant">
-              {actividadReciente.length === 0 ? (
+              {actividad.length === 0 ? (
                 <tr>
                   <td colSpan="5" className="px-lg py-md text-center text-on-surface-variant font-body-md">
                     <span className="material-symbols-outlined text-[32px] block mb-sm">history</span>
-                    No hay actividad reciente registrada
+                    {loading ? 'Cargando...' : 'No hay actividad reciente registrada'}
                   </td>
                 </tr>
               ) : (
-                actividadReciente.map((ev, i) => (
-                  <tr key={i} className="hover:bg-surface-container-low transition-colors group">
-                    <td className="px-lg py-md">
-                      <div className="flex items-center gap-sm">
-                        <div className="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-[12px]">{ev.initials || '--'}</div>
-                        <span className="font-table-data text-table-data font-medium">{ev.usuario || 'Usuario'}</span>
-                      </div>
-                    </td>
-                    <td className="px-lg py-md font-table-data text-table-data">{ev.accion || 'Acción'}</td>
-                    <td className="px-lg py-md font-table-data text-table-data">{ev.recurso || 'Recurso'}</td>
-                    <td className="px-lg py-md font-table-data text-table-data text-on-surface-variant">{ev.fecha || ''}</td>
-                    <td className="px-lg py-md">
-                      <span className={`px-2 py-1 ${ev.estado_clase || 'bg-tertiary-container text-on-tertiary-container'} rounded-full font-badge text-badge inline-flex items-center gap-xs`}>
-                        {ev.icono && <span className="material-symbols-outlined text-[14px]">{ev.icono}</span>}
-                        {ev.estado || '—'}
-                      </span>
-                    </td>
-                  </tr>
-                ))
+                actividad.map((ev, i) => {
+                  const estado = ESTADO_INFO[ev.accion] || { label: ev.accion || '—', clase: 'bg-tertiary-container text-on-tertiary-container', icono: null };
+                  return (
+                    <tr key={ev.id || i} className="hover:bg-surface-container-low transition-colors group">
+                      <td className="px-lg py-md">
+                        <div className="flex items-center gap-sm">
+                          <div className="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-[12px]">{getInitials(ev.usuario_nombre)}</div>
+                          <span className="font-table-data text-table-data font-medium">{ev.usuario_nombre || '—'}</span>
+                        </div>
+                      </td>
+                      <td className="px-lg py-md font-table-data text-table-data capitalize">{ev.accion?.toLowerCase() === 'creacion' ? 'Creación' : ev.accion?.toLowerCase() === 'modificacion' ? 'Modificación' : ev.accion?.toLowerCase() === 'eliminacion' ? 'Eliminación' : ev.accion || '—'}</td>
+                      <td className="px-lg py-md font-table-data text-table-data">{ev.atractivo_nombre || ev.descripcion || '—'}</td>
+                      <td className="px-lg py-md font-table-data text-table-data text-on-surface-variant">{ev.fecha || ''}</td>
+                      <td className="px-lg py-md">
+                        <span className={`px-2 py-1 ${estado.clase} rounded-full font-badge text-badge inline-flex items-center gap-xs`}>
+                          {estado.icono && <span className="material-symbols-outlined text-[14px]">{estado.icono}</span>}
+                          {estado.label}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })
               )}
             </tbody>
           </table>

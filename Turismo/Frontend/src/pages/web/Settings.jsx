@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Settings() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem('pit-dark-mode');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setIsDark(stored === 'true' || (!stored && prefersDark));
+  }, []);
+
+  const toggleDarkMode = () => {
+    const html = document.documentElement;
+    const newDark = html.classList.toggle('dark');
+    localStorage.setItem('pit-dark-mode', newDark);
+    setIsDark(newDark);
+  };
+
   return (
     <>
       <nav className="flex items-center gap-xs text-on-surface-variant mb-lg font-label-md text-label-md">
@@ -29,7 +44,7 @@ export default function Settings() {
                 <p className="font-label-sm text-label-sm text-on-surface-variant">Alternar tema del sistema</p>
               </div>
               <label className="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" className="sr-only peer" />
+                <input type="checkbox" className="sr-only peer" checked={isDark} onChange={toggleDarkMode} />
                 <div className="w-11 h-6 bg-outline-variant rounded-full peer peer-checked:bg-primary peer-focus:ring-2 peer-focus:ring-focus-ring transition-colors after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
               </label>
             </div>

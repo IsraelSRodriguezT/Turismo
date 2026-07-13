@@ -42,7 +42,7 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('refresh_token');
     localStorage.removeItem('usuario');
     setUser(null);
-    navigate('/');
+    navigate('/login');
   };
 
   const hasRole = (role) => {
@@ -52,7 +52,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout, hasRole }}>
+    <AuthContext.Provider value={{ user, loading, login, logout, hasRole, setUser }}>
       {children}
     </AuthContext.Provider>
   );

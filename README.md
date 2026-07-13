@@ -38,7 +38,7 @@ El código del proyecto se encuentra en la rama `feature/frontend`:
 
 ```powershell
 git clone -b feature/frontend https://github.com/IsraelSRodriguezT/Turismo.git
-cd Turismo
+cd Turismo/Turismo
 ```
 
 ### 3.2 Backend (Django)
@@ -48,13 +48,16 @@ cd Turismo
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 
-# 2. Instalar dependencias
+# 2. Asegurar que pip está instalado y actualizado
+python -m pip install --upgrade pip
+
+# 3. Instalar dependencias
 pip install -r requirements.txt
 
-# 3. Ejecutar migraciones a la base de datos
+# 4. Ejecutar migraciones a la base de datos
 python manage.py migrate
 
-# 4. Crear superusuario (administrador del sistema)
+# 5. Crear superusuario (administrador del sistema)
 #    El comando pedirá: nickname, correo, nombre, apellido y contraseña
 python manage.py createsuperuser
 
@@ -62,7 +65,7 @@ python manage.py createsuperuser
 #    $env:DJANGO_SUPERUSER_PASSWORD="miclave"
 #    python manage.py createsuperuser --noinput --nickname admin --correo admin@ejemplo.com --nombre Admin --apellido Principal
 
-# 5. Iniciar servidor de desarrollo
+# 6. Iniciar servidor de desarrollo
 python manage.py runserver
 ```
 

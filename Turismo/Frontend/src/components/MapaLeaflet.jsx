@@ -122,6 +122,11 @@ export default function MapaLeaflet({
   }
 
   useEffect(() => {
+    if (!mapInstanceRef.current || !center) return;
+    mapInstanceRef.current.setView(center, zoom);
+  }, [center, zoom]);
+
+  useEffect(() => {
     limpiarCapas();
     agregarMarcadores();
     agregarRutas();
