@@ -73,11 +73,11 @@ python manage.py runserver
 
 ### 3.3 Frontend (React + Vite)
 
-En una terminal nueva (o sin cerrar la del backend):
+Abre una **nueva terminal** (sin cerrar la del backend que sigue ejecutándose con `python manage.py runserver`):
 
 ```powershell
 # 1. Ir al directorio del frontend
-cd Frontend
+cd Turismo/Turismo/Frontend
 
 # 2. Instalar dependencias
 npm install
@@ -91,6 +91,11 @@ npm run dev
 ```
 
 > El frontend se ejecutará en `http://localhost:5173`.
+
+> ✅ **Instalación finalizada.** La aplicación ya está corriendo:
+> - **Frontend:** `http://localhost:5173`
+> - **Backend API:** `http://localhost:8000`
+> - **Admin Django:** `http://localhost:8000/admin/`
 
 ### 3.4 Build para producción (opcional)
 
