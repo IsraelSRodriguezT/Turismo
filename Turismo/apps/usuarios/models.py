@@ -28,6 +28,9 @@ class UsuarioManager(BaseUserManager):
 		if not correo:
 			raise ValueError('El correo es obligatorio.')
 
+		if not clave and 'password' in extra_fields:
+			clave = extra_fields.pop('password')
+
 		correo = self.normalize_email(correo)
 		usuario = self.model(nickname=nickname, correo=correo, nombre=nombre, apellido=apellido, **extra_fields)
 		if clave:
@@ -48,6 +51,10 @@ class UsuarioManager(BaseUserManager):
 			raise ValueError('El superusuario debe tener is_staff=True.')
 		if extra_fields.get('is_superuser') is not True:
 			raise ValueError('El superusuario debe tener is_superuser=True.')
+
+		# Django management command passes password as 'password', map it to 'clave'
+		if not clave and 'password' in extra_fields:
+			clave = extra_fields.pop('password')
 
 		return self.create_user(nickname, correo, nombre, apellido, clave=clave, **extra_fields)
 
