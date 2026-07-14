@@ -1,0 +1,287 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Estados Especiales | PIT UNL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#2563eb",
+                        "on-primary-container": "#eeefff",
+                        "tertiary": "#006242",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c3c6d7",
+                        "primary-fixed": "#dbe1ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-tertiary-fixed": "#002113",
+                        "focus-ring": "#10B981",
+                        "primary": "#2563eb",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#54647a",
+                        "warning": "#F59E0B",
+                        "on-surface": "#191c1e",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "info": "#0EA5E9",
+                        "background": "#f7f9fb",
+                        "on-surface-variant": "#434655",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#007d55",
+                        "surface-container-high": "#e6e8ea",
+                        "outline": "#737686",
+                        "secondary-fixed": "#d3e4fe",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-background": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "secondary": "#505f76",
+                        "surface-tint": "#2563eb",
+                        "on-primary-fixed": "#00174b",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-container": "#d0e1fb",
+                        "tertiary-fixed": "#6ffbbe",
+                        "error": "#ba1a1a",
+                        "danger": "#DC2626",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#bdffdb",
+                        "success": "#16A34A",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#FFFFFF",
+                        "inverse-on-surface": "#eff1f3",
+                        "border-technical": "#CBD5E1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "xl": "40px",
+                        "margin-desktop": "32px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "table-data": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "badge": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "table-data": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "badge": ["12px", {"lineHeight": "12px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<div class="flex flex-1">
+<!-- SideNavBar - Now extends to the top -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-50 bg-surface border-r border-outline-variant w-64">
+<div class="flex flex-col flex-1 px-md py-lg gap-xs">
+<!-- Sidebar Header -->
+<div class="flex items-center gap-md mb-lg px-xs">
+<div class="w-10 h-10 rounded-lg flex items-center justify-center text-[#2563EB] bg-primary">
+<span class="material-symbols-outlined text-[32px] text-white">school</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-[#2563EB]">Gestión PIT</p>
+<p class="font-label-sm text-label-sm text-outline">Administrador</p>
+</div>
+</div>
+<nav class="flex flex-col gap-xs">
+<!-- Navigation Links with specific icons -->
+<a class="text-on-surface-variant flex items-center px-4 py-2 hover:bg-surface-container-high transition-all rounded-full" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Inicio</span>
+</a>
+<a class="text-on-surface-variant flex items-center px-4 py-2 hover:bg-surface-container-high transition-all rounded-full" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Usuarios</span>
+</a>
+<a class="text-on-surface-variant flex items-center px-4 py-2 hover:bg-surface-container-high transition-all rounded-full" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="distance">location_on</span>
+<span class="font-label-md text-label-md">Geolocalización</span>
+</a>
+
+<a class="text-on-surface-variant flex items-center px-4 py-2 hover:bg-surface-container-high transition-all rounded-full" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="inventory">inventory_2</span>
+<span class="font-label-md text-label-md">Inventario</span>
+</a>
+<a class="text-on-surface-variant flex items-center px-4 py-2 hover:bg-surface-container-high transition-all rounded-full" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="analytics">science</span>
+<span class="font-label-md text-label-md">Investigación</span>
+</a>
+
+<!-- Active Item -->
+
+</nav>
+</div>
+<div class="p-md border-t border-outline-variant flex flex-col gap-xs">
+<a class="text-outline flex items-center px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="settings">help</span>
+<span class="font-label-sm text-label-sm">Ayuda</span>
+</a>
+<a class="text-outline flex items-center px-4 py-2 hover:text-danger transition-colors" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="logout">logout</span>
+<span class="font-label-sm text-label-sm">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Workspace -->
+<div class="flex-1 flex flex-col ml-64">
+<!-- TopAppBar -->
+<header class="h-16 sticky top-0 bg-surface border-b border-outline-variant px-margin-desktop flex items-center justify-between z-50"><h2 class="font-headline-sm font-bold text-primary">PIT - Universidad Nacional de Loja</h2><div class="flex items-center gap-lg"><div class="relative hidden md:block"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span><input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-body-md w-64 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Buscar en la plataforma..." type="text"></div><div class="flex items-center gap-md"><button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors"><span class="material-symbols-outlined">notifications</span></button><button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors"><span class="material-symbols-outlined">settings</span></button><div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant"><img alt="User profile" class="w-full h-full object-cover" data-alt="Close-up professional portrait of a male administrative manager with a friendly expression. He is wearing a sharp, dark business suit and a light blue shirt. The background is a blurred office environment with soft natural light, maintaining a corporate and modern light-mode aesthetic in line with institutional standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnKx8VwennTfXnLo1kZQIcGC9G1VxsI-g0klRdBYI21NjY0zxEYZhU-IHiHjegUcKbhLe6uQ4pPCxlM3kjGp4auBZJrie1SvywVDhofe8Bueu9q5DVVlhDp0Y5zn_tqUZ6Z15ad1fKXxBJZTIDyhHz3H8pv2SfXAJZnXtlWYU3rHXv4Bj_RkvZep12_AlpgK0rNGCZmZ0p9_cyjyGvXHjNhYAfdRpi3obanVehCWSX445FXVpXp1-QpeTl5F2DT_Zyfp7VojmbvOOA"></div></div></div></header>
+<!-- Main Content Area -->
+<main class="p-xl flex-1">
+<header class="mb-xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Estados Especiales de la Plataforma</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-sm">Visualización y validación de interfaces para escenarios de error, vacíos y restricciones de seguridad.</p>
+</header>
+<div class="grid grid-cols-1 gap-xl">
+<!-- 1. Sin Permisos (Permission Denied) -->
+<section class="bg-surface rounded-xl p-xl flex flex-col items-center justify-center text-center border border-outline-variant">
+<div class="w-20 h-20 bg-surface-container-high rounded-full flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-[48px] text-outline" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Acceso Restringido</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mt-sm">Su perfil actual no dispone de los permisos necesarios para gestionar el módulo de Administración Avanzada. Por favor, contacte con el administrador del sistema si cree que esto es un error.</p>
+<div class="mt-lg flex gap-md">
+<button class="bg-surface border border-outline text-on-surface px-lg py-sm rounded-lg font-label-md hover:bg-surface-container-low transition-colors">Solicitar Acceso</button>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md hover:opacity-90 transition-opacity">Volver al Escritorio</button>
+</div>
+</section>
+<!-- 2. Recurso no encontrado (404) -->
+<section class="bg-surface-bright rounded-xl p-xl border border-outline-variant relative overflow-hidden flex flex-col md:flex-row items-center gap-xl min-h-[400px]">
+<div class="flex-1 text-left z-10">
+<span class="font-headline-lg text-[80px] text-primary-container opacity-20 block mb-xs">404</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Recurso no encontrado</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mt-sm">Lo sentimos, la ruta o el recurso que intenta consultar no existe o ha sido movido permanentemente de su ubicación original en la base de datos de PIT.</p>
+<div class="mt-lg">
+<button class="bg-primary-container text-on-primary-container px-lg py-md rounded-xl font-label-md flex items-center gap-sm hover:opacity-90 transition-all" onclick="window.history.back()">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                                    Volver al Inicio
+                                </button>
+</div>
+</div>
+<div class="flex-1 flex justify-center items-center">
+<div class="relative w-64 h-64 bg-surface-container rounded-full flex items-center justify-center animate-pulse" style="transform: translate(0.929688px, 9.49119px);">
+<span class="material-symbols-outlined text-[120px] text-outline-variant" data-icon="search_off">search_off</span>
+</div>
+</div>
+</section>
+<!-- 3. Listado Vacío (Empty State) -->
+<section class="bg-surface rounded-xl border-2 border-dashed border-outline-variant p-xl flex flex-col items-center justify-center text-center">
+<div class="mb-lg">
+<div class="w-32 h-32 mx-auto relative">
+<img alt="Sin Atractivos" class="w-full h-full object-cover rounded-xl grayscale opacity-40" data-alt="A clean and minimalist digital illustration of an empty map marker or placeholder. The image features a light gray background with subtle geometric patterns representing a map grid. In the center, a stylized transparent glass icon of a mountain is shown with a plus sign, evoking the idea of adding new content. The overall lighting is soft, maintaining a professional academic aesthetic suitable for a university platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv2LmBLCd4nDeX6fEm_CGKqJlNguJiehWkRrMTOjayu976treUYYq5gtkThSmgZM6a1O_EoXSoxHPj53bO9bninodvG037pFZKep93eqadTgM06LfVjusdKDogzAV22yLTbQFBLklaM3mwZx04V1BfVs_vO9kDqFvXhM3-KNa18FEcu4Ftl-V-KWuDjYbC5gdHzO5TKzKf5lXQnBXI3vAMeo_Eh_2OOX_s95GVFeIzZlvabdsNh-LfHY9XmHSr1K8H9kBzLLTdB5d4">
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+</div>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">No se encontraron atractivos registrados</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mt-sm">Actualmente no existen registros de atractivos turísticos en esta categoría para la provincia de Loja.</p>
+<div class="mt-xl">
+<button class="bg-success text-on-primary px-xl py-md rounded-full font-label-md flex items-center gap-md hover:scale-105 transition-transform shadow-lg shadow-success/20">
+<span class="material-symbols-outlined" data-icon="add_location_alt" style="font-variation-settings: 'FILL' 1;">add_location_alt</span>
+                                Registrar Atractivo
+                            </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-md px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row items-center gap-md">
+<span class="font-label-md text-label-md font-semibold text-on-surface"><br></span>
+<span class="font-label-sm text-label-sm text-outline">© Universidad Nacional de Loja - Plataforma Interactiva de Turismo</span>
+</div>
+<div class="flex gap-lg">
+<a class="font-label-sm text-label-sm text-outline hover:text-primary transition-colors" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-outline hover:text-primary transition-colors" href="#">Términos</a>
+<a class="font-label-sm text-label-sm text-outline hover:text-primary transition-colors" href="#">Contacto</a>
+</div>
+</footer>
+</div>
+</div>
+<script>
+        // Micro-interaction: Active state feedback for side nav
+        const navLinks = document.querySelectorAll('aside nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (!link.classList.contains('text-primary')) {
+                    navLinks.forEach(l => {
+                        l.classList.remove('text-primary', 'font-bold', 'bg-secondary-fixed', 'scale-95');
+                        l.classList.add('text-on-surface-variant');
+                    });
+                    link.classList.remove('text-on-surface-variant');
+                    link.classList.add('text-primary', 'font-bold', 'bg-secondary-fixed', 'scale-95');
+                }
+            });
+        });
+
+        // Atmospheric effect: Soft background movement on 404
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            const circle = document.querySelector('.animate-pulse');
+            if (circle) {
+                circle.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

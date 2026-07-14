@@ -1,0 +1,407 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Detalle de Atractivo - PIT UNL</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#dbe1ff",
+                    "background": "#f7f9fb",
+                    "on-secondary-fixed": "#0b1c30",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-tint": "#0053db",
+                    "tertiary-fixed": "#6ffbbe",
+                    "outline": "#737686",
+                    "on-surface-variant": "#434655",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary-container": "#54647a",
+                    "border-technical": "#CBD5E1",
+                    "on-primary": "#ffffff",
+                    "surface": "#FFFFFF",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "surface-bright": "#f7f9fb",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-secondary": "#ffffff",
+                    "warning": "#F59E0B",
+                    "surface-dim": "#d8dadc",
+                    "secondary-container": "#d0e1fb",
+                    "info": "#0EA5E9",
+                    "outline-variant": "#c3c6d7",
+                    "surface-container-high": "#e6e8ea",
+                    "on-error": "#ffffff",
+                    "on-background": "#191c1e",
+                    "on-primary-container": "#eeefff",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary": "#505f76",
+                    "focus-ring": "#10B981",
+                    "on-primary-fixed": "#00174b",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#007d55",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-tertiary-container": "#bdffdb",
+                    "surface-container": "#eceef0",
+                    "danger": "#DC2626",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#2563eb",
+                    "on-tertiary-fixed": "#002113",
+                    "success": "#16A34A",
+                    "primary": "#2563eb",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-surface": "#191c1e",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "tertiary": "#006242"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px",
+                    "xl": "40px",
+                    "base": "4px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "badge": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "table-data": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "badge": ["12px", {"lineHeight": "12px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "table-data": ["13px", {"lineHeight": "18px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f7f9fb;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #E2E8F0;
+        }
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-50 bg-surface border-r border-outline-variant flex flex-col p-md gap-base">
+<div class="flex items-center gap-sm py-md mb-lg">
+<div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Gestión PIT</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Administrador</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">home</span> Inicio
+        </a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">group</span> Usuarios
+        </a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">location_on</span> Geolocalización
+        </a>
+<a class="bg-secondary-container text-on-secondary-container rounded-xl flex items-center gap-sm px-md py-sm font-label-md text-label-md font-bold scale-95 transition-transform duration-150" href="#"><span class="material-symbols-outlined">inventory_2</span> Inventario</a>
+
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-colors font-label-md text-label-md" href="#"><span class="material-symbols-outlined">science</span> Investigación</a>
+
+
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-md">
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-colors font-label-md text-label-md" href="#"><span class="material-symbols-outlined">help</span> Ayuda</a>
+<a class="flex items-center gap-sm px-md py-sm text-danger hover:bg-error-container rounded-xl transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span> Cerrar Sesión
+        </a>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 right-0 left-64 z-40 bg-surface border-b border-outline-variant flex justify-between items-center h-16 px-margin-desktop">
+<div class="flex items-center gap-md">
+<h3 class="hidden lg:block font-headline-sm text-headline-sm font-bold text-primary mr-lg whitespace-nowrap">PIT - Universidad Nacional de Loja</h3><div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-2 focus:ring-focus-ring outline-none w-80 font-body-md text-body-md" placeholder="Buscar en la plataforma..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors">settings</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-sm">
+<div class="text-right hidden md:block">
+<p class="font-label-md text-label-md font-bold">Admin PIT</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Administrador</p>
+</div>
+<img alt="Avatar del usuario administrativo" class="w-10 h-10 rounded-full object-cover border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJe4Ka8OmLm_RUGTLzHQUWdNkAQHeE_M9YiowXKC6kqAixJ5ZueaQoz6sz1IdqI2IlrVyIPqtKgIK_JhhSOQFxIVtpv-5zv1oGvstTIJVidzJujfsD8PMrbhoDlOCM3ONDFv8KQ7vQh3bLb-Sboacv7EkJc_O5dy6H5BZXaNpeGV3JTtcPydafKXr0ZCG0-AsTkWazG6uoh1YTyukKOjUyyY0l2KnukgjBwZDdYJnmANymdiPpKxHLSYDP91I8yDw7fSHWWdcRodt1">
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 mt-16 min-h-[calc(100vh-64px)] flex flex-col">
+<div class="p-lg flex-1">
+<div class="max-w-7xl mx-auto">
+<!-- Header & Actions -->
+<div class="flex justify-between items-start mb-lg">
+<div class="space-y-sm">
+<div class="flex items-center gap-sm">
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" onclick="window.history.back()">
+<span class="material-symbols-outlined">arrow_back</span> Volver al listado
+                        </button>
+</div>
+<div class="flex items-center gap-md">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Catedral de Loja</h2>
+<span class="inline-flex items-center gap-xs px-3 py-1 rounded-full bg-success/10 text-success font-badge text-badge">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Publicado
+                        </span>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="px-lg py-2 rounded-lg border border-outline-variant hover:bg-surface-container-low transition-all font-label-md text-label-md flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined">delete</span> Eliminar
+                    </button>
+<button class="px-lg py-2 rounded-lg bg-primary text-white hover:bg-primary/90 transition-all font-label-md text-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined">edit</span> Editar Contenido
+                    </button>
+
+</div>
+</div>
+<!-- Content Bento Grid -->
+<div class="bento-grid">
+<!-- Gallery Section -->
+<div class="col-span-8 space-y-md">
+<div class="relative group overflow-hidden rounded-xl border border-outline-variant shadow-sm h-[420px]">
+<img alt="Catedral de Loja Main View" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFtkHuWMRxV0dTh9JeTnrjzjZAgi6KT3wvh6IY4t16RMErG0828AjTYY--uBn44o1HEZqqij3zz3nWltx43DPus2-awuTQelR17ugzm04i-vLsRmF27NWud2FTthzEuA1inkhkP=s680-w680-h510-rw">
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-lg">
+<p class="text-white font-label-md text-label-md">Vista principal de la fachada frontal y Plaza Central</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-md">
+<div class="h-24 rounded-lg overflow-hidden border border-outline-variant hover:border-primary cursor-pointer transition-all">
+<img class="w-full h-full object-cover" data-alt="Interior view of a majestic cathedral" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxDQY4kgSf9cacBCPsEmZ0NV0bFd_2GCedWSAl4zqIesIkQOOD6neKJqaEVwK1YQg8kx73W4x4xuW89JNrdZwFYo36QJCnescAgGUbXTGxNMIJc6JV-ftT0IcvYkvMjhFdqxdQ8VgzSZXYdb7qKO9iD3g-DYt5c5a4to-GuzzGJBWCXr9V3ezkkVzCMCX_cFjq6Jyh4b686bQ82PF8XpbH2xtAeF1PUm6iitTDEeuanBQ2C61m4w18t6w316NM2-pt3dMYxx8_rNQs">
+</div>
+<div class="h-24 rounded-lg overflow-hidden border border-outline-variant hover:border-primary cursor-pointer transition-all">
+<img class="w-full h-full object-cover" data-alt="Close-up of intricate stone carvings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXfdUoB14RdUN3K1xL49TeMItlam8Zs_1jUgokWA25ks3RHPELjEZ7TYTHdDK3ZVkBlWpgrHkqOjMchvW0Emdbcqlih9Y_Vtq2LwQmjxVoGuU09ITvTPbJpVmos4wZZXD3Z1WM8odx_c4Kg7xoq5g2lm88CqglbS2bMx2tCny3EFPvhpzRPzLNG9ncpzriH8D9x9ep4jFjG3ig-LYQ-MVYGRXcrMQ5QjFb8lyXNbIq3ZfHwBVxDQvAs-Qk-2zHBt6Es1pVazGcVS7Q">
+</div>
+<div class="h-24 rounded-lg overflow-hidden border border-outline-variant hover:border-primary cursor-pointer transition-all">
+<img class="w-full h-full object-cover" data-alt="Night view of cathedral" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV1AiMRGCgY7q0Fyl3JGlkasVHNXufiMA-o-ZrKa4Yazsi-L2Vn1wVgszxiF3xdQ0M_5ayiSvkntdtiDK5kfxuZsOr-2EoAmGW7ks91BIBZFPTml09hYyreWl0MieJcheyUO5YiLcvxhif9avGclUDo2dc876E0u875pdgAh1Z79yzZJnyct6VKJMznuDActcEJ0LezcTg2K2AIvHnsMCOQbx3uHUZuvVfQU_l8Ak0UMRZuqOozx8KfeO9jJxiZxX1bJmStWrJieA6">
+</div>
+<div class="h-24 rounded-lg overflow-hidden bg-surface-container-low border border-outline-variant border-dashed flex flex-col items-center justify-center cursor-pointer hover:bg-surface-container-high transition-all text-on-surface-variant">
+<span class="material-symbols-outlined">add_a_photo</span>
+<span class="font-label-sm text-label-sm">+8 más</span>
+</div>
+</div>
+<!-- Description Card -->
+<div class="bg-surface p-lg rounded-xl border border-outline-variant">
+<h3 class="font-headline-sm text-headline-sm mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">description</span>
+                            Reseña Histórica y Arquitectónica
+                        </h3>
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-md">
+<p class="">La Catedral de Loja, dedicada a la Virgen de El Cisne, es uno de los templos más grandes y hermosos del Ecuador. Su construcción actual de estilo neoclásico data de finales del siglo XIX, reemplazando estructuras previas que datan de la fundación de la ciudad en 1548.</p>
+<p class="">Presenta una planta de tres naves con una cúpula central imponente. En su interior, destaca el retablo mayor tallado y recubierto en pan de oro, así como el órgano tubular traído de Alemania a principios del siglo XX. Es el epicentro de la fe lojana, especialmente durante la romería de la 'Churonita' cada septiembre.</p>
+</div>
+</div>
+</div>
+<!-- Info Cards & Sidebar Content -->
+<div class="col-span-4 space-y-lg">
+<!-- Quick Info Grid -->
+<div class="grid grid-cols-1 gap-md">
+<div class="bg-surface p-md rounded-xl border border-outline-variant flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">church</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Categoría</p>
+<p class="font-headline-sm text-headline-sm text-primary">Turismo Religioso</p>
+</div>
+</div>
+<div class="bg-surface p-md rounded-xl border border-outline-variant flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-info/10 flex items-center justify-center text-info">
+<span class="material-symbols-outlined text-3xl">device_thermostat</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Clima Promedio</p>
+<p class="font-headline-sm text-headline-sm">16°C - 22°C</p>
+</div>
+</div>
+<div class="bg-surface p-md rounded-xl border border-outline-variant flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-warning/10 flex items-center justify-center text-warning">
+<span class="material-symbols-outlined text-3xl">schedule</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Horarios</p>
+<p class="font-headline-sm text-headline-sm">07:00 - 19:00</p>
+</div>
+</div>
+</div>
+<!-- Location Section -->
+<div class="bg-surface p-md rounded-xl border border-outline-variant overflow-hidden">
+<h4 class="font-label-md text-label-md font-bold mb-md">Ubicación Geográfica</h4>
+<div class="h-48 rounded-lg mb-md overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover grayscale opacity-50" data-alt="Map of Loja" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvBtgzcHtcP2K3QMC7CF9LGAR8GPAbbJwxh30sv7FHUBseFKRlk8EEQf7o0B4UcETHnWPYyXKqOKwSC8UuFiAzhuZMSQdLk9tnnP89xI9boE6btBkeM48K5Kfb0wquHaqthYpmnCvHCdStiuCsejUmfcihc2GPpRVuJarpW76dSMF-7xA-mt8gbUE_FYv-oe9YW1CnIyQDC_s8RbE7nUBHgLz7W2oxjhqC-HMi1qMH8Nh5MGHQMXPfU0R75DSmBJEcnNBmAEjSUxMI">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Calle Bernardo Valdivieso entre José Antonio Eguiguren y 10 de Agosto.</p>
+<button class="w-full py-2 border border-outline-variant rounded-lg hover:bg-surface-container-low font-label-md text-label-md flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">map</span> Abrir en Mapas
+                        </button>
+</div>
+<!-- Responsible Section -->
+<div class="bg-surface p-md rounded-xl border border-outline-variant">
+<h4 class="font-label-md text-label-md font-bold mb-md">Responsable del Registro</h4>
+<div class="flex items-center gap-md">
+<img alt="Foto de la Gestora Territorial" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu55QAo9Yh84ysBtBL0eSOVyuv_jtQiXqTEH7auhMEGhOH7m0GepR197VKdLuxpVjC4rEsSskx_luL9j4x1ZfkAsgSkEIO6404W_mFpMEfeja34alzEcWVqLb2KR2tfkZOSvGjoT7PPtVM1coesBqOP9Z4MhzSARYRhD-Mi1cQLKJBl4zwvBIP6V9Ghmlhkc-pf22fgLfY970iyngvwbGm4NtYHXDgpm6Z-FEkuB_vUQr0kgj23NjuN-ZDFYIkJVWCM0UHVSMqJCzI">
+<div>
+<p class="font-label-md text-label-md font-bold">Dra. Elena Martínez</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Gestora Territorial Z7</p>
+<div class="flex gap-xs mt-1">
+<span class="material-symbols-outlined text-[16px] text-primary">mail</span>
+<span class="material-symbols-outlined text-[16px] text-primary">call</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Traceability Timeline -->
+<div class="bg-surface p-md rounded-xl border border-outline-variant">
+<h4 class="font-label-md text-label-md font-bold mb-lg">Historial de Trazabilidad</h4>
+<div class="space-y-lg relative timeline-line">
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-success border-4 border-white shadow-sm z-10"></div>
+<p class="font-label-md text-label-md font-bold">Publicación aprobada</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Por: Admin General | 12 May 2024</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-info border-4 border-white shadow-sm z-10"></div>
+<p class="font-label-md text-label-md font-bold">Actualización de fotos</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Por: Elena Martínez | 10 May 2024</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-primary border-4 border-white shadow-sm z-10"></div>
+<p class="font-label-md text-label-md font-bold">Registro creado</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Por: Sistema PIT | 05 May 2024</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Institutional Footer -->
+<footer class="w-full py-lg mt-auto border-t border-outline-variant bg-surface">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-7xl mx-auto gap-md w-full">
+<div class="flex items-center gap-md">
+<p class="font-body-md text-body-md text-secondary">© Universidad Nacional de Loja - Plataforma Interactiva de Turismo</p>
+</div>
+<div class="flex gap-lg">
+<a class="font-label-sm text-label-sm text-on-secondary-container hover:text-primary transition-colors" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-secondary-container hover:text-primary transition-colors" href="#">Términos</a>
+<a class="font-label-sm text-label-sm text-on-secondary-container hover:text-primary transition-colors" href="#">Contacto</a>
+</div>
+</div>
+</footer>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.classList.add('scale-95');
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.classList.remove('scale-95');
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.classList.remove('scale-95');
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

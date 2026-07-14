@@ -17,6 +17,12 @@ class EstadoConservacion(models.TextChoices):
     EN_DETERIORO = 'EN_DETERIORO', 'En deterioro'
     DETERIORADO = 'DETERIORADO', 'Deteriorado'
 
+class EstadoAtractivo(models.TextChoices):
+    BORRADOR = 'BORRADOR', 'Borrador'
+    REVISION = 'REVISION', 'Revisión'
+    PUBLICADO = 'PUBLICADO', 'Publicado'
+    ARCHIVADO = 'ARCHIVADO', 'Archivado'
+
 class TipoHorario(models.TextChoices):
     NORMAL = 'NORMAL', 'Normal'
     FIN_SEMANA = 'FIN_SEMANA', 'Fin de semana'
@@ -81,6 +87,7 @@ class AtractivoTuristico(models.Model):
     descripcion = models.TextField(blank=True)
     nivel_accesibilidad = models.CharField(max_length=20, choices=NivelAccesibilidad.choices, default=NivelAccesibilidad.LIBRE)
     estado_conservacion = models.CharField(max_length=20, choices=EstadoConservacion.choices, default=EstadoConservacion.CONSERVADO)
+    estado = models.CharField(max_length=20, choices=EstadoAtractivo.choices, default=EstadoAtractivo.BORRADOR)
 
     class Meta:
         ordering = ['nombre']

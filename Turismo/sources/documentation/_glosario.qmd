@@ -1,0 +1,310 @@
+# Glosario de Términos
+
+## A
+
+**Admin/Administrador**
+: Usuario con permisos máximos en el sistema. Puede gestionar usuarios, aprobar cambios, y acceder a todas las funcionalidades.
+
+**API (Application Programming Interface)**
+: Interfaz de programación que permite que diferentes aplicaciones se comuniquen entre sí. En PIT, es la API REST que conecta Frontend con Backend.
+
+**Atractivo Turístico**
+: Lugar, sitio o actividad de interés turístico que puede ser visitado por turistas. Registrado en la plataforma con información geolocalizada.
+
+**Autenticación**
+: Proceso de verificar la identidad del usuario mediante usuario y contraseña. En PIT se usa JWT (tokens).
+
+---
+
+## B
+
+**Backend**
+: Parte del sistema que procesa datos, ejecuta lógica de negocio y gestiona la base de datos. En PIT: Django REST Framework.
+
+**Borrador**
+: Estado inicial de un atractivo o ruta. No es visible al público, permite edición continua.
+
+**Bundle**
+: Archivo compilado del frontend que contiene todos los recursos (JavaScript, CSS, imágenes) empaquetados para producción.
+
+---
+
+## C
+
+**Cantón**
+: División territorial administrativa de una provincia. Usado para clasificar y filtrar atractivos.
+
+**Clasificación**
+: Categoría asignada a un atractivo (Ej: Naturaleza, Cultura, Aventura). Un atractivo puede tener múltiples.
+
+**CORS (Cross-Origin Resource Sharing)**
+: Mecanismo que permite que aplicaciones en diferentes dominios se comuniquen. Necesario para conectar Frontend con Backend.
+
+**CRUD**
+: Acrónimo para Create (crear), Read (leer), Update (actualizar), Delete (eliminar). Operaciones básicas en datos.
+
+---
+
+## D
+
+**Dashboard**
+: Panel de control que muestra información resumida y estadísticas del sistema.
+
+**Django**
+: Framework de Python para desarrollo web. Usado como base del Backend de PIT.
+
+**DRF (Django REST Framework)**
+: Librería que extiende Django para crear APIs REST de manera fácil. Usada para los endpoints de PIT.
+
+---
+
+## E
+
+**Endpoint**
+: URL específica de la API que realiza una acción. Ej: `/api/atractivos/` es un endpoint.
+
+**Estado**
+: Condición de un contenido. Estados posibles: BORRADOR, REVISION, PUBLICADO, ARCHIVADO.
+
+---
+
+## F
+
+**Frontend**
+: Interfaz de usuario que ves en el navegador. En PIT: React con Tailwind CSS.
+
+---
+
+## G
+
+**Gestor Territorial**
+: Usuario que gestiona información geográfica y administrativa (cantones, provincias, ubicaciones).
+
+**Gestor Turístico**
+: Usuario que crea y edita atractivos y rutas turísticas.
+
+**Geolocalización**
+: Información de ubicación geográfica (latitud, longitud, coordenadas). Usada para posicionar atractivos en mapas.
+
+---
+
+## H
+
+**Horario**
+: Información sobre cuándo está abierto un atractivo. Puede variar por tipo (normal, fines de semana, feriados).
+
+**HTTP**
+: Protocolo de comunicación entre navegadores y servidores. HTTPS es la versión segura (con encriptación).
+
+---
+
+## I
+
+**Investigación/Investigador**
+: Usuario que registra y publica proyectos de investigación y sus resultados.
+
+**Inventario**
+: Catálogo de fichas digitales de atractivos turísticos. Puede importarse desde archivos Excel.
+
+---
+
+## J
+
+**JWT (JSON Web Token)**
+: Sistema de autenticación usando tokens encriptados. Usuario recibe token al logarse y lo usa en todas las solicitudes.
+
+---
+
+## L
+
+**Latitud**
+: Coordenada geográfica que indica posición norte-sur (rango: -90 a 90 grados).
+
+**Leaflet**
+: Librería JavaScript para crear mapas interactivos. Potencialmente usada en PIT.
+
+---
+
+## M
+
+**Mapas Interactivos**
+: Visualización geográfica donde se pueden ver atractivos, hacer zoom, panear, etc.
+
+**Meta**
+: Información adicional en respuestas API (paginación, timestamps, versión, etc.).
+
+**Migración**
+: Script que define cambios a la estructura de base de datos. Permite versionar cambios de schema.
+
+**ModelViewSet**
+: Clase de Django REST Framework que proporciona automáticamente CRUD para un modelo.
+
+---
+
+## N
+
+**Nivel de Accesibilidad**
+: Indica si un atractivo es de acceso LIBRE, RESTRINGIDO o PAGADO.
+
+---
+
+## O
+
+**ORM (Object-Relational Mapping)**
+: Técnica que permite interactuar con base de datos usando objetos Python en lugar de SQL directo. Django usa ORM.
+
+---
+
+## P
+
+**Paginación**
+: División de resultados en páginas. Mejora performance y UX. Ej: 10 resultados por página.
+
+**Permisos**
+: Especificación de qué acciones puede realizar cada usuario según su rol.
+
+**Persona**
+: Entidad base que representa un usuario en el sistema. Puede tener información de perfil, email, teléfono.
+
+**Payload**
+: Datos principales en una solicitud o respuesta HTTP (no incluye headers ni metadatos).
+
+**PostgreSQL**
+: Sistema de base de datos relacional profesional. Recomendado para producción en lugar de SQLite.
+
+**Provincia**
+: Región administrativa que contiene múltiples cantones. Ej: Tungurahua.
+
+**Publicado**
+: Estado de un contenido que es visible al público y no puede ser editado sin cambiar estado primero.
+
+---
+
+## Q
+
+**Query**
+: Solicitud para obtener datos de base de datos. Ej: "Traer todos los atractivos del cantón Ambato".
+
+**Quarto**
+: Formato de documento que permite combinar código, resultados, texto y visualizaciones. Usado para esta documentación.
+
+---
+
+## R
+
+**React**
+: Librería de JavaScript de Facebook para crear interfaces de usuario interactivas. Usada en el Frontend.
+
+**Revisión**
+: Estado intermedio. Contenido en revisión aguarda aprobación del administrador.
+
+**Rol**
+: Tipo de usuario que determina qué puede hacer. Ej: Turista, Gestor Turístico, Administrador.
+
+**Ruta Turística**
+: Recorrido que conecta múltiples atractivos en una secuencia específica. Incluye información de duración y dificultad.
+
+**REST (Representational State Transfer)**
+: Arquitectura para diseñar APIs web. Usa métodos HTTP (GET, POST, PUT, DELETE) sobre recursos.
+
+---
+
+## S
+
+**Serializer**
+: Componente que convierte objetos Python a JSON y valida datos de entrada.
+
+**Servicio**
+: Facilidad disponible en un atractivo (parqueo, restaurante, baños, guía, etc.).
+
+**SQLite**
+: Sistema de base de datos simple y embebido. Usado para desarrollo. No recomendado para producción.
+
+**State Management**
+: Sistema para gestionar estado global de la aplicación React (Context API, Redux, etc.).
+
+---
+
+## T
+
+**Tailwind CSS**
+: Framework de CSS utilitario para estilos rápidos sin escribir CSS tradicional.
+
+**Template**
+: Archivo HTML que define estructura. En PIT también contiene el Frontend React.
+
+**Token**
+: Cadena encriptada que prueba autenticación del usuario. Enviado en cada request.
+
+**Turista**
+: Usuario final que consulta información turística. Tiene acceso de solo lectura.
+
+---
+
+## U
+
+**URL (Uniform Resource Locator)**
+: Dirección de un recurso en internet. Ej: `http://localhost:8000/api/atractivos/`
+
+**Ubicación**
+: Información geográfica de un atractivo (latitud, longitud, dirección).
+
+**UUID (Universally Unique Identifier)**
+: Identificador único global, a menudo usado en lugar de IDs numéricos simples.
+
+---
+
+## V
+
+**Validación**
+: Proceso de verificar que datos enviados cumplen con reglas (formato correcto, campos obligatorios, etc.).
+
+**View**
+: En Django, componente que maneja lógica de un endpoint HTTP.
+
+**Vite**
+: Herramienta moderna de construcción (bundler) para proyectos web. Más rápida que Webpack.
+
+---
+
+## W
+
+**Webhook**
+: Llamada HTTP automática que se dispara cuando ocurre un evento.
+
+**WebSocket**
+: Protocolo para comunicación bidireccional en tiempo real entre cliente y servidor.
+
+---
+
+## Z
+
+**Zoom**
+: Función de mapas para acercarse o alejarse de un área.
+
+---
+
+## Acrónimos Comunes
+
+| Acrónimo | Significado |
+|----------|------------|
+| API | Application Programming Interface |
+| CRUD | Create, Read, Update, Delete |
+| CORS | Cross-Origin Resource Sharing |
+| CSV | Comma-Separated Values |
+| DB | Database |
+| DRF | Django REST Framework |
+| HTML | HyperText Markup Language |
+| HTTP | HyperText Transfer Protocol |
+| JWT | JSON Web Token |
+| JSON | JavaScript Object Notation |
+| ORM | Object-Relational Mapping |
+| PDF | Portable Document Format |
+| REST | Representational State Transfer |
+| SQL | Structured Query Language |
+| SPA | Single Page Application |
+| URL | Uniform Resource Locator |
+| UUID | Universally Unique Identifier |
+| XML | eXtensible Markup Language |
+
+---

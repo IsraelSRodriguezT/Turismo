@@ -54,3 +54,7 @@ specs/
 .env
 .env.local
 .env.*.local
+
+# React/Vite
+node_modules/
+testsprite_tests\tmp\config.json

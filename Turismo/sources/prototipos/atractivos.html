@@ -1,0 +1,476 @@
+<!DOCTYPE html><html class="light" lang="es" style="width: 1280px; height: 1120px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Listado de Atractivos - PIT UNL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c3c6d7",
+                    "surface": "#FFFFFF",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-tertiary-fixed": "#002113",
+                    "focus-ring": "#10B981",
+                    "error": "#ba1a1a",
+                    "outline": "#737686",
+                    "on-surface-variant": "#434655",
+                    "secondary-container": "#d0e1fb",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-error": "#ffffff",
+                    "background": "#f7f9fb",
+                    "on-secondary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#eeefff",
+                    "on-surface": "#191c1e",
+                    "primary-container": "#2563eb",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#00174b",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "inverse-primary": "#b4c5ff",
+                    "secondary": "#505f76",
+                    "surface-container-high": "#e6e8ea",
+                    "primary-fixed": "#dbe1ff",
+                    "danger": "#DC2626",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "primary": "#004ac6",
+                    "warning": "#F59E0B",
+                    "success": "#16A34A",
+                    "surface-bright": "#f7f9fb",
+                    "surface-tint": "#0053db",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-variant": "#e0e3e5",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#54647a",
+                    "info": "#0EA5E9",
+                    "tertiary-container": "#007d55",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "surface-dim": "#d8dadc",
+                    "on-background": "#191c1e",
+                    "tertiary": "#006242",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-tertiary-container": "#bdffdb",
+                    "border-technical": "#CBD5E1",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-container": "#eceef0",
+                    "surface-container-low": "#f2f4f6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "40px",
+                    "margin-mobile": "16px",
+                    "lg": "24px",
+                    "margin-desktop": "32px",
+                    "base": "4px",
+                    "gutter": "16px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "badge": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "table-data": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "badge": ["12px", {"lineHeight": "12px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "table-data": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-md z-40 bg-surface dark:bg-inverse-surface border-r border-outline-variant dark:border-outline w-64 shadow-none">
+<div class="mb-xl px-sm flex items-center gap-md">
+<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-on-primary">school</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Gestión PIT</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Administrador</p>
+</div>
+</div>
+<nav class="flex-grow space-y-xs"><a class="flex items-center gap-md p-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">home</span> Inicio
+            </a>
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span> Usuarios
+            </a>
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">location_on</span> Geolocalización
+            </a>
+<a class="flex items-center gap-md p-md font-label-md text-label-md bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined">inventory_2</span>Inventario</a>
+
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">science</span> Investigación
+            </a>
+
+
+</nav>
+<div class="mt-auto space-y-xs border-t border-outline-variant pt-md">
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span> Ayuda
+            </a>
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span> Cerrar Sesión
+            </a>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<div class="ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 sticky top-0 z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-none">
+<div class="font-headline-sm text-headline-sm font-bold text-primary">PIT - Universidad Nacional de Loja</div>
+<div class="flex items-center gap-lg">
+<!-- Search Bar -->
+<div class="relative w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low rounded-xl border-none focus:ring-2 focus:ring-focus-ring text-body-md transition-all" placeholder="Buscar en la plataforma..." type="text">
+</div>
+<div class="flex items-center gap-md">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant" style="transform: scale(1);">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-sm"></div>
+<img alt="User profile" class="w-10 h-10 rounded-full border-2 border-primary-fixed shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqwd1vHDd_byESaEPX5De_TM2p8Sjk-4D2_--VLpz877tf8EEFpVsqeE1Y5OTZR0UvEmReKBTbeHfLVpLsbEmQD3u3202gGBgURlR0p3_ssdKJfR5pskcm5uXT8g37m7ltiNt1533Vxlv5DZAaXgeshX_0gAP3yIuDNbZwPQ1BQ2iiXFi3ogb5UugZ-bjxjyUfQKuaCCe4mcDPgd0JDZWVXjJZPfO4CBVBrV5np57n6_A_enC4LJyjtZvKvpnYM9gvfMqgnImTNXTJ">
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<main class="p-margin-desktop flex-grow flex flex-col gap-lg">
+<!-- Breadcrumbs and Header -->
+<div class="flex justify-between items-end">
+<div>
+<nav class="flex items-center gap-xs text-on-surface-variant mb-xs"><span class="font-label-sm text-label-sm">Inicio</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-label-sm text-label-sm">Inventario</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">Atractivos</span></nav>
+<h2 class="font-headline-lg text-headline-lg">Inventario de Atractivos Turísticos</h2>
+<p class="text-on-surface-variant font-body-md text-body-md mt-xs">Visualice y gestione la información técnica de los destinos turísticos registrados.</p>
+</div>
+<button class="flex items-center gap-sm px-lg py-3 bg-[#10B981] text-white rounded-xl font-bold shadow-sm hover:opacity-90 active:scale-95 transition-all" style="transform: scale(1);">
+<span class="material-symbols-outlined">add_circle</span>
+                    Registrar Atractivo
+                </button>
+</div>
+<!-- Bento Filter Bar -->
+<div class="grid grid-cols-12 gap-md bg-surface p-md rounded-xl border border-technical shadow-sm">
+<div class="col-span-3">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs">Categoría</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-2 text-body-md focus:ring-focus-ring focus:border-primary">
+<option>Todas las categorías</option>
+<option>Natural</option>
+<option>Manifestación Cultural</option>
+<option>Etnografía</option>
+</select>
+</div>
+<div class="col-span-3">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs">Ubicación (Cantón)</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-2 text-body-md focus:ring-focus-ring focus:border-primary">
+<option>Todos los cantones</option>
+<option>Loja</option>
+<option>Catamayo</option>
+<option>Saraguro</option>
+<option>Vilcabamba</option>
+</select>
+</div>
+<div class="col-span-3">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs">Estado de Aprobación</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-2 text-body-md focus:ring-focus-ring focus:border-primary">
+<option>Todos los estados</option>
+<option>Aprobado</option>
+<option>En Revisión</option>
+<option>Borrador</option>
+</select>
+</div>
+<div class="col-span-3 flex items-end">
+<button class="w-full h-[42px] flex items-center justify-center gap-sm bg-surface-container-high text-on-surface font-bold rounded-lg hover:bg-surface-container transition-colors border border-outline-variant" style="transform: scale(1);">
+<span class="material-symbols-outlined">filter_list</span>
+                        Limpiar Filtros
+                    </button>
+</div>
+</div>
+<!-- Main Data Grid Table -->
+<div class="bg-surface border border-technical rounded-xl overflow-hidden shadow-sm flex-grow">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-lowest sticky top-0 border-b border-outline-variant z-10">
+<tr>
+<th class="p-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Código</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Atractivo</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Categoría</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Ubicación</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Estado</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Responsable</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="p-md font-table-data text-table-data font-bold">ATR-001</td>
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-surface-dim">
+<img class="w-full h-full object-cover" data-alt="A lush green mountain landscape in the Andes of Ecuador with a majestic waterfall cascading down a rocky cliff under a clear blue sky. The visual style is high-definition photography with natural, vibrant colors and a crisp, institutional feel suitable for a tourism platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxgvMVqv5D2af7KAJ6YTKxhBd9O-8EK_1Woi1sjUbgTDfbO-FfgcoVZWXag0OVbmaJ-V2LsfWcjTtvnpUBbEhMtWM02VlhQZreesweH2sKiaAy853EYUhTonyULZxyhPVqNVwCOnk6UmqDfJp_gCPU8AvLmnOMJRAnOH9fgkIcXjEJGJj_j6oQO6huc8IlkgUWOk1ZqXp8uvuiNj6QR8aCrTvNloLXQeEDo7XRynvWXUIuJ7umVK46eyADj-Xo4DGIua77iSHKjD0B">
+</div>
+<span class="font-body-md text-body-md font-semibold text-primary">Catarata El Cisne</span>
+</div>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center gap-xs px-2 py-1 bg-surface-container rounded-full text-label-sm font-medium">
+<span class="material-symbols-outlined text-[16px]">nature</span> Natural
+                                    </span>
+</td>
+<td class="p-md font-table-data text-table-data text-on-surface-variant">Loja, El Cisne</td>
+<td class="p-md">
+<span class="inline-flex items-center gap-xs px-3 py-1 bg-success/10 text-success rounded-full text-badge">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Aprobado
+                                    </span>
+</td>
+<td class="p-md">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center text-[10px] font-bold">RM</div>
+<span class="font-table-data text-table-data">Ricardo Mendoza</span>
+</div>
+</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-xs transition-opacity">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary-container transition-colors text-primary" title="Editar" style="transform: scale(1);">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-error/10 transition-colors text-danger" title="Eliminar" style="transform: scale(1);">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="p-md font-table-data text-table-data font-bold">ATR-002</td>
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-surface-dim">
+<img class="w-full h-full object-cover" data-alt="The exterior of a historical colonial cathedral in Loja, Ecuador, showcasing intricate stone carvings and white facade details under warm afternoon sunlight. The image should have a professional architectural aesthetic, clean lines, and bright lighting to emphasize institutional reliability and heritage preservation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT6JBIf425WNdt83rpa0EcV1tQ72WTUYCiyVGu_4BSWQXn3lZmSkdrppG7etBsVjGdg8Z3p60PvGnB5vnJ9toHwXVbrzVvTpiWMIFI69EcFMiDGZd8HMqkWnsCQ3gLiLyH51JAmEXbpi8tbxjGz3i_Mt4S7wKoTb-P1A9XhuBv3V-txdtJV-6RUNyu_rWnydz2QMKhCOwERkvAbAMnokrNTfvzRB21OrUqn0kd9nt2zA32bY8XloOYHtFcCjDqFstcVZmXncQ3Oycq">
+</div>
+<span class="font-body-md text-body-md font-semibold text-primary">Catedral de Loja</span>
+</div>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center gap-xs px-2 py-1 bg-surface-container rounded-full text-label-sm font-medium">
+<span class="material-symbols-outlined text-[16px]">account_balance</span> Cultural
+                                    </span>
+</td>
+<td class="p-md font-table-data text-table-data text-on-surface-variant">Loja, Centro Histórico</td>
+<td class="p-md">
+<span class="inline-flex items-center gap-xs px-3 py-1 bg-warning/10 text-warning rounded-full text-badge">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">history_edu</span> En Revisión
+                                    </span>
+</td>
+<td class="p-md">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed flex items-center justify-center text-[10px] font-bold">AS</div>
+<span class="font-table-data text-table-data">Ana Silva</span>
+</div>
+</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-xs transition-opacity">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary-container transition-colors text-primary" title="Editar" style="transform: scale(1);">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-error/10 transition-colors text-danger" title="Eliminar" style="transform: scale(1);">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="p-md font-table-data text-table-data font-bold">ATR-003</td>
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-surface-dim">
+<img class="w-full h-full object-cover" data-alt="A panoramic view of Podocarpus National Park's mystical cloud forest with dense vegetation and mist swirling between mountain peaks. The style is cinematic landscape photography with soft lighting and deep greens, conveying a sense of vast biological diversity and environmental protection for an academic tourism platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU9eMrbVJOpTBNEk7EhvtOdaOHyoPn8cfZEmyfKry0oAAKLFJmwnM7UK0K-0S-uuUerEq7BgBoq0IVYVXbaTu0dafxZdoytupd4xwdhH75IZuszzA0DhkF4uS7MXU_Y-eq-SgIe6UZiHnkvbMrL82n5-Zg_yp16w8ueRgXP-1PajhI16VqeS--TSRfVH3w4XwXWyKkSkv474FyIyKVgPZiC7IP2fYb5vGid0b141ezR9gV44Iw-dNceyt-02grJN4Mxahg8quw9Kkn">
+</div>
+<span class="font-body-md text-body-md font-semibold text-primary">Parque Nacional Podocarpus</span>
+</div>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center gap-xs px-2 py-1 bg-surface-container rounded-full text-label-sm font-medium">
+<span class="material-symbols-outlined text-[16px]">park</span> Natural
+                                    </span>
+</td>
+<td class="p-md font-table-data text-table-data text-on-surface-variant">Zamora-Loja</td>
+<td class="p-md">
+<span class="inline-flex items-center gap-xs px-3 py-1 bg-surface-variant text-on-surface-variant rounded-full text-badge">
+<span class="material-symbols-outlined text-[14px]">draft</span> Borrador
+                                    </span>
+</td>
+<td class="p-md">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-tertiary-fixed-dim flex items-center justify-center text-[10px] font-bold text-on-tertiary-fixed">GC</div>
+<span class="font-table-data text-table-data">Gabriel Castillo</span>
+</div>
+</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-xs transition-opacity">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary-container transition-colors text-primary" title="Editar" style="transform: scale(1);">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-error/10 transition-colors text-danger" title="Eliminar" style="transform: scale(1);">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="p-md font-table-data text-table-data font-bold">ATR-004</td>
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-surface-dim">
+<img class="w-full h-full object-cover" data-alt="Traditional indigenous Saraguro people in their distinctive attire, focusing on the intricate beadwork and dark felt hats against a neutral background. The lighting is soft and studio-like, emphasizing cultural dignity and academic anthropological detail within a corporate modern interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1Adb3CMj6E9vMZIavZb7BXIEESaJMtmbDBHivthuf_93pUBbbWTCZbG7J-1cLlXdhUnunqx4Gt0hVt3I7480jkYSzIAa1G2l5JmcMtFaNLR6MCg8R4uZ6TQp77gvG6kaupAGk_wbkiq4GocDZI5xT6FdmoAJ_3AYZmp0A_xDjGyM3jEdV1U7VFC2cyVypWqKqI_pyTlV1S7v8ZCOA1Dq3SPoIr-s2uEqB9QHiIwcfyTun_fUvKST2D1XrlqymH0WRzibia-E_N0Ov">
+</div>
+<span class="font-body-md text-body-md font-semibold text-primary">Etnia Saraguro</span>
+</div>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center gap-xs px-2 py-1 bg-surface-container rounded-full text-label-sm font-medium">
+<span class="material-symbols-outlined text-[16px]">groups</span> Etnografía
+                                    </span>
+</td>
+<td class="p-md font-table-data text-table-data text-on-surface-variant">Saraguro</td>
+<td class="p-md">
+<span class="inline-flex items-center gap-xs px-3 py-1 bg-success/10 text-success rounded-full text-badge">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Aprobado
+                                    </span>
+</td>
+<td class="p-md">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed-dim flex items-center justify-center text-[10px] font-bold">LS</div>
+<span class="font-table-data text-table-data">Lorena Salazar</span>
+</div>
+</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-xs transition-opacity">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary-container transition-colors text-primary" title="Editar" style="transform: scale(1);">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-error/10 transition-colors text-danger" title="Eliminar" style="transform: scale(1);">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors group"><td class="p-md font-table-data text-table-data font-bold">ATR-005</td><td class="p-md"><div class="flex items-center gap-md"><div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-surface-dim"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvcfnog0Nol4JGlyfMF76RX5lhgEe0puX85bilw5dBZS0gA65lX1OhOzMP9dL8hmKG6CYf80lg-9YVbPWdupVXp2K0DyvIj-lhukWYYYUzidPqh4OEpuIPo-AAHRtolcrVDIoU7uew0QuJACtxwoyumfl_Wss-PfSX4s2VRpXBqO3gAZN7a-KLtQnbeTgyH66GRyUu986pxa0IXXk5FDQ6Nq1Xfh2OD6dvddinDGUV3O7lrI3rKLjeN0jCEQvIMG4E39BC7IJbMRgi"></div><span class="font-body-md text-body-md font-semibold text-primary">Ciclismo de Montaña en Catamayo</span></div></td><td class="p-md"><span class="inline-flex items-center gap-xs px-2 py-1 bg-surface-container rounded-full text-label-sm font-medium"><span class="material-symbols-outlined text-[16px]">hiking</span> Aventura</span></td><td class="p-md font-table-data text-table-data text-on-surface-variant">Catamayo, Centro</td><td class="p-md"><span class="inline-flex items-center gap-xs px-3 py-1 bg-success/10 text-success rounded-full text-badge"><span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Aprobado</span></td><td class="p-md"><div class="flex items-center gap-sm"><div class="w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center text-[10px] font-bold">CP</div><span class="font-table-data text-table-data">Carlos Pérez</span></div></td><td class="p-md text-right"><div class="flex justify-end gap-xs transition-opacity"><button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary-container transition-colors text-primary" title="Editar"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-error/10 transition-colors text-danger" title="Eliminar"><span class="material-symbols-outlined text-[20px]">delete</span></button></div></td></tr><tr class="hover:bg-surface-container-lowest transition-colors group"><td class="p-md font-table-data text-table-data font-bold">ATR-006</td><td class="p-md"><div class="flex items-center gap-md"><div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-surface-dim"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEw6DMQnt3Gk7Yq2bfgAn7jQn4lQMALgkd1_iWLYAcXeBdaw7vZnEYuZ0Ho2topxA8xRzEPjWx--FckwfhLFctt-FkFCretqT4gtk0uwrtfM3mbHfq-rlWo9eqTrJz6EExHkDOeJA9VLve4s4-rVtqpRVoMHy6lh4im1bDwwNSgUGQ9GihuaWpAIXCJobjwJn49ElZU92-5p1gLj2rNGt6susm5qKyR5Trk_YrBKa87I0p9CSgajtxnhfAoKORmTlQ6qM3vJX1SljR"></div><span class="font-body-md text-body-md font-semibold text-primary">Cecina de Loja</span></div></td><td class="p-md"><span class="inline-flex items-center gap-xs px-2 py-1 bg-surface-container rounded-full text-label-sm font-medium"><span class="material-symbols-outlined text-[16px]">restaurant</span> Gastronomía</span></td><td class="p-md font-table-data text-table-data text-on-surface-variant">Loja, San Sebastián</td><td class="p-md"><span class="inline-flex items-center gap-xs px-3 py-1 bg-success/10 text-success rounded-full text-badge"><span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Aprobado</span></td><td class="p-md"><div class="flex items-center gap-sm"><div class="w-6 h-6 rounded-full bg-secondary-fixed flex items-center justify-center text-[10px] font-bold">ML</div><span class="font-table-data text-table-data">María López</span></div></td><td class="p-md text-right"><div class="flex justify-end gap-xs transition-opacity"><button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary-container transition-colors text-primary" title="Editar"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-error/10 transition-colors text-danger" title="Eliminar"><span class="material-symbols-outlined text-[20px]">delete</span></button></div></td></tr><tr class="hover:bg-surface-container-lowest transition-colors group"><td class="p-md font-table-data text-table-data font-bold">ATR-007</td><td class="p-md"><div class="flex items-center gap-md"><div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-surface-dim"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9xI98bsvM0Jmo2abr7nrHnbq_TbKNC8mHEnCHxzYjX8WpdQNcRLzOufLd6IqeErOc-qmJk0vN8PI4114yZin4A6P51F7Udf-zOl9YH6K5ImKo8_SOmUzL9bEiXTioNFadl4plGdD6VcI6l84DRmaRS_rQpuUMrYjLpRwTBumD7GRi-6VIPwUEjnY-sBl3YaiNZpAp7s66MgLCj_hteMto_Y_vwBl3g8EYr5iih8ke_NhUL0zfErH9nlEBuwKcQci-yh0kQlv2IJ5B"></div><span class="font-body-md text-body-md font-semibold text-primary">Santuario de El Cisne</span></div></td><td class="p-md"><span class="inline-flex items-center gap-xs px-2 py-1 bg-surface-container rounded-full text-label-sm font-medium"><span class="material-symbols-outlined text-[16px]">church</span> Religioso</span></td><td class="p-md font-table-data text-table-data text-on-surface-variant">Loja, Parroquia El Cisne</td><td class="p-md"><span class="inline-flex items-center gap-xs px-3 py-1 bg-success/10 text-success rounded-full text-badge"><span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Aprobado</span></td><td class="p-md"><div class="flex items-center gap-sm"><div class="w-6 h-6 rounded-full bg-tertiary-fixed-dim flex items-center justify-center text-[10px] font-bold text-on-tertiary-fixed">JG</div><span class="font-table-data text-table-data">Juan García</span></div></td><td class="p-md text-right"><div class="flex justify-end gap-xs transition-opacity"><button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary-container transition-colors text-primary" title="Editar"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-error/10 transition-colors text-danger" title="Eliminar"><span class="material-symbols-outlined text-[20px]">delete</span></button></div></td></tr><tr class="hover:bg-surface-container-lowest transition-colors group"><td class="p-md font-table-data text-table-data font-bold">ATR-008</td><td class="p-md"><div class="flex items-center gap-md"><div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-surface-dim"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB-KXa_1jY6fEJKp31WgUyQLNhmjTS3Fotb6fDOTxaGdAPfAmfAr0Ok0lUCnvmSM8TsXAxl3kXNgTzQkuSy5YVyim2SGtZtpboZrSWpTbrck_PR21X4l55QxcNz0hb_cCKYeAdoYADtFxmsC-onUcu0C5iiXHXRFSm30ue4hdVkV5FfI4uZ3b5SUUBP21KoxvDClidfI_aPyLrxkMPnEJKgqafYcShnnb9RcKswwbKHItq61fjxYcaMHFXnboAF49Pz5yLh0RXwXr2"></div><span class="font-body-md text-body-md font-semibold text-primary">Canopy en Vilcabamba</span></div></td><td class="p-md"><span class="inline-flex items-center gap-xs px-2 py-1 bg-surface-container rounded-full text-label-sm font-medium"><span class="material-symbols-outlined text-[16px]">sports_score</span>Aventura</span></td><td class="p-md font-table-data text-table-data text-on-surface-variant">Loja, Vilcabamba</td><td class="p-md"><span class="inline-flex items-center gap-xs px-3 py-1 bg-warning/10 text-warning rounded-full text-badge"><span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">history_edu</span> En Revisión</span></td><td class="p-md"><div class="flex items-center gap-sm"><div class="w-6 h-6 rounded-full bg-secondary-fixed-dim flex items-center justify-center text-[10px] font-bold">SM</div><span class="font-table-data text-table-data">Sofía Moreno</span></div></td><td class="p-md text-right"><div class="flex justify-end gap-xs transition-opacity"><button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary-container transition-colors text-primary" title="Editar"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-error/10 transition-colors text-danger" title="Eliminar"><span class="material-symbols-outlined text-[20px]">delete</span></button></div></td></tr></tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="bg-surface-container-low p-md flex items-center justify-between border-t border-outline-variant">
+<span class="text-label-sm text-on-surface-variant">Mostrando 8 de 128 atractivos</span>
+<div class="flex gap-xs">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant bg-white text-on-surface hover:bg-surface-container transition-colors disabled:opacity-50" disabled="" style="transform: scale(1);">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white font-bold text-label-sm" style="transform: scale(1);">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant bg-white text-on-surface hover:bg-surface-container transition-colors font-bold text-label-sm" style="transform: scale(1);">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant bg-white text-on-surface hover:bg-surface-container transition-colors font-bold text-label-sm" style="transform: scale(1);">3</button>
+<span class="px-xs flex items-center">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant bg-white text-on-surface hover:bg-surface-container transition-colors" style="transform: scale(1);">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-md px-margin-desktop flex justify-between items-center bg-surface-container dark:bg-surface-dim border-t border-outline-variant dark:border-outline">
+<div class="flex items-center gap-md">
+
+
+<span class="font-label-sm text-label-sm text-on-surface-variant">© Universidad Nacional de Loja - Plataforma Interactiva de Turismo</span>
+</div>
+<div class="flex gap-lg">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Términos</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contacto</a>
+</div>
+</footer>
+</div>
+<script>
+        // Simple micro-interactions
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.97)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+
+        // Search highlight simulation
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-primary/20');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20');
+        });
+    </script>
+
+
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,87 @@
+---
+title: "PIT - Plataforma Interactiva de Turismo"
+subtitle: "Documentación Completa del Sistema"
+author: "Equipo de Desarrollo"
+date: today
+date-format: "DD/MM/YYYY"
+lang: es
+toc: true
+toc-depth: 3
+number-sections: true
+highlight-style: github
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+  pdf:
+    documentclass: article
+    geometry:
+      - top=2.5cm
+      - bottom=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+---
+
+# Introducción
+
+**PIT (Plataforma Interactiva de Turismo)** es un sistema integral de gestión y visualización de información turística georreferenciada para provincias. El sistema integra un poderoso backend basado en **Django REST Framework** con un frontend moderno construido en **React**, permitiendo que administradores, gestores territoriales, investigadores y turistas interactúen con información turística de manera intuitiva y eficiente.
+
+## Características Principales
+
+- 🗺️ **Mapas Interactivos**: Visualización geoespacial de atractivos turísticos
+- 🎯 **Gestión de Atractivos**: Registro, edición y publicación de atractivos georreferenciados
+- 🛣️ **Rutas Turísticas**: Creación y gestión de rutas temáticas
+- 📊 **Inventario Digital**: Gestión completa de fichas de inventario turístico
+- 👥 **Gestión de Usuarios**: Control de acceso basado en roles y permisos
+- 🔍 **Búsquedas Avanzadas**: Filtros por cantón, categoría, servicio y más
+- 📱 **Responsive Design**: Compatible con navegadores y dispositivos móviles
+- 🔐 **Autenticación JWT**: Sistema de seguridad basado en tokens JWT
+
+## Estructura de la Documentación
+
+Este documento está organizado en los siguientes apartados:
+
+1. **Arquitectura del Sistema** - Descripción de la arquitectura general
+2. **Guía de Instalación** - Pasos para instalar y configurar el sistema
+3. **Documentación de la API** - Endpoints, modelos de datos y ejemplos
+4. **Guía de Usuario** - Manual de uso para los diferentes tipos de usuarios
+5. **Guía del Desarrollador** - Información técnica para desarrolladores
+
+---
+
+## Información del Sistema
+
+- **Versión**: 1.0.0
+- **Stack Backend**: Django 6.0.4 + Django REST Framework
+- **Stack Frontend**: React 18.3.1 + Tailwind CSS + Vite
+- **Base de Datos**: SQLite
+- **Autenticación**: JWT (JSON Web Tokens)
+- **Licencia**: Privado
+
+---
+
+{{< include _arquitectura.qmd >}}
+
+{{< include _instalacion.qmd >}}
+
+{{< include _api.qmd >}}
+
+{{< include _manual_usuario.qmd >}}
+
+{{< include _guia_desarrollador.qmd >}}
+
+{{< include _glosario.qmd >}}
+
+---
+
+## Contacto y Soporte
+
+Para preguntas, reportar problemas o sugerencias:
+
+- **Email**: soporte@turismo.local
+- **Repositorio**: Turismo-develop
+- **Documentación**: Ver la carpeta `/sources/documentation`
+
+---
+
+*Última actualización: 22 de Junio de 2026*

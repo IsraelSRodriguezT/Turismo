@@ -1,0 +1,227 @@
+/* Estilos CSS personalizados para la documentación */
+
+:root {
+  --primary-color: #1e40af;
+  --secondary-color: #0891b2;
+  --accent-color: #ea580c;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+}
+
+/* Tipografía */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 0.3em;
+}
+
+/* Enlaces */
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--secondary-color);
+}
+
+a:hover {
+  color: var(--primary-color);
+  border-bottom-style: solid;
+}
+
+/* Código */
+code {
+  background-color: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border-left: 4px solid var(--primary-color);
+  padding: 1em;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Bloques de información */
+.callout {
+  border-left: 4px solid var(--secondary-color);
+  padding: 1em;
+  margin: 1em 0;
+  background-color: rgba(8, 145, 178, 0.05);
+  border-radius: 4px;
+}
+
+.callout.note {
+  border-left-color: var(--secondary-color);
+  background-color: rgba(8, 145, 178, 0.05);
+}
+
+.callout.warning {
+  border-left-color: var(--warning-color);
+  background-color: rgba(245, 158, 11, 0.05);
+}
+
+.callout.important {
+  border-left-color: var(--error-color);
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+table th {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75em;
+  text-align: left;
+  font-weight: 600;
+}
+
+table td {
+  padding: 0.75em;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tr:hover {
+  background-color: rgba(30, 64, 175, 0.05);
+}
+
+/* Listas */
+ul, ol {
+  margin: 1em 0;
+}
+
+li {
+  margin: 0.5em 0;
+}
+
+/* Definiciones */
+dl dt {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-top: 0.5em;
+}
+
+dl dd {
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+  color: #666;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--secondary-color);
+  padding-left: 1em;
+  margin-left: 0;
+  color: #666;
+  font-style: italic;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+  margin: 0 0.25em;
+}
+
+.badge.success {
+  background-color: var(--success-color);
+}
+
+.badge.warning {
+  background-color: var(--warning-color);
+}
+
+.badge.error {
+  background-color: var(--error-color);
+}
+
+/* TOC personalizado */
+#quarto-toc {
+  background-color: #f8f8f8;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+/* Secciones destacadas */
+.section-intro {
+  background-color: rgba(30, 64, 175, 0.08);
+  padding: 1em;
+  border-radius: 4px;
+  margin: 1em 0;
+}
+
+/* Iconos y emojis */
+.icon {
+  display: inline-block;
+  margin-right: 0.25em;
+  font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  table {
+    font-size: 0.9em;
+  }
+  
+  code {
+    font-size: 0.85em;
+  }
+}
+
+/* Impresión */
+@media print {
+  a {
+    text-decoration: underline;
+    border-bottom: none;
+  }
+  
+  code {
+    background-color: white;
+    border: 1px solid #ccc;
+  }
+  
+  h1 {
+    page-break-after: avoid;
+  }
+  
+  table {
+    page-break-inside: avoid;
+  }
+}

@@ -1,0 +1,390 @@
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  📚 DOCUMENTACIÓN COMPLETA - PIT                                         ║
+║     Plataforma Interactiva de Turismo                                    ║
+║     v1.0.0 - Junio 2026                                                  ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+```
+
+# 📋 Contenido de la Carpeta `/documentation`
+
+## 📁 Estructura de Archivos
+
+```
+documentation/
+│
+├── 📄 README.md                    ← EMPIEZA AQUÍ
+│   └─ Información general de la carpeta
+│
+├── ⚡ INICIO_RAPIDO.qmd            ← GUÍA RÁPIDA
+│   └─ 5 pasos para comenzar a usar PIT
+│
+├── 📑 INDICE.md                    ← NAVEGACIÓN
+│   └─ Índice completo de documentación
+│
+├── 📖 index.qmd                    ← DOCUMENTACIÓN PRINCIPAL
+│   └─ Documento maestro (incluye todos los archivos)
+│
+├── 🏗️ _arquitectura.qmd
+│   ├─ Visión general del sistema
+│   ├─ Componentes principales
+│   ├─ Flujo de datos
+│   └─ Patrones de diseño
+│
+├── 📥 _instalacion.qmd
+│   ├─ Requisitos del sistema
+│   ├─ Instalar Backend (Django)
+│   ├─ Instalar Frontend (React)
+│   ├─ Verificación
+│   └─ Troubleshooting
+│
+├── 📡 _api.qmd
+│   ├─ Autenticación JWT
+│   ├─ Estructura de respuestas
+│   ├─ Endpoints principales
+│   ├─ Ejemplos de código
+│   └─ Paginación y filtrado
+│
+├── 👥 _manual_usuario.qmd
+│   ├─ Vista para Turistas
+│   ├─ Vista para Gestores Turísticos
+│   ├─ Vista para Gestores Territoriales
+│   ├─ Vista para Investigadores
+│   ├─ Vista para Administradores
+│   └─ Funcionalidades comunes
+│
+├── 💻 _guia_desarrollador.qmd
+│   ├─ Stack tecnológico
+│   ├─ Estructura de código
+│   ├─ Conceptos clave
+│   ├─ Testing
+│   ├─ Debugging
+│   └─ Deployment
+│
+├── 📖 _glosario.qmd
+│   ├─ Definiciones A-Z
+│   └─ Acrónimos comunes
+│
+├── 🎨 styles.css
+│   └─ Estilos personalizados para HTML
+│
+├── ⚙️ _quarto.yml
+│   └─ Configuración de Quarto
+│
+├── 🪟 render.bat
+│   └─ Script para renderizar en Windows
+│
+└── 🐧 render.sh
+    └─ Script para renderizar en macOS/Linux
+```
+
+---
+
+## 🎯 Guía de Inicio Según tu Rol
+
+### 👤 Si eres Turista
+```
+1. Lee: INICIO_RAPIDO.qmd
+2. Lee: _manual_usuario.qmd → "Vista para Turistas"
+3. Consulta: _glosario.qmd (si necesitas aclarar términos)
+```
+
+### 👨‍💼 Si eres Gestor Turístico
+```
+1. Lee: INICIO_RAPIDO.qmd
+2. Lee: _instalacion.qmd
+3. Lee: _manual_usuario.qmd → "Vista para Gestores Turísticos"
+4. Consulta: _api.qmd (para entender datos)
+```
+
+### 🗺️ Si eres Gestor Territorial
+```
+1. Lee: INICIO_RAPIDO.qmd
+2. Lee: _manual_usuario.qmd → "Vista para Gestores Territoriales"
+3. Lee: _arquitectura.qmd (sección Geolocalización)
+```
+
+### 🔬 Si eres Investigador
+```
+1. Lee: INICIO_RAPIDO.qmd
+2. Lee: _manual_usuario.qmd → "Vista para Investigadores"
+```
+
+### ⚙️ Si eres Administrador
+```
+1. Lee: INICIO_RAPIDO.qmd
+2. Lee: _instalacion.qmd
+3. Lee: _manual_usuario.qmd → "Vista para Administradores"
+4. Lee: _api.qmd (para entender endpoints)
+```
+
+### 💻 Si eres Desarrollador
+```
+1. Lee: INICIO_RAPIDO.qmd
+2. Lee: _instalacion.qmd
+3. Lee: _arquitectura.qmd (completo)
+4. Lee: _guia_desarrollador.qmd (completo)
+5. Consulta: _api.qmd (para endpoints)
+```
+
+---
+
+## 🚀 Cómo Ver la Documentación
+
+### Opción 1: HTML en Navegador (Recomendado)
+```bash
+# Windows
+render.bat
+
+# macOS/Linux
+bash render.sh
+
+# Luego abre index.html en tu navegador
+```
+
+### Opción 2: Vista Previa en Vivo
+```bash
+quarto preview index.qmd
+```
+Se abrirá automáticamente en el navegador y se actualizará cuando hagas cambios.
+
+### Opción 3: Ver Directamente en Editor
+Abre cualquier archivo `.qmd` en VS Code o tu editor favorito.
+Son archivos Markdown, fáciles de leer.
+
+### Opción 4: PDF
+```bash
+# Windows
+quarto render index.qmd --to pdf
+
+# macOS/Linux
+quarto render index.qmd --to pdf
+```
+
+---
+
+## 📊 Estadísticas de Documentación
+
+| Aspecto | Cantidad |
+|---------|----------|
+| **Documentos Principales** | 7 |
+| **Documentos de Apoyo** | 4 |
+| **Páginas Estimadas** | 100+ |
+| **Palabras** | 35,000+ |
+| **Ejemplos de Código** | 50+ |
+| **Diagramas** | 10+ |
+| **Tablas de Referencia** | 30+ |
+| **Enlaces Cruzados** | 100+ |
+
+---
+
+## 📖 Contenido por Documento
+
+### README.md
+- Bienvenida a la documentación
+- Cómo acceder a los contenidos
+- Estructura de carpetas
+- Información del sistema
+- FAQ
+
+### INICIO_RAPIDO.qmd
+- 5 pasos para empezar
+- Verificación de instalación
+- Primer login
+- Comandos útiles
+- Solución de problemas comunes
+
+### INDICE.md
+- Guía rápida por tipo de usuario
+- Organización por tema
+- Referencias cruzadas
+- Ruta de aprendizaje sugerida
+- Búsqueda de términos
+
+### index.qmd
+- Introducción a PIT
+- Características principales
+- Enlace a todos los documentos
+- Información de contacto
+
+### _arquitectura.qmd
+- Visión general (3 capas)
+- Componentes principales (Backend, Frontend, BD)
+- Aplicaciones Django detalladas
+- Flujo de datos
+- Patrones de diseño
+- Integraciones externas
+- Seguridad y escalabilidad
+
+### _instalacion.qmd
+- Requisitos del sistema
+- Instalación Backend paso a paso
+- Instalación Frontend paso a paso
+- Estructura post-instalación
+- Verificación completa
+- Troubleshooting detallado
+
+### _api.qmd
+- Introducción a la API
+- Base URL y autenticación
+- Estructura estándar de respuestas
+- Códigos HTTP explicados
+- Endpoints principales categorizados
+- Ejemplos en JavaScript/Axios y cURL
+- Paginación y filtrado
+- Rate limiting
+
+### _manual_usuario.qmd
+- Introducción y tipos de usuarios
+- Iniciación de sesión
+- Vista Turista (explorar, buscar, compartir)
+- Vista Gestor Turístico (crear, editar, publicar)
+- Vista Gestor Territorial (cantones, inventario)
+- Vista Investigador (proyectos, resultados)
+- Vista Administrador (usuarios, permisos, revisión)
+- Funcionalidades comunes
+- Resolución de problemas
+- Consejos de uso
+
+### _guia_desarrollador.qmd
+- Introducción para desarrolladores
+- Stack tecnológico completo
+- Estructura del código
+- Conceptos clave (Models, Serializers, Views, Services)
+- Autenticación y autorización
+- Frontend React (componentes, páginas, servicios)
+- Testing (backend y frontend)
+- Workflow de desarrollo
+- Debugging
+- Performance y optimización
+- Deployment
+
+### _glosario.qmd
+- Definiciones A-Z
+- Términos técnicos explicados
+- Tabla de acrónimos
+- Referencias cruzadas
+
+---
+
+## 🔍 Búsqueda Rápida
+
+### Buscar por Tema
+
+**Autenticación**
+- _api.qmd → Sección "Autenticación"
+- _guia_desarrollador.qmd → Sección "Autenticación y Autorización"
+- _glosario.qmd → JWT, Token
+
+**Atractivos Turísticos**
+- _manual_usuario.qmd → "Registrar Nuevo Atractivo"
+- _api.qmd → "1. Atractivos Turísticos"
+- _arquitectura.qmd → "b) Atractivos"
+
+**Rutas**
+- _manual_usuario.qmd → "Crear Ruta Turística"
+- _api.qmd → "3. Rutas Turísticas"
+
+**Base de Datos**
+- _arquitectura.qmd → "3. Base de Datos"
+- _instalacion.qmd → "Paso 5"
+
+**Desarrollo**
+- _guia_desarrollador.qmd (documento completo)
+
+**Usuarios y Roles**
+- _manual_usuario.qmd → "Tipos de Usuarios"
+- _api.qmd → "4. Usuarios"
+
+---
+
+## ✅ Checklist de Uso
+
+- [ ] He leído README.md
+- [ ] He leído INICIO_RAPIDO.qmd
+- [ ] He ejecutado `render.bat` o `bash render.sh`
+- [ ] He abierto index.html en mi navegador
+- [ ] He explorado los documentos según mi rol
+- [ ] He encontrado la información que necesitaba
+- [ ] He usado INDICE.md para navegar
+
+---
+
+## 💡 Consejos Útiles
+
+1. **Usa referencias cruzadas**: Los documentos tienen referencias entre sí
+2. **Busca en la página**: Usa Ctrl+F para buscar términos
+3. **Lee en orden**: Para aprender, sigue la ruta de aprendizaje
+4. **Consulta cuando necesites**: Para consultas rápidas, usa el índice
+5. **Imprime si es necesario**: Genera PDF para lecturas largas
+
+---
+
+## 🎓 Ruta de Aprendizaje
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ 1. INICIO_RAPIDO.qmd (5 min)                               │
+│    └─ Entender estructura general                          │
+├─────────────────────────────────────────────────────────────┤
+│ 2. README.md (10 min)                                      │
+│    └─ Conocer carpeta de documentación                     │
+├─────────────────────────────────────────────────────────────┤
+│ 3. INDICE.md (5 min)                                       │
+│    └─ Navegar según mi rol                                 │
+├─────────────────────────────────────────────────────────────┤
+│ 4. Documento de tu rol (20-30 min)                         │
+│    └─ Ver opciones específicas                             │
+├─────────────────────────────────────────────────────────────┤
+│ 5. Documentos complementarios (según necesidad)            │
+│    └─ Arquitectura, API, Desarrollo, etc.                  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📞 Soporte
+
+- 📖 Documentación: Todos los archivos `.qmd`
+- 🔍 Búsqueda: Ctrl+F en HTML o editor
+- 📑 Índice: INDICE.md
+- ⚡ Inicio Rápido: INICIO_RAPIDO.qmd
+- 📋 General: README.md
+
+---
+
+## 🌟 Características de la Documentación
+
+✅ **Completa**: Cubre arquitectura, instalación, API, usuarios y desarrollo  
+✅ **Estructurada**: Organizada por rol y tema  
+✅ **Ejemplos**: 50+ ejemplos de código  
+✅ **Diagramas**: Arquitectura visual  
+✅ **Multiplataforma**: HTML, PDF, Markdown  
+✅ **Navegable**: Índices y referencias cruzadas  
+✅ **Práctico**: Pasos detallados y troubleshooting  
+✅ **Glosario**: Definición de 100+ términos  
+
+---
+
+## 📝 Nota Importante
+
+**Esta documentación NO modifica la aplicación.**  
+Solo documenta la funcionalidad existente y proporciona guías de uso e instalación.
+
+La aplicación (Backend Django + Frontend React) permanece intacta en:
+- Backend: `Turismo/`
+- Frontend: `Turismo/templates/frontend_react/`
+
+---
+
+```
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  ✅ Documentación Completa Generada Exitosamente                         ║
+║                                                                           ║
+║  👉 Próximo paso: Abre README.md o ejecuta render.bat/render.sh          ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+```

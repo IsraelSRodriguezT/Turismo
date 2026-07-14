@@ -1,0 +1,45 @@
+project:
+  type: book
+  title: "PIT - Plataforma Interactiva de Turismo"
+
+book:
+  title: "PIT - Plataforma Interactiva de Turismo"
+  author: "Equipo de Desarrollo"
+  chapters:
+    - index.qmd
+    - _arquitectura.qmd
+    - _instalacion.qmd
+    - _api.qmd
+    - _manual_usuario.qmd
+    - _guia_desarrollador.qmd
+    - _glosario.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    highlight-style: github
+    smooth-scroll: true
+    code-fold: false
+    code-summary: "Mostrar código"
+    
+  pdf:
+    documentclass: article
+    geometry:
+      - top=2.5cm
+      - bottom=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    highlight-style: github
+    keep-tex: false
+
+execute:
+  freeze: auto
+  warning: false
+  message: false

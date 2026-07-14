@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+# pyrefly: ignore [missing-import]
 from apps.usuarios.models import Favorito, PeriodoVisita, Perfil, RegistroModificacion, Usuario, Valoracion
 
 

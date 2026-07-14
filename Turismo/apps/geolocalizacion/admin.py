@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Mapa, Pais, Provincia, Canton, Parroquia, Sector
+from .models import EnlaceExterno, Mapa, Pais, Provincia, Canton, Parroquia, Sector
 
 @admin.register(Mapa)
 class MapaAdmin(admin.ModelAdmin):
@@ -34,3 +34,9 @@ class SectorAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'parroquia')
     list_filter = ('parroquia',)
     search_fields = ('nombre', 'parroquia__nombre')
+
+@admin.register(EnlaceExterno)
+class EnlaceExternoAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'tipo', 'canton', 'activo')
+    list_filter = ('tipo', 'canton', 'activo')
+    search_fields = ('nombre', 'descripcion', 'url')

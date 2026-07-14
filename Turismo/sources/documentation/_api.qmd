@@ -1,0 +1,590 @@
+# Documentación de API
+
+## Introducción a la API
+
+La API de PIT es una **API REST** construida con Django REST Framework que implementa:
+- Autenticación con JWT
+- Paginación de resultados
+- Filtrado y búsqueda
+- Validación de datos
+- Estructura de respuesta estándar
+
+## Base URL
+
+```
+http://localhost:8000/api
+```
+
+En producción:
+```
+https://api.turismo.local/api
+```
+
+---
+
+## Autenticación
+
+### Tokens JWT
+
+Todos los endpoints (excepto login y registro) requieren autenticación con JWT.
+
+#### Obtener Token (Login)
+
+```http
+POST /api/usuarios/login/
+Content-Type: application/json
+
+{
+  "email": "usuario@ejemplo.com",
+  "password": "contraseña123"
+}
+```
+
+**Respuesta exitosa (200)**:
+```json
+{
+  "success": true,
+  "message": "Inicio de sesión exitoso",
+  "data": {
+    "access": "eyJ0eXAiOiJKV1QiLCJhbGc...",
+    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGc...",
+    "usuario": {
+      "id": 1,
+      "email": "usuario@ejemplo.com",
+      "nombre": "Juan Pérez",
+      "rol": "ADMINISTRADOR"
+    }
+  }
+}
+```
+
+#### Usar Token en Requests
+
+Incluir en header `Authorization`:
+
+```http
+GET /api/atractivos/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGc...
+```
+
+#### Renovar Token (Refresh)
+
+```http
+POST /api/token/refresh/
+Content-Type: application/json
+
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGc..."
+}
+```
+
+**Respuesta**:
+```json
+{
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGc...",
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGc..."
+}
+```
+
+---
+
+## Estructura de Respuesta
+
+### Respuesta Exitosa (2xx)
+
+```json
+{
+  "success": true,
+  "message": "Operación realizada exitosamente",
+  "data": {
+    "id": 1,
+    "nombre": "Atractivo Turístico",
+    "descripcion": "Descripción del atractivo"
+  },
+  "errors": null,
+  "meta": {
+    "timestamp": "2026-06-22T10:30:00Z",
+    "version": "1.0.0"
+  }
+}
+```
+
+### Respuesta con Error (4xx, 5xx)
+
+```json
+{
+  "success": false,
+  "message": "Error de validación",
+  "data": null,
+  "errors": {
+    "code": "VALIDATION_ERROR",
+    "details": [
+      {
+        "field": "nombre",
+        "message": "El nombre es obligatorio"
+      }
+    ]
+  },
+  "meta": {
+    "timestamp": "2026-06-22T10:30:00Z"
+  }
+}
+```
+
+### Respuesta Paginada
+
+```json
+{
+  "success": true,
+  "data": [
+    { "id": 1, "nombre": "Atractivo 1" },
+    { "id": 2, "nombre": "Atractivo 2" }
+  ],
+  "meta": {
+    "pagination": {
+      "count": 50,
+      "next": "http://localhost:8000/api/atractivos/?page=2",
+      "previous": null,
+      "page_size": 10,
+      "total_pages": 5
+    }
+  }
+}
+```
+
+---
+
+## Códigos HTTP y Estados
+
+| Código | Significado | Caso de Uso |
+|--------|-------------|-----------|
+| 200 | OK | GET exitoso, actualización exitosa |
+| 201 | Created | Creación de recurso exitosa |
+| 204 | No Content | Eliminación exitosa |
+| 400 | Bad Request | Datos inválidos |
+| 401 | Unauthorized | Token inválido o expirado |
+| 403 | Forbidden | Permisos insuficientes |
+| 404 | Not Found | Recurso no existe |
+| 409 | Conflict | Duplicidad (ej: email ya existe) |
+| 422 | Unprocessable Entity | Validación de campos falla |
+| 500 | Internal Server Error | Error del servidor |
+
+---
+
+## Endpoints Principales
+
+### 1. Autenticación
+
+#### POST `/api/usuarios/login/`
+Iniciar sesión
+- **Auth**: No requerido
+- **Body**: email, password
+
+#### POST `/api/usuarios/register/`
+Registrar nuevo usuario
+- **Auth**: No requerido
+- **Body**: email, password, nombre
+
+#### POST `/api/token/refresh/`
+Renovar token
+- **Auth**: No requerido
+- **Body**: refresh token
+
+---
+
+### 2. Atractivos Turísticos
+
+#### GET `/api/atractivos/`
+Listar atractivos
+- **Auth**: Requerido (JWT)
+- **Query params**:
+  - `page`: Número de página (default: 1)
+  - `page_size`: Resultados por página (default: 10)
+  - `canton`: Filtrar por cantón (ID)
+  - `clasificacion`: Filtrar por clasificación
+  - `estado`: PUBLICADO, BORRADOR, REVISION, ARCHIVADO
+  - `search`: Búsqueda por nombre
+
+**Ejemplo**:
+```
+GET /api/atractivos/?canton=1&estado=PUBLICADO&page=1
+```
+
+**Respuesta**:
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "nombre": "Cascada del Pailon",
+      "descripcion": "Hermosa cascada natural...",
+      "latitud": -0.5234,
+      "longitud": -78.1234,
+      "canton": "Baños",
+      "clasificaciones": ["Naturaleza", "Cascada"],
+      "estado": "PUBLICADO",
+      "fecha_creacion": "2026-01-15T08:00:00Z"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "count": 25,
+      "total_pages": 3,
+      "page_size": 10
+    }
+  }
+}
+```
+
+#### POST `/api/atractivos/`
+Crear nuevo atractivo
+- **Auth**: Requerido (GESTOR_TURISTICO, ADMINISTRADOR)
+- **Body**: nombre, descripcion, latitud, longitud, canton_id, etc.
+
+**Ejemplo**:
+```json
+{
+  "nombre": "Nuevo Atractivo",
+  "descripcion": "Descripción detallada",
+  "latitud": -0.5234,
+  "longitud": -78.1234,
+  "canton_id": 1,
+  "estado": "BORRADOR"
+}
+```
+
+#### GET `/api/atractivos/{id}/`
+Obtener detalle de atractivo
+- **Auth**: Requerido (JWT)
+
+**Respuesta**:
+```json
+{
+  "success": true,
+  "data": {
+    "id": 1,
+    "nombre": "Cascada del Pailon",
+    "descripcion": "Hermosa cascada natural...",
+    "latitud": -0.5234,
+    "longitud": -78.1234,
+    "canton": "Baños",
+    "provincia": "Tungurahua",
+    "clasificaciones": [
+      {
+        "id": 1,
+        "nombre": "Naturaleza",
+        "nivel": "CATEGORIA"
+      }
+    ],
+    "servicios": [
+      {
+        "id": 1,
+        "nombre": "Parqueo",
+        "disponibilidad": "SIEMPRE"
+      }
+    ],
+    "horarios": [
+      {
+        "tipo": "NORMAL",
+        "hora_apertura": "08:00",
+        "hora_cierre": "18:00"
+      }
+    ],
+    "estado": "PUBLICADO",
+    "imagenes": ["url1.jpg", "url2.jpg"],
+    "documentos": ["mapa.pdf"],
+    "fecha_creacion": "2026-01-15T08:00:00Z",
+    "fecha_actualizacion": "2026-06-20T14:30:00Z"
+  }
+}
+```
+
+#### PUT `/api/atractivos/{id}/`
+Actualizar atractivo
+- **Auth**: Requerido (GESTOR_TURISTICO, ADMINISTRADOR)
+- **Body**: Campos a actualizar
+
+#### DELETE `/api/atractivos/{id}/`
+Eliminar atractivo
+- **Auth**: Requerido (ADMINISTRADOR)
+
+---
+
+### 3. Rutas Turísticas
+
+#### GET `/api/rutas/`
+Listar rutas
+- **Auth**: Requerido
+- **Query params**: canton, estado, search
+
+#### POST `/api/rutas/`
+Crear nueva ruta
+- **Auth**: Requerido (GESTOR_TURISTICO, ADMINISTRADOR)
+- **Body**: nombre, descripcion, atractivos[], duracion_estimada
+
+**Ejemplo**:
+```json
+{
+  "nombre": "Ruta de Cascadas",
+  "descripcion": "Recorrido por cascadas de la provincia",
+  "atractivos": [1, 2, 3],
+  "duracion_estimada": 480,
+  "dificultad": "MEDIA",
+  "estado": "BORRADOR"
+}
+```
+
+#### GET `/api/rutas/{id}/`
+Obtener detalle de ruta
+
+#### PUT `/api/rutas/{id}/`
+Actualizar ruta
+
+#### DELETE `/api/rutas/{id}/`
+Eliminar ruta
+
+---
+
+### 4. Usuarios
+
+#### GET `/api/usuarios/`
+Listar usuarios
+- **Auth**: Requerido (ADMINISTRADOR)
+- **Query params**: rol, estado, search
+
+#### GET `/api/usuarios/me/`
+Obtener datos del usuario actual
+- **Auth**: Requerido
+
+**Respuesta**:
+```json
+{
+  "success": true,
+  "data": {
+    "id": 1,
+    "nombre": "Juan Pérez",
+    "email": "juan@ejemplo.com",
+    "rol": "GESTOR_TURISTICO",
+    "telefono": "+593999999999",
+    "avatar": "url_avatar.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-01-01T00:00:00Z"
+  }
+}
+```
+
+#### PUT `/api/usuarios/me/`
+Actualizar perfil del usuario actual
+- **Auth**: Requerido
+- **Body**: nombre, telefono, avatar
+
+#### POST `/api/usuarios/cambiar-password/`
+Cambiar contraseña
+- **Auth**: Requerido
+- **Body**: password_actual, password_nueva, password_confirmar
+
+---
+
+### 5. Investigación
+
+#### GET `/api/investigacion/`
+Listar proyectos de investigación
+- **Auth**: Requerido
+- **Query params**: tipo, estado, search
+
+#### POST `/api/investigacion/`
+Crear proyecto de investigación
+- **Auth**: Requerido (INVESTIGADOR, ADMINISTRADOR)
+- **Body**: titulo, descripcion, tipo, investigador_principal
+
+#### GET `/api/investigacion/{id}/`
+Obtener detalle de proyecto
+
+#### PUT `/api/investigacion/{id}/`
+Actualizar proyecto
+
+#### DELETE `/api/investigacion/{id}/`
+Eliminar proyecto
+
+---
+
+### 6. Inventario
+
+#### GET `/api/inventario/fichas/`
+Listar fichas de inventario
+- **Auth**: Requerido
+- **Query params**: canton, categoria, estado
+
+#### POST `/api/inventario/importar/`
+Importar fichas desde Excel
+- **Auth**: Requerido (GESTOR_TERRITORIAL, ADMINISTRADOR)
+- **Body**: Multipart form-data con archivo Excel
+
+**Headers**:
+```http
+Content-Type: multipart/form-data
+Authorization: Bearer [token]
+```
+
+---
+
+### 7. Geolocalización
+
+#### GET `/api/geolocalizacion/cantones/`
+Listar cantones
+- **Auth**: Requerido
+- **Query params**: provincia
+
+**Respuesta**:
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "nombre": "Ambato",
+      "provincia": "Tungurahua",
+      "centroide_lat": -1.2345,
+      "centroide_lon": -78.5678,
+      "limite_norte": -1.0,
+      "limite_sur": -1.5,
+      "limite_este": -78.0,
+      "limite_oeste": -79.0,
+      "poblacion": 387000,
+      "area_km2": 1123
+    }
+  ]
+}
+```
+
+#### GET `/api/geolocalizacion/provincias/`
+Listar provincias
+- **Auth**: Requerido
+
+---
+
+## Ejemplos de Integración
+
+### JavaScript/Axios
+
+```javascript
+import axios from 'axios';
+
+const API_URL = 'http://localhost:8000/api';
+let token = null;
+
+// Login
+async function login(email, password) {
+  const response = await axios.post(`${API_URL}/usuarios/login/`, {
+    email,
+    password
+  });
+  token = response.data.data.access;
+  return response.data;
+}
+
+// Obtener atractivos
+async function getAtractivos(page = 1, canton = null) {
+  const config = {
+    headers: { Authorization: `Bearer ${token}` }
+  };
+  const params = { page };
+  if (canton) params.canton = canton;
+  
+  const response = await axios.get(`${API_URL}/atractivos/`, { 
+    ...config,
+    params
+  });
+  return response.data;
+}
+
+// Crear atractivo
+async function createAtractivo(data) {
+  const config = {
+    headers: { Authorization: `Bearer ${token}` }
+  };
+  
+  const response = await axios.post(`${API_URL}/atractivos/`, data, config);
+  return response.data;
+}
+```
+
+### cURL
+
+```bash
+# Login
+curl -X POST http://localhost:8000/api/usuarios/login/ \
+  -H "Content-Type: application/json" \
+  -d '{"email":"user@ejemplo.com","password":"password123"}'
+
+# Obtener atractivos
+curl -X GET http://localhost:8000/api/atractivos/ \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGc..."
+
+# Crear atractivo
+curl -X POST http://localhost:8000/api/atractivos/ \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGc..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "nombre": "Nuevo Atractivo",
+    "descripcion": "Descripción",
+    "latitud": -0.5234,
+    "longitud": -78.1234,
+    "canton_id": 1
+  }'
+```
+
+---
+
+## Paginación
+
+La mayoría de endpoints que retornan listas soportan paginación.
+
+**Query parameters**:
+- `page`: Número de página (default: 1)
+- `page_size`: Resultados por página (default: 10, máximo: 100)
+
+**Ejemplo**:
+```
+GET /api/atractivos/?page=2&page_size=20
+```
+
+**Meta information**:
+```json
+"meta": {
+  "pagination": {
+    "count": 50,
+    "total_pages": 3,
+    "page_size": 20,
+    "next": "http://localhost:8000/api/atractivos/?page=3",
+    "previous": "http://localhost:8000/api/atractivos/?page=1"
+  }
+}
+```
+
+---
+
+## Filtrado y Búsqueda
+
+La mayoría de endpoints soportan filtrado y búsqueda.
+
+**Filtrado**:
+```
+GET /api/atractivos/?canton=1&estado=PUBLICADO
+```
+
+**Búsqueda de texto**:
+```
+GET /api/atractivos/?search=cascada
+```
+
+---
+
+## Rate Limiting
+
+El sistema implementa rate limiting para prevenir abuso:
+- **Límite**: 1000 requests por hora por usuario
+- **Header**: `X-RateLimit-Remaining`
+
+---

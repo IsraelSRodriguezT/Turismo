@@ -1,0 +1,547 @@
+# Manual de Usuario
+
+## Introducción
+
+Este manual está diseñado para ayudarte a usar **PIT (Plataforma Interactiva de Turismo)** de acuerdo a tu rol. Hay diferentes vistas y funcionalidades según tu tipo de usuario.
+
+## Tipos de Usuarios
+
+| Rol | Descripción | Acceso |
+|-----|-----------|--------|
+| **Turista** | Consulta información turística | Lectura de atractivos, rutas, información |
+| **Gestor Territorial** | Gestiona información territorial | CRUD de cantones, provincias, ubicaciones |
+| **Gestor Turístico** | Gestiona atractivos y rutas | CRUD de atractivos, rutas, servicios |
+| **Investigador** | Gestiona proyectos de investigación | CRUD de investigaciones, resultados |
+| **Administrador** | Gestiona todo el sistema | CRUD completo, usuarios, permisos |
+
+---
+
+## Iniciar Sesión
+
+### Acceso a la Plataforma
+
+1. Abre tu navegador y dirígete a:
+   ```
+   http://localhost:5173
+   ```
+
+2. Verás la pantalla de login con dos campos:
+   - **Email**: Tu correo electrónico registrado
+   - **Contraseña**: Tu contraseña
+
+3. Ingresa tus credenciales y haz clic en **"Iniciar Sesión"**
+
+### Primer Acceso (Administrador)
+
+Si eres el primer usuario (administrador), debes:
+
+1. Crear el administrador via terminal:
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+2. Usar las credenciales creadas en el login
+
+3. Acceder a `/admin` para gestión inicial
+
+### Cambiar Contraseña
+
+1. Haz clic en tu **Avatar** (esquina superior derecha)
+2. Selecciona **"Perfil"** o **"Configuración"**
+3. Haz clic en **"Cambiar Contraseña"**
+4. Ingresa tu contraseña actual
+5. Ingresa la nueva contraseña (mínimo 8 caracteres)
+6. Confirma la nueva contraseña
+7. Haz clic en **"Guardar"**
+
+---
+
+## Vista para Turistas
+
+La vista de turista permite consultar información turística de manera pública.
+
+### Explorar Atractivos
+
+#### Pantalla Principal
+
+1. Al iniciar sesión verás el **Mapa Interactivo** en el centro
+2. Los atractivos aparecen como marcadores en el mapa
+3. Puedes hacer zoom con la rueda del ratón
+4. Puedes arrastrar el mapa para navegar
+
+#### Filtrar Atractivos
+
+En el panel izquierdo, encontrarás:
+- **Cantón**: Selecciona un cantón
+- **Clasificación**: Ej: Naturaleza, Cultura, Aventura
+- **Servicio**: Filtrar por servicios disponibles
+- **Estado**: Mostrar solo atractivos publicados
+
+#### Ver Detalles de Atractivo
+
+1. Haz clic en un marcador del mapa
+2. Se abre una tarjeta con información básica
+3. Haz clic en **"Ver Detalles"** para abrir la ficha completa
+
+**Información disponible**:
+- Nombre y descripción
+- Ubicación (cantón, provincia)
+- Coordenadas GPS
+- Servicios disponibles
+- Horarios de atención
+- Información de accesibilidad
+- Imágenes y galerías
+- Documentos relacionados
+- Rutas que incluyen el atractivo
+
+### Explorar Rutas Turísticas
+
+1. Haz clic en la pestaña **"Rutas"** en el menú superior
+2. Verás un listado de rutas temáticas
+3. Haz clic en una ruta para ver detalles
+4. Visualiza el recorrido en el mapa
+5. Consulta atractivos incluidos
+6. Ve el tiempo estimado y nivel de dificultad
+
+### Buscar Información
+
+1. En la barra superior, usa el campo **"Buscar"**
+2. Ingresa nombre de atractivo, cantón o servicio
+3. Los resultados se actualizan en tiempo real
+4. Haz clic en un resultado para ir a su ficha
+
+### Compartir Información
+
+En la ficha de atractivo:
+1. Haz clic en botón **"Compartir"**
+2. Selecciona red social (Facebook, WhatsApp, Twitter)
+3. Se abrirá la red social con link de compartición
+
+### Descargar Información
+
+1. En la ficha de atractivo, haz clic en **"Descargar PDF"**
+2. Se descargará un PDF con la información completa
+3. Útil para consultar sin internet
+
+---
+
+## Vista para Gestores Turísticos
+
+Los gestores turísticos pueden crear y editar atractivos y rutas.
+
+### Registrar Nuevo Atractivo
+
+#### Paso 1: Acceder a Formulario
+
+1. En el menú principal, haz clic en **"Atractivos"**
+2. Haz clic en botón **"+ Nuevo Atractivo"**
+3. Se abre formulario de registro
+
+#### Paso 2: Información Básica
+
+Completa:
+- **Nombre**: Nombre del atractivo
+- **Descripción**: Descripción detallada (250-1000 caracteres)
+- **Cantón**: Selecciona el cantón donde está ubicado
+- **Estado**: BORRADOR (para guardar temporalmente)
+
+#### Paso 3: Ubicación (Geolocalización)
+
+Dos opciones:
+
+**Opción A: Pinchar en Mapa**
+1. Haz clic en el mapa
+2. Aparecerá un marcador
+3. Arrastra para ajustar si es necesario
+4. Se llenarán automáticamente **Latitud** y **Longitud**
+
+**Opción B: Ingresar Coordenadas**
+1. Ingresa **Latitud**: Ej: -0.5234
+2. Ingresa **Longitud**: Ej: -78.1234
+3. Haz clic en **"Ubicar en Mapa"**
+4. El mapa centrará en esa ubicación
+
+#### Paso 4: Clasificación
+
+1. Haz clic en **"Clasificaciones"**
+2. Selecciona opciones (Naturaleza, Cultura, Aventura, etc.)
+3. Puedes agregar múltiples clasificaciones
+4. Haz clic en ➕ para agregar más
+
+#### Paso 5: Servicios
+
+1. En sección **"Servicios Disponibles"**
+2. Selecciona los servicios que ofrece:
+   - Parqueo
+   - Restaurante
+   - Hotel cercano
+   - Baños
+   - Tienda de souvenirs
+   - Guías turísticos
+   - Etc.
+
+3. Puedes especificar disponibilidad (SIEMPRE, FINES_SEMANA, POR_RESERVA)
+
+#### Paso 6: Horarios
+
+1. Haz clic en **"Agregar Horario"**
+2. Selecciona tipo de horario:
+   - NORMAL: Horario regular
+   - FIN_SEMANA: Solo fines de semana
+   - FERIADO: Días feriados
+   - ESPECIAL: Épocas especiales
+
+3. Ingresa:
+   - Hora de apertura (Ej: 08:00)
+   - Hora de cierre (Ej: 18:00)
+
+4. Haz clic en **"Guardar Horario"**
+
+#### Paso 7: Información de Acceso
+
+1. Selecciona **Nivel de Accesibilidad**:
+   - LIBRE: Acceso libre
+   - RESTRINGIDO: Requiere permiso
+   - PAGADO: Acceso pagado
+
+2. Si es PAGADO, ingresa:
+   - Precio de entrada
+   - Descuentos especiales
+
+3. Estado de conservación:
+   - CONSERVADO
+   - ALTERADO
+   - EN_DETERIORO
+   - DETERIORADO
+
+#### Paso 8: Subir Imágenes
+
+1. Haz clic en **"Subir Imágenes"**
+2. Selecciona una o más imágenes (JPG, PNG, máximo 5MB cada una)
+3. Aparecerá vista previa
+4. Las imágenes son obligatorias
+
+#### Paso 9: Documentos Relacionados
+
+1. Haz clic en **"Subir Documento"**
+2. Selecciona archivo (PDF, DOC, máximo 10MB)
+3. Ingresa descripción del documento
+4. Haz clic en **"Subir"**
+
+#### Paso 10: Guardar
+
+1. Revisa toda la información
+2. Haz clic en **"Guardar como Borrador"** para guardar temporalmente
+3. O haz clic en **"Enviar a Revisión"** para que un administrador revise
+
+### Editar Atractivo
+
+1. En listado de atractivos, encuentra el atractivo
+2. Haz clic en icono de **"Editar"** (lápiz)
+3. Modifica los campos necesarios
+4. Haz clic en **"Guardar Cambios"**
+
+### Crear Ruta Turística
+
+#### Paso 1: Acceder
+
+1. En menú, haz clic en **"Rutas"**
+2. Haz clic en **"+ Nueva Ruta"**
+
+#### Paso 2: Información Básica
+
+Completa:
+- **Nombre**: Nombre de la ruta
+- **Descripción**: Descripción del recorrido
+- **Duración Estimada**: En minutos
+- **Dificultad**: BAJA, MEDIA, ALTA
+- **Tipo**: Naturaleza, Cultura, Aventura, etc.
+
+#### Paso 3: Seleccionar Atractivos
+
+1. En sección **"Atractivos en la Ruta"**
+2. Haz clic en **"Agregar Atractivo"**
+3. Busca atractivos por nombre
+4. Selecciona orden de recorrido (1, 2, 3, etc.)
+5. Puedes agregar múltiples atractivos
+
+#### Paso 4: Visualizar en Mapa
+
+1. Verás en mapa los atractivos conectados
+2. Muestra orden de recorrido
+3. Calcula distancia total aproximada
+
+#### Paso 5: Guardar
+
+1. Haz clic en **"Guardar como Borrador"** o **"Enviar a Revisión"**
+
+### Cambiar Estado de Contenido
+
+Los estados disponibles son:
+
+| Estado | Significado | Acción |
+|--------|-------------|--------|
+| **BORRADOR** | En edición, no publicado | Guardar sin completar |
+| **REVISION** | Pendiente aprobación admin | Gestor envía a revisar |
+| **PUBLICADO** | Visible para público | Admin aprueba |
+| **ARCHIVADO** | No visible, conservado | Admin archiva |
+
+**Cambiar estado**:
+1. En ficha del atractivo, haz clic en **"Estado"**
+2. Selecciona nuevo estado
+3. Si es necesario, agregacommentario
+4. Haz clic en **"Cambiar"**
+
+---
+
+## Vista para Gestores Territoriales
+
+### Gestionar Cantones
+
+#### Crear Cantón
+
+1. Menú → **"Territorio"** → **"Cantones"**
+2. Haz clic en **"+ Nuevo Cantón"**
+3. Completa:
+   - Nombre del cantón
+   - Provincia
+   - Población estimada
+   - Área en km²
+4. Define límites en mapa (norte, sur, este, oeste)
+5. Haz clic en **"Guardar"**
+
+#### Editar Cantón
+
+1. En listado de cantones, haz clic en **"Editar"**
+2. Modifica información
+3. Haz clic en **"Guardar"**
+
+### Importar Inventario desde Excel
+
+1. Menú → **"Inventario"** → **"Importar Fichas"**
+2. Haz clic en **"Seleccionar Archivo"**
+3. Elige archivo Excel con formato:
+   ```
+   | Nombre | Descripción | Cantón | Clasificación | ... |
+   |--------|-------------|--------|---------------|-----|
+   ```
+4. Haz clic en **"Previsualizaar"** para verificar
+5. Haz clic en **"Importar"**
+6. Sistema mostrará resultados (exitosos, con error)
+
+---
+
+## Vista para Investigadores
+
+### Registrar Proyecto de Investigación
+
+1. Menú → **"Investigación"** → **"Mis Proyectos"**
+2. Haz clic en **"+ Nuevo Proyecto"**
+3. Completa:
+   - Título del proyecto
+   - Descripción
+   - Objetivo general
+   - Objetivos específicos
+   - Tipo de investigación
+   - Investigador principal
+   - Período de investigación
+4. Haz clic en **"Guardar"**
+
+### Publicar Resultados
+
+1. En ficha del proyecto, haz clic en **"Resultados"**
+2. Haz clic en **"+ Agregar Resultado"**
+3. Ingresa:
+   - Título del resultado
+   - Descripción
+   - Conclusiones
+   - Recomendaciones
+4. Sube documentos (PDF, Imágenes)
+5. Haz clic en **"Publicar"**
+
+---
+
+## Vista para Administradores
+
+### Gestionar Usuarios
+
+#### Listar y Filtrar Usuarios
+
+1. Menú → **"Administración"** → **"Usuarios"**
+2. Puedes filtrar por:
+   - Rol (Turista, Gestor, Investigador, Administrador)
+   - Estado (Activo, Inactivo)
+   - Búsqueda por nombre/email
+
+#### Crear Usuario
+
+1. Haz clic en **"+ Nuevo Usuario"**
+2. Completa:
+   - Nombre completo
+   - Email (único)
+   - Contraseña temporal
+   - Rol
+   - Teléfono (opcional)
+3. Haz clic en **"Crear"**
+4. Sistema enviará email con credenciales
+
+#### Editar Usuario
+
+1. En listado, haz clic en usuario
+2. Modifica información (excepto email)
+3. Puedes cambiar rol
+4. Haz clic en **"Guardar"**
+
+#### Desactivar/Reactivar Usuario
+
+1. En ficha de usuario
+2. Haz clic en **"Desactivar"** o **"Reactivar"**
+3. Se pedirá confirmación
+
+#### Resetear Contraseña
+
+1. En ficha de usuario
+2. Haz clic en **"Resetear Contraseña"**
+3. Usuario recibirá email con link para crear nueva contraseña
+
+### Gestionar Permisos y Roles
+
+1. Menú → **"Administración"** → **"Roles y Permisos"**
+2. Verás los roles predefinidos
+3. Para cada rol, puedes asignar permisos:
+   - Ver atractivos
+   - Crear atractivos
+   - Editar atractivos
+   - Eliminar atractivos
+   - Aprobar cambios
+   - Crear usuarios
+   - etc.
+
+### Revisar y Aprobar Contenido
+
+1. Menú → **"Revisión de Contenido"**
+2. Verás atractivos y rutas en estado "REVISION"
+3. Para cada uno:
+   - Revisa información
+   - Haz clic en **"Aprobar"** o **"Rechazar"**
+   - Si rechazas, agrega comentario
+4. El gestor turístico recibirá notificación
+
+### Monitorear Actividad del Sistema
+
+1. Menú → **"Dashboard"** o **"Reportes"**
+2. Verás:
+   - Número total de atractivos
+   - Usuarios activos
+   - Cambios recientes
+   - Errores del sistema
+3. Puedes exportar reportes en PDF/Excel
+
+### Configuración del Sistema
+
+1. Menú → **"Configuración"**
+2. Puedes ajustar:
+   - Nombre de la plataforma
+   - Logo y colores
+   - Mensajes de bienvenida
+   - Configuración de emails
+   - Información de contacto
+
+---
+
+## Funcionalidades Comunes
+
+### Búsqueda Global
+
+1. En barra superior, campo **"Buscar"**
+2. Ingresa término
+3. Se busca en:
+   - Nombres de atractivos
+   - Descripciones
+   - Cantones
+   - Nombres de rutas
+4. Resultados aparecen en dropdown
+5. Haz clic para ir a ese recurso
+
+### Exportar Datos
+
+La mayoría de listados permite exportar:
+1. Haz clic en icono **"Descargar"** (flecha ↓)
+2. Selecciona formato:
+   - **CSV**: Archivo de texto
+   - **Excel**: Hoja de cálculo
+   - **PDF**: Documento
+3. Se descarga automáticamente
+
+### Compartir en Redes Sociales
+
+En fichas de atractivos/rutas:
+1. Haz clic en icono **"Compartir"**
+2. Selecciona red social
+3. Se abre aplicación con link compartible
+
+### Ver Historial de Cambios
+
+En fichas de atractivos/rutas:
+1. Haz clic en **"Historial"**
+2. Verás:
+   - Fecha de cada cambio
+   - Usuario que hizo cambio
+   - Qué se cambió
+   - Comentarios
+
+---
+
+## Resolución de Problemas Comunes
+
+### No puedo iniciar sesión
+
+**Solución**:
+- Verifica que email y contraseña sean correctos
+- Si olvidaste la contraseña, haz clic en **"¿Olvidaste tu contraseña?"**
+- Recibirás email con link para resetear
+- Si el email no llega, contacta administrador
+
+### No puedo crear atractivos
+
+**Causa posible**: Tu rol no tiene permiso
+
+**Solución**:
+- Pide a administrador que te asigne rol "Gestor Turístico"
+- Cierra sesión y vuelve a iniciar
+
+### Las imágenes no se cargan
+
+**Solución**:
+- Verifica que sean JPG o PNG
+- Tamaño máximo 5MB
+- Intenta comprimir la imagen
+- Si persiste, contacta soporte
+
+### El mapa no funciona
+
+**Solución**:
+- Recarga la página (F5)
+- Limpia cache del navegador
+- Verifica conexión a internet
+- Intenta con otro navegador
+
+---
+
+## Consejos de Uso
+
+✅ **Haz**:
+- Actualiza frecuentemente la información
+- Agrega imágenes atractivas (mínimo 3 por atractivo)
+- Completa todos los campos
+- Revisa ortografía y puntuación
+- Agrupa atractivos en rutas temáticas
+
+❌ **No hagas**:
+- Duplicar atractivos (busca primero)
+- Agregar información incorrecta
+- Subir imágenes de baja calidad
+- Dejar campos en blanco innecesariamente
+- Crear rutas con solo 1 atractivo
+
+---

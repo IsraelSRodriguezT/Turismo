@@ -1,8 +1,10 @@
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.decorators import action
+from rest_framework.response import Response
 from drf_spectacular.utils import OpenApiParameter, extend_schema, extend_schema_view
 
 from apps.atractivos.models import AtractivoTuristico, Clasificacion, Gerente, Horario, Ruta, Servicio
-from apps.atractivos.serializers import AtractivoTuristicoSerializer, ClasificacionSerializer, GerenteSerializer, HorarioSerializer, RutaSerializer, ServicioSerializer
+from apps.atractivos.serializers import AtractivoTuristicoSerializer, ClasificacionSerializer, GerenteSerializer, HorarioSerializer, RutaDetalleSerializer, RutaSerializer, ServicioSerializer
 from core.api import NormalizedModelViewSet
 
 @extend_schema_view(
@@ -39,6 +41,30 @@ class AtractivoTuristicoViewSet(NormalizedModelViewSet):
     )
     serializer_class = AtractivoTuristicoSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+
+    @action(detail=True, methods=['post'])
+    def publicar(self, request, pk=None):
+        atractivo = self.get_object()
+        atractivo.estado = 'PUBLICADO'
+        atractivo.save()
+        serializer = self.get_serializer(atractivo)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['post'])
+    def archivar(self, request, pk=None):
+        atractivo = self.get_object()
+        atractivo.estado = 'ARCHIVADO'
+        atractivo.save()
+        serializer = self.get_serializer(atractivo)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['post'])
+    def enviar_revision(self, request, pk=None):
+        atractivo = self.get_object()
+        atractivo.estado = 'REVISION'
+        atractivo.save()
+        serializer = self.get_serializer(atractivo)
+        return Response(serializer.data)
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -79,3 +105,11 @@ class RutaViewSet(NormalizedModelViewSet):
     queryset = Ruta.objects.all()
     serializer_class = RutaSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+
+    @action(detail=False, methods=['get'])
+    def con_mapa(self, request):
+        rutas = Ruta.objects.prefetch_related(
+            'detalles_ruta__atractivo__ubicacion'
+        ).all()
+        serializer = RutaDetalleSerializer(rutas, many=True)
+        return Response(serializer.data)

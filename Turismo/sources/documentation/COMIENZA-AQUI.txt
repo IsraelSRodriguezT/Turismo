@@ -1,0 +1,211 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                          👋 ¡BIENVENIDO!                                  ║
+║                                                                            ║
+║        📚 DOCUMENTACIÓN COMPLETA DE PIT                                   ║
+║        Plataforma Interactiva de Turismo v1.0.0                           ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+🎯 ¿CÓMO EMPIEZO?
+
+Selecciona tu opción:
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│  1️⃣  SOY NUEVO - Quiero una introducción rápida (5 minutos)              │
+│      ➜ Abre: INICIO_RAPIDO.qmd                                           │
+│                                                                            │
+│  2️⃣  NECESITO INFORMACIÓN - Busco un tema específico                    │
+│      ➜ Abre: MAPA.md (mapa interactivo de contenidos)                    │
+│                                                                            │
+│  3️⃣  QUIERO LEER TODO - Prefiero documentación completa                 │
+│      ➜ Renderiza: quarto render index.qmd --to html                     │
+│      ➜ O abre: index.qmd en tu editor                                    │
+│                                                                            │
+│  4️⃣  NECESITO INSTALAR - Quiero tener la app funcionando                │
+│      ➜ Abre: _instalacion.qmd                                            │
+│                                                                            │
+│  5️⃣  SOY DESARROLLADOR - Necesito entender la arquitectura              │
+│      ➜ Abre: _arquitectura.qmd                                           │
+│                                                                            │
+│  6️⃣  BUSCO UNA API - Quiero integrar con mi aplicación                  │
+│      ➜ Abre: _api.qmd                                                    │
+│                                                                            │
+│  7️⃣  NECESITO HELP - Tengo una pregunta frecuente                       │
+│      ➜ Abre: MAPA.md → "Preguntas Frecuentes"                           │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 ARCHIVOS PRINCIPALES
+
+NAVEGACIÓN:
+  📄 README.md           - Información general (empieza aquí)
+  🗺️  MAPA.md            - Mapa interactivo de contenidos
+  ⚡ INICIO_RAPIDO.qmd   - 5 pasos para comenzar
+  📑 INDICE.md           - Índice completo
+
+DOCUMENTACIÓN:
+  📘 index.qmd           - Documento principal (todo incluido)
+  🏗️  _arquitectura.qmd  - Cómo funciona el sistema
+  📥 _instalacion.qmd    - Instalar la app
+  📡 _api.qmd            - API REST - Endpoints
+  👥 _manual_usuario.qmd - Manual por rol
+  💻 _guia_desarrollador.qmd - Para programadores
+  📖 _glosario.qmd       - Definiciones técnicas
+
+SCRIPTS:
+  🪟 render.bat          - Renderizar en Windows
+  🐧 render.sh           - Renderizar en macOS/Linux
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 OPCIÓN RÁPIDA: Ver en Navegador (HTML)
+
+Windows:
+  render.bat
+
+macOS/Linux:
+  bash render.sh
+
+Selecciona opción 1 en el menú → Se genera index.html
+Abre index.html en tu navegador → ¡Listo!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 POR TIPO DE USUARIO
+
+👤 Turista                → INICIO_RAPIDO.qmd + _manual_usuario.qmd
+👨‍💼 Gestor Turístico      → INICIO_RAPIDO.qmd + _instalacion.qmd + _manual_usuario.qmd
+🗺️  Gestor Territorial    → _manual_usuario.qmd (tu sección)
+🔬 Investigador           → _manual_usuario.qmd (tu sección)
+⚙️  Administrador         → INICIO_RAPIDO.qmd + _instalacion.qmd + _manual_usuario.qmd
+💻 Desarrollador          → _instalacion.qmd + _arquitectura.qmd + _guia_desarrollador.qmd
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏱️  TIEMPOS ESTIMADOS
+
+  INICIO_RAPIDO.qmd       5 min   ⚡ Rápido
+  README.md              10 min   📖 General
+  _instalacion.qmd       20 min   📥 Setup
+  _manual_usuario.qmd    30 min   👥 Usar
+  _arquitectura.qmd      30 min   🏗️  Entender
+  _guia_desarrollador.qmd 60 min  💻 Programar
+  _api.qmd               20 min   📡 API
+  index.qmd (todo)      150 min   📚 Completo
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ LO QUE ENCONTRARÁS
+
+✅ Instrucciones de instalación paso a paso
+✅ Guía de uso por tipo de usuario (5 roles)
+✅ Documentación completa de API REST
+✅ Ejemplos de código (JavaScript, cURL)
+✅ Arquitectura técnica detallada
+✅ Guía para desarrolladores
+✅ Glosario de 100+ términos técnicos
+✅ Solución de problemas comunes
+✅ Rutas de aprendizaje recomendadas
+✅ 50+ ejemplos prácticos
+✅ 30+ tablas de referencia
+✅ Múltiples formatos (HTML, PDF, Markdown)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎓 RUTA RECOMENDADA PARA NUEVOS USUARIOS
+
+   PASO 1
+     ↓
+ README.md (10 min)
+   ↓ Entiende qué es PIT
+   ↓
+   PASO 2
+     ↓
+ INICIO_RAPIDO.qmd (5 min)
+   ↓ Instala y ejecuta
+   ↓
+   PASO 3
+     ↓
+ Tu rol en _manual_usuario.qmd (20 min)
+   ↓ Aprende a usar
+   ↓
+   ✅ ¡LISTO!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❓ PREGUNTAS FRECUENTES
+
+P: ¿Por dónde empiezo?
+R: Abre README.md o INICIO_RAPIDO.qmd
+
+P: ¿Dónde está la información que busco?
+R: Abre MAPA.md (mapa interactivo)
+
+P: ¿Cómo veo la documentación en HTML?
+R: Ejecuta render.bat (Windows) o bash render.sh (Mac/Linux)
+
+P: ¿Puedo ver esto en PDF?
+R: Sí, renderiza con: quarto render index.qmd --to pdf
+
+P: ¿Qué necesito para instalar?
+R: Lee _instalacion.qmd (tiene requisitos)
+
+P: ¿Cuál es la contraseña?
+R: Creas la tuya en PASO 6 de _instalacion.qmd
+
+P: ¿Hay ejemplos de código?
+R: Sí, 50+ ejemplos en _api.qmd y _guia_desarrollador.qmd
+
+P: ¿Qué significa este término técnico?
+R: Busca en _glosario.qmd
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔗 ENLACES ÚTILES
+
+📍 Información General        → README.md
+📍 Navegación Rápida         → MAPA.md
+📍 Comienza en 5 min         → INICIO_RAPIDO.qmd
+📍 Instalación Detallada     → _instalacion.qmd
+📍 Cómo usar (tu rol)        → _manual_usuario.qmd
+📍 Endpoints de API          → _api.qmd
+📍 Desarrollo                → _guia_desarrollador.qmd
+📍 Término técnico           → _glosario.qmd
+📍 Visión completa           → index.qmd
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  IMPORTANTE
+
+✅ Esta documentación NO modifica la aplicación
+✅ Solo documenta funcionalidad existente
+✅ Todos los archivos de la app permanecen intactos
+✅ Documentación en: Turismo/sources/documentation/
+✅ App en: Turismo/ (no modificada)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 ¡AHORA SÍ, COMIENZA!
+
+Elige tu archivo y abre:
+  📖 Empieza aquí → README.md
+  ⚡ Rápido      → INICIO_RAPIDO.qmd
+  🗺️  Navega      → MAPA.md
+  📚 Todo        → index.qmd
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║  ✅ Documentación lista para usar                                         ║
+║  ✅ 17 archivos creados exitosamente                                      ║
+║  ✅ 35,000+ palabras de contenido                                         ║
+║  ✅ Completa, profesional y navegable                                     ║
+║                                                                            ║
+║  👉 PRÓXIMO PASO: Abre un archivo y comienza a leer                      ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝

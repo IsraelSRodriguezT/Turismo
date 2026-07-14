@@ -33,6 +33,29 @@ class RutaSerializer(serializers.ModelSerializer):
         model = Ruta
         fields = '__all__'
 
+class AtractivoResumenSerializer(serializers.ModelSerializer):
+    latitud = serializers.FloatField(source='ubicacion.latitud', read_only=True)
+    longitud = serializers.FloatField(source='ubicacion.longitud', read_only=True)
+
+    class Meta:
+        model = AtractivoTuristico
+        fields = ['id', 'nombre', 'latitud', 'longitud']
+
+class DetalleRutaConAtractivoSerializer(serializers.ModelSerializer):
+    atractivo = AtractivoResumenSerializer(read_only=True)
+
+    class Meta:
+        model = DetalleRuta
+        fields = ['id', 'ruta', 'estado', 'orden', 'atractivo']
+        read_only_fields = ['id']
+
+class RutaDetalleSerializer(serializers.ModelSerializer):
+    detalles_ruta = DetalleRutaConAtractivoSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Ruta
+        fields = '__all__'
+
 class DetalleRutaSerializer(serializers.ModelSerializer):
     class Meta:
         model = DetalleRuta
@@ -111,6 +134,7 @@ class AtractivoTuristicoSerializer(serializers.ModelSerializer):
             'descripcion',
             'nivel_accesibilidad',
             'estado_conservacion',
+            'estado',
             'gerente',
             'clasificaciones',
             'servicios',
@@ -119,6 +143,7 @@ class AtractivoTuristicoSerializer(serializers.ModelSerializer):
             'detalles_ruta',
             'ubicacion',
         ]
+        read_only_fields = ['id', 'estado']
 
     def create(self, validated_data):
         return AtractivoService.create_atractivo(validated_data)

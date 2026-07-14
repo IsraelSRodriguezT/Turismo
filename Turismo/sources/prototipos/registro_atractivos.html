@@ -1,0 +1,382 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Registro de Atractivo - PIT Universidad Nacional de Loja</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body { font-family: 'Hanken+Grotesk', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { border-color: #2563eb; color: #2563eb; font-weight: 600; }
+        .step-inactive { border-color: #e2e8f0; color: #64748b; }
+        .step-complete { border-color: #10B981; color: #10B981; }
+    </style>
+<!-- THUMBNAIL_URL: https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjE5ODN8MHwxfH search|university|campus|modern|architecture&ixlib=rb-4.0.3&q=80&w=1080 -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#004ac6",
+                        "primary-container": "#2563eb",
+                        "secondary": "#505f76",
+                        "secondary-container": "#d0e1fb",
+                        "tertiary": "#006242",
+                        "surface": "#FFFFFF",
+                        "background": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "on-surface-variant": "#434655",
+                        "outline": "#737686",
+                        "outline-variant": "#c3c6d7",
+                        "focus-ring": "#10B981",
+                        "success": "#16A34A",
+                        "danger": "#DC2626",
+                        "surface-container": "#eceef0",
+                        "surface-container-low": "#f2f4f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "xl": "40px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "table-data": ["13px", {"lineHeight": "18px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-surface border-r border-outline-variant flex flex-col p-md z-40 transition-all">
+<div class="mb-xl px-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[24px]">school</span>
+</div>
+<div>
+<h1 class="text-primary font-headline-sm leading-tight">Gestión PIT</h1>
+<p class="text-on-surface-variant text-label-sm">Administrador</p>
+</div>
+</div>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md">Inicio</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md">Usuarios</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-label-md">Geolocalización</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-secondary-container text-on-secondary-container rounded-lg" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-md">Inventario</span>
+</a>
+
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">science</span>
+<span class="font-label-md">Investigación</span>
+</a>
+
+
+</nav>
+<div class="border-t border-outline-variant pt-md mt-md">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md">Ayuda</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-grow ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="h-16 sticky top-0 bg-surface border-b border-outline-variant px-margin-desktop flex items-center justify-between z-50">
+<h2 class="font-headline-sm text-primary">PIT - Universidad Nacional de Loja</h2>
+<div class="flex items-center gap-lg">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-body-md w-64 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Buscar en la plataforma..." type="text">
+</div>
+<div class="flex items-center gap-md">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close-up professional portrait of a male administrative manager with a friendly expression. He is wearing a sharp, dark business suit and a light blue shirt. The background is a blurred office environment with soft natural light, maintaining a corporate and modern light-mode aesthetic in line with institutional standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnKx8VwennTfXnLo1kZQIcGC9G1VxsI-g0klRdBYI21NjY0zxEYZhU-IHiHjegUcKbhLe6uQ4pPCxlM3kjGp4auBZJrie1SvywVDhofe8Bueu9q5DVVlhDp0Y5zn_tqUZ6Z15ad1fKXxBJZTIDyhHz3H8pv2SfXAJZnXtlWYU3rHXv4Bj_RkvZep12_AlpgK0rNGCZmZ0p9_cyjyGvXHjNhYAfdRpi3obanVehCWSX445FXVpXp1-QpeTl5F2DT_Zyfp7VojmbvOOA">
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="p-margin-desktop flex-grow max-w-7xl mx-auto w-full">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-on-surface-variant text-label-sm mb-lg"><a class="hover:text-primary" href="#">Inicio</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Inventario</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Atractivos</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary-container">Registro de Atractivo</span></nav>
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-xl gap-md">
+<div>
+<h3 class="font-headline-lg text-on-surface mb-xs">Registro de Atractivo</h3>
+<p class="text-on-surface-variant text-body-md max-w-2xl">Complete los detalles técnicos y geográficos para el inventario.</p>
+</div>
+<div class="flex items-center gap-md">
+<button class="px-lg py-sm border border-outline text-secondary font-label-md rounded hover:bg-surface-container transition-colors">
+                        Guardar Borrador
+                    </button>
+<button class="px-lg py-sm bg-primary-container text-white font-label-md rounded hover:opacity-90 transition-opacity flex items-center gap-2">
+                        Continuar
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Stepper -->
+<div class="grid grid-cols-4 gap-gutter mb-xl">
+<div class="flex flex-col gap-2">
+<div class="h-1 step-complete bg-success"></div>
+<div class="flex items-center gap-2 text-success">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm uppercase tracking-wider">1. Información&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; General</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="h-1 step-active bg-primary-container"></div>
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-sm uppercase tracking-wider">2. Ubicación</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 opacity-50">
+<div class="h-1 step-inactive bg-outline-variant"></div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">list_alt</span>
+<span class="font-label-sm uppercase tracking-wider">3. Especificaciones</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 opacity-50">
+<div class="h-1 step-inactive bg-outline-variant"></div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+<span class="font-label-sm uppercase tracking-wider">4. Evidencias</span>
+</div>
+</div>
+</div>
+<!-- Form Area -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<!-- Left: Form -->
+<div class="lg:col-span-7 space-y-lg">
+<div class="bg-surface p-lg rounded-xl border border-outline-variant shadow-sm">
+<h4 class="font-headline-sm mb-lg">Geolocalización del Atractivo</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg mb-lg">
+<div class="flex flex-col gap-sm">
+<label class="font-label-md text-on-surface-variant">Provincia</label>
+<select class="w-full px-4 py-2.5 border border-technical rounded-lg focus:ring-2 focus:ring-focus-ring focus:border-primary-container outline-none appearance-none bg-surface">
+<option>Loja</option>
+<option>Zamora Chinchipe</option>
+<option>El Oro</option>
+</select>
+</div>
+<div class="flex flex-col gap-sm">
+<label class="font-label-md text-on-surface-variant">Cantón</label>
+<select class="w-full px-4 py-2.5 border border-technical rounded-lg focus:ring-2 focus:ring-focus-ring focus:border-primary-container outline-none appearance-none bg-surface">
+<option>Loja</option>
+<option>Catamayo</option>
+<option>Saraguro</option>
+<option>Puyango</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-sm mb-lg">
+<label class="font-label-md text-on-surface-variant">Dirección o Referencia</label>
+<textarea class="w-full px-4 py-2.5 border border-technical rounded-lg focus:ring-2 focus:ring-focus-ring focus:border-primary-container outline-none resize-none" placeholder="Ej: Sector El Cisne, a 500m de la plaza central..." rows="3"></textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="flex flex-col gap-sm">
+<label class="font-label-md text-on-surface-variant">Latitud (Decimal)</label>
+<div class="relative">
+<input class="w-full px-4 py-2.5 border border-technical rounded-lg focus:ring-2 focus:ring-focus-ring focus:border-primary-container outline-none" placeholder="-3.9931" type="text">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant text-[18px]">gps_fixed</span>
+</div>
+</div>
+<div class="flex flex-col gap-sm">
+<label class="font-label-md text-on-surface-variant">Longitud (Decimal)</label>
+<div class="relative">
+<input class="w-full px-4 py-2.5 border border-technical rounded-lg focus:ring-2 focus:ring-focus-ring focus:border-primary-container outline-none" placeholder="-79.2042" type="text">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant text-[18px]">gps_fixed</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vías de Acceso Section -->
+<div class="bg-surface p-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center justify-between mb-lg">
+<h4 class="font-headline-sm">Vías de Acceso</h4>
+<span class="text-label-sm text-on-surface-variant italic">Seleccione todas las que apliquen</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<!-- Card 1 -->
+<label class="cursor-pointer group">
+<input class="hidden peer" type="checkbox">
+<div class="flex flex-col items-center justify-center p-md border border-technical rounded-lg hover:bg-surface-container-low transition-all peer-checked:border-primary-container peer-checked:bg-secondary-container h-full">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary mb-2">directions_car</span>
+<span class="font-label-sm text-center">Terrestre (Asfaltado)</span>
+</div>
+</label>
+<!-- Card 2 -->
+<label class="cursor-pointer group">
+<input class="hidden peer" type="checkbox">
+<div class="flex flex-col items-center justify-center p-md border border-technical rounded-lg hover:bg-surface-container-low transition-all peer-checked:border-primary-container peer-checked:bg-secondary-container h-full">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary mb-2">road</span>
+<span class="font-label-sm text-center">Terrestre (Lastrado)</span>
+</div>
+</label>
+<!-- Card 3 -->
+<label class="cursor-pointer group">
+<input class="hidden peer" type="checkbox">
+<div class="flex flex-col items-center justify-center p-md border border-technical rounded-lg hover:bg-surface-container-low transition-all peer-checked:border-primary-container peer-checked:bg-secondary-container h-full">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary mb-2">directions_boat</span>
+<span class="font-label-sm text-center">Fluvial</span>
+</div>
+</label>
+<!-- Card 4 -->
+<label class="cursor-pointer group">
+<input class="hidden peer" type="checkbox">
+<div class="flex flex-col items-center justify-center p-md border border-technical rounded-lg hover:bg-surface-container-low transition-all peer-checked:border-primary-container peer-checked:bg-secondary-container h-full">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary mb-2">flight</span>
+<span class="font-label-sm text-center">Aéreo</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Right: Map & Guide -->
+<div class="lg:col-span-5 space-y-lg">
+<!-- Map Module -->
+<div class="bg-surface rounded-xl border border-outline-variant shadow-sm overflow-hidden h-[400px] flex flex-col">
+<div class="px-md py-sm bg-surface-container flex items-center justify-between border-b border-outline-variant">
+<span class="font-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">map</span>
+                                Vista Previa del Mapa
+                            </span>
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-success/10 text-success rounded-full">
+<span class="w-2 h-2 rounded-full bg-success animate-pulse"></span>
+<span class="text-[11px] uppercase">GPS Activo</span>
+</div>
+</div>
+<div class="flex-grow relative bg-surface-container-highest">
+<!-- Mock Map with overlay -->
+<img alt="Map of Loja province" class="w-full h-full object-cover" data-alt="A detailed digital satellite map view of a lush mountainous region in the Loja province of Ecuador. The map features topographic details, winding rural roads, and dense green vegetation under bright daylight. A vibrant blue map marker with a white pin icon is positioned centrally over a specific geographic point, indicating a precise tourist attraction location. The interface is clean and professional." data-location="Loja, Ecuador" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTB-S2XfCC6KUY92SmGZAcgngIO0ppGKlQPIni1IcLaaBtUDmE6Yh_bpElxjgigrONs-Vn1HF3BhI1NtRAUoA0BNjsaHzCl6q-RCdTn8RxwiKqrI78TaCo3Gqbw_cMAtv_k16wIWgCCodO3g0FyNcdhvw2k2rDwvdb2vop8_X0tqvuXe6UDvTYR0ds7W6NgeWeXATI428-giuhsrvlL-qMTyoJqEgNEmZSTIJtt5QTyFUjVbc8qQ7PwK0ncceY9CDsunSxzyKh-jLL">
+<div class="absolute bottom-4 right-4 flex flex-col gap-2">
+<button class="w-10 h-10 bg-white rounded shadow-md border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-10 h-10 bg-white rounded shadow-md border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="w-10 h-10 bg-white rounded shadow-md border border-outline-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Guide Info Box -->
+<div class="bg-primary/5 p-lg rounded-xl border border-primary/20">
+<div class="flex items-center gap-3 mb-md">
+<span class="material-symbols-outlined text-primary text-[28px]">info</span>
+<h4 class="font-headline-sm text-primary">Guía de Registro</h4>
+</div>
+<ul class="space-y-sm">
+<li class="flex gap-3 text-body-md text-on-surface-variant">
+<span class="text-primary">01.</span>
+<span class="">Asegúrese de que el marcador coincida con la entrada principal del atractivo.</span>
+</li>
+<li class="flex gap-3 text-body-md text-on-surface-variant">
+<span class="text-primary">02.</span>
+<span class="">Utilice coordenadas en formato decimal (WGS84).</span>
+</li>
+<li class="flex gap-3 text-body-md text-on-surface-variant">
+<span class="text-primary">03.</span>
+<span class="">La referencia debe incluir puntos de interés cercanos para facilitar el acceso.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-md px-margin-desktop flex flex-col md:flex-row justify-between items-center border-t border-outline-variant bg-surface-container mt-auto">
+<p class="text-on-surface-variant text-label-sm mb-md md:mb-0">
+                © Universidad Nacional de Loja - Plataforma Interactiva de Turismo
+            </p>
+<div class="flex items-center gap-lg">
+<a class="text-on-surface-variant text-label-sm hover:text-primary transition-colors" href="#">Privacidad</a>
+<a class="text-on-surface-variant text-label-sm hover:text-primary transition-colors" href="#">Términos</a>
+<a class="text-on-surface-variant text-label-sm hover:text-primary transition-colors" href="#">Contacto</a>
+</div>
+</footer>
+</div>
+<!-- Floating Action Button (Suppressed on this specific detail/transactional page as per requirements, but kept for context if needed elsewhere) -->
+<script>
+        // Micro-interactions for form states
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.addEventListener('focus', () => {
+                element.closest('.flex-col')?.querySelector('label')?.classList.add('text-primary');
+            });
+            element.addEventListener('blur', () => {
+                element.closest('.flex-col')?.querySelector('label')?.classList.remove('text-primary');
+            });
+        });
+
+        // Simulating some activity tracking
+        console.log("PIT Registration Module Initialized: Step 2/4 Active");
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body></html>

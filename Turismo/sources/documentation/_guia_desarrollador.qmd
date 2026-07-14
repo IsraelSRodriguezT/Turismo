@@ -1,0 +1,713 @@
+# Guía del Desarrollador
+
+## Introducción para Desarrolladores
+
+Esta guía está dirigida a desarrolladores que deseen:
+- Entender la arquitectura interna del sistema
+- Contribuir con nuevas funcionalidades
+- Mantener y actualizar el código
+- Realizar debugging y testing
+
+## Stack Tecnológico Completo
+
+### Backend
+- **Framework**: Django 6.0.4
+- **API**: Django REST Framework (DRF)
+- **Autenticación**: djangorestframework-simplejwt
+- **Documentación API**: drf-spectacular
+- **ORM**: Django ORM
+- **Base de Datos**: SQLite
+- **Base de Datos (Producción)**: PostgreSQL (recomendado)
+- **Validación**: Django Serializers
+- **Testing**: Django TestCase, pytest
+
+### Frontend
+- **Librería**: React 18.3.1
+- **Enrutamiento**: React Router DOM 6.30.0
+- **HTTP Client**: Axios 1.9.0
+- **CSS Framework**: Tailwind CSS 3.4.17
+- **Bundler**: Vite 6.3.0
+- **PostCSS**: Para procesamiento de estilos
+- **Testing**: Vitest, React Testing Library
+
+---
+
+## Estructura del Código
+
+### Backend Django
+
+```
+Turismo/
+├── config/                      # Configuración de Django
+│   ├── settings.py             # Configuración principal
+│   ├── urls.py                 # URLs globales
+│   ├── asgi.py                 # ASGI (WebSockets)
+│   └── wsgi.py                 # WSGI (Producción)
+│
+├── apps/                        # Aplicaciones Django
+│   ├── usuarios/               # App de usuarios
+│   │   ├── models.py          # Modelos de base datos
+│   │   ├── views.py           # Vistas/Endpoints
+│   │   ├── serializers.py      # Validación y transformación
+│   │   ├── services.py         # Lógica de negocio
+│   │   ├── urls.py            # URLs de la app
+│   │   ├── tests.py           # Tests unitarios
+│   │   └── migrations/         # Cambios de DB
+│   │
+│   ├── atractivos/            # App de atractivos
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── serializers.py
+│   │   ├── services.py
+│   │   ├── urls.py
+│   │   ├── tests.py
+│   │   └── migrations/
+│   │
+│   ├── geolocalizacion/       # App de geolocalización
+│   ├── inventario/             # App de inventario
+│   └── investigacion/          # App de investigación
+│
+├── core/                        # Módulos compartidos
+│   ├── api.py                 # Funciones auxiliares de API
+│   ├── exceptions.py          # Excepciones personalizadas
+│   └── permissions.py         # Permisos y validaciones
+│
+├── templates/                   # Templates HTML
+│   └── frontend_react/          # Frontend React (SPA)
+│       ├── src/
+│       │   ├── components/     # Componentes reutilizables
+│       │   ├── pages/          # Páginas/Vistas
+│       │   ├── routes/         # Configuración de rutas
+│       │   ├── services/       # Servicios API
+│       │   ├── hooks/          # Custom React Hooks
+│       │   ├── contexts/       # Context API
+│       │   ├── utils/          # Funciones utilitarias
+│       │   └── App.jsx         # Componente raíz
+│       └── public/             # Archivos estáticos
+│
+├── manage.py                    # Comando CLI de Django
+├── db.sqlite3                  # Base de datos
+└── requirements.txt            # Dependencias Python
+```
+
+---
+
+## Conceptos Clave de Arquitectura
+
+### 1. Models (Modelos de Datos)
+
+**Ubicación**: `apps/*/models.py`
+
+Los modelos definen la estructura de datos. Ejemplo:
+
+```python
+from django.db import models
+
+class AtractivoTuristico(models.Model):
+    nombre = models.CharField(max_length=255)
+    descripcion = models.TextField()
+    latitud = models.FloatField()
+    longitud = models.FloatField()
+    canton = models.ForeignKey(
+        Canton, 
+        on_delete=models.CASCADE
+    )
+    estado = models.CharField(
+        max_length=20,
+        choices=EstadoAtractivo.choices
+    )
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-fecha_creacion']
+        verbose_name_plural = "Atractivos Turísticos"
+    
+    def __str__(self):
+        return self.nombre
+```
+
+**Características**:
+- Hereda de `models.Model`
+- Cada atributo es un campo
+- Relaciones via `ForeignKey`, `ManyToManyField`
+- Metadata en clase `Meta`
+- Método `__str__` para representación
+
+### 2. Serializers (Validación y Transformación)
+
+**Ubicación**: `apps/*/serializers.py`
+
+Serializadores convierten modelos a JSON y validan datos:
+
+```python
+from rest_framework import serializers
+from .models import AtractivoTuristico
+
+class AtractivoSerializer(serializers.ModelSerializer):
+    clasificaciones = serializers.StringRelatedField(
+        many=True, 
+        read_only=True
+    )
+    
+    class Meta:
+        model = AtractivoTuristico
+        fields = [
+            'id', 'nombre', 'descripcion',
+            'latitud', 'longitud', 'estado',
+            'clasificaciones', 'fecha_creacion'
+        ]
+        read_only_fields = ['id', 'fecha_creacion']
+    
+    def validate_nombre(self, value):
+        if len(value) < 5:
+            raise serializers.ValidationError(
+                "El nombre debe tener mínimo 5 caracteres"
+            )
+        return value
+```
+
+**Características**:
+- Hereda de `serializers.ModelSerializer`
+- Especifica modelo y campos en `Meta`
+- Métodos `validate_*` para validación
+- Read-only fields para campos de solo lectura
+
+### 3. Views (Endpoints HTTP)
+
+**Ubicación**: `apps/*/views.py`
+
+Las views manejan requests HTTP:
+
+```python
+from rest_framework import viewsets, status
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from .models import AtractivoTuristico
+from .serializers import AtractivoSerializer
+
+class AtractivoViewSet(viewsets.ModelViewSet):
+    queryset = AtractivoTuristico.objects.all()
+    serializer_class = AtractivoSerializer
+    
+    def get_queryset(self):
+        # Filtrar por cantón si se proporciona
+        canton = self.request.query_params.get('canton')
+        queryset = super().get_queryset()
+        if canton:
+            queryset = queryset.filter(canton_id=canton)
+        return queryset
+    
+    @action(detail=True, methods=['post'])
+    def enviar_revision(self, request, pk=None):
+        """Cambiar estado a REVISION"""
+        atractivo = self.get_object()
+        atractivo.estado = 'REVISION'
+        atractivo.save()
+        return Response({
+            'status': 'Atractivo enviado a revisión'
+        })
+```
+
+**Características**:
+- `ModelViewSet` proporciona CRUD automático
+- `get_queryset()` para filtrado personalizado
+- Decorador `@action` para endpoints custom
+- Retorna respuestas JSON
+
+### 4. Services (Lógica de Negocio)
+
+**Ubicación**: `apps/*/services.py`
+
+Los servicios contienen la lógica de negocio, separados de views:
+
+```python
+from django.db import transaction
+from .models import AtractivoTuristico
+
+class AtractivoService:
+    @staticmethod
+    def crear_atractivo(datos):
+        """Crear atractivo con validaciones de negocio"""
+        try:
+            atractivo = AtractivoTuristico.objects.create(**datos)
+            return atractivo
+        except Exception as e:
+            raise AtractivoServiceException(str(e))
+    
+    @staticmethod
+    def publicar_atractivo(atractivo_id):
+        """Cambiar estado a PUBLICADO"""
+        atractivo = AtractivoTuristico.objects.get(id=atractivo_id)
+        atractivo.estado = 'PUBLICADO'
+        atractivo.save()
+        return atractivo
+    
+    @staticmethod
+    def obtener_atractivos_por_canton(canton_id):
+        """Obtener atractivos de un cantón"""
+        return AtractivoTuristico.objects.filter(
+            canton_id=canton_id,
+            estado='PUBLICADO'
+        )
+```
+
+**Ventajas**:
+- Reutilización de lógica
+- Testing más fácil
+- Cambios centralizados
+- Separación de responsabilidades
+
+---
+
+## Autenticación y Autorización
+
+### JWT (JSON Web Tokens)
+
+El sistema usa JWT para autenticación:
+
+```python
+# En urls.py
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
+urlpatterns = [
+    path('api/token/', TokenObtainPairView.as_view()),
+    path('api/token/refresh/', TokenRefreshView.as_view()),
+]
+```
+
+### Permisos
+
+Los permisos se definen en `core/permissions.py`:
+
+```python
+from rest_framework.permissions import BasePermission
+
+class EsGestorTuristico(BasePermission):
+    def has_permission(self, request, view):
+        return request.user.rol == 'GESTOR_TURISTICO'
+
+class EsAdministrador(BasePermission):
+    def has_permission(self, request, view):
+        return request.user.rol == 'ADMINISTRADOR'
+```
+
+**Usar en views**:
+```python
+class AtractivoViewSet(viewsets.ModelViewSet):
+    permission_classes = [EsGestorTuristico]
+```
+
+---
+
+## Frontend React - Estructura
+
+### Componentes
+
+**Ubicación**: `src/components/`
+
+```jsx
+// components/AtractiveCard.jsx
+import React from 'react';
+
+export function AtractiveCard({ atractivo }) {
+  return (
+    <div className="bg-white rounded-lg shadow p-4">
+      <h2 className="text-xl font-bold">{atractivo.nombre}</h2>
+      <p className="text-gray-600">{atractivo.descripcion}</p>
+      <div className="mt-4 flex gap-2">
+        <button className="btn-primary">Ver Detalle</button>
+        <button className="btn-secondary">Compartir</button>
+      </div>
+    </div>
+  );
+}
+```
+
+**Composición**:
+- Componentes pequeños y reutilizables
+- Props para entrada de datos
+- Estilos con Tailwind CSS
+
+### Páginas
+
+**Ubicación**: `src/pages/`
+
+```jsx
+// pages/AtractivesList.jsx
+import React, { useState, useEffect } from 'react';
+import { AtractiveCard } from '../components/AtractiveCard';
+import { getAtractivos } from '../services/api';
+
+export function AtractivesList() {
+  const [atractivos, setAtractivos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    const loadAtractivos = async () => {
+      try {
+        const data = await getAtractivos();
+        setAtractivos(data);
+      } catch (error) {
+        console.error('Error:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadAtractivos();
+  }, []);
+  
+  if (loading) return <div>Cargando...</div>;
+  
+  return (
+    <div className="grid grid-cols-3 gap-4">
+      {atractivos.map(att => (
+        <AtractiveCard key={att.id} atractivo={att} />
+      ))}
+    </div>
+  );
+}
+```
+
+### Servicios API
+
+**Ubicación**: `src/services/`
+
+```javascript
+// services/api.js
+import axios from 'axios';
+
+const API_URL = import.meta.env.VITE_API_URL;
+const client = axios.create({ baseURL: API_URL });
+
+// Interceptor para JWT
+client.interceptors.request.use(config => {
+  const token = localStorage.getItem('access_token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+export async function getAtractivos(params = {}) {
+  const response = await client.get('/atractivos/', { params });
+  return response.data.data;
+}
+
+export async function createAtractivo(data) {
+  const response = await client.post('/atractivos/', data);
+  return response.data.data;
+}
+```
+
+### Context API (Estado Global)
+
+**Ubicación**: `src/contexts/`
+
+```jsx
+// contexts/AuthContext.jsx
+import React, { createContext, useState } from 'react';
+
+export const AuthContext = createContext();
+
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem('access_token'));
+  
+  const login = async (email, password) => {
+    const response = await fetch(`${API_URL}/usuarios/login/`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    
+    const data = await response.json();
+    setToken(data.data.access);
+    setUser(data.data.usuario);
+    localStorage.setItem('access_token', data.data.access);
+  };
+  
+  return (
+    <AuthContext.Provider value={{ user, token, login }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+```
+
+---
+
+## Testing
+
+### Backend - Tests Unitarios
+
+**Ubicación**: `apps/*/tests.py`
+
+```python
+from django.test import TestCase
+from rest_framework.test import APIClient
+from .models import AtractivoTuristico
+
+class AtractivoTestCase(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+        self.atractivo = AtractivoTuristico.objects.create(
+            nombre="Test Atractivo",
+            descripcion="Descripción test",
+            latitud=-0.5,
+            longitud=-78.5
+        )
+    
+    def test_crear_atractivo(self):
+        """Test para crear atractivo"""
+        response = self.client.post('/api/atractivos/', {
+            'nombre': 'Nuevo Atractivo',
+            'descripcion': 'Descripción',
+            'latitud': -0.5,
+            'longitud': -78.5
+        })
+        self.assertEqual(response.status_code, 201)
+    
+    def test_listar_atractivos(self):
+        """Test para listar atractivos"""
+        response = self.client.get('/api/atractivos/')
+        self.assertEqual(response.status_code, 200)
+        self.assertGreater(len(response.data['data']), 0)
+```
+
+**Ejecutar tests**:
+```bash
+python manage.py test
+```
+
+### Frontend - Tests
+
+**Ubicación**: `src/**/*.test.jsx`
+
+```jsx
+// components/__tests__/AtractiveCard.test.jsx
+import { render, screen } from '@testing-library/react';
+import { AtractiveCard } from '../AtractiveCard';
+
+describe('AtractiveCard', () => {
+  it('debe renderizar información del atractivo', () => {
+    const atractivo = {
+      id: 1,
+      nombre: 'Cascada',
+      descripcion: 'Hermosa cascada'
+    };
+    
+    render(<AtractiveCard atractivo={atractivo} />);
+    
+    expect(screen.getByText('Cascada')).toBeInTheDocument();
+    expect(screen.getByText('Hermosa cascada')).toBeInTheDocument();
+  });
+});
+```
+
+**Ejecutar tests**:
+```bash
+npm run test
+```
+
+---
+
+## Workflow de Desarrollo
+
+### 1. Crear Nueva Funcionalidad
+
+```bash
+# 1. Crear rama para la funcionalidad
+git checkout -b feature/nueva-funcionalidad
+
+# 2. Realizar cambios
+# - Crear/editar modelos
+# - Crear vistas
+# - Crear serializers
+# - Crear tests
+
+# 3. Ejecutar tests
+python manage.py test
+npm run test
+
+# 4. Hacer commit
+git add .
+git commit -m "Feat: descripción de cambios"
+
+# 5. Push y hacer pull request
+git push origin feature/nueva-funcionalidad
+```
+
+### 2. Crear Nueva Aplicación Django
+
+```bash
+# 1. Crear app
+python manage.py startapp mi_app
+
+# 2. Editar models.py
+# 3. Crear migrations
+python manage.py makemigrations
+
+# 4. Aplicar migraciones
+python manage.py migrate
+
+# 5. Registrar en settings.py
+INSTALLED_APPS = [
+    ...
+    'apps.mi_app',
+]
+```
+
+### 3. Agregar Nuevos Campos a Modelo
+
+```python
+# 1. Editar model en models.py
+class AtractivoTuristico(models.Model):
+    nombre = models.CharField(max_length=255)
+    nuevo_campo = models.CharField(max_length=100)  # Nuevo
+
+# 2. Crear migración
+python manage.py makemigrations
+
+# 3. Aplicar migración
+python manage.py migrate
+```
+
+---
+
+## Debugging
+
+### Backend
+
+**Usar Django Shell**:
+```bash
+python manage.py shell
+
+>>> from apps.atractivos.models import AtractivoTuristico
+>>> atractivos = AtractivoTuristico.objects.all()
+>>> for a in atractivos:
+...     print(a.nombre)
+```
+
+**Logging**:
+```python
+import logging
+
+logger = logging.getLogger(__name__)
+logger.info("Información importante")
+logger.error("Error ocurrido")
+```
+
+### Frontend
+
+**Usar DevTools del Navegador**:
+- Abre Developer Tools (F12)
+- Ve a pestaña Console
+- Ve a pestaña Network para ver requests
+- Ve a pestaña Elements para ver HTML
+
+**Logging en React**:
+```javascript
+console.log("Información:", data);
+console.error("Error:", error);
+console.warn("Advertencia");
+```
+
+---
+
+## Performance y Optimización
+
+### Backend
+
+1. **Índices en Base de Datos**:
+```python
+class AtractivoTuristico(models.Model):
+    nombre = models.CharField(max_length=255, db_index=True)
+    canton = models.ForeignKey(Canton, db_index=True)
+```
+
+2. **Queries Optimizadas**:
+```python
+# Mal (N+1 queries)
+atractivos = AtractivoTuristico.objects.all()
+for a in atractivos:
+    print(a.canton.nombre)  # Query por cada uno
+
+# Bien (Una query)
+atractivos = AtractivoTuristico.objects.select_related('canton')
+```
+
+3. **Caché**:
+```python
+from django.views.decorators.cache import cache_page
+
+@cache_page(60 * 15)  # Cache por 15 minutos
+def get_atractivos(request):
+    ...
+```
+
+### Frontend
+
+1. **Code Splitting**:
+```javascript
+const AtractivesList = React.lazy(() => 
+  import('./pages/AtractivesList')
+);
+```
+
+2. **Memoización**:
+```jsx
+const AtractiveCard = React.memo(({ atractivo }) => {
+  return <div>{atractivo.nombre}</div>;
+});
+```
+
+---
+
+## Deployment
+
+### Producción - Backend
+
+```bash
+# 1. Configurar settings.py
+DEBUG = False
+ALLOWED_HOSTS = ['dominio.com']
+
+# 2. Usar PostgreSQL
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pit_db',
+        'USER': 'usuario',
+        'PASSWORD': 'contraseña',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+# 3. Ejecutar migraciones
+python manage.py migrate
+
+# 4. Crear superusuario
+python manage.py createsuperuser
+
+# 5. Usar gunicorn para servir
+pip install gunicorn
+gunicorn config.wsgi:application
+```
+
+### Producción - Frontend
+
+```bash
+# 1. Build optimizado
+npm run build
+
+# 2. Servir con nginx
+# Copiar carpeta dist/ a servidor nginx
+# Configurar nginx para servir archivos estáticos
+```
+
+---
